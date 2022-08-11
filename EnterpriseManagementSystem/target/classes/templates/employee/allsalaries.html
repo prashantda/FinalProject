@@ -1,0 +1,57 @@
+
+<html  xmlns:th="http://www.thymeleaf.org" th:replace="employee/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+
+<title>Profile</title>
+</head>
+<body>
+
+	<section>
+	<div class="card mr-3 ml-3">
+		<div class="card-body">
+		<h1 class="text-center">Salary</h1>
+		
+	
+		
+		<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Month</th>
+      <th scope="col">Working Days</th>
+     <th scope="col">Gross Salary</th> 
+     <th scope="col">Deduction</th>
+      <th scope="col">Net Salary</th>
+      <th scope="col">Advance</th>  
+      <th scope="col">Remaining</th>    
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr th:each="e:${emplf}">
+      <th scope="row" th:text="${e.month}"></th>
+      <td th:text="${e.workingDays}"></td>
+      <td th:text="${e.grosssalary}"></td>
+   		<td th:text="${e.deduction}"></td>
+          <td th:text="${e.netSalary}"></td>
+          <td th:text="${e.advance}"></td>
+          <td th:text="${e.remaining}"></td>
+         
+          </tr>
+          <tr><td><span class="text-center"><a th:href="@{'/accountant/employee-salary/'+${emplo.id}}">
+      <button class="btn btn-primary btn-sm">Add Salary</button> </a></span></td><tr> 
+    
+    
+  </tbody>
+</table>
+		
+				
+		
+		</div>
+		</div>
+
+	</section>
+</body>
+</html>
+
+

@@ -1,0 +1,73 @@
+
+<html  xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+
+<title>About</title>
+</head>
+<body>
+
+	<section>
+	
+	<div class="container">
+	<div class="row">
+	<div class="col-md-8 offset-md-2">
+	<div class="my-card mt-3">
+	<div class="container text-center">
+	<img style="width:80px;" th:src="@{'/imag/'+${user.image}}" alt=""/>
+	</div>
+<div class="container text-center">
+	<span style="width:80px;" th:text="${employee.jobProfile}" alt=""/>
+	</div>		
+	 <table class="table table-hover table-white">
+  
+  <tbody>
+    <tr>
+      <th scope="row">User ID</th>
+      <td><span th:text="${user.id}"></span></td>     
+    </tr>
+    
+    <tr>
+      <th scope="row">Name</th>
+      <td><span th:text="${user.name}"></span></td>     
+    </tr>
+    <tr>
+      <th scope="row">DOB</th>
+      <td><span th:text="${user.dob}"></span></td>     
+    </tr>
+    <tr>
+      <th scope="row">Mobile</th>
+      <td><span th:text="${user.mobile}"></span></td>     
+    </tr>
+    <tr>
+      <th scope="row">Email Id</th>
+      <td><span th:text="${user.username}"></span></td>     
+    </tr>
+    
+  
+    <tr>
+      <th scope="row">Address</th>
+      <td><i><span th:text="${user.address}"></span><i></td>     
+    </tr>
+    
+  </tbody>
+</table>
+		
+
+	
+	
+		
+	</div>
+	</div>
+	
+	
+	</div></div>
+	
+	
+	
+	
+
+	</section>
+</body>
+</html>
+

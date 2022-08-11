@@ -1,0 +1,32 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+      - id: CUSTOMER-SERVICE
+        uri: lb://CUSTOMER-SERVICE
+        predicates:
+          - Path=/api/customer/**
+      - id: SUPPLIER-SERVICE
+        uri: lb://SUPPLIER-SERVICE
+        predicates:
+          - Path=/api/supplier/**
+      - id: SECURITY-SERVICE
+        uri: lb://SECURITY-SERVICE
+        predicates:
+          - Path=/api/secure/**
+      - id: API-GATEWAY
+        uri: lb://API-GATEWAY
+        predicates:
+          - Path=/api/gateway/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

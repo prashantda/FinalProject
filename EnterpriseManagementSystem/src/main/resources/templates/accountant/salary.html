@@ -1,0 +1,104 @@
+
+<html  xmlns:th="http://www.thymeleaf.org" th:replace="accountant/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+
+<title>About</title>
+</head>
+<body>
+
+	<section>
+	
+	<div class="container">
+	<div class="row">
+	<div class="col-md-8 offset-md-2">
+	<div class="my-card mt-3">
+	<h1 class="text-center">Salary</h1>
+	<div th:if="${session.message}" th:classappend="${'alert-'+session.message.type}" class="alert " role="alert">
+  <p class="text-center" th:text="${session.message.content}"></p>
+		
+		<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		</div>
+		
+	<div class="container text-center">
+	<img style="width:80px;" th:src="@{'/imag/'+${empl.user.image}}" alt=""/>
+	</div>
+	<div class="container text-center"><b>
+	<span style="width:80px;" th:text="${empl.user.name}" alt=""/></b>
+	</div>
+	
+	
+	
+	
+	 <form  th:action="@{/accountant/salary}"  method="Post" th:object="${emplfin}">
+  
+ <!-- <div class="form-group" >
+    <label for="field_month">Month</label>
+    <input type="text" name="month" 
+    class="form-control " 
+    id="field_month"  
+    placeholder="YYYY-MM-28/29/30/31" 
+    required
+    th:value="${emplfin.month}">
+  </div>-->
+  
+  <div class="form-group">
+    <label for="field_workingDays">Working Days</label>
+    <input type="text" name="workingDays" th:value="${emplfin.workingDays}" class="form-control" 
+    id="field_deduction" placeholder="Deduction" required>
+	<div class="form-group">
+    <label for="remember-me" class="text-info"><span>Excluding sundays</span> </label><br>
+     </div>
+  </div>
+  
+  
+  <div class="form-group">
+    <label for="field_deduction">Deduction</label>
+    <input type="text" name="deduction" th:value="${emplfin.deduction}" class="form-control" 
+    id="field_deduction" placeholder="Deduction" >
+  </div>
+  <div class="form-group">
+    <label for="field_advance">Advance</label>
+    <input type="text" name="advance" th:value="${emplfin.advance}" class="form-control" 
+    id="field_advance" placeholder="Advance Taken in current Month" >
+  </div>
+  
+  <div class="form-group">
+    <label for="field_id"></label>
+    <input type="hidden" name="id" 
+    th:value="${empl.id}" class="form-control" id="field_id">
+
+  </div>
+  
+  <div class="container text-center">
+  <button type="submit" class="btn btn-warning">Save</button></div>  
+  </form>
+  
+  
+ 
+  
+ 
+ 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</div>
+	</div>
+	
+	
+	</div></div>
+	
+	
+	
+	
+
+	</section>
+</body>
+</html>
+
