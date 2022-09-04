@@ -48,8 +48,8 @@ public class SupplierService {
 	public ResponseTemplate getsc(long id) {
 		ResponseTemplate rt=new ResponseTemplate();		
 		Supplier s= supplierRepository.findById(id).get();
-		Customer c=restTemplate.getForObject("http://CUSTOMER-SERVICE/api/customer/getcustomer/"+s.getCustomersid(),Customer.class);
-		rt.setCustomer(c);
+//		Customer c=restTemplate.getForObject("http://CUSTOMER-SERVICE/api/customer/getcustomer/"+s.getCustomersid(),Customer.class);
+//		rt.setCustomer(c);
 		rt.setSupplier(s);
 		return rt;
 	}

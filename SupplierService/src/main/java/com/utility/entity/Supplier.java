@@ -1,7 +1,9 @@
 package com.utility.entity;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 import lombok.*;
+import com.utility.model.*;
 
 
 @Entity
@@ -13,15 +15,19 @@ public class Supplier {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	@Column
-	private String name;
-	@Column
-	private String email;
-	@Column
-	private String mobile;
+	private long serviceproviderid;
 	@Column
 	private String address;
 	@Column
-	private long customersid;
+	private int pincode;
+	@Column
+	private long aadhaar;
+	@Column
+	private Date dob;
+	@Column
+	
+	private long userid;
+ 
+	
+	
 }
