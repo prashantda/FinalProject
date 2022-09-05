@@ -1,0 +1,8 @@
+package com.utility.model;
+
+public class Order {
+
+	private long orderid;
+	private String description;
+	
+}

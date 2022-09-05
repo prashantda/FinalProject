@@ -6720,3 +6720,6 @@ java.util.zip.ZipException: ZipFile invalid LOC header (bad signature)
 	at org.eclipse.jdt.internal.core.search.indexing.AddJarFileToIndex.execute(AddJarFileToIndex.java:246)
 	at org.eclipse.jdt.internal.core.search.processing.JobManager.run(JobManager.java:445)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.ui 2 2 2022-09-04 12:46:38.497
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)

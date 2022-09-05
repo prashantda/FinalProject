@@ -58,6 +58,6 @@
     <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
     <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="com.utility.entity.User"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
 </qualifiedTypeNameHistroy>

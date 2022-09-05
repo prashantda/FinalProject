@@ -19,7 +19,7 @@ body{
     font-weight: 400;
     overflow-x:hidden ;
     position: relative;
-    background-color: #121212 !important;
+    background-color: #fff !important;
     color: #fff !important;
     font-family:'Centra' sans-serif !important ;
 }
@@ -81,7 +81,7 @@ p, a, li, button, ul {
   }
   nav.navbar.scrolled {
     padding: 0px 0;
-    background-color: #121212;
+    background-color: #fff;
   }
   nav.navbar a.navbar-brand {
       width: 9%;
@@ -225,7 +225,7 @@ p, a, li, button, ul {
     position: absolute;
     right: 410px;
     top: 97px;
-    background: #19162c;
+    background: #fff;
     border-radius: 0.5em;
     width: 180px;
     box-shadow: 0px 0px 20px rgba(0,0,0,0.4);

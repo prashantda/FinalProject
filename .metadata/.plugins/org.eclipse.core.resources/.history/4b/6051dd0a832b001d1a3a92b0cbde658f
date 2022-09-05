@@ -1,0 +1,11 @@
+package com.utility.model;
+
+public class Snippet {
+	private long serviceid;
+		@Column
+		private long userid;
+		@Column 
+		@OneToMany(mappedBy = "Orders")
+		private List<Order> orders;
+}
+

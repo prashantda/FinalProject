@@ -1,0 +1,31 @@
+package com.utility.entity;
+import java.util.Date;
+
+import javax.persistence.*;
+import lombok.*;
+
+
+
+@Entity
+@Table
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Customer {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	@Column
+	private String mobile;
+	@Column
+	private String address;
+	@Column
+	private int pincode;
+	@Column
+	private long aadhaar;
+	@Column
+	private Date dob;
+	@Column
+	private long userid;
+	
+}
