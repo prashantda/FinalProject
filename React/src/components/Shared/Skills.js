@@ -1,11 +1,11 @@
 import Carousel from 'react-multi-carousel';
 import { Container, Row, Col } from "react-bootstrap"
 import 'react-multi-carousel/lib/styles.css';
-import meter1 from '../../Assets/image/a.JPG';
-import meter2 from '../../Assets/image/e.JPG';
-import meter3 from '../../Assets/image/f.JPG';
-import meter4 from '../../Assets/image/g.JPG';
-// import colorsharp from '../Assets/image/h.JPG';
+import meter1 from '../../Assets/image/Banner.png';
+import meter2 from '../../Assets/image/yourstory-plumbers.jpg';
+import meter3 from '../../Assets/image/beautiful-home.jpg';
+import meter4 from '../../Assets/image/Wishitlogo3.png';
+
 
 export const Skills = ()=>{
     const responsive = {
@@ -46,9 +46,9 @@ export const Skills = ()=>{
                               <img src={meter3} alt="pic3"/>
                           </div>
 
-                          <div className='item'>
+                          {/* <div className='item'>
                               <img src={meter4} alt="pic4"/>
-                          </div>
+                          </div> */}
                       </Carousel>
                       </div>
                       </Col>

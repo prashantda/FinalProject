@@ -11,7 +11,8 @@ import SignIn from './Users/SignIn';
 import SignUp from './Users/SignUp';
 import ContactUs from './Users/ContactUs';
 import Home from './components/Shared/Home';
-
+import SDashBoard from './components/Supplier/SDashBoard'
+import ADashBoard from './components/Admin/ADashBoard'
 function App() {
   return (
     <>
@@ -25,6 +26,8 @@ function App() {
       <Route exact path="/signIn" element={<SignIn />}/>
       <Route exact path="/signUp" element={<SignUp />}/>
       <Route exact path="/contactUs" element={<ContactUs/>}/>
+      <Route exact path="/sdashboard" element={<SDashBoard/>}/>
+      <Route exact path="/adashboard" element={<ADashBoard/>}/>
       </Routes>
       <Footer />
       </>

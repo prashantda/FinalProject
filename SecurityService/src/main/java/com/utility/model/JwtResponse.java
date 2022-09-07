@@ -11,5 +11,5 @@ import lombok.ToString;
 @ToString
 public class JwtResponse {
     String token;
-
+    String role;
 }

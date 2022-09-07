@@ -2,14 +2,63 @@ import React from 'react'
 
 const SignUp = () => {
   return (
-    <div>
-      <h1>     
-<div className="container col-8">
+    <>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div className="container col-8 mt-5 mb-5">
           
              
              <div className='card text-bg-light p-3 '>
                   <form>
-                 
+                  <h3 className='text-center'>Customer SignUp Form</h3>
                       <div className="form-group mb-2">
                           <label className="form-label mt-4">Name</label>
                           <input type="text" 
@@ -57,7 +106,7 @@ const SignUp = () => {
                           name="email" 
                           className="form-control rounded-pill mt-2" 
                           required></input>
-                          <label className="">OTP will be sent on this email</label>
+                          <label className="small">OTP will be sent on this email</label>
                       </div>
                       <div className="form-group mb-2">
                           <label className="form-label mt-4">Password</label>
@@ -82,8 +131,8 @@ const SignUp = () => {
          
       </div>
       </div>
-</h1>
-    </div>
+
+    </>
   )
 }
 

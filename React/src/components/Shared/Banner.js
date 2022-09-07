@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import {ArrowRightCircle} from "react-bootstrap-icons"
-import headerImg from "../../Assets/image/a.JPG"
+import headerImg from "../../Assets/image/WishItHome.jpg"
 
 export const Banner=()=>{
     const [loopNum,setLoopNum]=useState(0);
@@ -45,7 +45,9 @@ export const Banner=()=>{
                     <Col xs={12} md={6} xl={7}>
                     <span className="tagline">Welcome To WISH-IT Solutions</span>
                     <h1>{``}<span className="wrap">{text}</span></h1>
-                    <p>Hii how are u what are you doing what is your passion and how are you going to pursue </p>
+                    <p>Fantasizing about that beautiful home? Don't stop at just dreaming!
+                         Choose from our exclusive services from the best professionals in
+                          town and settle down in a niche of your choice </p>
                     <button onClick={()=>console.log('connect')}>Let's Connect<ArrowRightCircle size={25}/></button>
                     </Col>
                     <Col xs={12} md={6} xl={5}>

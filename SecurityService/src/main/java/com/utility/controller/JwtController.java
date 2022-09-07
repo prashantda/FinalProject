@@ -49,10 +49,12 @@ public class JwtController {
 		
 	UserDetails userDetails=this.customUserDetailsService.loadUserByUsername(jwtRequest.getUsername());
 	String token=	this.jwtUtil.generateToken(userDetails);
+	User u=userService.findByUsername(userDetails.getUsername());
+	String role=u.getRole();
 	HttpHeaders htt=new HttpHeaders();
 	htt.set("Authorization" , token);
-//	htt.set("Access-Control-Allow-Origin", "*");
-	return  ResponseEntity.ok().headers(htt).body(token);
+	JwtResponse res=new JwtResponse(token,role);
+	return  ResponseEntity.ok().headers(htt).body(res);
 	
 	}
 	@GetMapping("/getuser")
