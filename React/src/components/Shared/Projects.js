@@ -117,10 +117,6 @@ return (
                        }
                    </Row>
                </Tab.Pane>
-<<<<<<< HEAD
-               <Tab.Pane eventKey="second">
-               <Row>
-=======
                <Tab.Pane eventKey="second"><Row>
                        {
                            projects1.map((project,index)=>{
@@ -134,7 +130,6 @@ return (
                        }
                    </Row></Tab.Pane>
                {/* <Tab.Pane eventKey="third"><Row>
->>>>>>> 0b4153b24101803d5abe7c53586d203be5febc8f
                        {
                            projects.map((project,index)=>{
                                return(
@@ -145,26 +140,7 @@ return (
                                )
                            })
                        }
-<<<<<<< HEAD
-                   </Row>
-               </Tab.Pane>
-               <Tab.Pane eventKey="third">
-               <Row>
-                       {
-                           projects.map((project,index)=>{
-                               return(
-                                   <ProjectCards 
-                                   key={index}
-                                   {...project}
-                                   />
-                               )
-                           })
-                       }
-                   </Row>
-               </Tab.Pane>
-=======
                    </Row></Tab.Pane> */}
->>>>>>> 0b4153b24101803d5abe7c53586d203be5febc8f
                 </Tab.Content>
                 </Tab.Container>
                 </Col>

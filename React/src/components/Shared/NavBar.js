@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import { Navbar,Container,Nav} from "react-bootstrap";
+import { Navbar,Nav} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from '../../Assets/image/logo.png';
 import navIcon1 from '../../Assets/image/joinUs.png';
@@ -31,9 +31,11 @@ export const NavBar=()=>{
              menuContainer.style.transform ='translateX(0px)';
          });
 
-         menuContainer.addEventListener('mouseleave',()=>{
+         menuTarget.addEventListener('mouseleave',()=>{
              menuContainer.style.transform ='translateX(700px)'
          });
+
+
          const menuTarget1=document.getElementById("menuChevron1");
          const menuContainer1=document.getElementById("menuContainer1");
  
@@ -41,7 +43,7 @@ export const NavBar=()=>{
              menuContainer1.style.transform ='translateX(0px)';
          });
  
-         menuContainer1.addEventListener('mouseleave',()=>{
+         menuTarget1.addEventListener('mouseleave',()=>{
              menuContainer1.style.transform ='translateX(700px)'
          });
 
@@ -52,7 +54,7 @@ export const NavBar=()=>{
              menuContainer2.style.transform ='translateX(0px)';
          });
  
-         menuContainer2.addEventListener('mouseleave',()=>{
+         menuTarget2.addEventListener('mouseleave',()=>{
              menuContainer2.style.transform ='translateX(700px)'
          });
      },[]);

@@ -11,8 +11,10 @@ import SignIn from './Users/SignIn';
 import SignUp from './Users/SignUp';
 import ContactUs from './Users/ContactUs';
 import Home from './components/Shared/Home';
-import SDashBoard from './components/Supplier/SDashBoard'
-import ADashBoard from './components/Admin/ADashBoard'
+import SDashBoard from './components/Supplier/SDashBoard';
+import ADashBoard from './components/Admin/ADashBoard';
+import AdminProfile from './components/Admin/AdminProfile';
+import AdminCustomerList from './components/Admin/AdminCustomerList';
 function App() {
   return (
     <>
@@ -28,6 +30,8 @@ function App() {
       <Route exact path="/contactUs" element={<ContactUs/>}/>
       <Route exact path="/sdashboard" element={<SDashBoard/>}/>
       <Route exact path="/adashboard" element={<ADashBoard/>}/>
+      <Route exact path="/a" element={<AdminProfile/>}/>
+      <Route exact path="/adCust" element={<AdminCustomerList/>}/>
       </Routes>
       <Footer />
       </>

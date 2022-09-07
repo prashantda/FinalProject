@@ -227,7 +227,7 @@ p, a, li, button, ul {
   }
   nav.navbar .menuContainer{
     position: absolute;
-    right: 380px;
+    right: 290px;
     top: 85px;
     background: #fff;
     border-radius: 0.5em;
@@ -276,7 +276,7 @@ p, a, li, button, ul {
   }
   nav.navbar .menuContainer1{
     position: absolute;
-    right: 320px;
+    right: 236px;
     top: 85px;
     background: #fff;
     border-radius: 0.5em;
@@ -319,7 +319,7 @@ p, a, li, button, ul {
   }
   nav.navbar .menuContainer2{
     position: absolute;
-    right: 270px;
+    right: 182px;
     top: 85px;
     background: #fff;
     border-radius: 0.5em;
