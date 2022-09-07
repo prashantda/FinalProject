@@ -5,18 +5,18 @@ import logo from '../../Assets/image/logo.png';
 export const Footer=()=>{
     return (
         <footer className="footer">
-            <Container>
+            <div className="container-fluid">
                 <Row className="align-items-center">
                     <Col>
                     <Link to={`/`}><img src={logo} alt="logo"></img></Link>
                     </Col>
                     <Col className="text-center text-sm-end">
                         <div>
-                        <p>&copy;2022-2023</p>
+                        <p>&copy; All Rights Reserved - 2022</p>
                         </div>
                     </Col>
                 </Row>
-            </Container>
+            </div>
         </footer>
     )
 }

@@ -61,9 +61,10 @@ export const NavBar=()=>{
     //      setActiveLink(value);
     //  }
     return(
-        <Navbar expand="lg" className={scrolled?"scolled":""}>
-        <Container>
-          <Navbar.Brand href="#home">
+        <Navbar expand="lg" className={scrolled?"scolled":"" }>
+        <div className="container-fluid">
+          <Navbar.Brand href="#home" >
+          
           <Link to={`/`}><img src={logo} alt=""/></Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
@@ -83,7 +84,7 @@ export const NavBar=()=>{
                   <Link to={`/signUp`}><img src={navIcon3} alt="" className="menuChevron2" id="menuChevron2"/></Link> 
                 </div>
                 <Link to={`/contactUs`}><button className="vvd"><span>Contact Us</span></button></Link>
-            </span>
+            </span>&nbsp;&nbsp;&nbsp;
             {/* <div className="menuContainer" id="menuContainer">
                 <ul>
                     <li><Link to={``}>Customers List</Link></li>
@@ -104,7 +105,7 @@ export const NavBar=()=>{
                 <h5>Sign Up</h5>
             </div>
           </Navbar.Collapse>
-        </Container>
+          </div>
       </Navbar>
     )
 }
