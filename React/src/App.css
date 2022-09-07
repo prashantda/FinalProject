@@ -19,8 +19,8 @@ body{
     font-weight: 400;
     overflow-x:hidden ;
     position: relative;
-    background-color: #fff !important;
-    color: #fff !important;
+    background-color: #dfe3ee !important;
+    color: #0b0101 !important;
     font-family:'Centra' sans-serif !important ;
 }
 
@@ -72,8 +72,10 @@ p, a, li, button, ul {
   }
   /************ Navbar Css ************/
   nav.navbar {
+    position: sticky;
     padding: 10px 0;
-    background-image: url('./Assets/image/banner-bg.png');
+    /* background-image: url('./Assets/image/banner-bg.png'); */
+    background-color:#4484ce;
     width: 100%;
     top: 0;
     z-index: 9999;
@@ -84,7 +86,7 @@ p, a, li, button, ul {
     background-color: #fff;
   }
   nav.navbar a.navbar-brand {
-      width: 9%;
+      width: 3%;
   }
   nav.navbar .navbar-nav .nav-link.navbar-link {
     font-weight: 400;
@@ -101,15 +103,17 @@ p, a, li, button, ul {
   span.navbar-text {
       display: flex;
       align-items: center;
+
   }
   .social-icon {
       display: inline-block;
-      margin-left: 14px;
+      margin-left: 0px;
   }
   .social-icon a {
-      width: 42px;
-      height: 42px;
+      width: 50px;
+      height: 50px;
       background: rgba(249, 248, 248, 0.1);
+      background-color: #121026;
       display: inline-flex;
       border-radius: 50%;
       margin-right: 6px;
@@ -141,7 +145,7 @@ p, a, li, button, ul {
   }
   .navbar-text button {
     font-weight: 700;
-    color: #fff;
+    color: rgb(11, 3, 3);
     border: 1px solid #fff;
     padding: 18px 34px;
     font-size: 18px;
@@ -158,14 +162,14 @@ p, a, li, button, ul {
     width: 0%;
     height: 100%;
     position: absolute;
-    background-color: #fff;
+    background-color: #121212;
     left: 0;
     top: 0;
     z-index: -1;
     transition: 0.3s ease-in-out;
   }
   .navbar-text button:hover {
-    color: #121212;
+    color: #fff;
   }
   .navbar-text button:hover::before {
       content: "";
@@ -269,20 +273,20 @@ p, a, li, button, ul {
   .banner {
     margin-top: 0;
     padding:50px 0 100px 0;
-    background-image: url('./Assets/image/banner-bg.png');  
-    background-position: top center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    /* background-image: url('./Assets/image/banner-bg.png');   */
+    background-color:#dfe3ee;
+    border-radius: 0em;
   }
   .banner .tagline {
     font-weight: 700;
     letter-spacing: 0.8px;
     padding: 8px 10px;
-    background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: linear-gradient(90.21deg, rgba(44, 140, 178, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+    border: 1px solid rgba(14, 7, 7, 0.5);
     font-size: 20px;
     margin-bottom: 16px;
     display: inline-block;
+    color: #0b0101;
   }
   .banner h1 {
     font-size: 65px;
@@ -291,16 +295,17 @@ p, a, li, button, ul {
     line-height: 1;
     margin-bottom: 20px;
     display: block;
+    color: #0b0101;
   }
   .banner p {
-    color: #B8B8B8;
+    color: #0b0101;
     font-size: 18px;
     letter-spacing: 0.8px;
     line-height: 1.5em;
     width: 96%;
   }
   .banner button {
-    color: #fff;
+    color: #121026;
     font-weight: 700;
     font-size: 20px;
     margin-top: 60px;
@@ -337,23 +342,28 @@ p, a, li, button, ul {
   
   /************ Skills Css ************/
   .skill {
-    padding: 0 0 50px 0;
-    background-image: url('./Assets/image/bg.jpg');  
+    padding: 0 0 20px 0;
+    /* background-image: url('./Assets/image/bg.jpg');   */
+    background-color:#dfe3ee;
     position: relative;
   }
   .skill-bx {
-    background: #151515;
+    background:#fff;
     border-radius: 64px;
     text-align: center;
-    padding: 60px 50px;
-    margin-top: -60px;
+    padding: 0px 0px;
+    margin-top: -30px;
   }
-  .skill h2 {
+  .skill h2{
       font-size: 45px;
       font-weight: 700;
+      color:  #0b0101;
+  }
+  .skill h5{
+    color:  #0b0101;
   }
   .skill p {
-      color: #B8B8B8;
+      color: #0b0101;
       font-size: 18px;
       letter-spacing: 0.8px;
       line-height: 1.5em;
@@ -365,14 +375,15 @@ p, a, li, button, ul {
     position: relative;
   }
   .skill-slider .item img {
-    width: 50%;
+    height: 15em;
+    width: 70em;
     margin: 0 auto 15px auto;
   }
   .background-image-left {
-    top: 28%;
+    top: 20%;
     position: absolute;
     bottom: 0;
-    width: 40%;
+    width: 20%;
     z-index: -4;
   }
   
@@ -380,15 +391,16 @@ p, a, li, button, ul {
   .project {
     padding: 80px 0;
     position: relative;
-    background-color: black;
+    background-color:#dfe3ee;
   }
   .project h2 {
       font-size: 45px;
       font-weight: 700;
     text-align: center;
+    color: #0b0101
   }
   .project p {
-    color: #B8B8B8;
+    color: #0b0101;
     font-size: 18px;
     letter-spacing: 0.8px;
     line-height: 1.5em;
@@ -410,7 +422,7 @@ p, a, li, button, ul {
     background-color: transparent;
     border-radius: 0;
     padding: 17px 0;
-    color: #fff;
+    color: #0b0101;
     width: 100%;
     font-size: 17px;
     letter-spacing: 0.8px;
@@ -425,7 +437,7 @@ p, a, li, button, ul {
       position: absolute;
       width: 0;
       height: 100%;
-      background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+      background: linear-gradient(90.21deg, #938a90 -5.91%, #5c557b 111.58%);
       top: 0;
       left: 0;
       z-index: -1;
@@ -449,25 +461,25 @@ p, a, li, button, ul {
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 0 55px 55px 0;
   }
-  .proj-imgbx {
+  .proj-proj-imgbx {
     position: relative;
     border-radius: 30px;
     overflow: hidden;
     margin-bottom: 24px;
   }
-  .proj-imgbx::before {
+  .proj-proj-imgbx::before {
     content: "";
-    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+    background: linear-gradient(90.21deg, #dfe3ee -5.91%, #4A2FBD 111.58%);
     opacity: 0.85;
     position: absolute;
     width: 100%;
     height: 0;
     transition: 0.4s ease-in-out;
   }
-  .proj-imgbx:hover::before {
+  .proj-proj-imgbx:hover::before {
     height: 100%;
   }
-  .proj-txtx {
+  .proj-proj-txtx {
     position: absolute;
     text-align: center;
     top: 65%;
@@ -477,21 +489,23 @@ p, a, li, button, ul {
     opacity: 0;
     width: 100%;
   }
-  .proj-imgbx:hover .proj-txtx {
+  .proj-proj-imgbx:hover .proj-proj-txtx {
     top: 50%;
     opacity: 1;
   }
-  .proj-txtx h4 {
-    font-size: 30px;
+  .proj-proj-txtx h4 {
+    font-size: 25px;
     font-weight: 700;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.4px;
     line-height: 1.1em;
+    color: #0b0101;
   }
-  .proj-txtx span {
+  .proj-proj-txtx span {
     font-style: italic;
     font-weight: 400;
     font-size: 15px;
     letter-spacing: 0.8px;
+    color: #0b0101;
   }
   .background-image-right {
     top: 20%;
@@ -576,13 +590,13 @@ p, a, li, button, ul {
   
   /************ Footer Css ************/
   .footer {
-    padding: 0 0 50px 0;
-    background-image: url('./Assets/image/footer-bg.png');
+    /* background-image: url('./Assets/image/footer-bg.png'); */
+    background-color:#4484ce;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
   }
-  .newsletter-bx {
+  /* .newsletter-bx {
     background: #FFFFFF;
     border-radius: 55px;
     color: #121212;
@@ -636,19 +650,24 @@ p, a, li, button, ul {
   }
   .new-email-bx button {
     background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-    padding: 20px 65px;
+    padding: 20px 35px;
     color: #fff;
     font-weight: 500;
     letter-spacing: 0.5px;
     border-radius: 18px;
-  }
+  } */
   .footer img {
-    width: 16%;
+    width: 5%;
   }
   .footer p {
     font-weight: 400;
     font-size: 14px;
-    color: #B8B8B8;
+    color: #0b0101;
     letter-spacing: 0.5px;
     margin-top: 20px;
+  }
+
+  .footer .social-icon{
+    margin-top: 20px;
+    margin-bottom: 20px;
   }

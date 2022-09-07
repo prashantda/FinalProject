@@ -1,11 +1,11 @@
 import { useState,useEffect } from "react";
 import { Navbar,Container,Nav} from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from '../../Assets/image/a.svg';
+import logo from '../../Assets/image/logo.png';
 import navIcon1 from '../../Assets/image/joinUs.png';
 import navIcon2 from '../../Assets/image/SignIn.png';
 import navIcon3 from '../../Assets/image/SignUp.png';
-import adminIcon from '../../Assets/image/admin.png';
+// import adminIcon from '../../Assets/image/admin.png';
 
 export const NavBar=()=>{
    // const [activeLink,setActiveLink]=useState('home');
@@ -23,18 +23,18 @@ export const NavBar=()=>{
         return ()=>window.removeEventListener("scroll",onScroll)
     },[])
 
-    useEffect(()=>{
-        const menuTarget=document.getElementById("menuChevron");
-        const menuContainer=document.getElementById("menuContainer");
+    // useEffect(()=>{
+    //     const menuTarget=document.getElementById("menuChevron");
+    //     const menuContainer=document.getElementById("menuContainer");
 
-        menuTarget.addEventListener('mouseenter',()=>{
-            menuContainer.style.transform ='translateX(0px)';
-        });
+    //     menuTarget.addEventListener('mouseenter',()=>{
+    //         menuContainer.style.transform ='translateX(0px)';
+    //     });
 
-        menuContainer.addEventListener('mouseleave',()=>{
-            menuContainer.style.transform ='translateX(700px)'
-        });
-    },[]);
+    //     menuContainer.addEventListener('mouseleave',()=>{
+    //         menuContainer.style.transform ='translateX(700px)'
+    //     });
+    // },[]);
     // const onUpdateActiveLink=(value)=>{
     //     setActiveLink(value);
     // }
@@ -55,14 +55,14 @@ export const NavBar=()=>{
             */}</Nav>
             <span className="navbar-text">
                 <div className="social-icon">
-                    <Link to={``}><img src={adminIcon} alt="" className="menuChevron" id="menuChevron"/></Link>
+                    {/* <Link to={``}><img src={adminIcon} alt="" className="menuChevron" id="menuChevron"/></Link> */}
                     <Link to={`/joinUs`}><img src={navIcon1} alt=""/></Link>
                     <Link to={`/signIn`}><img src={navIcon2} alt=""/></Link>
                     <Link to={`/signUp`}><img src={navIcon3} alt=""/></Link>
                 </div>
                 <Link to={`/contactUs`}><button className="vvd"><span>Contact Us</span></button></Link>
             </span>
-            <div className="menuContainer" id="menuContainer">
+            {/* <div className="menuContainer" id="menuContainer">
                 <ul>
                     <li><Link to={``}>Customers List</Link></li>
                     <li><Link to={``}>Vendors List</Link></li>
@@ -70,7 +70,8 @@ export const NavBar=()=>{
                     <li><Link to={``}>Site Setting</Link></li>
                     <li><Link to={``}>LogIn</Link></li>
                 </ul>
-            </div>
+                <p>abc</p>
+            </div> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>
