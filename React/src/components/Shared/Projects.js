@@ -72,8 +72,34 @@ return (
                        }
                    </Row>
                </Tab.Pane>
-               <Tab.Pane eventKey="second">Pd ghorpade</Tab.Pane>
-               <Tab.Pane eventKey="third">Sema ghorpade</Tab.Pane>
+               <Tab.Pane eventKey="second">
+               <Row>
+                       {
+                           projects.map((project,index)=>{
+                               return(
+                                   <ProjectCards 
+                                   key={index}
+                                   {...project}
+                                   />
+                               )
+                           })
+                       }
+                   </Row>
+               </Tab.Pane>
+               <Tab.Pane eventKey="third">
+               <Row>
+                       {
+                           projects.map((project,index)=>{
+                               return(
+                                   <ProjectCards 
+                                   key={index}
+                                   {...project}
+                                   />
+                               )
+                           })
+                       }
+                   </Row>
+               </Tab.Pane>
                 </Tab.Content>
                 </Tab.Container>
                 </Col>
