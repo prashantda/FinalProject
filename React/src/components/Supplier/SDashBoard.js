@@ -20,7 +20,7 @@ const SDashBoard = () => {
           { scaleX: 2 }
         ]
     }} />
-                      <span class="font-weight-bold">Kunal</span><span class="text-black-50">kshirsgarkunal72@gmail.com</span><span> </span></div>
+                      <span class="font-weight-bold">Kunal supplier</span><span class="text-black-50">kshirsgarkunal72@gmail.com</span><span> </span></div>
                   </div>
                   <div class="center  border-right">
                   <div className='d-grid gap-4' >

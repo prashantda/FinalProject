@@ -40,12 +40,6 @@ const SignIn = () => {
 
 
 
-
-
-
-
-
-
 <div className="container col-5 mt-5 mb-5">
           
              

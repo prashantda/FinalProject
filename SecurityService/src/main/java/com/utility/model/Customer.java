@@ -16,7 +16,7 @@ public class Customer {
 	private int pincode;	
 	private long aadhaar;	
 	private Date dob;	
-	private User user;	
-	private List<Order> orders;
+	private long userid;	
+	
 	
 }

@@ -16,6 +16,9 @@ class Connection{
       getToken(user){      
         return axios.post('http://127.0.0.1:8087/api/secure/token',user)
       }
+      saveCustomer(customer){      
+        return axios.post('http://127.0.0.1:8087/api/secure/signupcustomer',customer)
+      }
    
 }
 export default new Connection();

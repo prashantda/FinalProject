@@ -29,7 +29,7 @@ public class JWTConfiguration extends WebSecurityConfigurerAdapter{
 
 
 	private static final String[] WHITE_LIST_URL_STRINGS = {
-			"/api/secure/token"
+			"/api/secure/token","/api/secure/signupcustomer"
 	};
 
 	@Override

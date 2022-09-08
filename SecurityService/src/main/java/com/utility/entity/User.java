@@ -36,11 +36,9 @@ public class User {
 	@Column(unique = true,length = 16,nullable = false)
 	@Pattern(regexp = "(0|91)?[7-9][0-9]{9}",message = "Enter Valid mobile number")
 	private String mobile;
-	@Column(nullable = false)
+	@Column(nullable = false,length = 16)
 	@NotBlank
 	private String role;
-	   @Column(length = 256)	  
-	   
 	   private  boolean isAccountNonExpired;
 	   private   boolean isAccountNonLocked;
 	   private  boolean isCredentialsNonExpired;

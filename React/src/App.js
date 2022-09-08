@@ -10,9 +10,12 @@ import JoinUs from './Users/JoinUs';
 import SignIn from './Users/SignIn';
 import SignUp from './Users/SignUp';
 import ContactUs from './Users/ContactUs';
+import VerifyOtp from './Users/VerifyOTP';
 import Home from './components/Shared/Home';
 import SDashBoard from './components/Supplier/SDashBoard'
 import ADashBoard from './components/Admin/ADashBoard'
+import CDashBoard from './components/Customer/CDashBoard'
+import EditProfileC from './components/Customer/EditProfileC'
 function App() {
   return (
     <>
@@ -26,8 +29,11 @@ function App() {
       <Route exact path="/signIn" element={<SignIn />}/>
       <Route exact path="/signUp" element={<SignUp />}/>
       <Route exact path="/contactUs" element={<ContactUs/>}/>
-      <Route exact path="/sdashboard" element={<SDashBoard/>}/>
-      <Route exact path="/adashboard" element={<ADashBoard/>}/>
+      <Route exact path="/dashboards" element={<SDashBoard/>}/>
+      <Route exact path="/dashboarda" element={<ADashBoard/>}/>
+      <Route exact path="/dashboardc" element={<CDashBoard/>}/>
+      <Route exact path="/editprofilec" element={<EditProfileC/>}/>
+      <Route exact path="/verify" element={<VerifyOtp/>}/>
       </Routes>
       <Footer />
       </>

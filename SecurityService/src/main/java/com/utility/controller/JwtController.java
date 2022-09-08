@@ -21,8 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.utility.config.CustomUserDetailsService;
 import com.utility.config.JwtUtil;
 import com.utility.entity.User;
+import com.utility.model.CSignUp;
+import com.utility.model.Customer;
 import com.utility.model.JwtRequest;
 import com.utility.model.JwtResponse;
+import com.utility.service.EmailService;
 import com.utility.service.UserService;
 
 @RestController
@@ -38,6 +41,8 @@ public class JwtController {
 	private UserService userService;
 	@Autowired
 	private JwtUtil jwtUtil;
+	@Autowired
+	private EmailService email;
 	@PostMapping("/token")
 	public ResponseEntity generateToken(@RequestBody JwtRequest jwtRequest) throws Exception{
 		try {
@@ -63,8 +68,13 @@ public class JwtController {
 		return userService.findByUsername(Username);
 	}
 	
-	@GetMapping("/about")
-	public String  about() {
-		return "about";
+	@PostMapping("/signupcustomer")
+	public int signupc(@RequestBody CSignUp cust) {
+		long uid=userService.saveUserForCustomer(cust);
+		Customer c=userService.getCustomerFromSigup(cust);
+		c.setUserid(uid);
+		boolean res=userService.saveCustomer(c);	
+		int status =this.email.sendMail(cust.getUsername());
+		return status;
 	}
 }
