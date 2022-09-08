@@ -20,6 +20,13 @@ class Connection{
       getAllUsers(){
         return axios.get('http://localhost:8080/api/v1/employees')
       }
+
+      // createAdmin(admin){
+      //   return axios.post('http://localhost:8080',admin)
+      // }
    
+      // getAdminById(adminId){
+      //   return axios.get('http://localhost:8080' + '/' + adminId)
+      // }
 }
 export default new Connection();

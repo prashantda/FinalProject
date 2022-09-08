@@ -20,7 +20,7 @@ const AdminCustomerList = () => {
           <thead>
               <th>Employee Id</th>
               <th>Employee First Name</th>
-              <th>Employee Last Name</th>
+              {/* <th>Employee Last Name</th> */}
               <th>Employee Email-Id</th>
               <th>Actions</th>
           </thead>
@@ -31,10 +31,10 @@ const AdminCustomerList = () => {
                       <tr key={user.id}>
                           <td>{user.id}</td>
                           <td>{user.firstName}</td>
-                          <td>{user.lastName}</td>
+                          {/* <td>{user.lastName}</td> */}
                           <td>{user.emailId}</td>
                           <td>
-                              <Link className="btn btn-info" to={`/edit-employee/${user.id}`}>Details</Link>
+                              <Link className="btn btn-success" to={``}>Details</Link>
                           </td>
                           
                       </tr>
@@ -42,6 +42,7 @@ const AdminCustomerList = () => {
               }
           </tbody>
       </table>
+      <Link to={`/adashboard`}><button className="btn btn-success" >Back To DashBoard</button></Link>
     </div>
     )
 }

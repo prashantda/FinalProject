@@ -15,6 +15,8 @@ import SDashBoard from './components/Supplier/SDashBoard';
 import ADashBoard from './components/Admin/ADashBoard';
 import AdminProfile from './components/Admin/AdminProfile';
 import AdminCustomerList from './components/Admin/AdminCustomerList';
+import AdminSupplierList from './components/Admin/AdminSupplierList';
+import AddAdmin from './components/Admin/AddAdmin';
 function App() {
   return (
     <>
@@ -31,7 +33,9 @@ function App() {
       <Route exact path="/sdashboard" element={<SDashBoard/>}/>
       <Route exact path="/adashboard" element={<ADashBoard/>}/>
       <Route exact path="/a" element={<AdminProfile/>}/>
-      <Route exact path="/adCust" element={<AdminCustomerList/>}/>
+      <Route exact path="/adminCustomerList" element={<AdminCustomerList/>}/>
+      <Route exact path="/adminSupplierList" element={<AdminSupplierList/>}/>
+      <Route exact path="/Addadmin" element={<AddAdmin/>}/>
       </Routes>
       <Footer />
       </>
