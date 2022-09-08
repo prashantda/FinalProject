@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @AllArgsConstructor
+@Table
 public class VerificationToken {
 	 
 	    @Id

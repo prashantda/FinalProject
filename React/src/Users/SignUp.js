@@ -22,9 +22,10 @@ const SignUp = () => {
         e.preventDefault();
         const customer={name,address,pincode,dob,aadhaar,mobile,username,password}
         Connection.saveCustomer(customer).then((response)=>{         
-        if(response.data==1)
+        if(response.data.userid!=0)
         {
-          navigate("/verify")
+        navigate('/verify',{state:{token:response.data.otp}});
+          
         } 
             
       } ).catch(error =>{navigate("/")})}
@@ -130,7 +131,7 @@ const SignUp = () => {
                           required></input>
                       </div>
                      <div className='d-grid gap-2'>
-                      <button className="btn btn-primary mt-4 rounded-pill" >Get OTP</button>
+                      <button className="btn btn-primary mt-4 rounded-pill" onClick={(e)=>SaveUser(e)}>Get OTP</button>
                       </div>
                   </form>
               
@@ -140,6 +141,12 @@ const SignUp = () => {
          
       </div>
       </div>
+
+
+
+
+
+
 
     </>
   )

@@ -20,21 +20,22 @@ import org.springframework.stereotype.Service;
 public class EmailService {
 	
 	Supplier<Integer> s=()->{
-		String otp=null;
+		String otp="";
 		for(int i=0;i<6;i++)
 			otp=otp+(int)(Math.random()*10);
-		return Integer.parseInt(otp);		
+		return Integer.valueOf(otp);		
 	};
 		 
 	
 	public int sendMail(String too) {
 		String subject="OTP from Wish it";
-		String meassage="<h1> OTP is "+s+" </h1>";
+		int otp=s.get();
+		String meassage="<h1> OTP is "+otp+" </h1>";
 		String to=too;
 		String from="prashantdaradesdm@gmail.com";
 		boolean flag=this.sendEmail(meassage, subject, to, from);
 		if(flag)
-		return 1;
+		return otp;
 		else
 			return 0;
 	}

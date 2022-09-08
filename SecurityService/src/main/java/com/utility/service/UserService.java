@@ -1,5 +1,9 @@
 package com.utility.service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -11,13 +15,16 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.base.Optional;
+
 import com.utility.config.JWTConfiguration;
+import com.utility.config.JwtUtil;
 import com.utility.entity.User;
+import com.utility.entity.VerificationToken;
 import com.utility.model.CSignUp;
 import com.utility.model.Customer;
+import com.utility.model.UserOtp;
 import com.utility.repository.UserRepository;
-
+import com.utility.repository.VerificationTokenRepository;
 
 import io.github.resilience4j.retry.annotation.Retry;
 
@@ -30,13 +37,47 @@ public class UserService {
 	@Autowired
 	private JWTConfiguration jwt;
 	@Autowired
+	private JwtUtil jwtUtil;
+	@Autowired
 	private RestTemplate restTemplate;
+	@Autowired
+	private VerificationTokenRepository vtr;
+	@Autowired
+	private UserService userService;
 	private static final String SECURITY_SERVICE= "SecurityService";
 	
 	public User findByUsername(String username) {
 		return userRepository.findByUsername(username);
 	}
-	public long saveUserForCustomer(CSignUp cust) {
+	
+	
+	
+	
+	
+	
+	
+	public Optional<User> getUserFromToken(String token){
+		String mail=jwtUtil.getUsernameFromToken(token);
+		return Optional.ofNullable(userService.findByUsername(mail));
+	}
+	
+	
+	public Optional<Boolean> verifyOtp(UserOtp uo){
+	Optional<List<VerificationToken>> o =	Optional.ofNullable(vtr.findAll().stream().filter(
+				v->v.getUser().getId()==uo.getUserid())
+				.collect(Collectors.toList()));	
+	List<VerificationToken> l=(List)o.get();	
+	if(!l.isEmpty()) {
+		
+		VerificationToken vt=l.get(0);
+		if(vt.getOtp()==Integer.valueOf(uo.getOtp()))
+			return Optional.ofNullable(true);
+	}	
+		return Optional.ofNullable(false);	
+	}
+	
+	
+	public Optional<User> saveUserForCustomer(CSignUp cust) {
 		User u=new User();
 		u.setName(cust.getName());
 		u.setMobile(cust.getMobile());
@@ -48,11 +89,8 @@ public class UserService {
 		u.setAccountNonLocked(false);
 		u.setCredentialsNonExpired(false);
 		
-	Optional<User> o=Optional.of(userRepository.save(u));
-	if(o.isPresent()) {
-		return ((User)o.get()).getId();
-	}
-	return 0l;
+	Optional<User> o=Optional.ofNullable(userRepository.save(u));	
+	return o;
 	}
 	public Customer getCustomerFromSigup(CSignUp cust) {
 		Customer c=new Customer();

@@ -1,19 +1,22 @@
 import React, { useEffect , useState } from 'react'
-import {  Link, useNavigate,useParams } from "react-router-dom";
+import {  Link, useLocation, useNavigate,useParams } from "react-router-dom";
 import Connection from '../components/Services/Connection' 
  
 const VerifyOTP = () => {
-  let history=useNavigate()
-  const [username, SetUsername] = useState('')
-  const [password, SetPassword] = useState('')
  
-  const SaveUser=(e)=>{
-    e.preventDefault();
-    const user={username,password}
-    Connection.getToken(user).then((response)=>{
-      console.log(response.data);
+ // const [userid, SetUsername] = useState('')
+  // const [otp, SetPassword] = useState('')
+  // const location=useLocation
+  // const user=location.State.userid;
+  //console.log(location.useState.userid);
+//   const SaveUser=(e)=>{
+//      e.preventDefault();
+//   //   const user={user,otp}
+//   //   Connection.getToken(user).then((response)=>{
+//   //     console.log(response.data);
     
-  } ).catch(error =>{console.log("Invalid Otp")})}
+//  // } ).catch(error =>{console.log("Invalid Otp")})
+//}
  
   
 
@@ -33,8 +36,8 @@ const VerifyOTP = () => {
                           <label className="form-label mt-4">Enter OTP</label>
                           <input type="number" 
                           placeholder="Enter OTP" 
-                          name="otp" 
-                          //value={otp}
+                          // name="otp" 
+                          // value={location.useState.userid}
                           //onChange={(e)=>SetUsername(e.target.value)}
                           className="form-control rounded-pill mt-2" 
                           ></input>
