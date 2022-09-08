@@ -20,6 +20,7 @@ import AdminSupplierList from './components/Admin/AdminSupplierList';
 import AddAdmin from './components/Admin/AddAdmin';
 import CDashBoard from './components/Customer/CDashBoard'
 import EditProfileC from './components/Customer/EditProfileC'
+import CustomerProfile from './components/Customer/ProfileC';
 function App() {
   return (
     <>
@@ -44,6 +45,7 @@ function App() {
       <Route exact path="/dashboardc" element={<CDashBoard/>}/>
       <Route exact path="/editprofilec" element={<EditProfileC/>}/>
       <Route exact path="/verify" element={<VerifyOtp/>}/>
+      <Route exact path="/profilec" element={<CustomerProfile/>}/>
       </Routes>
       <Footer />
       </>
