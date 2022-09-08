@@ -36,8 +36,7 @@ const SignUp = () => {
 
 
 <div className="container col-8 mt-5 mb-5">
-          
-             
+                   
              <div className='card text-bg-light p-3 '>
                   <form>
                   <h3 className='text-center'>Customer SignUp Form</h3>

@@ -227,11 +227,12 @@ p, a, li, button, ul {
   }
   nav.navbar .menuContainer{
     position: absolute;
-    right: 410px;
-    top: 97px;
+    right: 290px;
+    top: 85px;
     background: #fff;
     border-radius: 0.5em;
-    width: 180px;
+    width: 90px;
+    height: 40px;
     box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
     z-index: 1;
     transform: translateX(700px);
@@ -242,32 +243,116 @@ p, a, li, button, ul {
     content: "";
     width: 10px;
     height: 10px;
-    background: #19162c;
+    background: #ffffff;
     top: -5px;
     right: 52px;
     transform: rotate(45deg);
   }
-  nav.navbar .menuContainer ul{
-    width: 100%;
-    height: 100%;
+  nav.navbar .menuContainer h5{
+    width: 50%;
+    height: 50%;
   }
 
-  nav.navbar .menuContainer ul li{
+  nav.navbar .menuContainer h5{
     list-style: none;
     margin: 5px 0px;
     width: 100%;
-    padding: 10px 20px;
+    padding: 10px 10px;
     cursor: pointer;
     color: #757380;
     text-align: left;
   }
   /* nav.navbar .menuContainer ul li Link{
     list-style: none;
-  } */
-  nav.navbar .menuContainer ul li:hover{
+  } 
+  /* nav.navbar .menuContainer h5:hover{
     background: #121026;
-    color: #f1f1f1;
+    /* color: #f1f1f1; 
     transition: 0.3s;
+  } */
+
+  nav.navbar .menuChevron1{
+    cursor: pointer;
+  }
+  nav.navbar .menuContainer1{
+    position: absolute;
+    right: 236px;
+    top: 85px;
+    background: #fff;
+    border-radius: 0.5em;
+    width: 90px;
+    height: 40px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+    z-index: 1;
+    transform: translateX(700px);
+    transition: transform 0.2s cubic-bezier(0.17,0.81,0.38,1.39);
+  }
+  nav.navbar .menuContainer1::after{
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    top: -5px;
+    right: 52px;
+    transform: rotate(45deg);
+  }
+  nav.navbar .menuContainer1 h5{
+    width: 50%;
+    height: 50%;
+  }
+
+  nav.navbar .menuContainer1 h5{
+    list-style: none;
+    margin: 5px 0px;
+    width: 100%;
+    padding: 10px 10px;
+    cursor: pointer;
+    color: #757380;
+    text-align: left;
+  }
+
+  /* sign up */
+  
+  nav.navbar .menuChevron2{
+    cursor: pointer;
+  }
+  nav.navbar .menuContainer2{
+    position: absolute;
+    right: 182px;
+    top: 85px;
+    background: #fff;
+    border-radius: 0.5em;
+    width: 110px;
+    height: 40px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+    z-index: 1;
+    transform: translateX(700px);
+    transition: transform 0.2s cubic-bezier(0.17,0.81,0.38,1.39);
+  }
+  nav.navbar .menuContainer2::after{
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    top: -5px;
+    right: 52px;
+    transform: rotate(45deg);
+  }
+  nav.navbar .menuContainer2 h5{
+    width: 50%;
+    height: 50%;
+  }
+
+  nav.navbar .menuContainer2 h5{
+    list-style: none;
+    margin: 5px 0px;
+    width: 100%;
+    padding: 10px 10px;
+    cursor: pointer;
+    color: #757380;
+    text-align: left;
   }
   /************ Banner Css ************/
   .banner {

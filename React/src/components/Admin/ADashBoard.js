@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const ADashBoard = () => {
   return (
@@ -7,11 +8,11 @@ const ADashBoard = () => {
 
 <div class="container rounded bg-white mt-5 mb-5 ">
 
-              <h1 className='text-center'>DashBoard</h1>
+              <h1 className='text-center'>Admin DashBoard</h1>
               <div class="row">
                   <div class="center  border-right">
                       <div class="d-flex flex-column align-items-center text-center p-3 py-2">
-                          <img class="mt-1" width="5px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" style={{
+                          <img class="mt-1" width="5px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" alt="" style={{
         width: 300,
         height: 350,
         borderRadius: 140 / 2,
@@ -45,7 +46,7 @@ const ADashBoard = () => {
         ]
     }} >New Enquiry</button>
                          
-   <button className="btn btn-danager col-4 ms-5 rounded-pill mt-2" style={{
+   <button className="btn btn-danager col-4  ms-3 rounded-pill mt-2" style={{
         width: 350,
         height: 50,
         borderRadius: 140 / 2,
@@ -54,6 +55,7 @@ const ADashBoard = () => {
           { scaleX: 2 }
         ]
     }} >Pending Orders</button>
+    
                       </tr>
                       <tr>
            
@@ -66,6 +68,26 @@ const ADashBoard = () => {
           { scaleX: 2 }
         ]
     }} >All Orders</button>
+   <Link to={`/adminCustomerList`}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
+        width: 350,
+        height: 50,
+        borderRadius: 140 / 2,
+        backgroundColor: '#0288D1',
+        transform: [
+          { scaleX: 2 }
+        ]
+    }} >Customer List</button></Link> 
+    <Link to={`/adminSupplierList`}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
+        width: 350,
+        height: 50,
+        borderRadius: 140 / 2,
+        backgroundColor: '#0288D1',
+        textDecoration:'none',
+        transform: [
+          { scaleX: 2 }
+        ]
+    }} >Supplier List</button></Link> 
+   
 
     <button className="btn btn-danager col-4 ms-3 rounded-pill mb-2" style={{
         width: 350,
@@ -87,7 +109,36 @@ const ADashBoard = () => {
         ]
     }} >Contact Us</button>
                       </tr>
-                      
+                      <tr>
+                      <Link to={`/Addadmin`}><button className="btn btn-danager col-4  rounded-pill mb-2 " style={{
+        width: 350,
+        height: 50,
+        borderRadius: 140 / 2,
+        backgroundColor: '#0288D1',
+        transform: [
+          { scaleX: 2 }
+        ]
+    }} >Add Admin</button></Link>
+    <Link to={``}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
+        width: 350,
+        height: 50,
+        borderRadius: 140 / 2,
+        backgroundColor: '#0288D1',
+        transform: [
+          { scaleX: 2 }
+        ]
+    }} >Logout</button></Link> 
+    <Link to={`/`}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
+        width: 350,
+        height: 50,
+        borderRadius: 140 / 2,
+        backgroundColor: '#0288D1',
+        textDecoration:'none',
+        transform: [
+          { scaleX: 2 }
+        ]
+    }} >Admin List</button></Link> 
+                      </tr>
                       </div>
                       </div>
                   </div>

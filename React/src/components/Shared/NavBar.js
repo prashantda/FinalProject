@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import { Navbar,Container,Nav} from "react-bootstrap";
+import { Navbar,Nav} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from '../../Assets/image/logo.png';
 import navIcon1 from '../../Assets/image/joinUs.png';
@@ -23,21 +23,45 @@ export const NavBar=()=>{
         return ()=>window.removeEventListener("scroll",onScroll)
     },[])
 
-    // useEffect(()=>{
-    //     const menuTarget=document.getElementById("menuChevron");
-    //     const menuContainer=document.getElementById("menuContainer");
+     useEffect(()=>{
+         const menuTarget=document.getElementById("menuChevron");
+         const menuContainer=document.getElementById("menuContainer");
 
-    //     menuTarget.addEventListener('mouseenter',()=>{
-    //         menuContainer.style.transform ='translateX(0px)';
-    //     });
+         menuTarget.addEventListener('mouseenter',()=>{
+             menuContainer.style.transform ='translateX(0px)';
+         });
 
-    //     menuContainer.addEventListener('mouseleave',()=>{
-    //         menuContainer.style.transform ='translateX(700px)'
-    //     });
-    // },[]);
-    // const onUpdateActiveLink=(value)=>{
-    //     setActiveLink(value);
-    // }
+         menuTarget.addEventListener('mouseleave',()=>{
+             menuContainer.style.transform ='translateX(700px)'
+         });
+
+
+         const menuTarget1=document.getElementById("menuChevron1");
+         const menuContainer1=document.getElementById("menuContainer1");
+ 
+         menuTarget1.addEventListener('mouseenter',()=>{
+             menuContainer1.style.transform ='translateX(0px)';
+         });
+ 
+         menuTarget1.addEventListener('mouseleave',()=>{
+             menuContainer1.style.transform ='translateX(700px)'
+         });
+
+         const menuTarget2=document.getElementById("menuChevron2");
+         const menuContainer2=document.getElementById("menuContainer2");
+ 
+         menuTarget2.addEventListener('mouseenter',()=>{
+             menuContainer2.style.transform ='translateX(0px)';
+         });
+ 
+         menuTarget2.addEventListener('mouseleave',()=>{
+             menuContainer2.style.transform ='translateX(700px)'
+         });
+     },[]);
+     
+    //  const onUpdateActiveLink=(value)=>{
+    //      setActiveLink(value);
+    //  }
     return(
         <Navbar expand="lg" className={scrolled?"scolled":"" }>
         <div className="container-fluid">
@@ -57,9 +81,9 @@ export const NavBar=()=>{
             <span className="navbar-text">
                 <div className="social-icon">
                     {/* <Link to={``}><img src={adminIcon} alt="" className="menuChevron" id="menuChevron"/></Link> */}
-                    <Link to={`/joinUs`}><img src={navIcon1} alt=""/></Link>
-                    <Link to={`/signIn`}><img src={navIcon2} alt=""/></Link>
-                    <Link to={`/signUp`}><img src={navIcon3} alt=""/></Link>
+                  <Link to={`/joinUs`}><img src={navIcon1} alt="" className="menuChevron" id="menuChevron"/></Link>
+                  <Link to={`/signIn`}><img src={navIcon2} alt="" className="menuChevron1" id="menuChevron1"/></Link>
+                  <Link to={`/signUp`}><img src={navIcon3} alt="" className="menuChevron2" id="menuChevron2"/></Link> 
                 </div>
                 <Link to={`/contactUs`}><button className="vvd"><span>Contact Us</span></button></Link>
             </span>&nbsp;&nbsp;&nbsp;
@@ -73,6 +97,15 @@ export const NavBar=()=>{
                 </ul>
                 <p>abc</p>
             </div> */}
+            <div className="menuContainer" id="menuContainer">
+                <h5>Join Us</h5>
+            </div>
+            <div className="menuContainer1" id="menuContainer1">
+                <h5>Sign In</h5>
+            </div>
+            <div className="menuContainer2" id="menuContainer2">
+                <h5>Sign Up</h5>
+            </div>
           </Navbar.Collapse>
           </div>
       </Navbar>
