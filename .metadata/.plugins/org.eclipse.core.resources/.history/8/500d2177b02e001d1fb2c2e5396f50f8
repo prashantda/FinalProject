@@ -1,0 +1,5 @@
+package com.utility.service;
+
+public class EmailService {
+
+}

@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-    <fullyQualifiedTypeName name="java.lang.Override"/>
-    <fullyQualifiedTypeName name="com.utility.repository.UserRepository"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestHeader"/>
-    <fullyQualifiedTypeName name="com.utility.service.UserService"/>
-    <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Aspect"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Configurable"/>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.EnableAspectJAutoProxy"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
-    <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Pointcut"/>
-    <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Before"/>
-    <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Around"/>
-    <fullyQualifiedTypeName name="org.aspectj.lang.ProceedingJoinPoint"/>
     <fullyQualifiedTypeName name="com.utility.valueobjects.Customer"/>
     <fullyQualifiedTypeName name="com.utility.service.SupplierService"/>
     <fullyQualifiedTypeName name="com.utility.entity.Supplier"/>
@@ -22,11 +8,8 @@
     <fullyQualifiedTypeName name="com.utility.valueobjects.ResponseTemplate"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpHeaders"/>
     <fullyQualifiedTypeName name="org.apache.http.HttpStatus"/>
-    <fullyQualifiedTypeName name="java.lang.Object"/>
-    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpEntity"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
-    <fullyQualifiedTypeName name="com.utility.model.JwtResponse"/>
     <fullyQualifiedTypeName name="org.springframework.web.cors.CorsConfigurationSource"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.EnableWebMvc"/>
     <fullyQualifiedTypeName name="org.springframework.web.cors.CorsConfiguration"/>
@@ -40,7 +23,6 @@
     <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter"/>
     <fullyQualifiedTypeName name="org.springframework.web.reactive.config.CorsRegistration"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.CorsRegistration"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.boot.web.servlet.support.SpringBootServletInitializer"/>
     <fullyQualifiedTypeName name="org.springframework.core.env.Environment"/>
     <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.configuration.EnableWebSecurity"/>
@@ -50,14 +32,32 @@
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="org.springframework.jdbc.support.CustomSQLErrorCodesTranslation"/>
     <fullyQualifiedTypeName name="com.google.common.base.Supplier"/>
     <fullyQualifiedTypeName name="com.utility.model.User"/>
     <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
+    <fullyQualifiedTypeName name="com.utility.model.JwtResponse"/>
     <fullyQualifiedTypeName name="lombok.Data"/>
-    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-    <fullyQualifiedTypeName name="com.utility.entity.User"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.core.JsonProcessingException"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="com.utility.model.Customer"/>
+    <fullyQualifiedTypeName name="com.utility.model.CSignUp"/>
+    <fullyQualifiedTypeName name="com.utility.entity.User"/>
+    <fullyQualifiedTypeName name="com.google.common.base.Optional"/>
+    <fullyQualifiedTypeName name="com.utility.config.JWTConfiguration"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.utility.service.EmailService"/>
+    <fullyQualifiedTypeName name="java.util.function.Supplier"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
 </qualifiedTypeNameHistroy>

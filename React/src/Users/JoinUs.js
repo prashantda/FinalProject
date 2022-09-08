@@ -34,7 +34,7 @@ const JoinUs= () => {
                       </div>
 
                       <div className="form-group mb-2">
-                          <label className="form-label mt-4">Mobile NO.</label>
+                          <label className="form-label mt-4">Mobile No.</label>
                           <input type="number" 
                           placeholder="Enter Mobile" 
                           name="mobileno" 

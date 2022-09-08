@@ -21,7 +21,7 @@ const ADashBoard = () => {
           { scaleX: 2 }
         ]
     }} />
-                      <span class="font-weight-bold">Prashant</span><span class="text-black-50">kshirsgarkunal72@gmail.com</span><span> </span></div>
+                      <span class="font-weight-bold">prasshant admin</span><span class="text-black-50">kshirsgarkunal72@gmail.com</span><span> </span></div>
                   </div>
                   <div class="center  border-right">
                   <div className='d-grid gap-4' >
@@ -88,8 +88,26 @@ const ADashBoard = () => {
         ]
     }} >Supplier List</button></Link> 
    
+
+    <button className="btn btn-danager col-4 ms-3 rounded-pill mb-2" style={{
+        width: 350,
+        height: 50,
+        borderRadius: 140 / 2,
+        backgroundColor: '#FF6F00',
+        transform: [
+          { scaleX: 2 }
+        ]
+    }} >Change Password</button>
                          
-   
+   <button className="btn btn-danager col-4 ms-5  rounded-pill mb-2 " style={{
+        width: 350,
+        height: 50,
+        borderRadius: 140 / 2,
+        backgroundColor: '#FCDC00',
+        transform: [
+          { scaleX: 2 }
+        ]
+    }} >Contact Us</button>
                       </tr>
                       <tr>
                       <Link to={`/Addadmin`}><button className="btn btn-danager col-4  rounded-pill mb-2 " style={{

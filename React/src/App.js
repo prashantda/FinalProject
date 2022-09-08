@@ -10,6 +10,7 @@ import JoinUs from './Users/JoinUs';
 import SignIn from './Users/SignIn';
 import SignUp from './Users/SignUp';
 import ContactUs from './Users/ContactUs';
+import VerifyOtp from './Users/VerifyOTP';
 import Home from './components/Shared/Home';
 import SDashBoard from './components/Supplier/SDashBoard';
 import ADashBoard from './components/Admin/ADashBoard';
@@ -17,6 +18,8 @@ import AdminProfile from './components/Admin/AdminProfile';
 import AdminCustomerList from './components/Admin/AdminCustomerList';
 import AdminSupplierList from './components/Admin/AdminSupplierList';
 import AddAdmin from './components/Admin/AddAdmin';
+import CDashBoard from './components/Customer/CDashBoard'
+import EditProfileC from './components/Customer/EditProfileC'
 function App() {
   return (
     <>
@@ -36,6 +39,11 @@ function App() {
       <Route exact path="/adminCustomerList" element={<AdminCustomerList/>}/>
       <Route exact path="/adminSupplierList" element={<AdminSupplierList/>}/>
       <Route exact path="/Addadmin" element={<AddAdmin/>}/>
+      <Route exact path="/dashboards" element={<SDashBoard/>}/>
+      <Route exact path="/dashboarda" element={<ADashBoard/>}/>
+      <Route exact path="/dashboardc" element={<CDashBoard/>}/>
+      <Route exact path="/editprofilec" element={<EditProfileC/>}/>
+      <Route exact path="/verify" element={<VerifyOtp/>}/>
       </Routes>
       <Footer />
       </>
