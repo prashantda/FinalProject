@@ -20,7 +20,7 @@ import AdminCustomerList from './components/Admin/AdminCustomerList';
 import AdminSupplierList from './components/Admin/AdminSupplierList';
 import AddAdmin from './components/Admin/AddAdmin';
 import CDashBoard from './components/Customer/CDashBoard'
-import EditProfileC from './components/Customer/EditProfileC'
+import EditProfileC from './components/Customer/CEditProfile'
 import CustomerProfile from './components/Customer/ProfileC';
 import Card from './Users/Card';
 import AdminList from './components/Admin/AdminList';
