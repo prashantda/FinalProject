@@ -47,8 +47,8 @@ const NewPassword = () => {
                           <label className="form-label mt-4">Confirm New Password</label>
                           <input type="password" 
                           placeholder="Enter OTP" 
-                           name="password" 
-                           value={otp}
+                           name="cnfpassword" 
+                           value={cnfpassword}
                           onChange={(e)=>SetConfirmPassword(e.target.value)}
                           className="form-control rounded-pill mt-2" 
                           ></input>

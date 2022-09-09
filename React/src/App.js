@@ -46,7 +46,7 @@ function App() {
       <Route exact path="/Addadmin" element={<AddAdmin/>}/>
       <Route exact path="/editadmin/:id" element={<AddAdmin/>}/>
       <Route exact path="/dashboards" element={<SDashBoard/>}/>
-      <Route exact path="/dashboarda" element={<ADashBoard/>}/>
+      
       <Route exact path="/dashboardc" element={<CDashBoard/>}/>
       <Route exact path="/editprofilec" element={<EditProfileC/>}/>
       <Route exact path="/verify" element={<VerifyOtp/>}/>
