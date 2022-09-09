@@ -1,9 +1,11 @@
 import React,{useEffect, useState}  from 'react'
-import {Link} from 'react-router-dom'
 import Connection from '../Services/Connection'
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const AdminSupplierList = () => {
     const [suppliers,setSupplier] = useState([])
+    const { id } =useParams()
 
     useEffect(() => {
         Connection.getAllUsers().then((response)=> {
@@ -12,7 +14,13 @@ const AdminSupplierList = () => {
        }).catch(error =>{
            console.log(error);
        })
+       loadUser()
     },[])
+
+    const loadUser = async () =>{
+        const res = await axios.get(`http://localhost:8080/api/v1/employees/${id}`);
+        setSupplier(res.data)
+      }
   return (
     <div className="container">
       <h2 className="text-center">Supplier's List</h2>
@@ -42,7 +50,7 @@ const AdminSupplierList = () => {
               }
           </tbody>
       </table>
-      <Link to={`/adashboard`}><button className="btn btn-success" >Back To DashBoard</button></Link>
+      <Link to={`/adashboard/${suppliers.id}`}><button className="btn btn-success" >Back To DashBoard</button></Link>
     </div>
     )
 }
