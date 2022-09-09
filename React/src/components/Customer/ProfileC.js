@@ -11,7 +11,9 @@ export default class ProfileC extends Component {
 
     render() {
         return (
-            <div class="col-7 offset-3">
+            
+
+<div class="col-8 offset-2">
     <div class="container emp-profile">
         <form method="post">
             <div class="row">
@@ -130,6 +132,9 @@ export default class ProfileC extends Component {
         </form>
         </div>
         </div>
+
+
+
 
     )
     }
