@@ -20,9 +20,9 @@ class Connection{
         return axios.post('http://127.0.0.1:8087/api/secure/token',user)
       }
 
-      // getAllUsers(){
-      //   return axios.get('http://localhost:8080/api/v1/employees')
-      // }
+       getAllUsers(){
+         return axios.get('http://localhost:8080/api/v1/employees')
+       }
 
       savePassword(password){
         return axios.post('http://127.0.0.1:8087/api/secure/savepassword',password)

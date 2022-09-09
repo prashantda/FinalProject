@@ -4,23 +4,18 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const AdminSupplierList = () => {
-    const [suppliers,setSupplier] = useState([])
     const { id } =useParams()
+    const [suppl,setSupplier] = useState([])
 
     useEffect(() => {
-        Connection.getAllUsers().then((response)=> {
-            setSupplier(response.data)
-           console.log(response.data)
-       }).catch(error =>{
-           console.log(error);
-       })
-       loadUser()
+         Connection.getAllUsers().then((response)=> {
+             setSupplier(response.data)
+            console.log(response.data)
+        }).catch(error =>{
+            console.log(error);
+        })
     },[])
 
-    const loadUser = async () =>{
-        const res = await axios.get(`http://localhost:8080/api/v1/employees/${id}`);
-        setSupplier(res.data)
-      }
   return (
     <div className="container">
       <h2 className="text-center">Supplier's List</h2>
@@ -32,10 +27,11 @@ const AdminSupplierList = () => {
               <th>Supplier Email-Id</th>
               <th>Actions</th>
           </thead>
-          <tbody>
+          {/* <tbody> */}
               {
-                 suppliers.map(
+                 suppl.map(
                       sup =>
+                      <tbody>
                       <tr key={sup.id}>
                           <td>{sup.id}</td>
                           <td>{sup.firstName}</td>
@@ -46,11 +42,12 @@ const AdminSupplierList = () => {
                           </td>
                           
                       </tr>
+                      </tbody>
                   )
               }
-          </tbody>
+          {/* </tbody> */}
       </table>
-      <Link to={`/adashboard/${suppliers.id}`}><button className="btn btn-success" >Back To DashBoard</button></Link>
+      <Link to={`/adashboard/a/${id}`}><button className="btn btn-success" >Back To DashBoard</button></Link>
     </div>
     )
 }

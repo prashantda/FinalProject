@@ -39,10 +39,12 @@ function App() {
       <Route exact path="/signUp" element={<SignUp />}/>
       <Route exact path="/contactUs" element={<ContactUs/>}/>
       <Route exact path="/sdashboard" element={<SDashBoard/>}/>
-      <Route exact path="/adashboard/:id" element={<ADashBoard/>}/>
+      <Route exact path="/adashboard/" element={<ADashBoard/>}/>
+      <Route exact path="/adashboard/a/:id" element={<ADashBoard/>}/>
       <Route exact path="/adminList/a/:id" element={<AdminProfile/>}/>
       <Route exact path="/adminCustomerList" element={<AdminCustomerList/>}/>
       <Route exact path="/adminSupplierList" element={<AdminSupplierList/>}/>
+      <Route exact path="/adminSupplierList/a/:id" element={<AdminSupplierList/>}/>
       <Route exact path="/Addadmin" element={<AddAdmin/>}/>
       <Route exact path="/editadmin/:id" element={<AddAdmin/>}/>
       <Route exact path="/dashboards" element={<SDashBoard/>}/>

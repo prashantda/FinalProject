@@ -66,7 +66,7 @@ const ADashBoard = () => {
     }} >Customer List</button></Link>    
                       </tr>
                       <tr>
-    <Link to={`/adminSupplierList`}><button className="btn btn-danager col-4 rounded-pill mt-2" style={{
+    <Link to={`/adminSupplierList/a/${admin.id}`}><button className="btn btn-danager col-4 rounded-pill mt-2" style={{
         width: 350,
         height: 50,
         borderRadius: 140 / 2,
