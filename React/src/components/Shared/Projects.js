@@ -29,8 +29,7 @@ export const Projects=()=>{
         {
             title:"Carpentar Services",
             description:"Get your furniture",
-            imgUrl:projImg3,
-            
+            imgUrl:projImg3,  
         },
         {
             title:"Electrician Services",
@@ -63,8 +62,7 @@ export const Projects=()=>{
         {
             title:"Fabricator Services",
             description:"Make your things with us",
-            imgUrl:projImg9,
-            
+            imgUrl:projImg9,   
         },
         {
             title:"Flooring Services",
@@ -76,10 +74,10 @@ export const Projects=()=>{
             description:"Lets shape your trees",
             imgUrl:projImg11,
         },
-        {title:"Waterproofing Services",
+        {
+            title:"Waterproofing Services",
         description:"Protect your home from rain",
         imgUrl:projImg12,
-            
         },
     ];
 
