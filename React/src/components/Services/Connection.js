@@ -1,6 +1,9 @@
 import axios from "axios";
- const Security_db_url = 'http://127.0.0.1:8087/api/secure/token';
- var token = `${localStorage.getItem('JwtToken')}` 
+
+// const Employee_db_url = 'http://localhost:8080/api/v1/employees'; //dummy url for checking
+
+//  const Security_db_url = 'http://127.0.0.1:8087/api/secure/token';
+//  var token = `${localStorage.getItem('JwtToken')}` 
 class Connection{
   constructor(props) {
   
@@ -30,6 +33,10 @@ class Connection{
    
       // getAdminById(adminId){
       //   return axios.get('http://localhost:8080' + '/' + adminId)
+      // }
+
+      // getEmployeeById(employeeId){
+      //   return axios.get(Employee_db_url + '/' + employeeId)
       // }
 }
 export default new Connection();

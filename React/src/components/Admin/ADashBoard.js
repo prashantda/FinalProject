@@ -1,11 +1,21 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React,{useEffect, useState} from 'react'
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const ADashBoard = () => {
+  const { id } =useParams()
+  const [admin,setAdmin] = useState([])
+
+  useEffect(() => {
+     loadUser()
+  },[])
+
+  const loadUser = async () =>{
+    const res = await axios.get(`http://localhost:8080/api/v1/employees/${id}`);
+    setAdmin(res.data)
+  }
   return (
     <>
-
-
 <div class="container rounded bg-white mt-5 mb-5 ">
 
               <h1 className='text-center'>Admin DashBoard</h1>
@@ -21,12 +31,12 @@ const ADashBoard = () => {
           { scaleX: 2 }
         ]
     }} />
-                      <span class="font-weight-bold">prasshant admin</span><span class="text-black-50">kshirsgarkunal72@gmail.com</span><span> </span></div>
+                      <span class="font-weight-bold">{admin.firstName}</span><span class="text-black-50">{admin.emailId}</span><span> </span></div>
                   </div>
                   <div class="center  border-right">
                   <div className='d-grid gap-4' >
                       <tr >
-    {/* <Link to={`/userprofile`}>*/}<button className="btn btn-danager col-4  rounded-pill mt-2  " style={{ 
+    <Link to={`/adminList/a/${admin.id}`}><button className="btn btn-primary col-4  rounded-pill mt-2 " style={{ 
         textDecoration:null,
         width: 350,
         height: 50,
@@ -35,49 +45,28 @@ const ADashBoard = () => {
         transform: [
           { scaleX: 2 }
         ]
-     }}>Profile</button>{/* </Link> */}
-       <button className="btn btn-danager col-4 ms-3  rounded-pill  mt-2 " style={{
+      }}>Profile</button></Link> 
+       <Link to={`/OrderList`}><button className="btn btn-danager col-4 ms-3  rounded-pill  mt-2 " style={{
         width: 350,
         height: 50,
         borderRadius: 140 / 2,
         backgroundColor: '#FCDC00',
         transform: [
-          { scaleX: 2 }
+          { scaleX: 2 } 
         ]
-    }} >Contact Us</button>
-                         
-                         <button className="btn btn-danager col-4 ms-3 rounded-pill mt-2" style={{
+    }} >All Orders</button></Link>
+                         <Link to={`/adminCustomerList`}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
         width: 350,
         height: 50,
         borderRadius: 140 / 2,
-        backgroundColor: '#FF6F00',
+        backgroundColor: '#0288D1',
         transform: [
           { scaleX: 2 }
         ]
-    }} >Change Password</button>
-    
+    }} >Customer List</button></Link>    
                       </tr>
                       <tr>
-           
-       <button className="btn btn-danager col-4  rounded-pill mb-2 " style={{
-        width: 350,
-        height: 50,
-        borderRadius: 140 / 2,
-        backgroundColor: '#0288D1',
-        transform: [
-          { scaleX: 2 }
-        ]
-    }} >All Orders</button>
-   <Link to={`/adminCustomerList`}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
-        width: 350,
-        height: 50,
-        borderRadius: 140 / 2,
-        backgroundColor: '#0288D1',
-        transform: [
-          { scaleX: 2 }
-        ]
-    }} >Customer List</button></Link> 
-    <Link to={`/adminSupplierList`}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
+    <Link to={`/adminSupplierList`}><button className="btn btn-danager col-4 rounded-pill mt-2" style={{
         width: 350,
         height: 50,
         borderRadius: 140 / 2,
@@ -87,28 +76,16 @@ const ADashBoard = () => {
           { scaleX: 2 }
         ]
     }} >Supplier List</button></Link> 
-                         
-                      </tr>
-                      <tr>
-                      <Link to={`/Addadmin`}><button className="btn btn-danager col-4  rounded-pill mb-2 " style={{
+   <Link to={`/adminList`}><button className="btn btn-danager col-4 ms-3 rounded-pill mt-2" style={{
         width: 350,
         height: 50,
         borderRadius: 140 / 2,
-        backgroundColor: '#0288D1',
+        backgroundColor: '#FF6F00',
         transform: [
           { scaleX: 2 }
         ]
-    }} >Add Admin</button></Link>
-    <Link to={``}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
-        width: 350,
-        height: 50,
-        borderRadius: 140 / 2,
-        backgroundColor: '#0288D1',
-        transform: [
-          { scaleX: 2 }
-        ]
-    }} >Logout</button></Link> 
-    <Link to={`/`}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
+    }} >Admin List</button></Link> 
+    <Link to={`/Addadmin`}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
         width: 350,
         height: 50,
         borderRadius: 140 / 2,
@@ -117,7 +94,38 @@ const ADashBoard = () => {
         transform: [
           { scaleX: 2 }
         ]
-    }} >Admin List</button></Link> 
+    }} >Add Admin</button></Link> 
+                         
+                      </tr>
+                      <tr>
+     <Link to={`/editadmin/${admin.id}`}><button className="btn btn-danager col-4  rounded-pill " style={{
+        width: 350,
+        height: 50,
+        borderRadius: 140 / 2,
+        backgroundColor: '#0288D1',
+        transform: [
+          { scaleX: 2 }
+        ]
+    }} >Change Password</button></Link>
+    <Link to={``}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
+        width: 350,
+        height: 50,
+        borderRadius: 140 / 2,
+        backgroundColor: '#0288D1',
+        transform: [
+          { scaleX: 2 }
+        ]
+    }} >Contact Us</button></Link> 
+    <Link to={``}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
+        width: 350,
+        height: 50,
+        borderRadius: 140 / 2,
+        backgroundColor: '#0288D1',
+        textDecoration:'none',
+        transform: [
+          { scaleX: 2 }
+        ]
+    }} >Logout</button></Link> 
                       </tr>
                       </div>
                       </div>

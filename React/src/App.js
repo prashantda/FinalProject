@@ -21,6 +21,9 @@ import AddAdmin from './components/Admin/AddAdmin';
 import CDashBoard from './components/Customer/CDashBoard'
 import EditProfileC from './components/Customer/EditProfileC'
 import CustomerProfile from './components/Customer/ProfileC';
+import Card from './Users/Card';
+import AdminList from './components/Admin/AdminList';
+import OrderList from './components/Admin/OrderList';
 function App() {
   return (
     <>
@@ -35,17 +38,21 @@ function App() {
       <Route exact path="/signUp" element={<SignUp />}/>
       <Route exact path="/contactUs" element={<ContactUs/>}/>
       <Route exact path="/sdashboard" element={<SDashBoard/>}/>
-      <Route exact path="/adashboard" element={<ADashBoard/>}/>
-      <Route exact path="/a" element={<AdminProfile/>}/>
+      <Route exact path="/adashboard/:id" element={<ADashBoard/>}/>
+      <Route exact path="/adminList/a/:id" element={<AdminProfile/>}/>
       <Route exact path="/adminCustomerList" element={<AdminCustomerList/>}/>
       <Route exact path="/adminSupplierList" element={<AdminSupplierList/>}/>
       <Route exact path="/Addadmin" element={<AddAdmin/>}/>
+      <Route exact path="/editadmin/:id" element={<AddAdmin/>}/>
       <Route exact path="/dashboards" element={<SDashBoard/>}/>
       <Route exact path="/dashboarda" element={<ADashBoard/>}/>
       <Route exact path="/dashboardc" element={<CDashBoard/>}/>
       <Route exact path="/editprofilec" element={<EditProfileC/>}/>
       <Route exact path="/verify" element={<VerifyOtp/>}/>
       <Route exact path="/profilec" element={<CustomerProfile/>}/>
+      <Route exact path="/card" element={<Card/>}/>
+      <Route exact path="/adminList" element={<AdminList/>}/>
+      <Route exact path="/OrderList" element={<OrderList/>}/>
       </Routes>
       <Footer />
       </>

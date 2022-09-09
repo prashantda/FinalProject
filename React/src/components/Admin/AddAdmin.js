@@ -8,39 +8,54 @@ const AddAdmin = () => {
     const [name, setName] = useState('')
     const [adhar, setAdhar] = useState('')
     const [email, setEmail] = useState('')
+    const [address, setAddress] = useState('')
+    const [pincode, setPincode] = useState('')
+    const [dob, setDOB] = useState('')
     const [password, setPassword] = useState('')
     const [cnfpassword, setCnfPassword] = useState('')
-    //const {id} = useParams();
+    // const {id} = useParams();
 
-    const saveAdmin = (e) =>{
-        e.preventDefault();
-        const newAdmin={name,adhar,email,password,cnfpassword}
-        Connection.createAdmin(newAdmin).then((response)=>{
-            console.log(response.data)
-            navigate.push("/")
+    // const saveAdmin = (e) =>{
+    //     e.preventDefault();
+    //     const newAdmin={name,adhar,email,address,pincode,dob,password,cnfpassword}
+    //     Connection.createEmployee(newAdmin).then((response)=>{
+    //         console.log(response.data)
+    //         navigate.push("/")
 
-        }).catch(error =>{
-            console.log(error)
-        })
-    }  
-    // useEffect(()=>{
-    //     Connection.getAdminById(id).then((response) =>{
-    //         setName(response.data.name)
-    //         setAdhar(response.data.adhar)
-    //         setEmail(response.data.email)
-    //         setPassword(response.data.password)
-    //         setCnfPassword(response.data.cnfpassword)
     //     }).catch(error =>{
     //         console.log(error)
     //     })
-    // },[])
+    // }  
+    //  useEffect(()=>{
+    //      Connection.getEmployeeById(id).then((response) =>{
+    //          setName(response.data.name)
+    //          setAdhar(response.data.adhar)
+    //          setEmail(response.data.email)
+    //          setAddress(response.data.address)
+    //          setPincode(response.data.pincode)
+    //          setDOB(response.data.dob)
+    //          setPassword(response.data.password)
+    //          setCnfPassword(response.data.cnfpassword)
+    //      }).catch(error =>{
+    //          console.log(error)
+    //      })
+    //  },[])
+
+    //  const title = () =>{
+    //     if(id){
+    //         return <h2 className="text-center">Update Admin</h2>
+    //     }else{
+    //         return <h2 className="text-center">Add Admin</h2>
+    //     }
+    // }
+
   return (
     <>   
 <div className="container col-8 mt-5 mb-5">
                    
                    <div className='card text-bg-light p-3 '>
                         <form>
-                        <h3 className='text-center'>New Admin Registration Form</h3>
+                        <h3 className='text-center'>Add Admin</h3>
                             <div className="form-group mb-2">
                                 <label className="form-label mt-4">Name</label>
                                 <input type="text" 
@@ -51,30 +66,36 @@ const AddAdmin = () => {
                                 className="form-control rounded-pill mt-2" 
                                 required></input>
                             </div>
-                            {/* <div className="form-group mb-2">
+                            <div className="form-group mb-2">
                                 <label className="form-label mt-4">Address</label>
                                 <input type="text" 
                                 placeholder="Address" 
                                 name="address" 
+                                value = {address} 
+                                onChange = {(e) => setAddress(e.target.value)}
                                 className="form-control rounded-pill mt-2" 
                                 required></input>
-                            </div> */}
-                            {/* <div className="form-group mb-2">
+                            </div>
+                            <div className="form-group mb-2">
                                 <label className="form-label mt-4">Zip Code</label>
                                 <input type="number" 
                                 placeholder="PinCode" 
                                 name="pincode" 
+                                value = {pincode} 
+                                onChange = {(e) => setPincode(e.target.value)}
                                 className="form-control rounded-pill mt-2" 
                                 required></input>
-                            </div> */}
-                            {/* <div className="form-group mb-2">
+                            </div> 
+                            <div className="form-group mb-2">
                                 <label className="form-label mt-4">Date Of Birth</label>
                                 <input type="date" 
                                 placeholder="Enter DOB" 
                                 name="dob" 
+                                value = {dob} 
+                                onChange = {(e) => setDOB(e.target.value)}
                                 className="form-control rounded-pill mt-2" 
                                 required></input>
-                            </div> */}
+                            </div>
                             <div className="form-group mb-2">
                                 <label className="form-label mt-4">Aadhaar Number</label>
                                 <input type="number" 
@@ -119,7 +140,8 @@ const AddAdmin = () => {
                     
                         <div className='d-grid gap-2'>
                             <button className="btn btn-success mt-4 rounded-pill" 
-                            onClick={(e) => saveAdmin(e)} >    
+                            // onClick={(e) => saveAdmin(e)}
+                             >    
                             SignIn</button>
                             </div>
                
