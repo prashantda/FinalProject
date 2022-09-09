@@ -30,6 +30,9 @@ class Connection{
       saveCustomer(customer){      
         return axios.post('http://127.0.0.1:8087/api/secure/signupcustomer',customer)
       }
+      saveSupplier(supplier){      
+        return axios.post('http://127.0.0.1:8087/api/secure/signupcustomer',supplier)
+      }
    
       verifyot(user){
         return axios.post('http://127.0.0.1:8087/api/secure/verifyotp',user)

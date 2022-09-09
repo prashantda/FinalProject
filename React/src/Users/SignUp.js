@@ -13,14 +13,14 @@ const SignUp = () => {
     const [mobile, SetMobile] = useState('')   
     const [password, SetPassword] = useState('')
     const [username, SetUsername] = useState('')
-    const [cnfpassword, SetConfirmPassword] = useState('')
+   
 
 
 
 
     const SaveUser=(e)=>{
         e.preventDefault();
-        const customer={name,address,pincode,dob,aadhaar,mobile,username,password}
+        const customer={name,address,pincode,dob,aadhaar,mobile,username}
         Connection.saveCustomer(customer).then((response)=>{         
         if(response.data.userid!=0)
         {

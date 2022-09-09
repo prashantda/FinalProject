@@ -30,6 +30,7 @@ import com.utility.model.CSignUp;
 import com.utility.model.Customer;
 import com.utility.model.JwtRequest;
 import com.utility.model.JwtResponse;
+import com.utility.model.Supplier;
 import com.utility.model.UserOtp;
 import com.utility.service.EmailService;
 import com.utility.service.UserService;
@@ -52,6 +53,54 @@ public class JwtController {
 	private EmailService email;
 	@Autowired
 	private VerificationTokenService vts;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@PostMapping("/signupsupplier")
+	public UserOtp signups(@RequestBody CSignUp supp) {
+		Optional<User>  u=userService.saveUserForCustomer(supp);
+		
+		Supplier c=userService.getSupplierFromSignup(supp);
+		int service=userService.getServiceId(supp.getService());
+		if(u.isPresent())
+		{
+			c.setUserid((u.get()).getId());
+			c.setServiceid(service);
+		}
+		else {
+			throw new RuntimeException();
+		}
+		boolean res=userService.saveSupplier(c);
+		if(res) {
+				int otp =this.email.sendMail(supp.getUsername());
+				VerificationToken vt=new VerificationToken(0l,otp,u.get());
+				Optional<VerificationToken> v=	vts.saveToken(vt);
+				if(v.isPresent()) {
+					//return u.get().getId();
+					UserDetails userDetails=this.customUserDetailsService.loadUserByUsername(u.get().getUsername());
+					String token=	this.jwtUtil.generateToken(userDetails);
+					//token="Bearar "+token;
+					return new UserOtp(1,token,token);
+				}
+					
+		}
+		else {
+			throw new RuntimeException();
+		}
+		return new UserOtp(0,"","");
+	}
+	
+	
+	
 	@PostMapping("/token")
 	public ResponseEntity generateToken(@RequestBody JwtRequest jwtRequest) throws Exception{
 		try {
@@ -106,6 +155,7 @@ public class JwtController {
 		}
 		return new UserOtp(0,"","");
 	}
+	
 	@PostMapping("/verifyotp")
 	public String verifyOtp(@RequestBody UserOtp uo) {
 //		System.out.println(uo.getUserid()+"\n"+uo.getOtp()+"\n"+uo.getToken());

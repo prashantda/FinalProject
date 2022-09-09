@@ -17,7 +17,7 @@ public class CSignUp {
 	private Date dob;
 	private long aadhaar;
 	private String mobile;
-	private String username;
-	private String password;
+	private String username;	
+	private String service;
 			
 }

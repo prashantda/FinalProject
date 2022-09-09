@@ -23,6 +23,7 @@ import com.utility.entity.User;
 import com.utility.entity.VerificationToken;
 import com.utility.model.CSignUp;
 import com.utility.model.Customer;
+import com.utility.model.Supplier;
 import com.utility.model.UserOtp;
 import com.utility.repository.UserRepository;
 import com.utility.repository.VerificationTokenRepository;
@@ -45,7 +46,7 @@ public class UserService {
 	private VerificationTokenRepository vtr;
 	@Autowired
 	private PasswordEncoder pe;
-	
+	private static final String SUPPLIER_API="http://SUPPLIER-SERVICE/api/supplier/";
 	private static final String SECURITY_SERVICE= "SecurityService";
 	
 	public User findByUsername(String username) {
@@ -88,6 +89,7 @@ public class UserService {
 		return Optional.ofNullable(false);	
 	}
 	
+
 	
 	public Optional<User> saveUserForCustomer(CSignUp cust) {
 		User u=new User();
@@ -95,14 +97,17 @@ public class UserService {
 		u.setMobile(cust.getMobile());
 		u.setUsername(cust.getUsername());
 		u.setPassword(jwt.passwordEncoder().encode("wishit"));
-		u.setRole("CUSTOMER");		
+		if(cust.getService()==null)
+		u.setRole("CUSTOMER");
+		else 
+			u.setRole("SUPPLIER");
 		u.setEnabled(false);
 		u.setAccountNonExpired(false);
 		u.setAccountNonLocked(false);
 		u.setCredentialsNonExpired(false);
 		
-	Optional<User> o=Optional.ofNullable(userRepository.save(u));	
-	return o;
+		return Optional.ofNullable(userRepository.save(u));	
+	 
 	}
 	public Customer getCustomerFromSigup(CSignUp cust) {
 		Customer c=new Customer();
@@ -133,5 +138,44 @@ public class UserService {
 	}
 	public boolean getcFallback(Exception e) {		
 		return false;
+	}
+
+	public Supplier getSupplierFromSignup(CSignUp supp) {
+		Supplier c=new Supplier();
+		c.setAddress(supp.getAddress());
+		c.setPincode(supp.getPincode());
+		c.setAadhaar(supp.getAadhaar());
+		c.setDob(supp.getDob());
+		c.setUserid(0);
+		c.setServiceid(0);
+		return c;
+	
+	}
+	@Retry(name = SECURITY_SERVICE,fallbackMethod ="getsFallback" )
+	public boolean saveSupplier(Supplier c) {
+		HttpHeaders http=new HttpHeaders();
+		http.setContentType(MediaType.APPLICATION_JSON);
+		String json=null;
+		
+		try {
+			json=new ObjectMapper().writeValueAsString(c);
+		} catch (JsonProcessingException e) {
+			throw new RuntimeException(e);
+		}
+		HttpEntity<String> entity=new HttpEntity<String>(json,http); 
+		ResponseEntity<HttpEntity> o=restTemplate.exchange(SUPPLIER_API+"savesupplier", HttpMethod.POST, entity, HttpEntity.class);
+		if(o.getStatusCodeValue()==200)
+			return true;
+		else 
+			return false;
+	}
+
+	public boolean getsFallback(Exception e) {		
+		return false;
+	}
+
+	public int getServiceId(String service) {
+		
+		return 0;
 	}
 }
