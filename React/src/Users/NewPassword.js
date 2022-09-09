@@ -48,7 +48,7 @@ const NewPassword = () => {
                           <input type="password" 
                           placeholder="Enter OTP" 
                            name="password" 
-                           value={password}
+                           value={otp}
                           onChange={(e)=>SetConfirmPassword(e.target.value)}
                           className="form-control rounded-pill mt-2" 
                           ></input>
