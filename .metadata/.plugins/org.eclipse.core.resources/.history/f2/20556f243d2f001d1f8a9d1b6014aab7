@@ -1,0 +1,17 @@
+package com.utility.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.utility.entity.VerificationToken;
+import com.utility.repository.VerificationTokenRepository;
+
+@Service
+public class VerificationTokenService {
+	@Autowired
+	private VerificationTokenRepository vtr;
+	public saveToken(VerificationToken vt) {
+		
+	}
+	
+}

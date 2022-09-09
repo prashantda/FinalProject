@@ -1,0 +1,5 @@
+package com.utility.model;
+
+public class UserOtp {
+
+}

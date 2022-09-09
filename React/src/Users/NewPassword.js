@@ -16,7 +16,6 @@ const NewPassword = () => {
     const user={id,otp,token}
     Connection.savePassword(user).then((response)=>{
       if(response.data!=0){
-       
         navigate("/signIn")
       }
     
@@ -27,10 +26,6 @@ const NewPassword = () => {
 
   return (
     <>
-
-
-
-
 
 <div className="container col-5 mt-5 mb-5">
           
@@ -45,6 +40,16 @@ const NewPassword = () => {
                            name="otp" 
                            value={otp}
                           onChange={(e)=>SetPassword(e.target.value)}
+                          className="form-control rounded-pill mt-2" 
+                          ></input>
+                      </div>
+                      <div className="form-group mb-2">
+                          <label className="form-label mt-4">Confirm New Password</label>
+                          <input type="password" 
+                          placeholder="Enter OTP" 
+                           name="password" 
+                           value={password}
+                          onChange={(e)=>SetConfirmPassword(e.target.value)}
                           className="form-control rounded-pill mt-2" 
                           ></input>
                       </div>
