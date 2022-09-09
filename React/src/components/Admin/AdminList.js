@@ -1,8 +1,9 @@
 import React,{useEffect, useState}  from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import Connection from '../Services/Connection'
 
 const AdminList = () => {
+    const { id } =useParams()
     const [admins,setAdmins] = useState([])
 
     useEffect(() => {
