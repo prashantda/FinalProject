@@ -30,12 +30,9 @@ class Connection{
       saveCustomer(customer){      
         return axios.post('http://127.0.0.1:8087/api/secure/signupcustomer',customer)
       }
-   
-<<<<<<< HEAD
       verifyot(user){
         return axios.post('http://127.0.0.1:8087/api/secure/verifyotp',user)
       }
-=======
       // getAdminById(adminId){
       //   return axios.get('http://localhost:8080' + '/' + adminId)
       // }
@@ -43,6 +40,5 @@ class Connection{
       // getEmployeeById(employeeId){
       //   return axios.get(Employee_db_url + '/' + employeeId)
       // }
->>>>>>> 24bb35ee07e64fb9aac30d33eab9ea5e01f5bbff
 }
 export default new Connection();
