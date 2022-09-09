@@ -24,8 +24,14 @@ const SignUp = () => {
         Connection.saveCustomer(customer).then((response)=>{         
         if(response.data.userid!=0)
         {
-        navigate('/verify',{state:{token:response.data.otp}});
-          
+       
+       const tok= response.data.token;
+        navigate('/verify',
+        {
+            state: {
+                token: tok,
+                 }
+        });
         } 
             
       } ).catch(error =>{navigate("/")})}
@@ -112,7 +118,7 @@ const SignUp = () => {
                           required></input>
                           <label className="small">OTP will be sent on this email</label>
                       </div>
-                      <div className="form-group mb-2">
+                      {/* <div className="form-group mb-2">
                           <label className="form-label mt-4">Password</label>
                           <input type="password" placeholder="Enter password" 
                           name="password" 
@@ -129,7 +135,7 @@ const SignUp = () => {
                           onChange={(e)=>SetConfirmPassword(e.target.value)}
                           className="form-control rounded-pill mt-2" 
                           required></input>
-                      </div>
+                      </div> */}
                      <div className='d-grid gap-2'>
                       <button className="btn btn-primary mt-4 rounded-pill" onClick={(e)=>SaveUser(e)}>Get OTP</button>
                       </div>

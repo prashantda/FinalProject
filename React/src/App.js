@@ -11,6 +11,7 @@ import SignIn from './Users/SignIn';
 import SignUp from './Users/SignUp';
 import ContactUs from './Users/ContactUs';
 import VerifyOtp from './Users/VerifyOTP';
+import NewPassword from './Users/NewPassword';
 import Home from './components/Shared/Home';
 import SDashBoard from './components/Supplier/SDashBoard';
 import ADashBoard from './components/Admin/ADashBoard';
@@ -46,6 +47,7 @@ function App() {
       <Route exact path="/editprofilec" element={<EditProfileC/>}/>
       <Route exact path="/verify" element={<VerifyOtp/>}/>
       <Route exact path="/profilec" element={<CustomerProfile/>}/>
+      <Route exact path="/setnewpassword" element={<NewPassword/>}/>
       </Routes>
       <Footer />
       </>

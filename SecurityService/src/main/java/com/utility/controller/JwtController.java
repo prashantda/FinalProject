@@ -96,7 +96,8 @@ public class JwtController {
 					//return u.get().getId();
 					UserDetails userDetails=this.customUserDetailsService.loadUserByUsername(u.get().getUsername());
 					String token=	this.jwtUtil.generateToken(userDetails);
-					return new UserOtp(1,token,"");
+					//token="Bearar "+token;
+					return new UserOtp(1,token,token);
 				}
 					
 		}
@@ -107,24 +108,42 @@ public class JwtController {
 	}
 	@PostMapping("/verifyotp")
 	public String verifyOtp(@RequestBody UserOtp uo) {
-		Optional<User> u= userService.getUserFromToken(uo.getOtp());
-		String token=uo.getOtp();
+//		System.out.println(uo.getUserid()+"\n"+uo.getOtp()+"\n"+uo.getToken());
+		Optional<User> u= userService.getUserFromToken(uo.getToken());
+		//System.out.println("1");
+		
+		String token=uo.getToken();
+		//System.out.println("2");
 		if(u.isPresent()) {
 			Long otp= uo.getUserid();
 			uo.setOtp(otp.toString());
 			uo.setUserid(u.get().getId());
+			//System.out.println("3");
 		if(userService.verifyOtp(uo).get() == true)
+		//	System.out.println("4");
 			return token;
 		}
-		
-			return "";
+			token="";
+			return token;
 	}
 	@PostMapping ("/savepassword")
-	public void saveOrChange(@RequestBody UserOtp uo ) {
+	public int saveOrChange(@RequestBody UserOtp uo ) {
+		System.out.println(uo.getUserid()+"\n"+uo.getOtp()+"\n"+uo.getToken());
+
+		System.out.println("1");
 		Optional<User> u= userService.getUserFromToken(uo.getToken());
+		System.out.println("2");
 		if(u.isPresent()) {
-			u.get().setPassword(uo.getOtp());
-			userService.savePassword();
+			User use=u.get();
+			
+			use.setPassword(uo.getOtp());
+			System.out.println("3");
+			userService.savePassword(use);
+			System.out.println("4");
+			return 1;
+		}
+		else {
+			throw new RuntimeException();
 		}
 	}
 	

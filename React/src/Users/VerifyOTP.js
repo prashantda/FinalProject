@@ -1,22 +1,29 @@
-import React, { useEffect , useState } from 'react'
-import {  Link, useLocation, useNavigate,useParams } from "react-router-dom";
+import React, {  useState } from 'react'
+import {   useLocation, useNavigate } from "react-router-dom";
 import Connection from '../components/Services/Connection' 
  
 const VerifyOTP = () => {
- 
- // const [userid, SetUsername] = useState('')
-  // const [otp, SetPassword] = useState('')
-  // const location=useLocation
-  // const user=location.State.userid;
-  //console.log(location.useState.userid);
-//   const SaveUser=(e)=>{
-//      e.preventDefault();
-//   //   const user={user,otp}
-//   //   Connection.getToken(user).then((response)=>{
-//   //     console.log(response.data);
+  let navigate=useNavigate()
+  const id =0
+  const [otp, SetOtp] = useState('')
+  // var [token,setToken]=useState(sessionStorage.getItem("JwtToken"))
+  const { state } = useLocation();
+  var token=state.token
+  const Verify=(e)=>{
+     e.preventDefault();     
+     const user={otp,token,token}
+    Connection.verifyot(user).then((response)=>{
+      console.log(response.data)
+      if(response.data!= null){
+        navigate("/setnewpassword",{
+          state: {
+              token:token,
+               }
+      });
+      }
     
-//  // } ).catch(error =>{console.log("Invalid Otp")})
-//}
+  } ).catch(error =>{navigate("/")})
+}
  
   
 
@@ -36,15 +43,16 @@ const VerifyOTP = () => {
                           <label className="form-label mt-4">Enter OTP</label>
                           <input type="number" 
                           placeholder="Enter OTP" 
-                          // name="otp" 
-                          // value={location.useState.userid}
-                          //onChange={(e)=>SetUsername(e.target.value)}
+                           name="otp" 
+                           value={otp}
+                          onChange={(e)=>SetOtp(e.target.value)}
                           className="form-control rounded-pill mt-2" 
                           ></input>
                       </div>
                      
                      <div className='d-grid gap-2'>
                       <button className="btn btn-primary mt-4 rounded-pill" 
+                      onClick={(e)=>Verify(e)}
                       >Verify</button>
                       </div>
                   </form>

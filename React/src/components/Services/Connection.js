@@ -17,19 +17,19 @@ class Connection{
         return axios.post('http://127.0.0.1:8087/api/secure/token',user)
       }
 
-      getAllUsers(){
-        return axios.get('http://localhost:8080/api/v1/employees')
-      }
-
-      // createAdmin(admin){
-      //   return axios.post('http://localhost:8080',admin)
+      // getAllUsers(){
+      //   return axios.get('http://localhost:8080/api/v1/employees')
       // }
+
+      savePassword(password){
+        return axios.post('http://127.0.0.1:8087/api/secure/savepassword',password)
+      }
       saveCustomer(customer){      
         return axios.post('http://127.0.0.1:8087/api/secure/signupcustomer',customer)
       }
    
-      // getAdminById(adminId){
-      //   return axios.get('http://localhost:8080' + '/' + adminId)
-      // }
+      verifyot(user){
+        return axios.post('http://127.0.0.1:8087/api/secure/verifyotp',user)
+      }
 }
 export default new Connection();

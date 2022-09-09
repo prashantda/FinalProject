@@ -1,25 +1,34 @@
 import React, { useEffect , useState } from 'react'
-import {  Link, useNavigate,useParams } from "react-router-dom";
+import {  Link, useNavigate,useLocation } from "react-router-dom";
 import Connection from '../components/Services/Connection' 
  
 const NewPassword = () => {
-  let history=useNavigate()
-  const [username, SetUsername] = useState('')
-  const [password, SetPassword] = useState('')
- 
-  const SaveUser=(e)=>{
+  let navigate=useNavigate()
+  const id=1
+  const [otp, SetPassword] = useState('')
+  const [cnfpassword, SetConfirmPassword] = useState('')
+  
+  const { state } = useLocation();
+  const token=state.token
+  
+  const SetNewPass=(e)=>{
     e.preventDefault();
-    const user={username,password}
-    Connection.getToken(user).then((response)=>{
-      console.log(response.data);
+    const user={id,otp,token}
+    Connection.savePassword(user).then((response)=>{
+      if(response.data!=0){
+       
+        navigate("/signIn")
+      }
     
-  } ).catch(error =>{console.log("Something Went Wrong")})}
+  } ).catch(error =>navigate("/"))}
  
   
 
 
   return (
     <>
+
+
 
 
 
@@ -30,38 +39,29 @@ const NewPassword = () => {
                   <form>
                   <h3 className='text-center'>New Password</h3>
                       <div className="form-group mb-2">
-                          <label className="form-label mt-4">Enter Password</label>
+                          <label className="form-label mt-4">Enter New Password</label>
                           <input type="password" 
-                          placeholder="Enter Password" 
-                          name="password" 
-                          //value={otp}
-                          //onChange={(e)=>SetUsername(e.target.value)}
+                          placeholder="Enter OTP" 
+                           name="otp" 
+                           value={otp}
+                          onChange={(e)=>SetPassword(e.target.value)}
                           className="form-control rounded-pill mt-2" 
                           ></input>
                       </div>
-                      <div className="form-group mb-2">
-                          <label className="form-label mt-4">Confirm Password</label>
-                          <input type="text" 
-                          placeholder="Confirm Password" 
-                          name="cnfpassword" 
-                          //value={otp}
-                          //onChange={(e)=>SetUsername(e.target.value)}
-                          className="form-control rounded-pill mt-2" 
-                          ></input>
-                      </div>
+                     
                      <div className='d-grid gap-2'>
                       <button className="btn btn-primary mt-4 rounded-pill" 
+                      onClick={(e)=>SetNewPass(e)}
                       >Save</button>
                       </div>
                   </form>
               
-              <div className='d-grid gap-2'>
+                  <div className='d-grid gap-2'>
                       <button className="btn btn-success mt-4 rounded-pill" >SignIn</button>
                       </div>
          
       </div>
       </div>
-
 
 
     </>

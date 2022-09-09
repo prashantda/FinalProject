@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -43,14 +44,24 @@ public class UserService {
 	@Autowired
 	private VerificationTokenRepository vtr;
 	@Autowired
-	private UserService userService;
+	private PasswordEncoder pe;
+	
 	private static final String SECURITY_SERVICE= "SecurityService";
 	
 	public User findByUsername(String username) {
 		return userRepository.findByUsername(username);
 	}
 	
-	
+	public void savePassword(User u) {
+		u.setPassword(pe.encode(u.getPassword()));
+		u.setAccountNonExpired(true);
+		u.setAccountNonLocked(true);
+		u.setCredentialsNonExpired(true);
+		u.setEnabled(true);
+		if(Optional.ofNullable(userRepository.save(u)).isPresent())
+			return;
+			throw new RuntimeException();
+	}
 	
 	
 	
@@ -58,7 +69,7 @@ public class UserService {
 	
 	public Optional<User> getUserFromToken(String token){
 		String mail=jwtUtil.getUsernameFromToken(token);
-		return Optional.ofNullable(userService.findByUsername(mail));
+		return Optional.ofNullable(this.findByUsername(mail));
 	}
 	
 	
@@ -71,6 +82,7 @@ public class UserService {
 		
 		VerificationToken vt=l.get(0);
 		if(vt.getOtp()==Integer.valueOf(uo.getOtp()))
+			vtr.deleteById(vt.getId());
 			return Optional.ofNullable(true);
 	}	
 		return Optional.ofNullable(false);	
@@ -82,7 +94,7 @@ public class UserService {
 		u.setName(cust.getName());
 		u.setMobile(cust.getMobile());
 		u.setUsername(cust.getUsername());
-		u.setPassword(jwt.passwordEncoder().encode(cust.getPassword()));
+		u.setPassword(jwt.passwordEncoder().encode("wishit"));
 		u.setRole("CUSTOMER");		
 		u.setEnabled(false);
 		u.setAccountNonExpired(false);
