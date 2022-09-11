@@ -27,11 +27,14 @@ class Connection{
       savePassword(password){
         return axios.post('http://127.0.0.1:8087/api/secure/savepassword',password)
       }
+      forgotPass(user){
+        return axios.post('http://127.0.0.1:8087/api/secure/forgotpassword',user)
+      }
       saveCustomer(customer){      
         return axios.post('http://127.0.0.1:8087/api/secure/signupcustomer',customer)
       }
       saveSupplier(supplier){      
-        return axios.post('http://127.0.0.1:8087/api/secure/signupcustomer',supplier)
+        return axios.post('http://127.0.0.1:8087/api/secure/signupsupplier',supplier)
       }
    
       verifyot(user){

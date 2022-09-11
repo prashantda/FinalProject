@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item key="wrap" value="true"/>
-		<item key="casesensitive" value="true"/>
+		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="saveToken"/>
 			<item value="agent"/>
 			<item value="zipkin"/>
 			<item value="hystrix"/>
@@ -22,7 +23,6 @@
 			<item value="fileController"/>
 			<item value="role"/>
 			<item value="Customer"/>
-			<item value="customerService"/>
 		</list>
 		<list key="replacehistory">
 			<item value="EmployeeFinance"/>

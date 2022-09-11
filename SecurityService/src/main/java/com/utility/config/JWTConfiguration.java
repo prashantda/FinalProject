@@ -27,11 +27,11 @@ public class JWTConfiguration extends WebSecurityConfigurerAdapter{
     @Autowired
     private JwtAuthenticationFilter jwtFilter;
 
-
+    private static final String SECURITY_API="/api/secure/";
 	private static final String[] WHITE_LIST_URL_STRINGS = {
 			"/api/secure/token","/api/secure/signupcustomer",
 			"/api/secure/verifyotp","/api/secure/savepassword",
-			"/api/secure/signupsupplier"
+			SECURITY_API+"signupsupplier",SECURITY_API+"forgotpassword"
 			
 	};
 

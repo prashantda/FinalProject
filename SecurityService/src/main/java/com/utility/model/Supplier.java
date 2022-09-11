@@ -13,7 +13,7 @@ import com.utility.model.*;
 public class Supplier {
 	
 	
-	private long serviceproviderid;
+	private long supplierid;
 	
 	private String address;
 	
@@ -22,8 +22,9 @@ public class Supplier {
 	private long aadhaar;
 	
 	private Date dob;
-	private int serviceid;	
+	private ServiceType serviceType;	
 	private long userid;
+	private int charge;
  
 	
 	

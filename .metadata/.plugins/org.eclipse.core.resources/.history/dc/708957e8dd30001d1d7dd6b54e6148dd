@@ -1,0 +1,34 @@
+package com.utility.entity;
+import java.util.Date;
+import java.util.List;
+import javax.persistence.*;
+import lombok.*;
+import com.utility.model.*;
+
+
+@Entity
+@Table(name="suppliers")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Supplier {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long serviceproviderid;
+	@Column
+	private String address;
+	@Column
+	private int pincode;
+	@Column
+	private long aadhaar;
+	@Column
+	private Date dob;
+	private int charge;
+	@Column
+	
+	private long userid;
+ 
+	
+	
+}

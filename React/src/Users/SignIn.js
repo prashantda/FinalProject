@@ -1,3 +1,19 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useEffect , useState } from 'react'
 import {  Link, useNavigate } from "react-router-dom";
 import Connection from '../components/Services/Connection' 
@@ -8,7 +24,7 @@ const SignIn = () => {
   const [password, SetPassword] = useState('')
  
 
-  const SaveUser=(e)=>{
+  const Login=(e)=>{
     e.preventDefault();
     const user={username,password}
     Connection.getToken(user).then((response)=>{
@@ -21,7 +37,7 @@ const SignIn = () => {
     }
     if(response.data.role=='CUSTOMER')
     {
-      navigate("/cdashboard")
+      navigate("/dashboardc")
     }
     if(response.data.role=='SUPPLIER')
     {
@@ -32,7 +48,26 @@ const SignIn = () => {
     
   } ).catch(error =>{console.log("Invalid Username or Password")})}
  
-  
+ const Forgot=(e)=>{
+  e.preventDefault();
+  const user={username,password}
+  //validate that username is provided
+  Connection.forgotPass(user).then((response)=>{
+    
+    if(response.data.userid!=0)
+        {
+      
+       const tok= response.data.token;
+        navigate('/verify',
+        {
+            state: {
+                token: tok,
+                 }
+        });  }
+
+
+  }).catch(error=>{console.log("Invalid Username or Password")})
+ }
 
 
   return (
@@ -66,11 +101,11 @@ const SignIn = () => {
                       </div>
                      <div className='d-grid gap-2'>
                       <button className="btn btn-primary mt-4 rounded-pill" 
-                      onClick={(e)=>SaveUser(e)}>Submit</button>
+                      onClick={(e)=>Login(e)}>Submit</button>
                       </div>
                   </form>
               
-              <div className='text-center mt-3'><small><a href=''>
+              <div className='text-center mt-3'><small><a href='' onClick={(e)=>Forgot(e)}>
                 Forgot Password</a></small>
               </div>
          

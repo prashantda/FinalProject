@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.utility.entity.ServiceType;
 import com.utility.entity.Supplier;
 import com.utility.model.User;
+import com.utility.service.ServiceTypeService;
 import com.utility.service.SupplierService;
 import com.utility.valueobjects.ResponseTemplate;
 @RestController
@@ -24,9 +27,10 @@ public class SupplierController {
 	
 	@Autowired
 	private SupplierService supplierService;
-	
+	@Autowired ServiceTypeService sts;
 	@PostMapping("/savesupplier")
 	public Supplier saveSupplier(@RequestBody Supplier supplier) {
+		supplier.setServiceType(sts.getServiceType(supplier.getServiceType()));		
 		return supplierService.saveSupplier(supplier);
 	}
 	@GetMapping("/getsupplier/{id}")

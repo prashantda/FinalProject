@@ -15,17 +15,21 @@ public class Supplier {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long serviceproviderid;
-	@Column
+	private long supplierid;
+	@Column(length = 255,nullable = false)
 	private String address;
-	@Column
+	@Column(length = 6,nullable = false)
 	private int pincode;
-	@Column
+	@Column(length = 12,nullable = false)
 	private long aadhaar;
 	@Column
 	private Date dob;
-	@Column
+	@Column(length = 4,nullable = false)
+	private int charge;
 	
+	@OneToOne
+	private ServiceType serviceType;
+	@Column(unique = true,nullable = false)
 	private long userid;
  
 	

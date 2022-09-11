@@ -23,6 +23,7 @@ import com.utility.entity.User;
 import com.utility.entity.VerificationToken;
 import com.utility.model.CSignUp;
 import com.utility.model.Customer;
+import com.utility.model.ServiceType;
 import com.utility.model.Supplier;
 import com.utility.model.UserOtp;
 import com.utility.repository.UserRepository;
@@ -46,6 +47,9 @@ public class UserService {
 	private VerificationTokenRepository vtr;
 	@Autowired
 	private PasswordEncoder pe;
+	
+	
+	private static final String CUSTOMER_API="http://CUSTOMER-SERVICE/api/customer/";
 	private static final String SUPPLIER_API="http://SUPPLIER-SERVICE/api/supplier/";
 	private static final String SECURITY_SERVICE= "SecurityService";
 	
@@ -53,15 +57,17 @@ public class UserService {
 		return userRepository.findByUsername(username);
 	}
 	
-	public void savePassword(User u) {
+	public boolean savePassword(User u) {
 		u.setPassword(pe.encode(u.getPassword()));
 		u.setAccountNonExpired(true);
 		u.setAccountNonLocked(true);
 		u.setCredentialsNonExpired(true);
 		u.setEnabled(true);
-		if(Optional.ofNullable(userRepository.save(u)).isPresent())
-			return;
-			throw new RuntimeException();
+		User us=userRepository.save(u);
+		
+		long id=vtr.findAll().stream().filter(vt->vt.getUser().getId()==us.getId()).collect(Collectors.toList()).get(0).getId();
+		vtr.deleteById(id);
+			return true;		
 	}
 	
 	
@@ -79,13 +85,13 @@ public class UserService {
 				v->v.getUser().getId()==uo.getUserid())
 				.collect(Collectors.toList()));	
 	List<VerificationToken> l=(List)o.get();	
-	if(!l.isEmpty()) {
-		
+	if(!l.isEmpty()) {		
 		VerificationToken vt=l.get(0);
 		if(vt.getOtp()==Integer.valueOf(uo.getOtp()))
 			vtr.deleteById(vt.getId());
 			return Optional.ofNullable(true);
 	}	
+	
 		return Optional.ofNullable(false);	
 	}
 	
@@ -97,8 +103,8 @@ public class UserService {
 		u.setMobile(cust.getMobile());
 		u.setUsername(cust.getUsername());
 		u.setPassword(jwt.passwordEncoder().encode("wishit"));
-		if(cust.getService()==null)
-		u.setRole("CUSTOMER");
+		if(cust.getService()==0)
+			u.setRole("CUSTOMER");
 		else 
 			u.setRole("SUPPLIER");
 		u.setEnabled(false);
@@ -146,8 +152,15 @@ public class UserService {
 		c.setPincode(supp.getPincode());
 		c.setAadhaar(supp.getAadhaar());
 		c.setDob(supp.getDob());
+		c.setCharge(supp.getCharge());
 		c.setUserid(0);
-		c.setServiceid(0);
+		System.out.println("before setting servicetype"+supp.getService());
+		if((supp.getService())==0)
+			c.setServiceType(new ServiceType(1,""));
+		else 
+			c.setServiceType(new ServiceType(supp.getService(),""));
+		System.out.println(c.getServiceType().getId());
+		System.out.println("Supplier Created- UserService.getSupplierFromSignup");
 		return c;
 	
 	}
@@ -163,19 +176,18 @@ public class UserService {
 			throw new RuntimeException(e);
 		}
 		HttpEntity<String> entity=new HttpEntity<String>(json,http); 
-		ResponseEntity<HttpEntity> o=restTemplate.exchange(SUPPLIER_API+"savesupplier", HttpMethod.POST, entity, HttpEntity.class);
+		ResponseEntity<HttpEntity> o=restTemplate.exchange("http://SUPPLIER-SERVICE/api/supplier/savesupplier", HttpMethod.POST, entity, HttpEntity.class);
 		if(o.getStatusCodeValue()==200)
 			return true;
 		else 
 			return false;
 	}
 
+	
+	
 	public boolean getsFallback(Exception e) {		
 		return false;
 	}
 
-	public int getServiceId(String service) {
-		
-		return 0;
-	}
+	
 }

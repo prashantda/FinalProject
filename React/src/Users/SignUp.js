@@ -1,3 +1,5 @@
+
+
 import React, { useEffect , useState } from 'react'
 import {  Link, useNavigate } from "react-router-dom";
 import Connection from '../components/Services/Connection' 
@@ -20,6 +22,7 @@ const SignUp = () => {
 
     const SaveUser=(e)=>{
         e.preventDefault();
+       
         const customer={name,address,pincode,dob,aadhaar,mobile,username}
         Connection.saveCustomer(customer).then((response)=>{         
         if(response.data.userid!=0)

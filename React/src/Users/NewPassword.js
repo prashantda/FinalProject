@@ -36,7 +36,7 @@ const NewPassword = () => {
                       <div className="form-group mb-2">
                           <label className="form-label mt-4">Enter New Password</label>
                           <input type="password" 
-                          placeholder="Enter OTP" 
+                          placeholder="Enter New Password" 
                            name="otp" 
                            value={otp}
                           onChange={(e)=>SetPassword(e.target.value)}
@@ -46,7 +46,7 @@ const NewPassword = () => {
                       <div className="form-group mb-2">
                           <label className="form-label mt-4">Confirm New Password</label>
                           <input type="password" 
-                          placeholder="Enter OTP" 
+                          placeholder="Confirm Password" 
                            name="cnfpassword" 
                            value={cnfpassword}
                           onChange={(e)=>SetConfirmPassword(e.target.value)}

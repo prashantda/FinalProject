@@ -8,14 +8,16 @@ const JoinUs= () => {
     const [pincode, SetPincode] = useState('')
     const [dob, SetDob] = useState('')
     const [aadhaar, SetAadhaar] = useState('')
+    const [charge, SetCharge] = useState('')
     const [mobile, SetMobile] = useState('')   
     const [username, SetUsername] = useState('')
     const [service, SetService] = useState('')
-
+   
     const SaveUser=(e)=>{
         e.preventDefault();
-        const customer={name,address,pincode,dob,aadhaar,mobile,username}
-        Connection.saveSupplier(customer).then((response)=>{         
+      
+        const supplier={name,address,pincode,dob,aadhaar,mobile,username,charge}
+        Connection.saveSupplier(supplier).then((response)=>{         
         if(response.data.userid!=0)
         {
        
@@ -87,6 +89,9 @@ const JoinUs= () => {
                           className="form-control rounded-pill mt-2" 
                           required></input>
                       </div>
+                      
+
+
                       <div className="form-group mb-2">
                           <label className="form-label mt-4">Address</label>
                           <input type="text" 
@@ -123,28 +128,38 @@ const JoinUs= () => {
                           required></input>
                       </div>
 
-
-                      
+                      <div className="form-group mb-2">
+                          <label className="form-label mt-4">Minimum Visit Charges</label>
+                          <input type="number" 
+                          placeholder="Enter visit charges" 
+                          name="charge" 
+                          value={charge}
+                          onChange={(e)=>SetCharge(e.target.value)} 
+                          className="form-control rounded-pill mt-2" 
+                          required></input>
+                      </div>
+                       
 
                       <div className="form-group mb-2">
                           <label className="form-label mt-4">Service Type</label>&nbsp;&nbsp;
 
                           <select  name="service"
                           value={service}
-                          onChange={(e)=>SetService(e.target.value)}>
+                          onChange={(e)=>SetService(e.target.value)}
+                          >
                           <option selected disabled >Select Option</option>
-                          <option value={"Plumbing"}>Plumbing</option>
-                          <option >Electrician</option>
-                           <option >Furniture</option>
-                          <option >AC/TV Repair</option>
-                          <option >Painting</option>
-                          <option >Interior Design</option>
-                           <option >Furniture</option>
-                          <option >Fabrication</option>
+                          <option value={"1"}>Plumbing</option>
+                          <option value={"1"}>Electrician</option>
+                           <option value={1}>Furniture</option>
+                          <option value={1}>AC/TV Repair</option>
+                          <option value={1}>Painting</option>
+                          <option value={1}>Interior Design</option>
+                           <option value={1}>Furniture</option>
+                          <option value={1}>Fabrication</option>
                           </select>
                       </div>
                      
-
+ 
 
                      
                     

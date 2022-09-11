@@ -3,6 +3,7 @@ package com.utility.controller;
 
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -30,6 +31,7 @@ import com.utility.model.CSignUp;
 import com.utility.model.Customer;
 import com.utility.model.JwtRequest;
 import com.utility.model.JwtResponse;
+import com.utility.model.ServiceType;
 import com.utility.model.Supplier;
 import com.utility.model.UserOtp;
 import com.utility.service.EmailService;
@@ -53,28 +55,33 @@ public class JwtController {
 	private EmailService email;
 	@Autowired
 	private VerificationTokenService vts;
+
+	@PostMapping("/forgotpassword")
+	public UserOtp forgotPassword(@RequestBody JwtRequest req) {
+		int otp =this.email.sendMail(req.getUsername());
+		User u=userService.findByUsername(req.getUsername());	
+		VerificationToken vt=new VerificationToken(0l,otp,u);
+		Optional<VerificationToken> v=	vts.saveToken(vt);
+		if(v.isPresent()) {
+			
+			UserDetails userDetails=this.customUserDetailsService.loadUserByUsername(req.getUsername());
+			String token=	this.jwtUtil.generateToken(userDetails);
+			
+			return new UserOtp(1,token,token);
+		}
+		return new UserOtp(1,"","");
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	@PostMapping("/signupsupplier")
 	public UserOtp signups(@RequestBody CSignUp supp) {
 		Optional<User>  u=userService.saveUserForCustomer(supp);
-		
+		//service value is coming 0 hence changes in react required
 		Supplier c=userService.getSupplierFromSignup(supp);
-		int service=userService.getServiceId(supp.getService());
+		System.out.println("user saved supplier created");
 		if(u.isPresent())
 		{
-			c.setUserid((u.get()).getId());
-			c.setServiceid(service);
+			c.setUserid((u.get()).getId());	
 		}
 		else {
 			throw new RuntimeException();
@@ -188,13 +195,12 @@ public class JwtController {
 			
 			use.setPassword(uo.getOtp());
 			System.out.println("3");
-			userService.savePassword(use);
-			System.out.println("4");
-			return 1;
+			if(userService.savePassword(use))			
+				return 1;
 		}
-		else {
-			throw new RuntimeException();
-		}
+		
+		return 0;
+		
 	}
 	
 }

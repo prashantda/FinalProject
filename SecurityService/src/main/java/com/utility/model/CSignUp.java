@@ -18,6 +18,7 @@ public class CSignUp {
 	private long aadhaar;
 	private String mobile;
 	private String username;	
-	private String service;
+	private int service;
+	private int charge;
 			
 }

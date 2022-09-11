@@ -14,6 +14,7 @@ import com.utility.repository.VerificationTokenRepository;
 public class VerificationTokenService {
 	@Autowired
 	private VerificationTokenRepository vtr;
+	
 	public Optional<VerificationToken> saveToken(VerificationToken vt) {
 		Optional<List<VerificationToken>> o	=Optional.ofNullable(vtr.findAll().stream().filter(
 		v->v.getUser().getId()==vt.getUser().getId())

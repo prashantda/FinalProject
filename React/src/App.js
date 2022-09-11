@@ -14,6 +14,8 @@ import VerifyOtp from './Users/VerifyOTP';
 import NewPassword from './Users/NewPassword';
 import Home from './components/Shared/Home';
 import SDashBoard from './components/Supplier/SDashBoard';
+import SProfile from './components/Supplier/SProfile';
+import SEditProfile from './components/Supplier/SEditProfile';
 import ADashBoard from './components/Admin/ADashBoard';
 import AdminProfile from './components/Admin/AdminProfile';
 import AdminCustomerList from './components/Admin/AdminCustomerList';
@@ -25,6 +27,7 @@ import CustomerProfile from './components/Customer/ProfileC';
 import Card from './Users/Card';
 import AdminList from './components/Admin/AdminList';
 import OrderList from './components/Admin/OrderList';
+
 function App() {
   return (
     <>
@@ -51,12 +54,14 @@ function App() {
       
       <Route exact path="/dashboardc" element={<CDashBoard/>}/>
       <Route exact path="/editprofilec" element={<EditProfileC/>}/>
+      <Route exact path="/editprofiles" element={<SEditProfile/>}/>
       <Route exact path="/verify" element={<VerifyOtp/>}/>
       <Route exact path="/profilec" element={<CustomerProfile/>}/>
       <Route exact path="/setnewpassword" element={<NewPassword/>}/>
       <Route exact path="/card" element={<Card/>}/>
       <Route exact path="/adminList" element={<AdminList/>}/>
       <Route exact path="/OrderList" element={<OrderList/>}/>
+      <Route exact path="/profiles" element={<SProfile/>}/>
       </Routes>
       <Footer />
       </>

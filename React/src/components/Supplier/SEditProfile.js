@@ -39,6 +39,14 @@ export default class SEditProfile extends Component {
                           className="form-control rounded-pill mt-2" 
                           required></input>
                       </div>
+                      <div className="form-group mb-2">
+                          <label className="form-label mt-4">Minimum Visit Charges</label>
+                          <input type="number" 
+                          placeholder="Enter visit charges" 
+                          name="Charage"  
+                          className="form-control rounded-pill mt-2" 
+                          required></input>
+                      </div>
                         <div className="form-group mb-2">
                             <label className="form-label mt-3">Date Of Birth</label>
                             <input type="date" placeholder="Enter DOB" name="dob" className="form-control rounded-pill mt-2"
@@ -49,6 +57,7 @@ export default class SEditProfile extends Component {
                             <input type="number" placeholder="Enter Aadhaar No." name="aadhaar"
                                 className="form-control rounded-pill mt-2" required></input>
                         </div>
+                        
                         <Link to={`/profileC`}><button className="btn btn-success col-4 rounded-pill mt-2 offset-4 "  >Save Profile</button></Link><br></br>
                         <button className="btn rounded-pill mt-5   "  ></button>
                     </form>
