@@ -49,7 +49,7 @@ public class JWTConfiguration /*extends WebSecurityConfigurerAdapter*/{
 //	@Override
 //	protected void configure(HttpSecurity http) throws Exception {
 	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) {
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		
 		http.
 		csrf()
