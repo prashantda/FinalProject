@@ -1,5 +1,8 @@
 package com.utility.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +21,15 @@ public class ServiceTypeService {
 	public ServiceType getServiceType(ServiceType serviceid) {
 		System.out.println(serviceid);
 		return str.findById(serviceid.getId()).get();		 
+	}
+
+	public List<ServiceType> findAll() {
+	Optional o=	Optional.ofNullable(str.findAll());
+	List<ServiceType> l = null;
+	if(o.isPresent())
+			l=(List<ServiceType>) o.get();
+	if(!l.isEmpty())
+		return l;
+	throw new RuntimeException();
 	}
 }

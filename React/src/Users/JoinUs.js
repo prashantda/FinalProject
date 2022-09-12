@@ -154,7 +154,7 @@ const JoinUs= () => {
                           <option value={1}>AC/TV Repair</option>
                           <option value={1}>Painting</option>
                           <option value={1}>Interior Design</option>
-                           <option value={1}>Furniture</option>
+                           
                           <option value={1}>Fabrication</option>
                           </select>
                       </div>

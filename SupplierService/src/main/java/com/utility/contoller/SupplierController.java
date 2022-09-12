@@ -33,6 +33,32 @@ public class SupplierController {
 		supplier.setServiceType(sts.getServiceType(supplier.getServiceType()));		
 		return supplierService.saveSupplier(supplier);
 	}
+	@GetMapping("/getservices")
+	public Object getAllServices(@RequestHeader(value ="Authorization") String auth){
+		return sts.findAll();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@GetMapping("/getsupplier/{id}")
 	public Supplier getSupplier(@PathVariable("id") long id) {
 		return supplierService.getSupplier(id);
@@ -47,13 +73,11 @@ public class SupplierController {
 	public ResponseTemplate getsc(@PathVariable("id") long id) {
 		return supplierService.getsc(id);	
 	}
-	@GetMapping("/about")
-	public String about(@RequestHeader(value ="Authorization") String auth) {
-		return supplierService.about(auth);	
-	}
+		
+	
 	@GetMapping("/getuser")
 	public User getUser(@RequestHeader(value ="Authorization") String auth) {
-		return supplierService.getUser(auth);	
+		return supplierService.getSupplierUser(auth);	
 	}
 	@GetMapping("/getusc/{id}")
 	public Object getUSC(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") long id) {

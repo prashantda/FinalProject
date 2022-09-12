@@ -1,5 +1,7 @@
 package com.utility.aopconfig;
 
+import java.util.List;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import com.utility.entity.ServiceType;
 import com.utility.model.User;
 import com.utility.service.SupplierService;
 import com.utility.valueobjects.ResponseTemplate;
@@ -21,7 +24,7 @@ public class AspectConfiguration {
 	@Autowired
 	private SupplierService supplierService;
 	
-	@Pointcut ("execution(*  com.utility.contoller.*.getUSC(..))")
+	@Pointcut ("execution(*  com.utility.contoller.*.getAllServices(..))")
 	public void logging() {}
 	
 	@Around("logging()")	
@@ -31,14 +34,13 @@ public class AspectConfiguration {
 		System.out.println(pjp.getSignature());
 //		System.out.println(pjp.getTarget());
 		String token=(String)args[0];
-		User user=supplierService.getUser(token);
+		System.out.println("AOP get all services"+token);
+		User user=supplierService.getCustomerUser(token);
 		Object object=null;
+		System.out.println(user);
 		object=pjp.proceed();
-		USC usc=new USC();
-		usc.setCustomer(((ResponseTemplate)object).getCustomer());
-		usc.setSupplier(((ResponseTemplate)object).getSupplier());
-		usc.setUser(user);
-		object=(Object)usc;
+		List<ServiceType> list=(List<ServiceType>)object;
+		object=(Object)list;
 		Object object1=null;
 		System.out.println("After");
 		if(user !=null)
@@ -46,4 +48,7 @@ public class AspectConfiguration {
 		else 
 			return object1;
 	}
+	
+	
+	
 }

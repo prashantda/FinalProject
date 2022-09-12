@@ -9,9 +9,13 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
@@ -41,7 +45,8 @@ import com.utility.service.VerificationTokenService;
 @RestController
 @RequestMapping("/api/secure")
 @CrossOrigin
-public class JwtController {
+
+public class JwtController  {
 	
 	@Autowired
 	private AuthenticationManager authenticationManager;
@@ -127,8 +132,21 @@ public class JwtController {
 	return  ResponseEntity.ok().headers(htt).body(res);
 	
 	}
-	@GetMapping("/getuser")
-	public User  getUser(@RequestHeader(value = "Authorization") String auth) {
+	@GetMapping("/getadminuser")
+	@Secured("ROLE_ADMIN")
+	public User  getAUser(@RequestHeader(value = "Authorization") String auth) {
+	String	Username=jwtUtil.getUsernameFromToken(auth.substring(7));
+		return userService.findByUsername(Username);
+	}
+	@GetMapping("/getcustomeruser")
+	//@Secured("ROLE_CUSTOMER")
+	public User  getCUser(@RequestHeader(value = "Authorization") String auth) {
+	String	Username=jwtUtil.getUsernameFromToken(auth.substring(7));
+		return userService.findByUsername(Username);
+	}
+	@GetMapping("/getsupplieruser")
+	@Secured("ROLE_SUPPLIER")
+	public User  getSUser(@RequestHeader(value = "Authorization") String auth) {
 	String	Username=jwtUtil.getUsernameFromToken(auth.substring(7));
 		return userService.findByUsername(Username);
 	}
