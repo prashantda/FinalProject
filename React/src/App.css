@@ -80,6 +80,7 @@ p, a, li, button, ul {
     top: 0;
     z-index: 9999;
     transition:  0.32s ease-in-out;
+    height: 10vh;
   }
   nav.navbar.scrolled {
     padding: 0px 0;
@@ -262,6 +263,22 @@ p, a, li, button, ul {
     color: #757380;
     text-align: left;
   }
+
+  .searchbar{
+    display: flex;
+    align-items: center; 
+    padding: 05px 05px; 
+  }
+  .searchinput{
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 15px;
+  font-size: 20px;
+  padding-left: 15px;
+  color: black;
+  }
+  
   /* nav.navbar .menuContainer ul li Link{
     list-style: none;
   } 
@@ -346,6 +363,89 @@ p, a, li, button, ul {
   }
 
   nav.navbar .menuContainer2 h5{
+    list-style: none;
+    margin: 5px 0px;
+    width: 100%;
+    padding: 10px 10px;
+    cursor: pointer;
+    color: #757380;
+    text-align: left;
+  }
+  /* customer navbar  profile*/
+  nav.navbar .menuChevron3{
+    cursor: pointer;
+  }
+  nav.navbar .menuContainer3{
+    position: absolute;
+    right: 232px;
+    top: 65px;
+    background: #fff;
+    border-radius: 0.5em;
+    width: 110px;
+    height: 40px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+    z-index: 1;
+    transform: translateX(700px);
+    transition: transform 0.2s cubic-bezier(0.17,0.81,0.38,1.39);
+  }
+  nav.navbar .menuContainer3::after{
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    top: -5px;
+    right: 52px;
+    transform: rotate(45deg);
+  }
+  nav.navbar .menuContainer3 h5{
+    width: 50%;
+    height: 50%;
+  }
+
+  nav.navbar .menuContainer3 h5{
+    list-style: none;
+    margin: 5px 0px;
+    width: 100%;
+    padding: 10px 10px;
+    cursor: pointer;
+    color: #757380;
+    text-align: left;
+  }
+
+  /* customer navbar logout */
+  nav.navbar .menuChevron4{
+    cursor: pointer;
+  }
+  nav.navbar .menuContainer4{
+    position: absolute;
+    right: 175px;
+    top: 65px;
+    background: #fff;
+    border-radius: 0.5em;
+    width: 110px;
+    height: 40px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+    z-index: 1;
+    transform: translateX(700px);
+    transition: transform 0.2s cubic-bezier(0.17,0.81,0.38,1.39);
+  }
+  nav.navbar .menuContainer4::after{
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    top: -5px;
+    right: 52px;
+    transform: rotate(45deg);
+  }
+  nav.navbar .menuContainer4 h5{
+    width: 50%;
+    height: 50%;
+  }
+
+  nav.navbar .menuContainer4 h5{
     list-style: none;
     margin: 5px 0px;
     width: 100%;
@@ -965,4 +1065,73 @@ p, a, li, button, ul {
 
 .cards:hover::before{
   background-position: 0%;
+}
+
+/* sidebar */
+.sidebar{
+  /* position: absolute; */
+  background-color: rgb(0, 7, 61);
+  color:white;
+  height: fit-content;
+}
+
+.routes{
+  color: white;
+}
+
+.top_section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px;
+}
+
+.logo{
+  font-size: 18px;
+  line-height: 0;
+}
+
+.search{
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+  height: 30px;
+  padding: 10px;
+}
+
+.search input{
+  border: none;
+  /* width: 160px; */
+  margin-left: 10px;
+  border-radius: 5px;
+  background-color: rgb(238, 238, 238);
+  /* padding: 5px 10px; */
+}
+
+.linked{
+  display: flex;
+  color: white;
+  gap: 10px;
+  padding: 5px 10px;
+  border-right: 4px solid transparent;
+  transition: 0.2s cubic-bezier(0.6,-0.28,0.735,0.045);
+}
+
+.linked{
+  text-decoration: none;
+}
+
+.linked:hover{
+border-right: 4px solid white;
+transition: 0.2s cubic-bezier(0.6,-0.28,0.735,0.045);
+background: rgb(45,51,89);
+}
+
+.link_text{
+  white-space: nowrap;
+  font-size: 15px;
+}
+
+.main-container{
+  display: flex;
 }

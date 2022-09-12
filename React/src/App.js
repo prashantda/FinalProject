@@ -27,6 +27,15 @@ import CustomerProfile from './components/Customer/ProfileC';
 import Card from './Users/Card';
 import AdminList from './components/Admin/AdminList';
 import OrderList from './components/Admin/OrderList';
+import OrderDetails from './components/Admin/OrderDetails';
+import SupplierDetails from './components/Admin/SupplierDetails';
+import CustomerDetails from './components/Admin/CustomerDetails';
+import Sidebar from './Sidebar/Sidebar';
+import CustomerSidebar from './Sidebar/CustomerSidebar'; 
+import CustomerNavbar from './Sidebar/CustomerNavbar'
+import {CustomerNav} from './components/Customer/CustomerNav';
+import {SupplierNav} from './components/Supplier/SupplierNav';
+import {AdminNav} from './components/Admin/AdminNav';
 
 function App() {
   return (
@@ -44,8 +53,9 @@ function App() {
       <Route exact path="/sdashboard" element={<SDashBoard/>}/>
       <Route exact path="/adashboard/" element={<ADashBoard/>}/>
       <Route exact path="/adashboard/a/:id" element={<ADashBoard/>}/>
-      <Route exact path="/adminList/a/:id" element={<AdminProfile/>}/>
+      <Route exact path="/adminList/c/:id/a/:id" element={<AdminProfile/>}/>
       <Route exact path="/adminCustomerList" element={<AdminCustomerList/>}/>
+      <Route exact path="/adminCustomerList/a/:id" element={<AdminCustomerList/>}/>
       <Route exact path="/adminSupplierList" element={<AdminSupplierList/>}/>
       <Route exact path="/adminSupplierList/a/:id" element={<AdminSupplierList/>}/>
       <Route exact path="/Addadmin" element={<AddAdmin/>}/>
@@ -59,6 +69,17 @@ function App() {
       <Route exact path="/profilec" element={<CustomerProfile/>}/>
       <Route exact path="/setnewpassword" element={<NewPassword/>}/>
       <Route exact path="/card" element={<Card/>}/>
+      <Route exact path="/adminList/c/:id" element={<AdminList/>}/>
+      <Route exact path="/OrderList/a/:id" element={<OrderList/>}/>
+      <Route exact path="/OrderList/a/:id" element={<OrderDetails/>}/>
+      <Route exact path="/adminSupplierList/a/:id/d/:id" element={<SupplierDetails/>}/>
+      <Route exact path="/adminCustomerList/a/:id/c/:id" element={<CustomerDetails/>}/>
+      <Route exact path="/sidebar" element={<Sidebar/>}/>
+      <Route exact path="/customersidebar" element={<CustomerSidebar/>}/>
+      <Route exact path="/customernavbar" element={<CustomerNavbar/>}/>
+      <Route exact path="/custnav" element={<CustomerNav/>}/>
+      <Route exact path="/suppnav" element={<SupplierNav/>}/>
+      <Route exact path="/adnav" element={<AdminNav/>}/>
       <Route exact path="/adminList" element={<AdminList/>}/>
       <Route exact path="/OrderList" element={<OrderList/>}/>
       <Route exact path="/profiles" element={<SProfile/>}/>
