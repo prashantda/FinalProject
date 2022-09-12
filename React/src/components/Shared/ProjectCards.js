@@ -6,7 +6,6 @@ return (
         <div className="proj-proj-imgbx">
            <img src={imgUrl} alt="pic5"/> 
             <div className="proj-proj-txtx">
-            {/* <Link to={`/adminSupplierList`}><h4>{title}</h4></Link>  */}
             <h4>{title}</h4>
                 <span>{description}</span>
             </div>

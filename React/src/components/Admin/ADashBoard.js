@@ -55,7 +55,7 @@ const ADashBoard = () => {
           { scaleX: 2 } 
         ]
     }} >All Orders</button></Link>
-                         <Link to={`/adminCustomerList`}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
+                         <Link to={`/adminCustomerList/a/${admin.id}`}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
         width: 350,
         height: 50,
         borderRadius: 140 / 2,
@@ -76,7 +76,7 @@ const ADashBoard = () => {
           { scaleX: 2 }
         ]
     }} >Supplier List</button></Link> 
-   <Link to={`/adminList`}><button className="btn btn-danager col-4 ms-3 rounded-pill mt-2" style={{
+   <Link to={`/adminList/c/${id}`}><button className="btn btn-danager col-4 ms-3 rounded-pill mt-2" style={{
         width: 350,
         height: 50,
         borderRadius: 140 / 2,
@@ -107,7 +107,7 @@ const ADashBoard = () => {
           { scaleX: 2 }
         ]
     }} >Change Password</button></Link>
-    <Link to={``}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
+    <Link to={`/contactUs`}><button className="btn btn-danager col-4  ms-3 rounded-pill mt-2 mb-2" style={{
         width: 350,
         height: 50,
         borderRadius: 140 / 2,

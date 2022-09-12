@@ -43,7 +43,7 @@ const AdminList = () => {
               }
           </tbody>
       </table>
-      <Link to={`/adashboard`}><button className="btn btn-success" >Back To DashBoard</button></Link>
+      <Link to={`/adashboard/a/${id}`}><button className="btn btn-success" >Back To DashBoard</button></Link>
     </div>
     )
 }

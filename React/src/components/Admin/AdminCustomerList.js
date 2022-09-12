@@ -1,8 +1,9 @@
 import React,{useEffect, useState}  from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import Connection from '../Services/Connection'
 
 const AdminCustomerList = () => {
+    const { id } =useParams()
     const [users,setUsers] = useState([])
 
     useEffect(() => {
@@ -34,7 +35,7 @@ const AdminCustomerList = () => {
                           {/* <td>{user.lastName}</td> */}
                           <td>{user.emailId}</td>
                           <td>
-                              <Link className="btn btn-success" to={``}>Details</Link>
+                              <Link className="btn btn-success" to={`c/${user.id}`}>Details</Link>
                           </td>
                           
                       </tr>
@@ -42,7 +43,7 @@ const AdminCustomerList = () => {
               }
           </tbody>
       </table>
-      <Link to={`/adashboard`}><button className="btn btn-success" >Back To DashBoard</button></Link>
+      <Link to={`/adashboard/a/${id}`}><button className="btn btn-success" >Back To DashBoard</button></Link>
     </div>
     )
 }

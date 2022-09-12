@@ -27,14 +27,14 @@ const OrderList = () => {
           <tbody>
               {
                   orders.map(
-                      ad =>
-                      <tr key={ad.id}>
-                          <td>{ad.id}</td>
-                          <td>{ad.firstName}</td>
-                          {/* <td>{ad.lastName}</td> */}
-                          <td>{ad.emailId}</td>
+                      od =>
+                      <tr key={od.id}>
+                          <td>{od.id}</td>
+                          <td>{od.firstName}</td>
+                          {/* <td>{od.lastName}</td> */}
+                          <td>{od.emailId}</td>
                           <td>
-                              <Link className="btn btn-success" to={``}>Details</Link>
+                              <Link className="btn btn-success" to={`a/${od.id}`}>Details</Link>
                           </td>
                           
                       </tr>

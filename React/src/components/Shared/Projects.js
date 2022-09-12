@@ -127,18 +127,6 @@ return (
                            })
                        }
                    </Row></Tab.Pane>
-               {/* <Tab.Pane eventKey="third"><Row>
-                       {
-                           projects.map((project,index)=>{
-                               return(
-                                   <ProjectCards 
-                                   key={index}
-                                   {...project}
-                                   />
-                               )
-                           })
-                       }
-                   </Row></Tab.Pane> */}
                 </Tab.Content>
                 </Tab.Container>
                 </Col>

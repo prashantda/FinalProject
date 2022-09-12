@@ -38,7 +38,7 @@ const AdminSupplierList = () => {
                           <td>{sup.lastName}</td>
                           <td>{sup.emailId}</td>
                           <td>
-                              <Link to={``}><button className="btn btn-success" >Details</button></Link>
+                              <Link to={`d/${sup.id}`}><button className="btn btn-success" >Details</button></Link>
                           </td>
                           
                       </tr>
