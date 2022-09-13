@@ -139,7 +139,7 @@ public class JwtController  {
 		return userService.findByUsername(Username);
 	}
 	@GetMapping("/getcustomeruser")
-	//@Secured("ROLE_CUSTOMER")
+	@Secured("ROLE_CUSTOMER")
 	public User  getCUser(@RequestHeader(value = "Authorization") String auth) {
 	String	Username=jwtUtil.getUsernameFromToken(auth.substring(7));
 		return userService.findByUsername(Username);

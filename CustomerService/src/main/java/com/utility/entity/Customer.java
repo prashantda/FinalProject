@@ -1,9 +1,10 @@
 package com.utility.entity;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
-import com.utility.model.Order;
+
 import com.utility.model.User;
 
 import lombok.*;
@@ -11,7 +12,7 @@ import lombok.*;
 
 
 @Entity
-@Table
+@Table(name = "Customers")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,7 +30,9 @@ public class Customer {
 	@Column
 	private Date dob;	
 	@Column
-	private long userid;	
+	private long userid;
+	@OneToMany(mappedBy = "customerid",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	private List<Order> orders=new ArrayList<Order>(); 
 	
 	
 }

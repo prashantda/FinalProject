@@ -19,7 +19,7 @@ import com.utility.entity.Supplier;
 import com.utility.model.User;
 import com.utility.service.ServiceTypeService;
 import com.utility.service.SupplierService;
-import com.utility.valueobjects.ResponseTemplate;
+
 @RestController
 @RequestMapping("/api/supplier")
 @CrossOrigin
@@ -33,6 +33,7 @@ public class SupplierController {
 		supplier.setServiceType(sts.getServiceType(supplier.getServiceType()));		
 		return supplierService.saveSupplier(supplier);
 	}
+	
 	@GetMapping("/getservices")
 	public Object getAllServices(@RequestHeader(value ="Authorization") String auth){
 		return sts.findAll();
@@ -41,48 +42,22 @@ public class SupplierController {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@GetMapping("/getsupplier/{id}")
-	public Supplier getSupplier(@PathVariable("id") long id) {
+	public Object getSupplier(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") long id) {
 		return supplierService.getSupplier(id);
 	}
 	
 	@GetMapping("/getallsupplier")
-	public List<Supplier> getAllSupplier(){
+	public Object getAllSupplier(@RequestHeader(value ="Authorization") String auth){
 		return supplierService.getAllSupplier();
 	}
 	
-	@GetMapping("/getresponse/{id}")
-	public ResponseTemplate getsc(@PathVariable("id") long id) {
-		return supplierService.getsc(id);	
+	@GetMapping("/supplierdashboard/{id}")
+	public Object supplierDashboard(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") long id){
+		return supplierService.supplierDashboard(id);
 	}
-		
 	
-	@GetMapping("/getuser")
-	public User getUser(@RequestHeader(value ="Authorization") String auth) {
-		return supplierService.getSupplierUser(auth);	
-	}
-	@GetMapping("/getusc/{id}")
-	public Object getUSC(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") long id) {
-		return supplierService.getsc(id);	
-	}
+
 	
 	
 }

@@ -1,54 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="InstallationDialogSettings">
-		<item key="DIALOG_X_ORIGIN" value="-282"/>
-		<item key="DIALOG_Y_ORIGIN" value="-254"/>
-		<item key="DIALOG_WIDTH" value="1162"/>
-		<item key="DIALOG_HEIGHT" value="1008"/>
-		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
-	</section>
-	<section name="NewWizardAction">
-		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.m2e.core.wizards.Maven2ProjectWizard"/>
-		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
-			<item value="org.eclipse.m2e"/>
-		</list>
-	</section>
-	<section name="EditorSelectionDialog">
-	</section>
 	<section name="ImportExportAction">
 		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.m2e.core.wizards.Maven2ImportWizard"/>
-		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.FileSystem"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
 			<item value="org.eclipse.m2e"/>
-		</list>
-		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
-			<item value="org.eclipse.ui.Basic"/>
-		</list>
-	</section>
-	<section name="FileSystemImportWizard">
-		<item key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="true"/>
-		<item key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID" value="false"/>
-		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
-			<item value="P:\PROJECT\Other\jwtauthentication"/>
-			<item value="P:\PROJECT\Other\HystrixDashboard"/>
-			<item value="P:\PROJECT\Other\GREENTECH1"/>
-			<item value="P:\PROJECT\Other\EnterpriseManagementSystem"/>
-			<item value="P:\PROJECT\Other\FileUploaderMiniApp-master"/>
-			<item value="P:\PROJECT\auction-spring-boot-master"/>
-			<item value="P:\PROJECT\Other\labExam"/>
-			<item value="P:\PROJECT\springCRUD"/>
-			<item value="P:\PROJECT\jwtauthentication"/>
-			<item value="P:\Advanced_Java\Practical\Inoway_Servlet_Jsp_Spring_Hibernate\thymeleafdemo1"/>
-			<item value="P:\Advanced_Java\Practical\Inoway_Servlet_Jsp_Spring_Hibernate\spring-mvc-CRUD-CRM-cust-add"/>
-		</list>
-	</section>
-	<section name="FileSystemExportWizard">
-		<item key="WizardFileSystemResourceExportPage1.STORE_OVERWRITE_EXISTING_FILES_ID" value="true"/>
-		<item key="WizardFileSystemResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
-		<item key="WizardFileSystemResourceExportPage1.STORE_RESOLVE_LINKED_RESOURCES_ID" value="false"/>
-		<list key="WizardFileSystemResourceExportPage1.STORE_DESTINATION_NAMES_ID">
-			<item value="P:\PROJECT\Other"/>
-			<item value="C:\Users\prash\Desktop"/>
 		</list>
 	</section>
 </section>

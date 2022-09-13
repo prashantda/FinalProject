@@ -14,8 +14,7 @@ import com.utility.entity.ServiceType;
 import com.utility.entity.Supplier;
 import com.utility.model.User;
 import com.utility.repository.SupplierRepository;
-import com.utility.valueobjects.Customer;
-import com.utility.valueobjects.ResponseTemplate;
+import com.utility.valueobjects.SDashboard;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
@@ -46,40 +45,29 @@ public class SupplierService {
 		
 		return supplierRepository.findAll();
 	}
-//	@CircuitBreaker(name = SUPPLIER_SERVICE, fallbackMethod = "getscFallback")
-	@Retry(name = SUPPLIER_SERVICE,fallbackMethod ="getscFallback" )
-	public ResponseTemplate getsc(long id) {
-		ResponseTemplate rt=new ResponseTemplate();		
-		Supplier s= supplierRepository.findById(id).get();
-//		Customer c=restTemplate.getForObject("http://CUSTOMER-SERVICE/api/customer/getcustomer/"+s.getCustomersid(),Customer.class);
-//		rt.setCustomer(c);
-		rt.setSupplier(s);
-		return rt;
-	}
-	
-	public ResponseTemplate getscFallback(Exception e) {
-		ResponseTemplate rt=new ResponseTemplate();
-		return rt;
-	}
 
 
-	
-	public User getSupplierUser(String auth) {
+
+	@Retry(name = SUPPLIER_SERVICE,fallbackMethod ="getCUfallback" )
+	public User getUser(String auth) {
+		System.out.println("getSupplierUser in");
 		HttpHeaders http=new HttpHeaders();
 		http.add("Authorization",auth);
 		HttpEntity entity=new HttpEntity(http); 
 		HttpEntity response=restTemplate.exchange("http://SECURITY-SERVICE/api/secure/getsupplieruser", HttpMethod.GET, entity, User.class);
-		return (User) response.getBody();
-	}
-	public User getCustomerUser(String auth) {
-		System.out.println("getCustomerUser in");
-		HttpHeaders http=new HttpHeaders();
-		http.add("Authorization",auth);
-		HttpEntity entity=new HttpEntity(http); 
-		HttpEntity response=restTemplate.exchange("http://SECURITY-SERVICE/api/secure/getcustomeruser", HttpMethod.GET, entity, User.class);
 		System.out.println("getCustomerUser out"+response.getBody());
 		return (User) response.getBody();
 	}
+	public User getCUfallback(Exception e) {
+		return new User();
+	}
+
+	public SDashboard supplierDashboard(long id) {
+		SDashboard sd=new SDashboard();
+		sd.setAllorders(id);
+		return null;
+	}
+	
 	
 }
 //public String about(String auth) {
@@ -88,4 +76,19 @@ public class SupplierService {
 //HttpEntity entity=new HttpEntity(http); 
 //HttpEntity response=restTemplate.exchange("http://SECURITY-SERVICE/api/secure/about", HttpMethod.GET, entity, String.class);
 //return (String) response.getBody();		
+//}
+//@CircuitBreaker(name = SUPPLIER_SERVICE, fallbackMethod = "getscFallback")
+//@Retry(name = SUPPLIER_SERVICE,fallbackMethod ="getscFallback" )
+//public ResponseTemplate getsc(long id) {
+//	ResponseTemplate rt=new ResponseTemplate();		
+//	Supplier s= supplierRepository.findById(id).get();
+//	Customer c=restTemplate.getForObject("http://CUSTOMER-SERVICE/api/customer/getcustomer/"+s.getCustomersid(),Customer.class);
+//	rt.setCustomer(c);
+//	rt.setSupplier(s);
+//	return rt;
+//}
+//
+//public ResponseTemplate getscFallback(Exception e) {
+//	ResponseTemplate rt=new ResponseTemplate();
+//	return rt;
 //}

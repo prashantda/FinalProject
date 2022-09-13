@@ -12,10 +12,15 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.utility.entity.ServiceType;
+import com.utility.entity.Supplier;
+import com.utility.model.Customer;
+import com.utility.model.Order;
 import com.utility.model.User;
 import com.utility.service.SupplierService;
-import com.utility.valueobjects.ResponseTemplate;
-import com.utility.valueobjects.USC;
+import com.utility.valueobjects.ALL;
+import com.utility.valueobjects.SDashboard;
+
+
 
 @Aspect
 @Component
@@ -24,7 +29,7 @@ public class AspectConfiguration {
 	@Autowired
 	private SupplierService supplierService;
 	
-	@Pointcut ("execution(*  com.utility.contoller.*.getAllServices(..))")
+	@Pointcut ("execution(Object  com.utility.contoller.*.*(..))")
 	public void logging() {}
 	
 	@Around("logging()")	
@@ -32,21 +37,52 @@ public class AspectConfiguration {
 		System.out.println("Before");
 		Object[] args=pjp.getArgs();
 		System.out.println(pjp.getSignature());
-//		System.out.println(pjp.getTarget());
-		String token=(String)args[0];
-		System.out.println("AOP get all services"+token);
-		User user=supplierService.getCustomerUser(token);
-		Object object=null;
+		String token=(String)args[0];		
+		User user=supplierService.getUser(token);
 		System.out.println(user);
-		object=pjp.proceed();
-		List<ServiceType> list=(List<ServiceType>)object;
-		object=(Object)list;
-		Object object1=null;
+		Object object=pjp.proceed();
+		List list=null;
+		Customer cust=null;
+		Supplier supp=null;
+		ServiceType service=null;
+		Order order=null;
+		List<Supplier> supplierslist=null;
+		List <Customer> customerslist=null;
+		List<ServiceType> servicelist=null;
+		List<Order> orderlist=null;
+		ALL all =new ALL();
+		
+		if(object instanceof List) {
+			list=(List)object;
+			if(list.get(0) instanceof Supplier) {
+				all.setSupplierslist(list);
+			}
+			if(list.get(0) instanceof Customer) {
+				all.setCustomerslist(list);
+			}
+			if(list.get(0) instanceof Order) {
+				all.setOrderlist(list);
+			}
+			if(list.get(0) instanceof ServiceType) {
+				all.setServicelist(list);
+			}
+		}
+		if(object instanceof Supplier)
+			all.setSupplier((Supplier)object);
+		if(object instanceof Customer)
+			all.setCustomer((Customer)object);
+		if(object instanceof Order)
+			all.setOrder((Order)object);
+		if(object instanceof ServiceType)
+			all.setService((ServiceType)object);
+		if(object instanceof SDashboard)
+			all.setSDashboard((SDashboard)object);
+		all.setUser(user);		
 		System.out.println("After");
 		if(user !=null)
-			return object;
+			return (Object)all;
 		else 
-			return object1;
+			return new Object();
 	}
 	
 	

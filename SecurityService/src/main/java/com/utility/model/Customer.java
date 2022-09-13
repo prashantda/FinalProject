@@ -17,6 +17,6 @@ public class Customer {
 	private long aadhaar;	
 	private Date dob;	
 	private long userid;	
-	
+	private List<Order>	orders;
 	
 }

@@ -104,9 +104,9 @@ public class UserService {
 		u.setUsername(cust.getUsername());
 		u.setPassword(jwt.passwordEncoder().encode("wishit"));
 		if(cust.getService()==0)
-			u.setRole("CUSTOMER");
+			u.setRole("ROLE_CUSTOMER");
 		else 
-			u.setRole("SUPPLIER");
+			u.setRole("ROLE_SUPPLIER");
 		u.setEnabled(false);
 		u.setAccountNonExpired(false);
 		u.setAccountNonLocked(false);
