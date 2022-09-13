@@ -21,4 +21,6 @@
     <fullyQualifiedTypeName name="com.utility.service.CustomerService"/>
     <fullyQualifiedTypeName name="antlr.collections.List"/>
     <fullyQualifiedTypeName name="com.utility.entity.Customer"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonBackReference"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonManagedReference"/>
 </qualifiedTypeNameHistroy>

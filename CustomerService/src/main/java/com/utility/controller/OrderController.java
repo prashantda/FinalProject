@@ -22,11 +22,6 @@ public class OrderController {
 	private OrderService os;
 	@Autowired
 	private CustomerService cs;
-	@GetMapping("/corders")
-	public Object getCustomersOrders(@RequestHeader(value = "Authorization") String auth ) {
-		User u=cs.getUser(auth);
-		Customer c=cs.getCustomer(u.getId());
-		return c;
-	}
+	
 	 
 }

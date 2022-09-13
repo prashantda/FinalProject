@@ -16,6 +16,8 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -40,6 +42,7 @@ public class Order {
 	@NotBlank
 	@CreationTimestamp
 	private Date orderdate;
+	@JsonBackReference
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Customer customerid;
 	@Column(nullable = false)

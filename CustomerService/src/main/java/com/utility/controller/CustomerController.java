@@ -33,12 +33,7 @@ public class CustomerController {
 		return customerService.getCustomer(u.getId());
 	}
 	
-	@GetMapping("/corders")
-	public Object getCustomersOrders(@RequestHeader(value = "Authorization") String auth ) {
-		User u=customerService.getUser(auth);
-		Customer c=customerService.getCustomer(u.getId());
-		return c;
-	}
+	
 	@GetMapping("/getallcustomer")
 	public Object getAllCustomers(@RequestHeader(value = "Authorization") String auth){
 		return customerService.getAllCustomers();
