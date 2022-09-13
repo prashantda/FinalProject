@@ -139,13 +139,13 @@ public class JwtController  {
 		return userService.findByUsername(Username);
 	}
 	@GetMapping("/getcustomeruser")
-	@Secured("ROLE_CUSTOMER")
+	@Secured("ROLE_CUSTOMER,ROLE_SUPPLIER")
 	public User  getCUser(@RequestHeader(value = "Authorization") String auth) {
 	String	Username=jwtUtil.getUsernameFromToken(auth.substring(7));
 		return userService.findByUsername(Username);
 	}
 	@GetMapping("/getsupplieruser")
-	@Secured("ROLE_SUPPLIER")
+	@Secured("ROLE_SUPPLIER,ROLE_CUSTOMER")
 	public User  getSUser(@RequestHeader(value = "Authorization") String auth) {
 	String	Username=jwtUtil.getUsernameFromToken(auth.substring(7));
 		return userService.findByUsername(Username);

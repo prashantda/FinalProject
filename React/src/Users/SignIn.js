@@ -11,6 +11,26 @@ const validationSchema = yup.object({
 
   
 });
+//  const validateCustomer=(cdata)=>{
+// const errors={}
+// let pattern1 = /^[a-z0-9._%]+@[a-z0-9.-]+.[a-z]{3}$/
+// let pattern2 = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/
+// if(!cdata.username)
+// errors.username="Email_Id is required"
+//  else if (!pattern1.test(cdata.username))
+//          errors.username = "Use Correct Pattern for Email!"
+
+
+
+// if(!cdata.password)
+// errors.password="password is required"
+// else if (!pattern2.test(cdata.username))
+//         errors.username = "Use Correct Pattern for password!"
+
+
+// return errors
+
+// }
 
 function SignIn(props) {
   useEffect(()=>{
@@ -112,26 +132,7 @@ function SignIn(props) {
 }
 
 
-//  const validateCustomer=(cdata)=>{
-// const errors={}
-// let pattern1 = /^[a-z0-9._%]+@[a-z0-9.-]+.[a-z]{3}$/
-// let pattern2 = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/
-// if(!cdata.username)
-// errors.username="Email_Id is required"
-//  else if (!pattern1.test(cdata.username))
-//          errors.username = "Use Correct Pattern for Email!"
 
-
-
-// if(!cdata.password)
-// errors.password="password is required"
-// else if (!pattern2.test(cdata.username))
-//         errors.username = "Use Correct Pattern for password!"
-
-
-// return errors
-
-// }
 
 
  export default SignIn

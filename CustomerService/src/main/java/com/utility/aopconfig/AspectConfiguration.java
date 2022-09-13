@@ -31,7 +31,7 @@ public class AspectConfiguration {
 	@Autowired
 	private CustomerService customerService;
 	
-	@Pointcut ("execution(Object  com.utility.contoller.*.*(..))")
+	@Pointcut ("execution(Object com.utility.controller.*.*(..))")
 	public void logging() {}
 	
 	@Around("logging()")	
@@ -42,7 +42,8 @@ public class AspectConfiguration {
 		String token=(String)args[0];		
 		User user=customerService.getUser(token);
 		System.out.println(user);
-		Object object=pjp.proceed();
+		Object object=pjp.proceed(); 
+				//null;
 		List list=null;
 		Customer cust=null;
 		Supplier supp=null;

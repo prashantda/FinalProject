@@ -14,13 +14,14 @@ public class CustomerController {
 	public Customer saveCustomer(@RequestBody Customer customer) {
 		return customerService.saveCustomer(customer);
 	}
+	
 	@GetMapping("/getcustomer/{id}")
-	public Customer getCustomer(@PathVariable("id") long id) {
+	public Object getCustomer(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id) {
 		return customerService.getCustomer(id);
 	}
 	
 	@GetMapping("/getallcustomer")
-	public List<Customer> getAllCustomers(){
+	public Object getAllCustomers(){
 		return customerService.getAllCustomers();
 	}
 }
