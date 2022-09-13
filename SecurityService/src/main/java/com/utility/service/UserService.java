@@ -21,13 +21,13 @@ import com.utility.config.JWTConfiguration;
 import com.utility.config.JwtUtil;
 import com.utility.entity.User;
 import com.utility.entity.VerificationToken;
-import com.utility.model.CSignUp;
 import com.utility.model.Customer;
 import com.utility.model.ServiceType;
 import com.utility.model.Supplier;
-import com.utility.model.UserOtp;
 import com.utility.repository.UserRepository;
 import com.utility.repository.VerificationTokenRepository;
+import com.utility.valueobjects.CSignUp;
+import com.utility.valueobjects.UserOtp;
 
 import io.github.resilience4j.retry.annotation.Retry;
 
@@ -56,7 +56,10 @@ public class UserService {
 	public User findByUsername(String username) {
 		return userRepository.findByUsername(username);
 	}
-	
+	public User changePassword(User u) {
+		u.setPassword(pe.encode(u.getPassword()));
+		return userRepository.save(u);
+	}
 	public boolean savePassword(User u) {
 		u.setPassword(pe.encode(u.getPassword()));
 		u.setAccountNonExpired(true);
@@ -188,6 +191,12 @@ public class UserService {
 	public boolean getsFallback(Exception e) {		
 		return false;
 	}
+
+	public User save(User u) {		
+		return userRepository.save(u);
+	}
+
+	
 
 	
 }

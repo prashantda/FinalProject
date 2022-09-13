@@ -52,9 +52,10 @@ public class SupplierController {
 		return supplierService.getAllSupplier();
 	}
 	
-	@GetMapping("/supplierdashboard/{id}")
-	public Object supplierDashboard(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") long id){
-		return supplierService.supplierDashboard(id);
+	@GetMapping("/supplierdashboard")
+	public Object supplierDashboard(@RequestHeader(value ="Authorization") String auth){
+		User u=supplierService.getUser(auth);
+		return supplierService.supplierDashboard(u.getId());
 	}
 	
 

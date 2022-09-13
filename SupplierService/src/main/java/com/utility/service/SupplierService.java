@@ -2,6 +2,8 @@ package com.utility.service;
 
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -36,9 +38,13 @@ public class SupplierService {
 		return supplierRepository.save(supplier);
 	}
 
-	public Supplier getSupplier(long id) {
-		
-		return supplierRepository.findById(id).get();
+	public Supplier getSupplier(long id) {		
+		return supplierRepository
+				.findAll()
+				.stream()
+				.filter(s->s.getUserid()==id)
+				.collect(Collectors.toList())
+				.get(0);
 	}
 	
 	public List<Supplier> getAllSupplier() {
