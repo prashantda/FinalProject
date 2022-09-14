@@ -40,7 +40,13 @@ public class AspectConfiguration {
 		String token=(String)args[0];		
 		User user=supplierService.getUser(token);
 		System.out.println(user);
-		Object object=pjp.proceed();
+		int i=0;
+		for(Object arg:args) {
+			if(arg instanceof User)
+				args[i]=user;
+			i++;
+		}
+		Object object=pjp.proceed(args);
 		List list=null;
 		Customer cust=null;
 		Supplier supp=null;

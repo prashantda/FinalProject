@@ -41,8 +41,13 @@ public class AspectConfiguration {
 		System.out.println(pjp.getSignature());
 		String token=(String)args[0];		
 		User user=customerService.getUser(token);
-		System.out.println(user);
-		Object object=pjp.proceed(); 
+		int i=0;
+		for(Object arg:args) {
+			if(arg instanceof User)
+				args[i]=user;
+			i++;
+		}
+		Object object=pjp.proceed(args); 
 				//null;
 		List list=null;
 		Customer cust=null;

@@ -31,21 +31,21 @@ import com.utility.config.CustomUserDetailsService;
 import com.utility.config.JwtUtil;
 import com.utility.entity.User;
 import com.utility.entity.VerificationToken;
-import com.utility.model.CSignUp;
 import com.utility.model.Customer;
-import com.utility.model.JwtRequest;
-import com.utility.model.JwtResponse;
 import com.utility.model.ServiceType;
 import com.utility.model.Supplier;
-import com.utility.model.UserOtp;
+import com.utility.repository.UserRepository;
 import com.utility.service.EmailService;
 import com.utility.service.UserService;
 import com.utility.service.VerificationTokenService;
+import com.utility.valueobjects.CSignUp;
+import com.utility.valueobjects.JwtRequest;
+import com.utility.valueobjects.JwtResponse;
+import com.utility.valueobjects.UserOtp;
 
 @RestController
 @RequestMapping("/api/secure")
 @CrossOrigin
-
 public class JwtController  {
 	
 	@Autowired
@@ -60,6 +60,20 @@ public class JwtController  {
 	private EmailService email;
 	@Autowired
 	private VerificationTokenService vts;
+	
+	@PostMapping("/changepassword")
+	public int changePassword(@RequestHeader(value = "Authorization") String auth,@RequestBody JwtRequest jwt)
+	{
+		Optional<User> u=userService.getUserFromToken(auth.substring(7));
+		u.get().setPassword(jwt.getPassword());
+		userService.changePassword(u.get());
+		return 1;
+	}
+	
+	@PostMapping("/saveuser")
+	public User saveUser(@RequestBody User u) {
+		return userService.save(u);
+	}
 
 	@PostMapping("/forgotpassword")
 	public UserOtp forgotPassword(@RequestBody JwtRequest req) {
@@ -78,6 +92,7 @@ public class JwtController  {
 	}
 	
 
+	
 	@PostMapping("/signupsupplier")
 	public UserOtp signups(@RequestBody CSignUp supp) {
 		Optional<User>  u=userService.saveUserForCustomer(supp);
@@ -139,13 +154,11 @@ public class JwtController  {
 		return userService.findByUsername(Username);
 	}
 	@GetMapping("/getcustomeruser")
-	@Secured("ROLE_CUSTOMER,ROLE_SUPPLIER")
 	public User  getCUser(@RequestHeader(value = "Authorization") String auth) {
 	String	Username=jwtUtil.getUsernameFromToken(auth.substring(7));
 		return userService.findByUsername(Username);
 	}
 	@GetMapping("/getsupplieruser")
-	@Secured("ROLE_SUPPLIER,ROLE_CUSTOMER")
 	public User  getSUser(@RequestHeader(value = "Authorization") String auth) {
 	String	Username=jwtUtil.getUsernameFromToken(auth.substring(7));
 		return userService.findByUsername(Username);
