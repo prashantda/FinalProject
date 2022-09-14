@@ -41,9 +41,19 @@ public class SupplierController {
 	
 	
 	
+	@GetMapping("/getservicesuppliers/{pin}/{id}")
+	public Object getServiceSuppliers(@RequestHeader(value ="Authorization") String auth,@PathVariable int  pin,@PathVariable int id)
+	{
+	return	supplierService.getServiceSuppliers(pin,id);
+	}
+	
+	
+	
+	
 	
 	@GetMapping("/getsupplier/{id}")
 	public Object getSupplier(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") long id) {
+		
 		return supplierService.getSupplier(id);
 	}
 	

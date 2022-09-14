@@ -46,7 +46,6 @@ import com.utility.valueobjects.UserOtp;
 @RestController
 @RequestMapping("/api/secure")
 @CrossOrigin
-
 public class JwtController  {
 	
 	@Autowired

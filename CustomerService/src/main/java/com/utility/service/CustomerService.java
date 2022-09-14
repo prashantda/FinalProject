@@ -2,6 +2,7 @@ package com.utility.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,9 +18,11 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.utility.entity.Customer;
+import com.utility.entity.Order;
 import com.utility.model.ServiceType;
 import com.utility.model.User;
 import com.utility.repository.CustomerRepository;
+import com.utility.repository.OrderRepository;
 import com.utility.valueobjects.CSignUp;
 
 
@@ -29,6 +32,8 @@ public class CustomerService {
 	private CustomerRepository customerRepository;
 	@Autowired
 	private RestTemplate restTemplate;
+	@Autowired
+	private OrderRepository or;
 	@Autowired
 	private OrderService os;
 	
@@ -114,5 +119,25 @@ public class CustomerService {
 	}
 	public User getSaveUfallback(Exception e) {
 		return new User();
+	}
+
+
+
+
+	public Object getOrderDetails(User u, long id) {
+		System.out.println(u);
+		Customer c=getCustomer(u.getId());
+	return	os.getOrderOfCustomer(c.getCustomerid(),id);
+	}
+
+
+
+
+	public Order save(User u,Order o) {
+		Customer c=getCustomer(u.getId());
+		o.setCustomerid(c);
+		
+		o.setStatus("New");
+		return or.save(o);
 	}
 }

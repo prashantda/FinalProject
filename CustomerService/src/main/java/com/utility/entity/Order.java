@@ -39,7 +39,7 @@ public class Order {
 	@NotBlank
 	private String status;
 	@Column(nullable = false,length = 16)
-	@NotBlank
+	
 	@CreationTimestamp
 	private Date orderdate;
 	@JsonBackReference

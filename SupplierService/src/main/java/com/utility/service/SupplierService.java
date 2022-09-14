@@ -8,12 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.utility.entity.ServiceType;
 import com.utility.entity.Supplier;
+import com.utility.model.Customer;
 import com.utility.model.User;
 import com.utility.repository.SupplierRepository;
 import com.utility.valueobjects.SDashboard;
@@ -73,6 +77,16 @@ public class SupplierService {
 		sd.setAllorders(id);
 		return null;
 	}
+
+	public List<Supplier> getServiceSuppliers(int pin, int id) {
+		
+		return supplierRepository.findAll()
+				.stream().filter(s->s.getServiceType().getId()==id)
+				.filter(su->su.getPincode()== pin)
+				.collect(Collectors.toList());
+	}
+	
+	
 	
 	
 }
@@ -97,4 +111,23 @@ public class SupplierService {
 //public ResponseTemplate getscFallback(Exception e) {
 //	ResponseTemplate rt=new ResponseTemplate();
 //	return rt;
+//}
+//public Customer getCustomer(String auth,User u) {
+//	System.out.println("getSupplierUser getCustomer");
+//	HttpHeaders http=new HttpHeaders();
+//	http.add("Authorization",auth);
+////	http.setContentType(MediaType.APPLICATION_JSON);
+////	String json=null;
+////	try {
+////		json=new ObjectMapper().writeValueAsString(u);
+////	} catch (JsonProcessingException e) {
+////		throw new RuntimeException(e);
+////	}
+//	HttpEntity<String> entity=new HttpEntity<String>(http); 
+//	HttpEntity response=restTemplate.exchange("http://CUSTOMER-SERVICE/api/customer/getcustomersuppliers", HttpMethod.GET, entity, Customer.class);
+//	System.out.println("getCustomerUser  getCustomer out"+response.getBody());
+//	return (Customer) response.getBody();
+//}
+//public Customer getCustomerUfallback(Exception e) {
+//	return new Customer();
 //}
