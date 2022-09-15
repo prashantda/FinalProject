@@ -40,6 +40,7 @@ function SignIn() {
       console.log(response.data.role);
       console.log(response.data.token);
       sessionStorage.setItem("JwtToken", response.data.token)
+    
       if (response.data.role == 'ROLE_ADMIN') {
         navigate("/adashboard")
       }

@@ -3,7 +3,7 @@ import axios from "axios";
 // const Employee_db_url = 'http://localhost:8080/api/v1/employees'; //dummy url for checking
 
 //  const Security_db_url = 'http://127.0.0.1:8087/api/secure/token';
-//  var token = `${localStorage.getItem('JwtToken')}` 
+  var token = `${sessionStorage.getItem('JwtToken')}` 
 class Connection{
   constructor(props) {
   
@@ -15,7 +15,9 @@ class Connection{
   }
   }
   
-
+      getServices(){
+        return axios.get('http://localhost:8086/api/supplier/getservices',{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
       getToken(user){      
         return axios.post('http://127.0.0.1:8087/api/secure/token',user)
       }

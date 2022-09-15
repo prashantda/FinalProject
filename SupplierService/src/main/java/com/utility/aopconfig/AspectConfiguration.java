@@ -57,7 +57,7 @@ public class AspectConfiguration {
 		List<ServiceType> servicelist=null;
 		List<Order> orderlist=null;
 		ALL all =new ALL();
-		
+		boolean flag=false;
 		if(object instanceof List) {
 			list=(List)object;
 			if(list.get(0) instanceof Supplier) {
@@ -83,6 +83,8 @@ public class AspectConfiguration {
 			all.setService((ServiceType)object);
 		if(object instanceof SDashboard)
 			all.setSDashboard((SDashboard)object);
+		if(object instanceof ALL)
+			all=(ALL)object;
 		all.setUser(user);		
 		System.out.println("After");
 		if(user !=null)

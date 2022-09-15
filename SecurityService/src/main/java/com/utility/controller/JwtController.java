@@ -21,6 +21,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -69,7 +70,12 @@ public class JwtController  {
 		userService.changePassword(u.get());
 		return 1;
 	}
-	
+	@GetMapping("/getsupplieruserotp/{id}")
+	public UserOtp getSupplierUserotp(@PathVariable("id") long id) {
+		User u= userService.findById(id);
+		Long m=Long.valueOf(u.getMobile());
+		return new UserOtp(m,u.getName(),u.getUsername());
+	}
 	@PostMapping("/saveuser")
 	public User saveUser(@RequestBody User u) {
 		return userService.save(u);

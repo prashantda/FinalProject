@@ -20,10 +20,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.utility.entity.Customer;
 import com.utility.entity.Order;
 import com.utility.model.ServiceType;
+import com.utility.model.Supplier;
 import com.utility.model.User;
 import com.utility.repository.CustomerRepository;
 import com.utility.repository.OrderRepository;
+import com.utility.valueobjects.ALL;
 import com.utility.valueobjects.CSignUp;
+import com.utility.valueobjects.SDashboard;
+import com.utility.valueobjects.UserOtp;
 
 
 @Service
@@ -136,8 +140,79 @@ public class CustomerService {
 	public Order save(User u,Order o) {
 		Customer c=getCustomer(u.getId());
 		o.setCustomerid(c);
-		
 		o.setStatus("New");
 		return or.save(o);
 	}
+
+
+
+
+	public Object cancalOrder(User user, long id) {
+		Customer c=getCustomer(user.getId());
+		Order order=or.findAll().stream().filter(o->o.getCustomerid().getCustomerid()== c.getCustomerid())
+				.filter(or->or.getOrderid()==id).collect(Collectors.toList()).get(0);
+		order.setStatus("Cancalled");
+		or.save(order);
+		return null;
+	}
+	
+	public SDashboard supplierDashboard(String auth,User u) {
+		SDashboard sd=new SDashboard();
+		long s=getSupplier(auth,u);
+		List<Order> list1=or.findAll().stream().filter(o->o.getSupplierid()== s ).collect(Collectors.toList());
+		sd.setAllorders(list1.size());
+		List 	list=list1.stream().filter(o->o.getStatus().equals("New")).collect(Collectors.toList());
+		sd.setNeworders(list.size());
+		list=list1.stream().filter(o->o.getStatus().equals("Pending")).collect(Collectors.toList());
+		sd.setPendingorders(list.size());
+		list=list1.stream().filter(o->o.getStatus().equals("Cancalled")).collect(Collectors.toList());
+		sd.setCancalledorders(list.size());
+		list=list1.stream().filter(o->o.getStatus().equals("Completed")).collect(Collectors.toList());
+		sd.setCompletedorders(list.size());
+		
+		return sd;
+	}
+	
+	public long getSupplier(String auth,User u) {
+		HttpHeaders http=new HttpHeaders();
+		System.out.println("getSupplier from custControll");
+		http.add("Authorization",auth);
+		//http.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<String> entity=new HttpEntity<String>(http); 
+		ResponseEntity<Long> o=restTemplate.exchange("http://SUPPLIER-SERVICE/api/supplier/getsupplierdash/"+u.getId(), HttpMethod.GET, entity, Long.class);
+		System.out.println(o.getBody());
+		return o.getBody();
+		
+	
+	}
+
+	public List<Order> getSupplierOrders(String auth,User u) {
+		Long sid=getSupplier(auth,u);
+		
+		return or.findAll().stream().filter(o->o.getSupplierid()==sid)
+				.collect(Collectors.toList());
+	}
+
+
+	public Long getCustomerpin(long id) {
+		Customer c=getCustomer(id);		
+		return (long)c.getPincode();
+	}
+
+
+
+
+	public Object getSuppOrderDetails(String auth,User u, long id) {
+		long s=getSupplier(auth, u);		
+		return os.getOrderOfSupplier(s,id);
+	}
+ 
+
+
+
+	public UserOtp getUserOtp(String auth, long id) {
+		Order o=or.findAll().stream().filter(or->or.getOrderid()==id).collect(Collectors.toList()).get(0);		
+		return new UserOtp(o.getSupplierid(),o.getDescription(),o.getDescription());
+	}
+	
 }

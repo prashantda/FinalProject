@@ -26,8 +26,5 @@ public class OrderController {
 	@Autowired
 	private CustomerService cs;
 	
-//	@PostMapping("/saveorder")
-//	 public Object  saveOrder(@RequestHeader(value = "Authorization") String auth,@RequestBody Order o) {
-//		return os.save(o);
-//	}
+	
 }

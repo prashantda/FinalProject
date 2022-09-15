@@ -16,5 +16,7 @@ public class SDashboard {
 	private long completedorders;
 	private long cancalledorders;
 	private long pendingorders;
-	
+	private long neworders;
+	private long customers;
+	private long suppliers;
 }

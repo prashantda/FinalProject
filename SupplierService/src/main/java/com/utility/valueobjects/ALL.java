@@ -30,4 +30,6 @@ public class ALL {
 	private List<ServiceType> servicelist;
 	private List<Order> orderlist;
 	private SDashboard sDashboard;
+	private String description;
+	private UserOtp useOtp;
 }
