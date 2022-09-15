@@ -1,6 +1,7 @@
 package com.utility.controller;
 
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -61,6 +62,38 @@ public class JwtController  {
 	private EmailService email;
 	@Autowired
 	private VerificationTokenService vts;
+	
+	
+	@GetMapping("/customerslist")
+	@Secured("ROLE_ADMIN")
+	public List<User> getCustomersList(){
+		return userService.getCustomersList();
+	}
+	
+	@GetMapping("/adminlist")
+	@Secured("ROLE_ADMIN")
+	public List<User> getAdminList(){
+		return userService.getAdminList();
+	}
+	
+	@GetMapping("/supplierslist")
+	@Secured("ROLE_ADMIN")
+	public List<User> getSuppliersList(){
+		return userService.getSuppliersList();
+	}
+	@PostMapping("/edituser")
+	@Secured("ROLE_ADMIN")
+	public User editUser(@RequestBody CSignUp s){
+		return userService.editUser(s);
+	}
+	
+	@GetMapping("/getuserforadmin/{id}")
+	@Secured("ROLE_ADMIN")
+	public User  getCustSuppUser(@PathVariable("id") long id) {
+	
+		return userService.findById(id);
+	}
+	
 	
 	@PostMapping("/changepassword")
 	public int changePassword(@RequestHeader(value = "Authorization") String auth,@RequestBody JwtRequest jwt)
@@ -164,6 +197,8 @@ public class JwtController  {
 	String	Username=jwtUtil.getUsernameFromToken(auth.substring(7));
 		return userService.findByUsername(Username);
 	}
+	
+	
 	@GetMapping("/getsupplieruser")
 	public User  getSUser(@RequestHeader(value = "Authorization") String auth) {
 	String	Username=jwtUtil.getUsernameFromToken(auth.substring(7));

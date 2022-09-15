@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +31,15 @@ public class SupplierController {
 	private SupplierService supplierService;
 	@Autowired ServiceTypeService sts;
 	
+	@GetMapping("/supplierforadmin/{id}")
+	public Object getSupplierAdmin(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id) {
+		return supplierService.getSupplierAdmin(auth,id);
+	}
 	
-	
-	
+	@GetMapping("/getsupplieruserotp")
+	public Object getSupplierUserotp(@RequestHeader(value ="Authorization") String auth) {
+		return supplierService.getSupplierUserotp();
+	}
 	
 	
 	//used
@@ -92,7 +99,7 @@ public class SupplierController {
 	}
 	
 	//used
-	@PostMapping("/editsupplier")
+	@PutMapping("/editsupplier")
 	public Object editSupplier(@RequestHeader(value ="Authorization") String auth,@RequestBody CSignUp supp) {
 	 
 		 return supplierService.editSupplier(auth,supp);

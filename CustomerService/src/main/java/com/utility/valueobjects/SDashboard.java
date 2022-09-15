@@ -19,4 +19,5 @@ public class SDashboard {
 	private long neworders;
 	private long customers;
 	private long suppliers;
+	private long services;
 }

@@ -23,7 +23,7 @@ const AdminSupplierList = () => {
           <thead>
               <th>Supplier Id</th>
               <th>Supplier Name</th>
-              <th>PAN No</th>
+              <th>Mobile</th>
               <th>Supplier Email-Id</th>
               <th>Actions</th>
           </thead>

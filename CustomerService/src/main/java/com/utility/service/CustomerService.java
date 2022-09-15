@@ -29,6 +29,8 @@ import com.utility.valueobjects.CSignUp;
 import com.utility.valueobjects.SDashboard;
 import com.utility.valueobjects.UserOtp;
 
+import io.github.resilience4j.retry.annotation.Retry;
+
 
 @Service
 public class CustomerService {
@@ -84,6 +86,7 @@ public class CustomerService {
 		cu=getCustomerSignup(cust,cu);
 		
 		customerRepository.save(cu);
+		
 		u.setMobile(cust.getMobile());
 		u.setName(cust.getName());
 		SaveUser(auth,u);
@@ -213,6 +216,97 @@ public class CustomerService {
 	public UserOtp getUserOtp(String auth, long id) {
 		Order o=or.findAll().stream().filter(or->or.getOrderid()==id).collect(Collectors.toList()).get(0);		
 		return new UserOtp(o.getSupplierid(),o.getDescription(),o.getDescription());
+	}
+
+
+
+
+	public ALL getCustomerorder(String auth, long id) {
+		Order o=or.findById(id).get();
+		Customer c=customerRepository.findAll().stream().filter(cu->cu.getCustomerid()==o.getCustomerid().getCustomerid())
+				.collect(Collectors.toList()).get(0);
+		ALL all=new ALL();
+		all.setOrder(o);
+		all.setCustomer(c);
+		return all;
+	}
+
+
+
+
+	public SDashboard getAdminDashboard(String auth) {
+		SDashboard sd=new SDashboard();
+		sd.setAllorders(or.findAll().size());
+		sd.setNeworders(or.findAll().stream().filter(o->o.getStatus().equals("New")).collect(Collectors.toList()).size());
+		sd.setPendingorders(or.findAll().stream().filter(o->o.getStatus().equals("Pending")).collect(Collectors.toList()).size());
+		sd.setCancalledorders(or.findAll().stream().filter(o->o.getStatus().equals("Cancalled")).collect(Collectors.toList()).size());
+		sd.setCompletedorders(or.findAll().stream().filter(o->o.getStatus().equals("Completed")).collect(Collectors.toList()).size());
+		sd.setCustomers(customerRepository.findAll().size());
+		UserOtp uo=supplierUserOTP(auth);
+		sd.setSuppliers(uo.getUserid());
+		sd.setServices(Long.parseLong(uo.getOtp()));
+		return sd;
+	}
+	@Retry(name = CUSTOMER_SERVICE,fallbackMethod ="Userfallback" )
+	public UserOtp supplierUserOTP(String auth) {
+		System.out.println("supplierUserOTP in");
+		HttpHeaders http=new HttpHeaders();
+		http.add("Authorization",auth);
+		HttpEntity entity=new HttpEntity(http); 
+		HttpEntity response=restTemplate.exchange("http://SUPPLIER-SERVICE/api/supplier/getsupplieruserotp/", HttpMethod.GET, entity, UserOtp.class);
+		System.out.println("supplierUserOTP out"+response.getBody());
+		return (UserOtp) response.getBody();
+	}
+	public UserOtp Userfallback(Exception e) {
+		return new UserOtp();
+	}
+
+
+
+
+	public ALL getCustomerAdmin(String auth,long id) {
+		User u=getCustomerUser(auth,id);
+		Customer c=getCustomer(id);
+		ALL all=new ALL();
+		all.setUser(u);
+		all.setCustomer(c);
+		return all;
+	}
+	public User getCustomerUser(String auth,long id) {
+		System.out.println("getCustomerUser in");
+		HttpHeaders http=new HttpHeaders();
+		http.add("Authorization",auth);
+		HttpEntity entity=new HttpEntity(http); 
+		HttpEntity response=restTemplate.exchange("http://SECURITY-SERVICE/api/secure/getuserforadmin/"+id, HttpMethod.GET, entity, User.class);
+		System.out.println("getCustomerUser out"+response.getBody());
+		return (User) response.getBody();
+	}
+	public User CustomerUserfallback(Exception e) {
+		return new User();
+	}
+
+
+
+
+	public List<Order> getOrdersList() {
+		
+		return or.findAll();
+	}
+
+
+
+
+	public Order getOrderDetail(long id) {
+		
+		return or.findById(id).get();
+	}
+
+
+
+
+	public Object deleteOrder(User u,long id) {
+		or.deleteById(id);		
+		return u;
 	}
 	
 }

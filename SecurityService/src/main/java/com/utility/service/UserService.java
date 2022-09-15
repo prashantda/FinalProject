@@ -199,6 +199,30 @@ public class UserService {
 		
 		return userRepository.findById(id).get();
 	}
+	public List<User> getCustomersList() {
+		
+		return userRepository.findAll().stream().filter(u->u.getRole().equals("ROLE_CUSTOMER")).collect(Collectors.toList());
+	}
+	public List<User> getSuppliersList() {
+		
+		return userRepository.findAll().stream().filter(u->u.getRole().equals("ROLE_SUPPLIER")).collect(Collectors.toList());
+
+	}
+	public List<User> getAdminList() {
+		return userRepository.findAll().stream().filter(u->u.getRole().equals("ROLE_ADMIN")).collect(Collectors.toList());
+
+	}
+	public User editUser(CSignUp s) {
+		User u=userRepository.findById(s.getAadhaar()).get();
+		u.setAccountNonExpired(s.isAccountNonExpired());
+		u.setAccountNonLocked(s.isAccountNonLocked());
+		u.setCredentialsNonExpired(s.isCredentialsNonExpired());
+		u.setEnabled(s.isEnabled());
+		u.setRole(s.getRole());
+		return userRepository.save(u);		
+		 
+	}
+	
 
 	
 

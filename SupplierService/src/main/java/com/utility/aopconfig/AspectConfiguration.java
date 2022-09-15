@@ -39,19 +39,20 @@ public class AspectConfiguration {
 		System.out.println(pjp.getSignature());
 		String token=(String)args[0];		
 		User user=supplierService.getUser(token);
-		System.out.println(user);
 		int i=0;
 		for(Object arg:args) {
 			if(arg instanceof User)
 				args[i]=user;
 			i++;
 		}
-		Object object=pjp.proceed(args);
+		Object object=pjp.proceed(args); 
+				//null;
 		List list=null;
 		Customer cust=null;
 		Supplier supp=null;
 		ServiceType service=null;
 		Order order=null;
+		SDashboard sd=null;
 		List<Supplier> supplierslist=null;
 		List <Customer> customerslist=null;
 		List<ServiceType> servicelist=null;
@@ -61,34 +62,40 @@ public class AspectConfiguration {
 		if(object instanceof List) {
 			list=(List)object;
 			if(list.get(0) instanceof Supplier) {
-				all.setSupplierslist(list);
+				all.setSupplierslist(list);flag=true;
 			}
 			if(list.get(0) instanceof Customer) {
-				all.setCustomerslist(list);
+				all.setCustomerslist(list);flag=true;
 			}
 			if(list.get(0) instanceof Order) {
-				all.setOrderlist(list);
+				all.setOrderlist(list);flag=true;
 			}
 			if(list.get(0) instanceof ServiceType) {
-				all.setServicelist(list);
+				all.setServicelist(list);flag=true;
 			}
 		}
 		if(object instanceof Supplier)
-			all.setSupplier((Supplier)object);
+			{all.setSupplier((Supplier)object);flag=true;}
 		if(object instanceof Customer)
-			all.setCustomer((Customer)object);
+			{all.setCustomer((Customer)object);flag=true;}
 		if(object instanceof Order)
-			all.setOrder((Order)object);
+			{all.setOrder((Order)object);flag=true;}
 		if(object instanceof ServiceType)
-			all.setService((ServiceType)object);
+			{all.setService((ServiceType)object);flag=true;}
 		if(object instanceof SDashboard)
-			all.setSDashboard((SDashboard)object);
+			{all.setSDashboard((SDashboard)object);flag=true;}
 		if(object instanceof ALL)
-			all=(ALL)object;
-		all.setUser(user);		
+		{all=(ALL)object;flag=true;
+		
+		}
+		if(all.getUser()==null)
+			all.setUser(user);	
+		
 		System.out.println("After");
-		if(user !=null)
+		if(user !=null && flag==true)
 			return (Object)all;
+		else if(user!= null && flag==false)
+			return object;
 		else 
 			return new Object();
 	}

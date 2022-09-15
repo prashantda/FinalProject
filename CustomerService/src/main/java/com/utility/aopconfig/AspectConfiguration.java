@@ -87,8 +87,12 @@ public class AspectConfiguration {
 		if(object instanceof SDashboard)
 			{all.setSDashboard((SDashboard)object);flag=true;}
 		if(object instanceof ALL)
-			{all=(ALL)object;flag=true;}
-		all.setUser(user);		
+		{all=(ALL)object;flag=true;
+		
+		}
+		if(all.getUser()==null)
+			all.setUser(user);	
+		
 		System.out.println("After");
 		if(user !=null && flag==true)
 			return (Object)all;

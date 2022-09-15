@@ -21,6 +21,7 @@ import com.utility.entity.Supplier;
 import com.utility.model.Customer;
 import com.utility.model.Order;
 import com.utility.model.User;
+import com.utility.repository.ServiceTypeRepository;
 import com.utility.repository.SupplierRepository;
 import com.utility.valueobjects.ALL;
 import com.utility.valueobjects.CSignUp;
@@ -39,6 +40,8 @@ public class SupplierService {
 	private RestTemplate restTemplate;
 	@Autowired
 	private ServiceTypeService sts;
+	@Autowired
+	private ServiceTypeRepository str;
 	
 	private static final String SUPPLIER_SERVICE= "SupplierService";
 
@@ -182,6 +185,53 @@ public class SupplierService {
 	}
 	public UserOtp getUserOtpfallback(Exception e) {
 		return new UserOtp();
+	}
+
+
+
+
+
+
+
+
+
+
+	public UserOtp getSupplierUserotp() {
+		UserOtp uo=new UserOtp();
+		uo.setUserid(supplierRepository.findAll().size());
+		Long l=(long) str.findAll().size();
+		uo.setOtp(l.toString());
+		return uo;
+	}
+
+
+
+
+
+
+
+
+
+
+	public ALL getSupplierAdmin(String auth, long id) {
+		User u=getSupplierUser(auth,id);
+		Supplier c=getSupplier(id);
+		ALL all=new ALL();
+		all.setUser(u);
+		all.setSupplier(c);
+		return all;
+	}
+	public User getSupplierUser(String auth,long id) {
+		System.out.println("getCustomerUser in");
+		HttpHeaders http=new HttpHeaders();
+		http.add("Authorization",auth);
+		HttpEntity entity=new HttpEntity(http); 
+		HttpEntity response=restTemplate.exchange("http://SECURITY-SERVICE/api/secure/getuserforadmin/"+id, HttpMethod.GET, entity, User.class);
+		System.out.println("getCustomerUser out"+response.getBody());
+		return (User) response.getBody();
+	}
+	public User SupplierUserfallback(Exception e) {
+		return new User();
 	}
 
 }
