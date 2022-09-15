@@ -54,7 +54,13 @@ public class SupplierService {
 	
 	
 	
-	
+	public List<Supplier> getsupplierspin(int sid, int pincode) {
+		
+		return supplierRepository.findAll()
+				.stream().filter(s->s.getServiceType().getId()==sid)
+				.filter(su->su.getPincode()==pincode)
+				.collect(Collectors.toList());
+	}
 	
 	
 	

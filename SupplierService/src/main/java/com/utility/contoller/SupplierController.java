@@ -29,7 +29,14 @@ public class SupplierController {
 	
 	@Autowired
 	private SupplierService supplierService;
-	@Autowired ServiceTypeService sts;
+	@Autowired 
+	private ServiceTypeService sts;
+	
+	@GetMapping("/getsupplierspin/{sid}/{pin}")
+	public Object getsupplierspin(@RequestHeader(value="Authorization")String auth,
+			@PathVariable("sid") int sid, @PathVariable("pin")int pin){
+		return supplierService.getsupplierspin(sid, pin);
+	}
 	
 	@GetMapping("/supplierforadmin/{id}")
 	public Object getSupplierAdmin(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id) {

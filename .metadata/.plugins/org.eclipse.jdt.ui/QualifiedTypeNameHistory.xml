@@ -22,7 +22,6 @@
     <fullyQualifiedTypeName name="com.utility.repository.ServiceTypeRepository"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="java.lang.Long"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="org.springframework.security.access.annotation.Secured"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
@@ -33,7 +32,6 @@
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="com.utility.entity.Customer"/>
     <fullyQualifiedTypeName name="com.utility.valueobjects.ALL"/>
-    <fullyQualifiedTypeName name="com.utility.entity.Supplier"/>
     <fullyQualifiedTypeName name="com.utility.model.User"/>
     <fullyQualifiedTypeName name="net.bytebuddy.asm.Advice.Return"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
@@ -42,4 +40,6 @@
     <fullyQualifiedTypeName name="org.aspectj.weaver.NewConstructorTypeMunger"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.utility.entity.Supplier"/>
 </qualifiedTypeNameHistroy>
