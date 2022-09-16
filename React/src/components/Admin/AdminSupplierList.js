@@ -39,16 +39,22 @@ const AdminSupplierList = () => {
 
     //new
 
-    const suplist = ({suppl})=>{
-      return (
-        <div>
-        <h1>{suppl.servicelist}</h1>
+    // const suplist = ({suppl})=>{
+    //   return (
+    //     <div>
+    //     <h1>{suppl.servicelist}</h1>
 
-          {suppl.servicelist.map(x => <Part key={part.id} part={part}/>)}
-          </div>
-      )
-    }
+    //       {suppl.servicelist.map(x => <Part key={part.id} part={part}/>)}
+    //       </div>
+    //   )
+    // }
+    //o
+    const ret=suppl.map((u,i)=>[
+      u.user[i].servicelist.name[0],
+      u.user[i].servicelist.name[1],
+    ])
 
+    console.log(ret);
       //  Object.values(suppl).map(x=>console.log(x))
     // suppl.map((x)=>console.log(x.customer.servicelist.name))
   return (
@@ -75,7 +81,10 @@ const AdminSupplierList = () => {
     //       }
     //   </div>
 
-    <div>{renderedPost}</div>
+    // <div>{renderedPost}</div>
+    <div>
+      <h1>Hii</h1>
+    </div>
         
     // <div className="container">
     //   <h2 className="text-center">Supplier's List</h2>
