@@ -51,6 +51,14 @@ public class OrderService {
 		.collect(Collectors.toList()).get(0);
 		
 	}
+	public Order getOrderOfSupplier(long sid,long oid) {
+		return	or.findAll().stream()
+			.filter(o->o.getSupplierid()==sid)
+			.filter(or->or.getOrderid()==oid)
+			.collect(Collectors.toList()).get(0);
+			
+		}
+	
 	
 	
 }

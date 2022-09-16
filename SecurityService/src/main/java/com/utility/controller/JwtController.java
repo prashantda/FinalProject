@@ -1,6 +1,7 @@
 package com.utility.controller;
 
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -21,6 +22,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -61,6 +63,38 @@ public class JwtController  {
 	@Autowired
 	private VerificationTokenService vts;
 	
+	
+	@GetMapping("/customerslist")
+	@Secured("ROLE_ADMIN")
+	public List<User> getCustomersList(){
+		return userService.getCustomersList();
+	}
+	
+	@GetMapping("/adminlist")
+	@Secured("ROLE_ADMIN")
+	public List<User> getAdminList(){
+		return userService.getAdminList();
+	}
+	
+	@GetMapping("/supplierslist")
+	@Secured("ROLE_ADMIN")
+	public List<User> getSuppliersList(){
+		return userService.getSuppliersList();
+	}
+	@PostMapping("/edituser")
+	@Secured("ROLE_ADMIN")
+	public User editUser(@RequestBody CSignUp s){
+		return userService.editUser(s);
+	}
+	
+	@GetMapping("/getuserforadmin/{id}")
+	@Secured("ROLE_ADMIN")
+	public User  getCustSuppUser(@PathVariable("id") long id) {
+	
+		return userService.findById(id);
+	}
+	
+	
 	@PostMapping("/changepassword")
 	public int changePassword(@RequestHeader(value = "Authorization") String auth,@RequestBody JwtRequest jwt)
 	{
@@ -69,7 +103,12 @@ public class JwtController  {
 		userService.changePassword(u.get());
 		return 1;
 	}
-	
+	@GetMapping("/getsupplieruserotp/{id}")
+	public UserOtp getSupplierUserotp(@PathVariable("id") long id) {
+		User u= userService.findById(id);
+		Long m=Long.valueOf(u.getMobile());
+		return new UserOtp(m,u.getName(),u.getUsername());
+	}
 	@PostMapping("/saveuser")
 	public User saveUser(@RequestBody User u) {
 		return userService.save(u);
@@ -158,6 +197,8 @@ public class JwtController  {
 	String	Username=jwtUtil.getUsernameFromToken(auth.substring(7));
 		return userService.findByUsername(Username);
 	}
+	
+	
 	@GetMapping("/getsupplieruser")
 	public User  getSUser(@RequestHeader(value = "Authorization") String auth) {
 	String	Username=jwtUtil.getUsernameFromToken(auth.substring(7));
