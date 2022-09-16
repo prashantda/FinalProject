@@ -15,7 +15,6 @@ class Connection{
   }
   }
   
-
       getToken(user){      
         return axios.post('http://127.0.0.1:8087/api/secure/token',user)
       }
@@ -40,12 +39,7 @@ class Connection{
       verifyot(user){
         return axios.post('http://127.0.0.1:8087/api/secure/verifyotp',user)
       }
-      // getAdminById(adminId){
-      //   return axios.get('http://localhost:8080' + '/' + adminId)
-      // }
 
-      // getEmployeeById(employeeId){
-      //   return axios.get(Employee_db_url + '/' + employeeId)
-      // }
+    
 }
 export default new Connection();

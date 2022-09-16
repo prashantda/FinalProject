@@ -71,7 +71,7 @@ function App() {
       <Route exact path="/adashboard/a/:id" element={<ADashBoard/>}/>
       <Route exact path="/adminList/c/:id/a/:id" element={<AdminProfile/>}/>
       <Route exact path="/adminCustomerList" element={<AdminCustomerList/>}/>
-      <Route exact path="/adminCustomerList/a/:id" element={<AdminCustomerList/>}/>
+      <Route exact path="/adminCustomerList/:id" element={<AdminCustomerList/>}/>
       <Route exact path="/adminSupplierList" element={<AdminSupplierList/>}/>
       <Route exact path="/adminSupplierList/a/:id" element={<AdminSupplierList/>}/>
       <Route exact path="/Addadmin" element={<AddAdmin/>}/>
