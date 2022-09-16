@@ -29,13 +29,25 @@ const AdminSupplierList = () => {
 
     //other
 
-    const renderedPost =Object.keys(suppl).map((post)=>{
+    // const renderedPost =Object.keys(suppl).map((post)=>{
+    //   return (
+    //     <div key={post.id}>
+    //     <h3>{post.name}</h3>
+    //     </div>
+    //   );
+    // });
+
+    //new
+
+    const suplist = ({suppl})=>{
       return (
-        <div key={post.customer.servicelist.id}>
-        <h3>{post.customer.servicelist[0].name}</h3>
-        </div>
-      );
-    });
+        <div>
+        <h1>{suppl.servicelist}</h1>
+
+          {suppl.servicelist.map(x => <Part key={part.id} part={part}/>)}
+          </div>
+      )
+    }
 
       //  Object.values(suppl).map(x=>console.log(x))
     // suppl.map((x)=>console.log(x.customer.servicelist.name))
