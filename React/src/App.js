@@ -79,7 +79,7 @@ function App() {
       <Route exact path="/adashboard/" element={<ADashBoard/>}/>
       <Route exact path="/adminprofile" element={<AdminProfile/>}/>
       <Route exact path="/editadmin" element={<AEditProfile/>}/>
-      <Route exact path="/adminCustomerList" element={<AdminCustomerList/>}/>
+      <Route exact path="/customerslist" element={<AdminCustomerList/>}/>
       <Route exact path="/adminSupplierList" element={<AdminSupplierList/>}/>               
       <Route exact path="/dashboards" element={<SDashBoard/>}/>
       <Route exact path="/adnav" element={<AdminNav/>}/>
@@ -87,7 +87,7 @@ function App() {
       <Route exact path="/OrderList" element={<OrderList/>}/>
       <Route exact path="/OrderList/a/:id" element={<OrderDetails/>}/>
       <Route exact path="/adminSupplierList/a/:id/d/:id" element={<SupplierDetails/>}/>
-      <Route exact path="/adminCustomerList/a/:id/c/:id" element={<CustomerDetails/>}/>
+      <Route exact path="/customerdetail/:id" element={<CustomerDetails/>}/>
 
       
       

@@ -1,19 +1,23 @@
 import React,{useEffect, useState} from 'react'
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-
+import Connection from './Connection'
 const CustomerDetails = () => {
     const { id } =useParams()
   const [customerDetails,setcustomerDetails] = useState([])
+  const [user,setUser] = useState([])
 
   useEffect(() => {
-     loadUser()
+    Connection.getCustomer(id).then((response)=> {
+        setcustomerDetails(response.data.customer)
+        setUser(response.data.user)
+      
+   }).catch(error =>{
+       console.log(error);
+   })
   },[])
 
-  const loadUser = async () =>{
-    const res = await axios.get(`http://localhost:8080/api/v1/employees/${id}`);
-    setcustomerDetails(res.data)
-  }
+
     return (
         <div>
         <div>

@@ -23,6 +23,12 @@ class Connection{
       EditProfile(admin){      
         return axios.put('http://localhost:8085/api/customer/editcustomer',admin,{ headers: {"Authorization" : `Bearer ${token}`} })
       }
+      getCustomerList(){      
+        return axios.get('http://localhost:8087/api/secure/customerslist',{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
+      getCustomer(id){      
+        return axios.get(`http://localhost:8085/api/customer/customerforadmin/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
      
 
 

@@ -1,32 +1,31 @@
 import React,{useEffect, useState}  from 'react'
-import {Link, useParams} from 'react-router-dom'
-import Connection from '../Services/Connection'
+import {Link, useParams,useNavigate} from 'react-router-dom'
+import Connection from './Connection'
 
 const AdminCustomerList = () => {
     const { id } =useParams()
     const [users,setUsers] = useState([])
-
+    let navigate = useNavigate()
     useEffect(() => {
-        Connection.getCustomerinfo().then((response)=> {
+        Connection.getCustomerList().then((response)=> {
             setUsers(response.data)
            console.log(response.data)
        }).catch(error =>{
            console.log(error);
        })
     },[])
+  const  GetCustomer=(e,cid)=>{
+    navigate(`/customerdetail/${cid}`)
+  }
   return (
     <div className="container">
       <h2 className="text-center">Customer's List</h2>
       <table className="table table-bordered table-striped">
           <thead>
+          <th>ID</th>
               <th>Name</th>
-              <th>Address</th>
-              <th>Pincode</th>
-              <th>Date Of Birth</th>
-              <th>Aadhar Card</th>
               <th>Mobile No.</th>
-              <th>Username</th>
-              <th>Min Charge</th>
+              <th>Email</th>       
               <th>Actions</th>
           </thead>
           <tbody>
@@ -34,16 +33,12 @@ const AdminCustomerList = () => {
                   users.map(
                       user =>
                       <tr key={user.id}>
+                        <td>{user.id}</td>
                           <td>{user.name}</td>
-                          <td>{user.address}</td>
-                          <td>{user.pincode}</td>
-                          <td>{user.dob}</td>
-                          <td>{user.aadhaar}</td>
                           <td>{user.mobile}</td>
                           <td>{user.username}</td>
-                          <td>{user.charge}</td>
                           <td>
-                              <Link className="btn btn-success" to={`c/${user.id}`}>Details</Link>
+                              <button className="btn btn-success" onClick={e=>{GetCustomer(e,`${user.id}`)}}>Details</button>
                           </td>
                           
                       </tr>
@@ -51,7 +46,7 @@ const AdminCustomerList = () => {
               }
           </tbody>
       </table>
-      <Link to={`/adashboard/a/${id}`}><button className="btn btn-success" >Back To DashBoard</button></Link>
+      <Link to={`/adashboard`}><button className="btn btn-success" >Back To DashBoard</button></Link>
     </div>
     )
 }
