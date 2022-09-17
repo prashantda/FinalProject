@@ -22,6 +22,7 @@ const GetOrder=(e,status,id)=>{
 
 
     useEffect(() => {
+        document.title = "Wish-it || Orders"
         Connection.getSupplierOrders().then((response)=> {
             setOrders(response.data.orderlist)
            console.log(response.data)

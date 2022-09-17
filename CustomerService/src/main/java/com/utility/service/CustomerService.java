@@ -43,7 +43,7 @@ public class CustomerService {
 	@Autowired
 	private OrderService os;
 	
-	private static final String CUSTOMER_SERVICE= "SupplierService";
+	private static final String CUSTOMER_SERVICE= "CustomerService";
 	
 	public Customer saveCustomer(Customer customer) {
 		return customerRepository.save(customer);
@@ -53,8 +53,12 @@ public class CustomerService {
 
 
 	public Customer getCustomer(long id) {
-//		System.out.println(id);
-		return customerRepository.findAll().stream().filter(c->c.getUserid()==id).collect(Collectors.toList()).get(0);
+		System.out.println("Inside getCustomer"+id);
+		//System.out.println((List<Customer>)customerRepository.findAll());
+		return (Customer) customerRepository.findAll().stream().filter(c->c.getUserid() == id).collect(Collectors.toList()).get(0);
+//		Customer c=customerRepository.findByuserid(id);
+//		System.out.println(c);
+//		return c;
 	}
 
 
@@ -65,12 +69,12 @@ public class CustomerService {
 	}
 	
 	public User getUser(String auth) {
-		System.out.println("getcustomerUser in");
+		//System.out.println("getcustomerUser in");
 		HttpHeaders http=new HttpHeaders();
 		http.add("Authorization",auth);
 		HttpEntity entity=new HttpEntity(http); 
 		HttpEntity response=restTemplate.exchange("http://SECURITY-SERVICE/api/secure/getcustomeruser", HttpMethod.GET, entity, User.class);
-		System.out.println("getCustomerUser out"+response.getBody());
+		//System.out.println("getCustomerUser out"+response.getBody());
 		return (User) response.getBody();
 	}
 	public User getCUfallback(Exception e) {
@@ -100,7 +104,8 @@ public class CustomerService {
 		c.setAddress(cust.getAddress());
 		c.setPincode(cust.getPincode());
 		c.setAadhaar(cust.getAadhaar());
-		c.setDob(cust.getDob());
+		if(cust.getDob()!=null)
+			c.setDob(cust.getDob());
 		
 		return c;
 	}
@@ -141,9 +146,12 @@ public class CustomerService {
 
 
 	public Order save(User u,Order o) {
+		System.out.println("inside save of customer service for saving order"+o);
 		Customer c=getCustomer(u.getId());
+		c.setOrders(null);
 		o.setCustomerid(c);
 		o.setStatus("New");
+		System.out.println("going out of save"+o);
 		return or.save(o);
 	}
 
@@ -178,12 +186,13 @@ public class CustomerService {
 	
 	public long getSupplier(String auth,User u) {
 		HttpHeaders http=new HttpHeaders();
-		System.out.println("getSupplier from custControll");
+		System.out.println("getSupplier from custControll-181");
 		http.add("Authorization",auth);
 		//http.setContentType(MediaType.APPLICATION_JSON);
 		HttpEntity<String> entity=new HttpEntity<String>(http); 
 		ResponseEntity<Long> o=restTemplate.exchange("http://SUPPLIER-SERVICE/api/supplier/getsupplierdash/"+u.getId(), HttpMethod.GET, entity, Long.class);
 		System.out.println(o.getBody());
+		System.out.println(o);
 		return o.getBody();
 		
 	
@@ -198,7 +207,9 @@ public class CustomerService {
 
 
 	public Long getCustomerpin(long id) {
-		Customer c=getCustomer(id);		
+		System.out.println(id+"inside getCustomerpin");
+		Customer c=getCustomer(id);	
+		System.out.println(c.getPincode());
 		return (long)c.getPincode();
 	}
 
@@ -209,9 +220,12 @@ public class CustomerService {
 		long s=getSupplier(auth, u);
 		System.out.println(s);
 		Order ord=or.findById(id).get();
+		
 		ALL all=new ALL();
 		all.setOrder(ord);
-		all.setCustomer(customerRepository.findById(ord.getCustomerid().getCustomerid()).get());
+		Customer c=customerRepository.findById(ord.getCustomerid().getCustomerid()).get();
+		c.setOrders(null);
+		all.setCustomer(c);
 		
 		return all;
 	}
@@ -237,12 +251,15 @@ public class CustomerService {
 		Order o=or.findById(id).get();
 		Customer c=customerRepository.findAll().stream().filter(cu->cu.getCustomerid()==o.getCustomerid().getCustomerid())
 				.collect(Collectors.toList()).get(0);
+		c.setOrders(null);
+		
 		ALL all=new ALL();
+		
 		all.setOrder(o);
 		all.setCustomer(c);
 		return all;
 	}
-
+	
 
 
 
@@ -293,6 +310,9 @@ public class CustomerService {
 		System.out.println("getCustomerUser out"+response.getBody());
 		return (User) response.getBody();
 	}
+	
+	
+	
 	public User CustomerUserfallback(Exception e) {
 		return new User();
 	}
@@ -320,5 +340,42 @@ public class CustomerService {
 		or.deleteById(id);		
 		return u;
 	}
+
+
+
+
+	public Object getSupplierorder(String auth, long id) {
+		
+		Order o=or.findById(id).get();
+		Customer c=customerRepository.findAll().stream().filter(cu->cu.getCustomerid()==o.getCustomerid().getCustomerid())
+				.collect(Collectors.toList()).get(0);
+		c.setOrders(null);
+		User u=getUserForSupplier(auth,c.getUserid());
+		ALL all=new ALL();
+		all.setUser(u);
+		all.setOrder(o);
+		all.setCustomer(c);
+		return all;
+	}
+	public User getUserForSupplier(String auth,long id) {
+		HttpHeaders http=new HttpHeaders();
+		http.add("Authorization",auth);
+		HttpEntity entity=new HttpEntity(http); 
+		HttpEntity response=restTemplate.exchange("http://SECURITY-SERVICE/api/secure/getuserforsupplier/"+id, HttpMethod.GET, entity, User.class);
+		return (User) response.getBody();
+	}
+
+
+
+
+	public Object supplierAccept(long id, String string) {
+		Order o=or.findById(id).get();
+		o.setStatus(string);
+		return or.save(o);
+	}
+
+
+
+
 	
 }

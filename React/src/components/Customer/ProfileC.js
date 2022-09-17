@@ -1,9 +1,20 @@
 import React,{useEffect, useState} from 'react'
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-
+var token = `${sessionStorage.getItem('JwtToken')}`
 const ProfileC = () => {
-  
+    const [cust,setcust] = useState([])
+    const [user,setuser] = useState([])
+
+    useEffect(() => {
+       loadUser()
+    },[])
+    const loadUser = async () =>{
+      const res = await axios.get(`http://localhost:8085/api/customer/getcustomer`,{ headers: {"Authorization" : `Bearer ${token}`} });
+      setcust(res.data.customer)
+      setuser(res.data.user)
+      console.log(res.data)
+    }
         return (
  <div class="col-8 offset-2">
     <div class="container emp-profile">
@@ -14,7 +25,7 @@ const ProfileC = () => {
                         <img src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
                          alt="" style={{
                             width: 200,
-                            height: 200,
+                            height: 250,
                             transform: [
                                 { scaleX: 2 }
                             ]
@@ -28,10 +39,12 @@ const ProfileC = () => {
                 <div class="col-md-6 mt-5">
                     <div class="profile-head">
                         <h5>
-                            Kunal Kshirsagar
+                           
+                            {user.name}
                         </h5>
                         <h6>
-                            kshirsagarkunal72
+                           
+                            {user.username}
                         </h6>
                        
                         <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
@@ -43,7 +56,7 @@ const ProfileC = () => {
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit" />
+                  <Link to={`/editprofilec`}>  <button type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit" /></Link>
                 </div>
             </div>
             <div class="row">
@@ -56,7 +69,8 @@ const ProfileC = () => {
                                     <label class="col-mb-2">User Id</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>kshirsagarkunal72</p>
+                                    
+                                    <p>{user.username}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -64,7 +78,7 @@ const ProfileC = () => {
                                     <label>Name</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Kunal Kshirsagar</p>
+                                    <p>{user.name}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -72,7 +86,7 @@ const ProfileC = () => {
                                     <label>Email</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>kshirsagarkunal72@gmail.com</p>
+                                    <p>{user.username}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -80,15 +94,15 @@ const ProfileC = () => {
                                     <label>Phone</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>8237251602</p>
+                                    <p>{user.mobile}</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Adhar Number</label>
+                                    <label>Aadhaar Number</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>494897599716</p>
+                                    <p>{cust.aadhaar}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -96,7 +110,7 @@ const ProfileC = () => {
                                     <label>Date Of Birth</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>25/07/1995</p>
+                                    <p>{new Date(cust.dob).toDateString()}</p>
                                 </div>
                             </div>
                             
@@ -105,7 +119,7 @@ const ProfileC = () => {
                                     <label>Address</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Sr No 265 Sant Garden Link Road Chinchwad Pune-411033</p>
+                                    <p>{cust.address}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -113,7 +127,7 @@ const ProfileC = () => {
                                     <label>Zip Code</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>411033</p>
+                                    <p>{cust.pincode}</p>
                                 </div>
                             </div>
                         </div>

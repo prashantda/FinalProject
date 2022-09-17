@@ -40,11 +40,12 @@ function SignIn() {
       console.log(response.data.role);
       console.log(response.data.token);
       sessionStorage.setItem("JwtToken", response.data.token)
+      sessionStorage.setItem("Role", response.data.role)
       if (response.data.role === 'ROLE_ADMIN') {
         navigate("/adashboard")
       }
       if (response.data.role === 'ROLE_CUSTOMER') {
-        navigate("/adminSupplierList")
+        navigate("/card")
       }
       if (response.data.role === 'ROLE_SUPPLIER') {
         navigate("/sdashboard")

@@ -73,6 +73,10 @@ public class SupplierService {
 				.collect(Collectors.toList())
 				.get(0);
 	}
+	public Supplier getSupplierforDashboard(long id) {		
+		return supplierRepository.findById(id).get();
+
+	}
 	
 	public List<Supplier> getAllSupplier() {
 		
@@ -147,9 +151,8 @@ public class SupplierService {
 	
 	public Long getCustomerPincode(String auth,User u) {
 		HttpHeaders http=new HttpHeaders();
-		System.out.println("getSupplier from custControll");
+		System.out.println("getCustomerPincode from suppliercontroller");
 		http.add("Authorization",auth);
-
 		HttpEntity<String> entity=new HttpEntity<String>(http); 
 		ResponseEntity<Long> o=restTemplate.exchange("http://CUSTOMER-SERVICE/api/customer/getcustomerpin/"+u.getId(), HttpMethod.GET, entity, Long.class);
 		System.out.println(o.getBody());

@@ -10,7 +10,10 @@ const NewPassword = () => {
   
   const { state } = useLocation();
   const token=state.token
-  
+  useEffect(() => {
+    document.title = "Wish-it || New Password"
+    
+},[])
   const SetNewPass=(e)=>{
     e.preventDefault();
     const user={id,otp,token}

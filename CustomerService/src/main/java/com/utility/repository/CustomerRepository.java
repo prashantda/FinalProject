@@ -8,4 +8,5 @@ import com.utility.entity.Customer;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer,Long>{
 
+	public Customer findByuserid(long id);
 }

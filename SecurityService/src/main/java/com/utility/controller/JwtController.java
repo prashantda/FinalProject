@@ -198,6 +198,11 @@ public class JwtController  {
 		return userService.findByUsername(Username);
 	}
 	
+	@GetMapping("/getuserforsupplier/{id}")
+	public User  getUserForSupplier(@PathVariable long id) {
+		return userService.findById(id);
+	}
+	
 	
 	@GetMapping("/getsupplieruser")
 	public User  getSUser(@RequestHeader(value = "Authorization") String auth) {

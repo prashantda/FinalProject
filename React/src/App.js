@@ -26,12 +26,13 @@ import  NewEnquiryS from './components/Supplier/SNewEnquiry'
 import  PendingOrderS from './components/Supplier/SPendingOrder'
 import  CancalledOrderS from './components/Supplier/SCancalledOrder'
 import  CompletedOrderS from './components/Supplier/SCompletedOrder'
+import  SCustomerDetails from './components/Supplier/SCustomerDetails'
 
 
 import AdminProfile from './components/Admin/AdminProfile';
 import AdminCustomerList from './components/Admin/AdminCustomerList';
 import AdminSupplierList from './components/Admin/AdminSupplierList';
-import AddAdmin from './components/Admin/AddAdmin';
+import AEditProfile from './components/Admin/AEditProfile';
 import AdminList from './components/Admin/AdminList';
 import OrderList from './components/Admin/OrderList';
 import OrderDetails from './components/Admin/OrderDetails';
@@ -41,14 +42,16 @@ import {AdminNav} from './components/Admin/AdminNav';
 import ADashBoard from './components/Admin/ADashboardCards';
 
 
-import CDashBoard from './components/Customer/CDashBoard'
+// import CDashBoard from './components/Customer/CDashBoard'
 import EditProfileC from './components/Customer/CEditProfile'
 import CustomerProfile from './components/Customer/ProfileC';
 import {CustomerNav} from './components/Customer/CustomerNav';
 import CustomerSidebar from './Sidebar/CustomerSidebar'; 
-
-
-
+import CSupplierList from './components/Customer/CSupplierList';
+import CSupplierDetails from './components/Customer/CSupplierDetails';
+import ProfileC from './components/Customer/ProfileC';
+import CEnquiryForm from './components/Customer/CEnquiryForm';
+import COrderList from './components/Customer/COrderList';
 import Sidebar from './Sidebar/Sidebar';
 
 
@@ -74,20 +77,14 @@ function App() {
 
       
       <Route exact path="/adashboard/" element={<ADashBoard/>}/>
-      <Route exact path="/adashboard/a/:id" element={<ADashBoard/>}/>
-      <Route exact path="/adminList/c/:id/a/:id" element={<AdminProfile/>}/>
+      <Route exact path="/adminprofile" element={<AdminProfile/>}/>
+      <Route exact path="/editadmin" element={<AEditProfile/>}/>
       <Route exact path="/adminCustomerList" element={<AdminCustomerList/>}/>
-      <Route exact path="/adminCustomerList/:id" element={<AdminCustomerList/>}/>
-      <Route exact path="/adminSupplierList" element={<AdminSupplierList/>}/>
-      <Route exact path="/adminSupplierList/a/:id" element={<AdminSupplierList/>}/>
-      <Route exact path="/Addadmin" element={<AddAdmin/>}/>
-      <Route exact path="/editadmin/:id" element={<AddAdmin/>}/>
+      <Route exact path="/adminSupplierList" element={<AdminSupplierList/>}/>               
       <Route exact path="/dashboards" element={<SDashBoard/>}/>
       <Route exact path="/adnav" element={<AdminNav/>}/>
       <Route exact path="/adminList" element={<AdminList/>}/>
       <Route exact path="/OrderList" element={<OrderList/>}/>
-      <Route exact path="/adminList/c/:id" element={<AdminList/>}/>
-      <Route exact path="/OrderList/a/:id" element={<OrderList/>}/>
       <Route exact path="/OrderList/a/:id" element={<OrderDetails/>}/>
       <Route exact path="/adminSupplierList/a/:id/d/:id" element={<SupplierDetails/>}/>
       <Route exact path="/adminCustomerList/a/:id/c/:id" element={<CustomerDetails/>}/>
@@ -102,10 +99,15 @@ function App() {
       <Route exact path="/sidebar" element={<Sidebar/>}/>
       <Route exact path="/customersidebar" element={<CustomerSidebar/>}/>
       <Route exact path="/custnav" element={<CustomerNav/>}/>
-      <Route exact path="/dashboardc" element={<CDashBoard/>}/>
+    
       <Route exact path="/editprofilec" element={<EditProfileC/>}/>
+      <Route exact path="/ord" element={<COrderList/>}/>
       <Route exact path="/profilec" element={<CustomerProfile/>}/>
-
+      <Route exact path="/card" element={<Card/>}/>
+      <Route exact path="/card/d/:id" element={<CSupplierList/>}/>
+      <Route exact path="/card/d/:id/e/:id/e" element={<CSupplierDetails/>}/>
+      <Route exact path="/pr" element={<ProfileC/>}/>
+      <Route exact path="/card/d/:id/e/:id" element={<CEnquiryForm/>}/>
 
 
       <Route exact path="/sdashboard" element={<SDashBoard/>}/>
@@ -117,6 +119,7 @@ function App() {
       <Route exact path="/pendingorder/:id" element={<PendingOrderS/>}/>
       <Route exact path="/cancalledorder/:id" element={<CancalledOrderS/>}/>
       <Route exact path="/completedorder/:id" element={<CompletedOrderS/>}/>
+      <Route exact path="/orderdetail/:id" element={<SCustomerDetails/>}/>
       </Routes>
       <Footer />
       </>

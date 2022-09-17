@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import Connection from '../components/Services/Connection'
 import { useFormik } from 'formik'
@@ -56,7 +56,9 @@ const SignUp = () => {
     // const [mobile, SetMobile] = useState('')
     // const [password, SetPassword] = useState('')
     // const [username, SetUsername] = useState('')
-
+    useEffect(() => {
+        document.title = "Wish-it || SignUp"
+      })
     const SaveUser = (e) => {
         let name = formik.values.name;
         let address = formik.values.address;

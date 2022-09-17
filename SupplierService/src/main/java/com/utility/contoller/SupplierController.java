@@ -104,7 +104,7 @@ public class SupplierController {
 	@GetMapping("/getsupplier/{id}")
 	public Object getSupplier(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") long id) {
 		System.out.println(id);
-		 Supplier s=supplierService.getSupplier(id);
+		 Supplier s=supplierService.getSupplierforDashboard(id);
 		 System.out.println("getsupplier in method"+s);
 		 return s;
 	}

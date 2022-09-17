@@ -27,7 +27,6 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="com.utility.valueobjects.CSignUp"/>
     <fullyQualifiedTypeName name="com.utility.valueobjects.UserOtp"/>
-    <fullyQualifiedTypeName name="com.utility.entity.Customer"/>
     <fullyQualifiedTypeName name="com.utility.model.User"/>
     <fullyQualifiedTypeName name="net.bytebuddy.asm.Advice.Return"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="com.utility.entity.Order"/>
     <fullyQualifiedTypeName name="com.utility.valueobjects.ALL"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
+    <fullyQualifiedTypeName name="com.utility.entity.Customer"/>
 </qualifiedTypeNameHistroy>

@@ -1,14 +1,15 @@
-import React,{useEffect, useState,useParams}  from 'react'
+import React,{useEffect, useState}  from 'react'
 import { App } from 'react-bootstrap-icons'
 import Connection from './Connection'
-import {  useNavigate } from "react-router-dom";
+import {  useNavigate,useParams,Link } from "react-router-dom";
 const SCancalledOrder = () => {
     const { id } =useParams()
     const[order,SetOrder]=useState('')
     useEffect(() => {
+        document.title = "Wish-it || Cancalled"
         Connection.getOrder(id).then((response)=> {
             SetOrder(response.data.order)
-           console.log(response.data)
+           
        }).catch(error =>{
            console.log(error);
        })
@@ -45,28 +46,55 @@ const SCancalledOrder = () => {
         
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label class="col-mb-2">Customer_Name</label>
+                                                        <label class="col-mb-2">OrderId</label>
                                                     </div>
                                                     <div class="col-md-6 ">
-                                                        <p class="text-success">{order.id}</p>
+                                                        <p class="text-success">{order.orderid}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-mb-2">ServiceId</label>
+                                                    </div>
+                                                    <div class="col-md-6 ">
+                                                        <p class="text-success">{order.servicetypeid}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-mb-2">OrderId</label>
+                                                    </div>
+                                                    <div class="col-md-6 ">
+                                                        <p class="text-success">{new Date(order.orderdate).toDateString()}</p>
                                                     </div>
                                                 </div>
         
-        
-                                                
+                                                <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Description</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p class="text-success">{order.description}</p>
+                                                </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-mb-2">OrderId</label>
+                                                    </div>
+                                                    <div class="col-md-6 ">
+                                                        <p class="text-success">{order.status}</p>
+                                                    </div>
+                                                </div>
+
+
+
+
                                             </div>
         
                                             
                                                
                                             
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Work_Detail</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p class="text-success">i wanted plubing my tank</p>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +107,7 @@ const SCancalledOrder = () => {
                             
         
                            
-                        <div className='text-center  mt-3'><button type="button" class="btn btn-outline-primary" style={{
+                        <div className='text-center  mt-3'><Link to={`/supplierorders`}><button type="button" class="btn btn-outline-primary" style={{
                             width: 300,
                             height: 50,
                             borderRadius: 140 / 2,
@@ -87,7 +115,7 @@ const SCancalledOrder = () => {
                             transform: [
                                 { scaleX: 2 }
                             ]
-                        }}>Back to Orders</button></div>
+                        }}>Back to Orders</button></Link></div>
         
         
                         

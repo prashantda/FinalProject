@@ -33,7 +33,7 @@ public class Customer {
 	private Date dob;	
 	@Column
 	private long userid;
-	
+	@JsonIgnore
 	@JsonManagedReference
 	@OneToMany(mappedBy = "customerid",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private List<Order> orders=new ArrayList<Order>(); 

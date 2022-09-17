@@ -1,4 +1,5 @@
-import React from 'react'
+
+import React,{useEffect, useState}  from 'react'
 const styles = {
   color: "#A8A944",
   fontSize: 100,
@@ -6,6 +7,9 @@ const styles = {
  // border: "3px solid black"
 }
 const ContactUs = () => {
+  useEffect(() => {
+    document.title = "Wish-it || ContactUs"
+  })
   return (
     <div className='text-center mt-5 mb-5'>
       <br></br><br></br>

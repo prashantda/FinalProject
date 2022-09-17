@@ -1,37 +1,46 @@
-import React, { Component } from 'react'
-import { Link } from "react-router-dom";
+import React,{useEffect, useState} from 'react'
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
+const CSupplierDetails = () => {
 
-export default class CSupplierDetails extends Component {
-    render() {
+    const { id } =useParams()
+  const [supDetails,setsupDetail] = useState([])
+  var token = `${sessionStorage.getItem('JwtToken')}`
+  useEffect(() => {
+     loadUser()
+  },[])
+
+  const loadUser = async () =>{
+    const res = await axios.get(`http://localhost:8086/api/supplier/getsupplier/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} });
+    setsupDetail(res.data.service)
+  }
+
         return (
 
-             
          <div className="container col-6 mt-5 mb-5">
-
-
          <div className='card text-bg-light p-3 '>
              <form>
                  <h3 className='text-center'>Supplier Details</h3><hr></hr>
                  <div className="form-group mb-2">
                      <label className="form-label mt-2">Supplier Name:</label>
-                     <span class="offset-1">Dynamic Electricals</span>
+                     <span class="offset-1"> {supDetails.name}</span>
                  </div>
                  <div className="form-group mb-2">
                      <label className="form-label mt-2">Service:</label>
-                     <span class="badge rounded-pill text-bg-warning offset-3"><h6>Electrical</h6></span>
+                     <span class="badge rounded-pill text-bg-warning offset-3"><h6>{supDetails.name}</h6></span>
                  </div>
                  <div className="form-group mb-2">
                      <label className="form-label mt-2">Supplier Address:</label>
-                     <span class="offset-1">216/1782 Pimpri Pune-411018</span>
+                     <span class="offset-1">{supDetails.address}</span>
                  </div>
                  <div className="form-group mb-2">
-                     <label className="form-label mt-2">Supplier Contact:</label>
-                     <span class="offset-1">8237251602</span>
+                     <label className="form-label mt-2">Supplier Pincode:</label>
+                     <span class="offset-1">{supDetails.pincode}</span>
                  </div>
                  <div className="form-group mb-2">
-                     <label className="form-label mt-2">Description:</label><br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <span class="offset-2">Old Mixture having problem with motor</span>
+                     <label className="form-label mt-2">Date Of Birth:</label><br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <span class="offset-2">{supDetails.dob}</span>
                  </div>
                  <div className='d-grid gap-2'>
                      <tr>
@@ -45,4 +54,5 @@ export default class CSupplierDetails extends Component {
          
         )
     }
-}
+
+    export default CSupplierDetails

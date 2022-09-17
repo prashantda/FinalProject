@@ -66,8 +66,8 @@ export const CustomerNav=()=>{
                 <Link to={`/signIn`}><img src={navIcon4} alt=""/></Link>
             </div>
                 <div className="social-icon">
-                  <Link to={`/signIn`}><img src={navIcon2} alt="" className="menuChevron3" id="menuChevron3"/></Link>
-                  <Link to={`/signUp`}><img src={navIcon3} alt="" className="menuChevron4" id="menuChevron4"/></Link> 
+                  <Link to={`/pr`}><img src={navIcon2} alt="" className="menuChevron3" id="menuChevron3"/></Link>
+                  <Link to={`/`}><img src={navIcon3} alt="" className="menuChevron4" id="menuChevron4"/></Link> 
                 </div>
                 <Link to={`/contactUs`}><button className="vvd"><span>Contact Us</span></button></Link>
             </span>&nbsp;&nbsp;&nbsp;

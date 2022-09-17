@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React, {  useState, useEffect } from 'react'
 import {   useLocation, useNavigate } from "react-router-dom";
 import Connection from '../components/Services/Connection' 
  
@@ -6,6 +6,10 @@ const VerifyOTP = () => {
   let navigate=useNavigate()
   const id =0
   const [otp, SetOtp] = useState('')
+  useEffect(() => {
+    document.title = "Wish-it || Verify OTP"
+    
+},[])
   // var [token,setToken]=useState(sessionStorage.getItem("JwtToken"))
   const { state } = useLocation();
   var token=state.token

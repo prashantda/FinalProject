@@ -12,6 +12,9 @@ class Connection{
   }
   }
   
+  saveSupplier(supplier){      
+    return axios.post('http://127.0.0.1:8087/api/secure/signupsupplier',supplier)
+  }
       getAllServices(){      
         return axios.get('http://localhost:8086/api/supplier/serviceslist')
       }
@@ -30,8 +33,18 @@ class Connection{
       getOrder(id){      
         return axios.get(`http://localhost:8085/api/customer/getsuporderdetails/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
       }
-
-
+      getOrderDetails(id){      
+        return axios.get(`http://localhost:8085/api/customer/getsupplierorder/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
+      AcceptOrder(id){      
+        return axios.get(`http://localhost:8085/api/customer/supplieraccept/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
+      RejectOrder(id){      
+        return axios.get(`http://localhost:8085/api/customer/supplierreject/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
+      CompletedOrder(id){      
+        return axios.get(`http://localhost:8085/api/customer/suppliercomplete/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
 
 
 

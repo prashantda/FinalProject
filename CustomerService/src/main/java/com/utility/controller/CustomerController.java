@@ -18,7 +18,24 @@ public class CustomerController {
 	
 	
 	
-
+	
+	@GetMapping("/supplieraccept/{id}")
+	public Object supplierAccept(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id){
+		return customerService.supplierAccept(id,"Pending");
+	}
+	@GetMapping("/supplierreject/{id}")
+	public Object supplierReject(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id){
+		return customerService.supplierAccept(id,"Cancalled");
+	}
+	
+	@GetMapping("/suppliercomplete/{id}")
+	public Object supplierComlete(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id){
+		return customerService.supplierAccept(id,"Completed");
+	}
+	
+	
+	
+	//used
 	@GetMapping("/ordersdetails/{id}")
 	public Object getOrderDetail(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id){
 		User u=customerService.getUser(auth);
@@ -60,7 +77,7 @@ public class CustomerController {
 	public Object getAdminDashboard(@RequestHeader(value ="Authorization") String auth) {
 		User u=customerService.getUser(auth);
 		if(u.getRole().equals("ROLE_ADMIN"))
-		return customerService.getAdminDashboard(auth);
+			return customerService.getAdminDashboard(auth);
 		return new Object();
 	}
 	
@@ -85,7 +102,12 @@ public class CustomerController {
 	{
 		return customerService.getCustomerorder(auth,id);
 	}
-	
+	@GetMapping("/getsupplierorder/{id}")
+	public Object getSupplierorder(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") long id)
+	{
+		return customerService.getSupplierorder(auth,id);
+	}
+
 	
 	
 	//used
@@ -100,7 +122,7 @@ public class CustomerController {
 	@GetMapping("/getcustomerpin/{id}")
 	public Long getCustomerpin(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") long id) {
 		System.out.println(id);
-		//User u=customerService.getUser(auth);
+		User u=customerService.getUser(auth);
 		return customerService.getCustomerpin(id);
 		 
 	}	
@@ -147,8 +169,10 @@ public class CustomerController {
 		return customerService.getAllCustomers();
 	}
 	@PostMapping("/saveorder")
-	 public Object  saveOrder(@RequestHeader(value = "Authorization") String auth,@RequestBody Order o) {
+	 public Object saveOrder(@RequestHeader(value = "Authorization") String auth,@RequestBody Order o) {
 		User user=customerService.getUser(auth);
+		System.out.println(o);
+		System.out.println("Inside Saveorder incoming");
 		return customerService.save(user,o);
 	}
 	@GetMapping("/cancalorder/{id}")

@@ -21,7 +21,7 @@ import com.utility.config.JWTConfiguration;
 import com.utility.config.JwtUtil;
 import com.utility.entity.User;
 import com.utility.entity.VerificationToken;
-import com.utility.exceptions.AllException;
+
 import com.utility.model.Customer;
 import com.utility.model.ServiceType;
 import com.utility.model.Supplier;
@@ -55,13 +55,10 @@ public class UserService {
 	private static final String SECURITY_SERVICE= "SecurityService";
 	
 	public User findByUsername(String username) {
-		try {
+		
 		return userRepository.findByUsername(username);
-		}
-		catch(NullPointerException | ArithmeticException | ArrayIndexOutOfBoundsException e)
-		{
-			throw new AllException(e.toString());
-		}
+		
+	
 	}
 	public User changePassword(User u) {
 		u.setPassword(pe.encode(u.getPassword()));
