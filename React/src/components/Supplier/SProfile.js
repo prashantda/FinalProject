@@ -1,20 +1,26 @@
-import React, { Component } from 'react'
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import Connection from './Connection'
+ import { Link } from "react-router-dom";
 
-
-export default class ProfileC extends Component {
-
-
-    Profile = (event) => {
-        event.preventDefault()
-    }
-
-    render() {
-        return (
-           
-
-
-<div class="col-8 offset-2">
+const SDashboardCards = () => {
+    const [supplier,setSupplier] = useState([])
+    const [user,setUser] = useState([])
+    const [service,setService] = useState([])
+    const [dob,setDOB] = useState([])
+    useEffect(() => {
+        document.title = "Wish-it || Dashboard"
+       
+        Connection.getSupplierProfile().then((response)=>{
+            console.log(response.data)
+            setUser(response.data.user)
+            setService(response.data.supplier.serviceType)
+            setSupplier(response.data.supplier)
+            setDOB(new Date(response.data.supplier.dob).toDateString())
+        }).catch(()=>{console.log("Error")})
+    },[])
+    
+    return (
+        <div class="col-8 offset-2">
     <div class="container emp-profile">
         <form method="post">
             <div class="row">
@@ -23,7 +29,7 @@ export default class ProfileC extends Component {
                         <img src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
                          alt="" style={{
                             width: 200,
-                            height: 200,
+                            height: 250,
                             transform: [
                                 { scaleX: 2 }
                             ]
@@ -37,10 +43,10 @@ export default class ProfileC extends Component {
                 <div class="col-md-6 mt-5">
                     <div class="profile-head">
                         <h5>
-                            Kunal Kshirsagar
+                            {user.name}
                         </h5>
                         <h6>
-                            kshirsagarkunal72
+                        {user.username}
                         </h6>
                        
                         <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
@@ -65,7 +71,7 @@ export default class ProfileC extends Component {
                                     <label class="col-mb-2">User Id</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Vkl72</p>
+                                    <p>{user.id}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -73,7 +79,7 @@ export default class ProfileC extends Component {
                                     <label>Name</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>vikas patil</p>
+                                    <p>{user.name}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -81,7 +87,7 @@ export default class ProfileC extends Component {
                                     <label>Email</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>vikaspatill72@gmail.com</p>
+                                    <p>{user.username}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -89,7 +95,7 @@ export default class ProfileC extends Component {
                                     <label>Phone</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>8237251602</p>
+                                    <p>{user.mobile}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -97,7 +103,7 @@ export default class ProfileC extends Component {
                                     <label>Adhar Number</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>494897599716</p>
+                                    <p>{supplier.aadhaar}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -105,7 +111,7 @@ export default class ProfileC extends Component {
                                     <label>Date Of Birth</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>25/07/1995</p>
+                                    <p>{dob}</p>
                                 </div>
                             </div>
                             
@@ -114,7 +120,7 @@ export default class ProfileC extends Component {
                                     <label>Address</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Sr No 265 Sant Garden Link Road Chinchwad Pune-411033</p>
+                                    <p>{supplier.address}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -122,7 +128,7 @@ export default class ProfileC extends Component {
                                     <label>Zip Code</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>411033</p>
+                                    <p>{supplier.pincode}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -130,7 +136,7 @@ export default class ProfileC extends Component {
                                     <label>Minimum Visit Charges</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>200</p>
+                                    <p>{supplier.charge}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -138,7 +144,7 @@ export default class ProfileC extends Component {
                                     <label>Type_of_service</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Pluber</p>
+                                    <p>{service.name}</p>
 
                                 </div>
                             </div>
@@ -153,13 +159,42 @@ export default class ProfileC extends Component {
         </div>
         </div>
 
-
-
-
-
-
-
-
-    )
-    }
+            )
 }
+export default SDashboardCards
+// import { Link } from "react-router-dom";
+// import React, { useEffect, useState } from 'react'
+// import Connection from './Connection'
+
+// const SProfile = ()=> {
+
+//     const [supplier,setSupplier] = useState([])
+//     const [user,setUser] = useState([])
+//     useEffect(() => {
+//         document.title = "Wish-it || Profile"
+       
+//         Connection.getSupplierProfile().then((response)=>{
+//             console.log(response.data)
+//             setUser(response.data.user)
+//             setSupplier(response.data.supplier)
+//         }).catch(()=>{console.log("Error")})
+//     },[])
+   
+
+    
+//         return (
+           
+
+
+
+
+
+
+
+
+
+
+//     )
+    
+// }
+// export default SProfile 

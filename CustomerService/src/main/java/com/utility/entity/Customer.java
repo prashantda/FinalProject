@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.utility.model.User;
 
@@ -32,6 +33,7 @@ public class Customer {
 	private Date dob;	
 	@Column
 	private long userid;
+	
 	@JsonManagedReference
 	@OneToMany(mappedBy = "customerid",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private List<Order> orders=new ArrayList<Order>(); 

@@ -40,14 +40,13 @@ function SignIn() {
       console.log(response.data.role);
       console.log(response.data.token);
       sessionStorage.setItem("JwtToken", response.data.token)
-    
-      if (response.data.role == 'ROLE_ADMIN') {
+      if (response.data.role === 'ROLE_ADMIN') {
         navigate("/adashboard")
       }
-      if (response.data.role == 'ROLE_CUSTOMER') {
-        navigate("/cdashboard")
+      if (response.data.role === 'ROLE_CUSTOMER') {
+        navigate("/adminSupplierList")
       }
-      if (response.data.role == 'ROLE_SUPPLIER') {
+      if (response.data.role === 'ROLE_SUPPLIER') {
         navigate("/sdashboard")
       }
     }).catch(error => { navigate("/") })
@@ -65,8 +64,6 @@ function SignIn() {
   return (
 
     <div className="container col-5 mt-5 mb-5">
-
-
       <div className='card text-bg-light p-3 '>
         <form
           onSubmit={formik.handleSubmit}
@@ -96,7 +93,7 @@ function SignIn() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             ></input>
-            {formik.errors.password ?
+            {formik.touched.password && formik.errors.password ?
               <span className="text-danger">
                 {formik.errors.password}</span> : null}
           </div>

@@ -138,6 +138,7 @@ public class CustomerController {
 	@GetMapping("/getsuporderdetails/{id}")
 	public Object getSuppOrderDetails(@RequestHeader(value = "Authorization") String auth,@PathVariable long id) {
 		User u=customerService.getUser(auth);
+		System.out.println("inside getSuppOrderDetails");
 		return customerService.getSuppOrderDetails(auth,u,id);
 	}
 	

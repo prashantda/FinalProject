@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.utility.model.ServiceType"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="com.utility.repository.UserRepository"/>
     <fullyQualifiedTypeName name="com.utility.valueobjects.JwtRequest"/>
@@ -28,13 +27,10 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="com.utility.valueobjects.CSignUp"/>
     <fullyQualifiedTypeName name="com.utility.valueobjects.UserOtp"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="com.utility.entity.Customer"/>
-    <fullyQualifiedTypeName name="com.utility.valueobjects.ALL"/>
     <fullyQualifiedTypeName name="com.utility.model.User"/>
     <fullyQualifiedTypeName name="net.bytebuddy.asm.Advice.Return"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
-    <fullyQualifiedTypeName name="com.utility.entity.Order"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="org.aspectj.weaver.NewConstructorTypeMunger"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
@@ -58,4 +54,10 @@
     <fullyQualifiedTypeName name="org.springframework.security.web.util.ThrowableCauseExtractor"/>
     <fullyQualifiedTypeName name="com.utility.exceptions.AllException"/>
     <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="com.utility.entity.ServiceType"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonFormat"/>
+    <fullyQualifiedTypeName name="com.utility.entity.Order"/>
+    <fullyQualifiedTypeName name="com.utility.valueobjects.ALL"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
 </qualifiedTypeNameHistroy>

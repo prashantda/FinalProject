@@ -205,11 +205,23 @@ public class CustomerService {
 
 
 
-	public Object getSuppOrderDetails(String auth,User u, long id) {
-		long s=getSupplier(auth, u);		
-		return os.getOrderOfSupplier(s,id);
+	public ALL getSuppOrderDetails(String auth,User u, long id) {
+		long s=getSupplier(auth, u);
+		System.out.println(s);
+		Order ord=or.findById(id).get();
+		ALL all=new ALL();
+		all.setOrder(ord);
+		all.setCustomer(customerRepository.findById(ord.getCustomerid().getCustomerid()).get());
+		
+		return all;
 	}
- 
+//	public Order getOrderOfSupplier(long sid,long oid) {
+//		Order ord=	or.findAll().stream()
+//			.filter(or->or.getOrderid()==oid)
+//			.findFirst().get();
+//		System.out.println(ord);
+//			return ord;
+//		}
 
 
 

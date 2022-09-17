@@ -1,19 +1,11 @@
-import React, { Component } from 'react'
-import { Link } from "react-router-dom";
+import React,{useEffect, useState} from 'react'
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
-
-export default class ProfileC extends Component {
-
-
-    Profile = (event) => {
-        event.preventDefault()
-    }
-
-    render() {
+const ProfileC = () => {
+  
         return (
-            
-
-<div class="col-8 offset-2">
+ <div class="col-8 offset-2">
     <div class="container emp-profile">
         <form method="post">
             <div class="row">
@@ -138,4 +130,5 @@ export default class ProfileC extends Component {
 
     )
     }
-}
+
+export default ProfileC

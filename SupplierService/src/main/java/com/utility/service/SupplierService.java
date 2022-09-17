@@ -113,8 +113,10 @@ public class SupplierService {
 		Supplier s =getSupplier(u.getId());
 		s.setAddress(supp.getAddress());
 		s.setPincode(supp.getPincode());
-		s.setDob(supp.getDob());
+		if(supp.getDob()!=null)
+			s.setDob(supp.getDob());
 		s.setAadhaar(supp.getAadhaar());
+		System.out.println(supp.getCharge());
 		s.setCharge(supp.getCharge());
 		s=supplierRepository.save(s);
 		u.setName(supp.getName());

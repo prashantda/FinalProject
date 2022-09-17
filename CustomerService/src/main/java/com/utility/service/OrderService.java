@@ -48,15 +48,16 @@ public class OrderService {
 	return	or.findAll().stream()
 		.filter(o->o.getCustomerid().getCustomerid()==cid)
 		.filter(or->or.getOrderid()==oid)
-		.collect(Collectors.toList()).get(0);
+		.findFirst().get();
 		
 	}
 	public Order getOrderOfSupplier(long sid,long oid) {
-		return	or.findAll().stream()
+		Order ord=	or.findAll().stream()
 			.filter(o->o.getSupplierid()==sid)
 			.filter(or->or.getOrderid()==oid)
-			.collect(Collectors.toList()).get(0);
-			
+			.findFirst().get();
+		System.out.println(ord);
+			return ord;
 		}
 	
 	

@@ -37,7 +37,11 @@ public class SupplierController {
 			@PathVariable("sid") int sid, @PathVariable("pin")int pin){
 		return supplierService.getsupplierspin(sid, pin);
 	}
-	
+	@GetMapping("/serviceslist")
+	public List<ServiceType> serviceList()
+	{
+		return sts.findAll();
+	}
 	@GetMapping("/supplierforadmin/{id}")
 	public Object getSupplierAdmin(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id) {
 		return supplierService.getSupplierAdmin(auth,id);

@@ -1,56 +1,90 @@
-import React from 'react'
-import { Link } from "react-router-dom";
-import { App } from 'react-bootstrap-icons'
-const styles = {
-    height:50,
-  }
+import React,{useEffect, useState}  from 'react'
+// import Connection from '../Services/Connection'
+import { Link, useParams } from "react-router-dom";
+import CustConnection from '../../components/Customer/ConnectionCustomer/CustConnection'
+import axios from "axios";
+
+
+
 const CDashBoard = () => {
+    const [suppl,setSupplier] = useState([])
+
+    var token = `${sessionStorage.getItem('JwtToken')}`
+
+    useEffect(() => {
+         const getsupp=async ()=>{
+             const res = await axios.get('http://localhost:8086/api/supplier/getservices',{ headers: {"Authorization" : `Bearer ${token}`} });
+             const getdata = await res.data.servicelist;
+             setSupplier(getdata);  
+             console.log(getdata); 
+            }
+            getsupp();
+    },[]);
+
+  
+    
   return (
-    <>
-   
+    //   <div>
+    //       {
+    //           suppl.map((rowdata)=>
+    //           <div>
+    //               {
+    //                   (typeof(rowdata.servicelist)=='object')?
+    //                   <div>
+    //                       {
+    //                           rowdata.servicelist.map((sub)=>
+    //                           <div>
+    //                              <h1>{sub.id}</h1> 
+    //                               <h1>{sub.name}</h1>
+    //                           </div>
+    //                           )
+    //                       }
+    //                   </div>
+    //                   :
+    //                   null
+    //               }
+    //           </div>)
+    //       }
+    //   </div>
 
-
-
-
-
-<div class="container rounded bg-white mt-5 mb-3 ">
-
-<div class="row">
-    <div class="center  border-right">
-        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-            <img class="rounded-circle width:70 height:120 mt-5" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" style={{
-                width: 200,
-                height: 250,
-                borderRadius: 140 / 2,
-                backgroundColor: '#FF6F00',
-                transform: [
-                    { scaleX: 2 }
-                ]
-            }} />
-            <span class="font-weight-bold">Kunal</span><span class="text-black-50">kshirsgarkunal72@gmail.com</span><span> </span></div>
+    // <div>{renderedPost}</div>
+    <div>
+      <h1>Hii</h1>
     </div>
-    <div class="center  border-right">
-        <div className='d-grid gap-4' >
-            <tr className='offset-2'>
-                <Link to={`/profile`}><button className="btn btn-success col-4 rounded-pill mt-2 " style={styles} >Profile</button></Link>
-                <Link to={`/`}><button className=" col-1 " style={styles} ></button></Link>
-                <Link to={`/allorders`}><button className="btn btn-secondary col-4 rounded-pill" style={styles} >All Orders</button></Link>
-                
-            </tr>
-            <tr className='offset-2'>
-                
-            <Link to={`/changepassword`}><button className="btn btn-danger col-4 rounded-pill mt-2" style={styles}>Change Password</button></Link>
-            <Link to={`/`}><button className=" col-1 " style={styles} ></button></Link>
-                <Link to={`/contactus`}><button className="btn btn-info col-4 rounded-pill mt-2" style={styles}>Contact Us</button></Link>
-            </tr>
-        </div><br></br><br></br><br></br>
-    </div>
-</div>
-</div>
-
-
-    </>
-  )
+        
+    // <div className="container">
+    //   <h2 className="text-center">Supplier's List</h2>
+    //   <table className="table table-bordered table-striped">
+    //       <thead>
+    //           <th>Supplier Id</th>
+    //           <th>Supplier Name</th>
+    //           <th>Mobile</th>
+    //           <th>Supplier Email-Id</th>
+    //           <th>Actions</th>
+    //       </thead>
+    //       {/* <tbody> */}
+    //           {
+    //              suppl.map(
+    //                   sup =>
+    //                   <tbody>
+    //                   <tr key={sup.id}>
+    //                       <td>{sup.id}</td>
+    //                       <td>{sup.firstName}</td>
+    //                       <td>{sup.lastName}</td>
+    //                       <td>{sup.emailId}</td>
+    //                       <td>
+    //                           <Link to={`d/${sup.id}`}><button className="btn btn-success" >Details</button></Link>
+    //                       </td>
+                          
+    //                   </tr>
+    //                   </tbody>
+    //               )
+    //           }
+    //       {/* </tbody> */}
+    //   </table>
+    //   <Link to={`/adashboard/a/${id}`}><button className="btn btn-success" >Back To DashBoard</button></Link>
+    // </div>
+    )
 }
 
 export default CDashBoard

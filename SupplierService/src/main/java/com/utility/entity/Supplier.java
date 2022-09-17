@@ -3,6 +3,8 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 import lombok.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.utility.model.*;
 
 
@@ -23,6 +25,7 @@ public class Supplier {
 	@Column(length = 12,nullable = false)
 	private long aadhaar;
 	@Column
+	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date dob;
 	@Column(length = 4,nullable = false)
 	private int charge;

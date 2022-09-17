@@ -17,11 +17,16 @@ import NewPassword from './Users/NewPassword';
 import Card from './Users/Card';
 
 
-import SDashBoard from './components/Supplier/SDashBoard';
+import SDashBoard from './components/Supplier/SDashboardCards';
 import SProfile from './components/Supplier/SProfile';
 import SEditProfile from './components/Supplier/SEditProfile';
-import ADashBoard from './components/Admin/ADashBoard';
 import {SupplierNav} from './components/Supplier/SupplierNav';
+import OrdersS from './components/Supplier/OrderList';
+import  NewEnquiryS from './components/Supplier/SNewEnquiry'
+import  PendingOrderS from './components/Supplier/SPendingOrder'
+import  CancalledOrderS from './components/Supplier/SCancalledOrder'
+import  CompletedOrderS from './components/Supplier/SCompletedOrder'
+
 
 import AdminProfile from './components/Admin/AdminProfile';
 import AdminCustomerList from './components/Admin/AdminCustomerList';
@@ -33,6 +38,7 @@ import OrderDetails from './components/Admin/OrderDetails';
 import SupplierDetails from './components/Admin/SupplierDetails';
 import CustomerDetails from './components/Admin/CustomerDetails';
 import {AdminNav} from './components/Admin/AdminNav';
+import ADashBoard from './components/Admin/ADashboardCards';
 
 
 import CDashBoard from './components/Customer/CDashBoard'
@@ -71,7 +77,7 @@ function App() {
       <Route exact path="/adashboard/a/:id" element={<ADashBoard/>}/>
       <Route exact path="/adminList/c/:id/a/:id" element={<AdminProfile/>}/>
       <Route exact path="/adminCustomerList" element={<AdminCustomerList/>}/>
-      <Route exact path="/adminCustomerList/a/:id" element={<AdminCustomerList/>}/>
+      <Route exact path="/adminCustomerList/:id" element={<AdminCustomerList/>}/>
       <Route exact path="/adminSupplierList" element={<AdminSupplierList/>}/>
       <Route exact path="/adminSupplierList/a/:id" element={<AdminSupplierList/>}/>
       <Route exact path="/Addadmin" element={<AddAdmin/>}/>
@@ -105,8 +111,12 @@ function App() {
       <Route exact path="/sdashboard" element={<SDashBoard/>}/>
       <Route exact path="/editprofiles" element={<SEditProfile/>}/>
       <Route exact path="/suppnav" element={<SupplierNav/>}/>
-    
+      <Route exact path="/supplierorders" element={<OrdersS/>}/>
       <Route exact path="/profiles" element={<SProfile/>}/>
+      <Route exact path="/newenquiry/:id" element={<NewEnquiryS/>}/>
+      <Route exact path="/pendingorder/:id" element={<PendingOrderS/>}/>
+      <Route exact path="/cancalledorder/:id" element={<CancalledOrderS/>}/>
+      <Route exact path="/completedorder/:id" element={<CompletedOrderS/>}/>
       </Routes>
       <Footer />
       </>

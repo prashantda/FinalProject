@@ -1,7 +1,21 @@
-import React from 'react'
+import React,{useEffect, useState,useParams}  from 'react'
 import { App } from 'react-bootstrap-icons'
+import Connection from './Connection'
+import {  useNavigate } from "react-router-dom";
+const SCancalledOrder = () => {
+    const { id } =useParams()
+    const[order,SetOrder]=useState('')
+    useEffect(() => {
+        Connection.getOrder(id).then((response)=> {
+            SetOrder(response.data.order)
+           console.log(response.data)
+       }).catch(error =>{
+           console.log(error);
+       })
+    },[])
 
-const SignUp = () => {
+
+
     return (
         <div>
 
@@ -25,16 +39,16 @@ const SignUp = () => {
                                         <div class="tab-content profile-tab" id="myTabContent">
                                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                            
-                                            <h3 className='text-center'>Coustomer_Details</h3>
+                                            <h3 className='text-center'>Customer_Details</h3>
                                             
                                             <hr></hr>
         
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label class="col-mb-2">Coustomer_Name</label>
+                                                        <label class="col-mb-2">Customer_Name</label>
                                                     </div>
                                                     <div class="col-md-6 ">
-                                                        <p class="text-success">Vikas patil</p>
+                                                        <p class="text-success">{order.id}</p>
                                                     </div>
                                                 </div>
         
@@ -88,4 +102,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+export default SCancalledOrder
