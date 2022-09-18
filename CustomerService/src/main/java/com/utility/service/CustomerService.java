@@ -137,9 +137,10 @@ public class CustomerService {
 
 
 	public Object getOrderDetails(User u, long id) {
-		System.out.println(u);
+
 		Customer c=getCustomer(u.getId());
-	return	os.getOrderOfCustomer(c.getCustomerid(),id);
+		return os.getOrderOfCustomer(c.getCustomerid(),id);
+		 
 	}
 
 

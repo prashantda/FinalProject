@@ -36,9 +36,9 @@ public class AspectConfiguration {
 	
 	@Around("logging()")	
 	public Object supplierAOP(ProceedingJoinPoint pjp) throws Throwable {
-		System.out.println("Before");
+		
 		Object[] args=pjp.getArgs();
-		System.out.println(pjp.getSignature());
+		
 		String token=(String)args[0];		
 		User user=customerService.getUser(token);
 		int i=0;
@@ -93,7 +93,7 @@ public class AspectConfiguration {
 		if(all.getUser()==null)
 			all.setUser(user);	
 		
-		System.out.println("After");
+		
 		if(user !=null && flag==true)
 			return (Object)all;
 		else if(user!= null && flag==false)

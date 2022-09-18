@@ -121,7 +121,7 @@ public class CustomerController {
 	//All below used
 	@GetMapping("/getcustomerpin/{id}")
 	public Long getCustomerpin(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") long id) {
-		System.out.println(id);
+		
 		User u=customerService.getUser(auth);
 		return customerService.getCustomerpin(id);
 		 

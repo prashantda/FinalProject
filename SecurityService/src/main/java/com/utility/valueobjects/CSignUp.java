@@ -21,9 +21,9 @@ public class CSignUp {
 	private int service;
 	private int charge;
 	private String role;
-	private  boolean isAccountNonExpired;
-	private   boolean isAccountNonLocked;
-	private  boolean isCredentialsNonExpired;
-	private  boolean isEnabled;
+	private  int isAccountNonExpired;
+	private   int isAccountNonLocked;
+	private  int isCredentialsNonExpired;
+	private  int isEnabled;
 			
 }

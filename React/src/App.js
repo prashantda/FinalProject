@@ -1,4 +1,5 @@
 import './App.css';
+import {Routes,Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {NavBar} from './components/Shared/NavBar';
 import {Banner} from './components/Shared/Banner';
@@ -6,15 +7,18 @@ import {Skills} from './components/Shared/Skills';
 import {Projects} from './components/Shared/Projects';
 import {Footer} from './components/Shared/Footer';
 import Home from './components/Shared/Home';
+import JoinUs from './components/Shared/JoinUs';
+import SignIn from './components/Shared/SignIn';
+import SignUp from './components/Shared/SignUp';
+import ContactUs from './components/Shared/ContactUs';
+import VerifyOtp from './components/Shared/VerifyOTP';
+import ChangePassword from './components/Shared/ChangePassword'
+import NewPassword from './components/Shared/NewPassword';
 
-import {Routes,Route } from "react-router-dom";
-import JoinUs from './Users/JoinUs';
-import SignIn from './Users/SignIn';
-import SignUp from './Users/SignUp';
-import ContactUs from './Users/ContactUs';
-import VerifyOtp from './Users/VerifyOTP';
-import NewPassword from './Users/NewPassword';
-import Card from './Users/Card';
+
+
+
+
 
 
 import SDashBoard from './components/Supplier/SDashboardCards';
@@ -40,19 +44,21 @@ import SupplierDetails from './components/Admin/SupplierDetails';
 import CustomerDetails from './components/Admin/CustomerDetails';
 import {AdminNav} from './components/Admin/AdminNav';
 import ADashBoard from './components/Admin/ADashboardCards';
+import AdminDetails from './components/Admin/AdminDetail'
+import SidebarA from './components/Admin/Sidebar';
 
 
-// import CDashBoard from './components/Customer/CDashBoard'
+
 import EditProfileC from './components/Customer/CEditProfile'
 import CustomerProfile from './components/Customer/ProfileC';
 import {CustomerNav} from './components/Customer/CustomerNav';
-import CustomerSidebar from './Sidebar/CustomerSidebar'; 
+import CustomerSidebar from './components/Customer/CustomerSidebar'; 
 import CSupplierList from './components/Customer/CSupplierList';
 import CSupplierDetails from './components/Customer/CSupplierDetails';
 import ProfileC from './components/Customer/ProfileC';
 import CEnquiryForm from './components/Customer/CEnquiryForm';
 import COrderList from './components/Customer/COrderList';
-import Sidebar from './Sidebar/Sidebar';
+import Card from './components/Customer/Card';
 
 
 
@@ -74,32 +80,30 @@ function App() {
       <Route exact path="/contactUs" element={<ContactUs/>}/>
       <Route exact path="/verify" element={<VerifyOtp/>}/>
       <Route exact path="/setnewpassword" element={<NewPassword/>}/>
-
+      <Route exact path="/changepassword" element={<ChangePassword/>}/>
       
       <Route exact path="/adashboard/" element={<ADashBoard/>}/>
       <Route exact path="/adminprofile" element={<AdminProfile/>}/>
       <Route exact path="/editadmin" element={<AEditProfile/>}/>
       <Route exact path="/customerslist" element={<AdminCustomerList/>}/>
-      <Route exact path="/adminSupplierList" element={<AdminSupplierList/>}/>               
-      <Route exact path="/dashboards" element={<SDashBoard/>}/>
-      <Route exact path="/adnav" element={<AdminNav/>}/>
-      <Route exact path="/adminList" element={<AdminList/>}/>
-      <Route exact path="/OrderList" element={<OrderList/>}/>
-      <Route exact path="/OrderList/a/:id" element={<OrderDetails/>}/>
-      <Route exact path="/adminSupplierList/a/:id/d/:id" element={<SupplierDetails/>}/>
       <Route exact path="/customerdetail/:id" element={<CustomerDetails/>}/>
+      <Route exact path="/supplierlist" element={<AdminSupplierList/>}/>               
+      <Route exact path="/supplierdetail/:id" element={<SupplierDetails/>}/>
+      <Route exact path="/adnav" element={<AdminNav/>}/>
+      <Route exact path="/adminlist" element={<AdminList/>}/>
+      <Route exact path="/admindetail/:id" element={<AdminDetails/>}/>
+      <Route exact path="/orderlist" element={<OrderList/>}/>
+      {/* <Route exact path="/orderdetails:id" element={<OrderDetails/>}/> */}
+      <Route exact path="/sidebar" element={<SidebarA/>}/>
 
       
       
       
       
       
-      <Route exact path="/card" element={<Card/>}/>
-      
-      <Route exact path="/sidebar" element={<Sidebar/>}/>
+      <Route exact path="/card" element={<Card/>}/>            
       <Route exact path="/customersidebar" element={<CustomerSidebar/>}/>
-      <Route exact path="/custnav" element={<CustomerNav/>}/>
-    
+      <Route exact path="/custnav" element={<CustomerNav/>}/>   
       <Route exact path="/editprofilec" element={<EditProfileC/>}/>
       <Route exact path="/ord" element={<COrderList/>}/>
       <Route exact path="/profilec" element={<CustomerProfile/>}/>
@@ -109,7 +113,7 @@ function App() {
       <Route exact path="/pr" element={<ProfileC/>}/>
       <Route exact path="/card/d/:id/e/:id" element={<CEnquiryForm/>}/>
 
-
+      {/* <Route exact path="/dashboards" element={<SDashBoard/>}/> */}
       <Route exact path="/sdashboard" element={<SDashBoard/>}/>
       <Route exact path="/editprofiles" element={<SEditProfile/>}/>
       <Route exact path="/suppnav" element={<SupplierNav/>}/>

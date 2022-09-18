@@ -80,7 +80,7 @@ public class SupplierController {
 	public Object getServiceSuppliers(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") int id)
 	{
 		User u=supplierService.getUser(auth);
-		System.out.println("getServiceSuppliers");
+		
 		return	supplierService.getServiceSuppliers(u,auth,id);
 	}
 	//used

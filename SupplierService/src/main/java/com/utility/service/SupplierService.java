@@ -87,12 +87,12 @@ public class SupplierService {
 
 	@Retry(name = SUPPLIER_SERVICE,fallbackMethod ="getCUfallback" )
 	public User getUser(String auth) {
-		System.out.println("getSupplierUser in");
+		
 		HttpHeaders http=new HttpHeaders();
 		http.add("Authorization",auth);
 		HttpEntity entity=new HttpEntity(http); 
 		HttpEntity response=restTemplate.exchange("http://SECURITY-SERVICE/api/secure/getsupplieruser", HttpMethod.GET, entity, User.class);
-		System.out.println("getCustomerUser out"+response.getBody());
+		
 		return (User) response.getBody();
 	}
 	public User getCUfallback(Exception e) {
@@ -104,7 +104,7 @@ public class SupplierService {
 	public List<Supplier> getServiceSuppliers(User u,String auth, int id) {
 		
 		Long pincode=getCustomerPincode(auth,u);
-		System.out.println(pincode);
+		
 		System.out.println("getServiceSuppliers from supplierservice");
 		return supplierRepository.findAll()
 				.stream().filter(s->s.getServiceType().getId()==id)
@@ -151,11 +151,11 @@ public class SupplierService {
 	
 	public Long getCustomerPincode(String auth,User u) {
 		HttpHeaders http=new HttpHeaders();
-		System.out.println("getCustomerPincode from suppliercontroller");
+		
 		http.add("Authorization",auth);
 		HttpEntity<String> entity=new HttpEntity<String>(http); 
 		ResponseEntity<Long> o=restTemplate.exchange("http://CUSTOMER-SERVICE/api/customer/getcustomerpin/"+u.getId(), HttpMethod.GET, entity, Long.class);
-		System.out.println(o.getBody());
+		
 		return o.getBody();
 	
 	}
@@ -230,6 +230,7 @@ public class SupplierService {
 		ALL all=new ALL();
 		all.setUser(u);
 		all.setSupplier(c);
+		
 		return all;
 	}
 	public User getSupplierUser(String auth,long id) {

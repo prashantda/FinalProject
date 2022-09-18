@@ -7,9 +7,10 @@ const SDashboardCards = () => {
         document.title = "Wish-it || Dashboard"
        
         Connection.getSupplierDashboard().then((response)=>{
-            console.log(response.data)
+            
             setUser(response.data.user)
             setSupplier(response.data.sdashboard)
+           // console.log(response.data)
         }).catch(()=>{console.log("Error")})
     },[])
     

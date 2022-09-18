@@ -29,7 +29,21 @@ class Connection{
       getCustomer(id){      
         return axios.get(`http://localhost:8085/api/customer/customerforadmin/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
       }
-     
+      EditUser(user){      
+        return axios.post('http://localhost:8087/api/secure/edituser',user,{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
+      getSupplierList(){      
+        return axios.get('http://localhost:8087/api/secure/supplierslist',{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
+      getSupplier(id){      
+        return axios.get(`http://localhost:8086/api/supplier/supplierforadmin/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
+      getAdminList(){      
+        return axios.get('http://localhost:8087/api/secure/adminlist',{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
+      getOrderList(){      
+        return axios.get('http://localhost:8085/api/customer/orderslist',{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
 
 
 

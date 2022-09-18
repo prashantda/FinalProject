@@ -53,11 +53,11 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="com.utility.entity.ServiceType"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonFormat"/>
-    <fullyQualifiedTypeName name="com.utility.valueobjects.ALL"/>
     <fullyQualifiedTypeName name="com.utility.entity.Customer"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="com.utility.model.User"/>
     <fullyQualifiedTypeName name="com.utility.entity.Order"/>
+    <fullyQualifiedTypeName name="com.utility.valueobjects.ALL"/>
 </qualifiedTypeNameHistroy>

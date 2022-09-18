@@ -8,9 +8,10 @@ const ADashBoardCards = () => {
         document.title = "Wish-it || Dashboard"
        
         Connection.getAdminDashboard().then((response)=>{
-            console.log(response.data)
+           
             setUser(response.data.user)
             setAdmin(response.data.sdashboard)
+            // console.log(response.data)
         }).catch(()=>{console.log("Error")})
     },[])
    

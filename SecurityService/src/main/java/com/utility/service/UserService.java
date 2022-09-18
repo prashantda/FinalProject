@@ -218,10 +218,23 @@ public class UserService {
 	}
 	public User editUser(CSignUp s) {
 		User u=userRepository.findById(s.getAadhaar()).get();
-		u.setAccountNonExpired(s.isAccountNonExpired());
-		u.setAccountNonLocked(s.isAccountNonLocked());
-		u.setCredentialsNonExpired(s.isCredentialsNonExpired());
-		u.setEnabled(s.isEnabled());
+		if(s.getIsAccountNonExpired()==0)
+			u.setAccountNonExpired(false);
+		else
+			u.setAccountNonExpired(true);
+		
+		if(s.getIsAccountNonLocked()==0)
+			u.setAccountNonLocked(false);
+		else
+			u.setAccountNonLocked(true);
+		if(s.getIsCredentialsNonExpired()==0)
+			u.setCredentialsNonExpired(false);
+		else
+			u.setCredentialsNonExpired(true);
+		if(s.getIsEnabled()==0)
+			u.setEnabled(false);
+		else
+			u.setEnabled(true);
 		u.setRole(s.getRole());
 		return userRepository.save(u);		
 		 

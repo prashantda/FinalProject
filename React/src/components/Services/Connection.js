@@ -1,8 +1,6 @@
 import axios from "axios";
 
-// const Employee_db_url = 'http://localhost:8080/api/v1/employees'; //dummy url for checking
 
-//  const Security_db_url = 'http://127.0.0.1:8087/api/secure/token';
   var token = `${sessionStorage.getItem('JwtToken')}` 
 class Connection{
   constructor(props) {
@@ -39,6 +37,9 @@ class Connection{
    
       verifyot(user){
         return axios.post('http://127.0.0.1:8087/api/secure/verifyotp',user)
+      }
+      changePassword(user){
+        return axios.post('http://127.0.0.1:8087/api/secure/changepassword',user,{ headers: {"Authorization" : `Bearer ${token}`} })
       }
 
     
