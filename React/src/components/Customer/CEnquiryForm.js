@@ -18,7 +18,7 @@ const CEnquiryForm = () => {
 const supplierid=supplier.supplierid
      const order={supplierid,servicetypeid,description} 
      CustConnection.setOrder(order).then((response)=>{
-      navigate("/ord")
+      navigate("/custOrderList")
        console.log(response.data) 
      }).catch(error=>{
        console.log(error) 

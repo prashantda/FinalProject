@@ -56,7 +56,7 @@ const ProfileC = () => {
                     </div>
                 </div>
                 <div class="col-md-2">
-                  <Link to={`/editprofilec`}>  <button type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit" /></Link>
+                  <Link to={`/editprofilec`}><input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit" /></Link>
                 </div>
             </div>
             <div class="row">

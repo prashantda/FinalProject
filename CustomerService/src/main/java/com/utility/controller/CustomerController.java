@@ -154,7 +154,8 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/getorderdetails/{id}")
-	public Object getOrderDetails(@RequestHeader(value = "Authorization") String auth,@RequestBody User u,@PathVariable long id) {
+	public Object getOrderDetails(@RequestHeader(value = "Authorization") String auth,@PathVariable long id) {
+		User u=customerService.getUser(auth);
 		return customerService.getOrderDetails(u,id);
 	}
 	@GetMapping("/getsuporderdetails/{id}")

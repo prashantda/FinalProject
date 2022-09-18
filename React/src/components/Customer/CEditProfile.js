@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
-import Connection from './ConnectionCustomer/CustConnection'
-import { useFormik } from 'formik'
+// import Connection from './ConnectionCustomer/CustConnection'
+import CustConnection from './ConnectionCustomer/CustConnection';
 
 const CEditProfile = (supplier) => {
     const [name,setNames] = useState()
@@ -10,21 +10,16 @@ const CEditProfile = (supplier) => {
     const [dob,setDob] = useState()
     const [aadhaar,setAadhaar] = useState()
     const [mobile,setMobile] = useState()
-    const [charge,setCharge] = useState()
-
-    
 
     useEffect(() => {
         document.title = "Wish-it || Edit Profile"
-        Connection.getOrder().then((response)=>{
+        CustConnection.getOrder().then((response)=>{
             console.log(response.data)
             setNames(response.data.user.name)
             setAddress(response.data.customer.address)
             setPincode(response.data.customer.pincode)           
             setAadhaar(response.data.customer.aadhaar)
             setMobile(response.data.user.mobile)
-           
-            
         }).catch(()=>{console.log("Error")})
     
     },[])
@@ -33,9 +28,9 @@ const CEditProfile = (supplier) => {
     const EditProfile = (e) => {
             e.preventDefault()
             const customer = { name, address, pincode, dob, aadhaar, mobile }
-            Connection.EditProfile(customer).then((response) => {
+            CustConnection.EditProfile(customer).then((response) => {
                 if (response.data.customer.customer != 0) {
-                        navigate("/adminprofile")
+                        navigate("/profilec")
                 }
     
             }).catch(error => { alert("something went wrong") })
@@ -53,7 +48,7 @@ const CEditProfile = (supplier) => {
                     <div className='card text-bg-light p-3 '>
                         <form >
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="offset-5">Admin Edit Profile</h4>
+                            <h4 class="offset-5">Customer Edit Profile</h4>
                         </div>
                             <div className="form-group mb-2">
                                 <label className="form-label mt-4">Name</label>

@@ -1,43 +1,115 @@
-import React, { Component } from 'react'
-import { Link } from "react-router-dom";
-
-
-export default class CCancelledOrders extends Component {
-    render() {
-        return (
-            <div className="container col-6 mt-5 mb-5">
-
-
-<div className='card text-bg-light p-3 '>
-    <form>
-        <h3 className='text-center'>Cancelled Orders</h3><hr></hr>
-        <div className="form-group mb-2">
-            <label className="form-label mt-2">Supplier Name:</label>
-            <span class="offset-1">Dynamic Electricals</span>
-        </div>
-        <div className="form-group mb-2">
-            <label className="form-label mt-2">Service:</label>
-            {/* <span class="offset-1">Dynamic Electricals</span> */}
-            <span class="badge rounded-pill text-bg-warning offset-3"><h6>Electrical</h6></span>
-        </div>
-
-        <div className="form-group mb-2">
-            <label className="form-label mt-2">Order Date:</label>
-            <span class="offset-2">09-09-2022</span>
-        </div>
-        <div className="form-group mb-2">
-            <label className="form-label mt-2">Description:</label><br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="offset-1">Old Mixture having problem with motor</span>
-        </div>
-        <div className='d-grid gap-2'>
-            <tr>
-            <Link to={`/`}><button className="btn btn-primary mt-3 rounded-pill offset-5">Back</button></Link>
-            </tr>
-        </div>
-    </form>
-</div>
-</div>
-
-        )
+import React,{useEffect, useState}  from 'react'
+import {  useNavigate,useParams,Link } from "react-router-dom";
+import CustConnection from './ConnectionCustomer/CustConnection';
+const CCNewOrders=()=> {
+    const { id } =useParams()
+    const navigate=useNavigate()
+    
+    const[order,SetOrder]=useState('')
+    
+    const Reject=()=>{
+        CustConnection.CRejectOrder(id).then((response)=>{
+            navigate('/custOrderList')
+        }).catch(()=>{
+            alert("Something Went Wrong")
+        })
+       
     }
+    const BackToOrders=()=>{
+        navigate('/custOrderList')
+    }
+
+    const Details=()=>{
+        navigate('/')
+    }
+
+    useEffect(() => {
+        document.title = "Wish-it || Pending Order"
+        CustConnection.getOrderDetails(id).then((response)=> {
+            SetOrder(response.data.order)
+           
+       }).catch(error =>{
+           console.log(error);
+       })
+    },[])
+    
+        return (
+            <div className="container col-8 mt-5 mb-5">
+
+
+            <div className='card text-bg-light p-3  mb-3'>
+            <h3 className='text-center'>Rejected Order</h3><hr></hr>
+            <p className='container-center col-8 ms-5'>
+                <form>
+                <div class="row">
+        </div>
+        <div class="row">
+            <div className='offset-4'>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="col-mb-2">OrderId</label>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <p class="text-success">{order.orderid}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="col-mb-2">ServiceId</label>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <p class="text-success">{order.servicetypeid}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="col-mb-2">Date</label>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <p class="text-success">{new Date(order.orderdate).toDateString()}</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                            <div class="col-md-6">
+                                <label>Description</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-success">{order.description}</p>
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="col-mb-2">Status</label>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <p class="text-success">{order.status}</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            
+            
+                    
+                </form>
+                </p>
+                
+            <div className='text-center mt-3'><button onClick={e=>{BackToOrders(e)}} type="button" class="btn btn-outline-primary">Back to Orders</button></div>
+            </div>
+            </div>
+            
+        )
+
+       
+    
 }
+export default CCNewOrders

@@ -31,5 +31,23 @@ class Connection{
       getOrder(){
       return axios.get(`http://localhost:8085/api/customer/getcustomer`,{ headers: {"Authorization" : `Bearer ${token}`} });
       }
+
+      EditProfile(customer){
+        return axios.put(`http://localhost:8085/api/customer/editcustomer`,customer,{ headers: {"Authorization" : `Bearer ${token}`} });
+      }
+
+      //check
+      CRejectOrder(id){      
+        return axios.get(`http://localhost:8085/api/customer/cancalorder/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
+
+      getOrderDetails(id){      
+        return axios.get(`http://localhost:8085/api/customer/getorderdetails/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
+
+      getSupplierDetails(id){      
+        return axios.get(`http://localhost:8086/api/supplier/getodersupplier/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
+
 }
 export default new Connection();

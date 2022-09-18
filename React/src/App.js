@@ -59,8 +59,11 @@ import ProfileC from './components/Customer/ProfileC';
 import CEnquiryForm from './components/Customer/CEnquiryForm';
 import COrderList from './components/Customer/COrderList';
 import Card from './components/Customer/Card';
-
-
+import CCancelledOrders from './components/Customer/CCancelledOrders';
+import CCompletedOrders from './components/Customer/CCompletedOrders';
+import CCNewOrders from './components/Customer/CCNewOrders';
+import COrderDettails from './components/Customer/COrderDettails';
+import CPendingOrder from './components/Customer/CPendingOrder'
 
 
 
@@ -107,11 +110,33 @@ function App() {
       <Route exact path="/editprofilec" element={<EditProfileC/>}/>
       <Route exact path="/ord" element={<COrderList/>}/>
       <Route exact path="/profilec" element={<CustomerProfile/>}/>
-      <Route exact path="/card" element={<Card/>}/>
       <Route exact path="/card/d/:id" element={<CSupplierList/>}/>
       <Route exact path="/card/d/:id/e/:id/e" element={<CSupplierDetails/>}/>
       <Route exact path="/pr" element={<ProfileC/>}/>
       <Route exact path="/card/d/:id/e/:id" element={<CEnquiryForm/>}/>
+      <Route exact path="/pendingorderc/:id" element={<CPendingOrder/>}/>
+      <Route exact path="/cancalledorderc/:id" element={<CCancelledOrders/>}/>
+      <Route exact path="/newenquiryc/:id" element={<CCNewOrders/>}/>
+      <Route exact path="/completedorderc/:id" element={<CCompletedOrders/>}/>
+      <Route exact path="/ordDetails/:id" element={<COrderDettails/>}/>
+      <Route exact path="/custOrderList" element={<COrderList/>}/>
+      
+     
+      
+     
+      
+      
+      
+     
+     
+     
+     
+      
+      
+
+
+
+
 
       {/* <Route exact path="/dashboards" element={<SDashBoard/>}/> */}
       <Route exact path="/sdashboard" element={<SDashBoard/>}/>
