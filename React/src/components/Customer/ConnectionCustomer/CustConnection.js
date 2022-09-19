@@ -48,6 +48,10 @@ class Connection{
       getSupplierDetails(id){      
         return axios.get(`http://localhost:8086/api/supplier/getodersupplier/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
       }
+      
 
-}
+      getSupplier(id){      
+        return axios.get(`http://localhost:8086/api/supplier/getsupplier/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
+      }
+    }
 export default new Connection();

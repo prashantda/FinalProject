@@ -18,25 +18,25 @@ const CEnquiryForm = () => {
 const supplierid=supplier.supplierid
      const order={supplierid,servicetypeid,description} 
      CustConnection.setOrder(order).then((response)=>{
-      navigate("/custOrderList")
-       console.log(response.data) 
+      navigate("/ord")
+        
      }).catch(error=>{
        console.log(error) 
      }) 
    } 
  
    useEffect(() => { 
-      loadUser() 
+    CustConnection.getSupplier(id).then((res)=>{
+      setSupplier(res.data.supplier) //service name 
+      setName(res.data.supplier.serviceType.name) //supplier name 
+      setServicetypeid(res.data.supplier.serviceType.id)
+     console.log(res.data)
+    }).catch((err)=>{
+      console.log(err)
+    })
+    
    },[]) 
  
-   const loadUser = async () =>{ 
-    const res = axios.get(`http://localhost:8086/api/supplier/getsupplier/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} });
-
-    setSupplier(res.data.supplier) //service name 
-     setName(res.data.supplier.serviceType.name) //supplier name 
-     setServicetypeid(res.data.supplier.serviceType.id)
-     console.log(res)
-   } 
  
  
   return ( 
@@ -74,7 +74,7 @@ const supplierid=supplier.supplierid
              </div> 
          </form> 
       
-     <Link to={`/card/d/${id}`}><div className='text-center mt-3'><button type="button" class="btn btn-outline-primary">Back to Services</button></div> </Link>
+     <Link to={`/card`}><div className='text-center mt-3'><button type="button" class="btn btn-outline-primary">Back to Services</button></div> </Link>
  
 </div> 
 </div> 

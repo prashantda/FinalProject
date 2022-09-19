@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 import { Navbar,Nav} from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import logo from '../../Assets/image/logo.png';
 import navIcon2 from '../../Assets/image/admin.png';
 import navIcon3 from '../../Assets/image/logout.png';
@@ -8,7 +8,7 @@ import navIcon4 from '../../Assets/image/search.png';
 
 export const CustomerNav=()=>{
     const[scrolled,setScrolled]=useState(false);
-
+    let navigate = useNavigate()
     useEffect(()=>{
         const onScroll = ()=>{
             if(window.scrollY>50){
@@ -45,7 +45,10 @@ export const CustomerNav=()=>{
               menuContainer4.style.transform ='translateX(700px)'
           });
      },[]);
-     
+     const Logout =()=>{
+        sessionStorage.removeItem('JwtToken')
+        navigate('/')
+     }
     
     return(
         <Navbar expand="lg" className={scrolled?"scolled":"" }>
@@ -66,8 +69,8 @@ export const CustomerNav=()=>{
                 <Link to={`/signIn`}><img src={navIcon4} alt=""/></Link>
             </div>
                 <div className="social-icon">
-                  <Link to={`/Cprofile`}><img src={navIcon2} alt="" className="menuChevron3" id="menuChevron3"/></Link>
-                  <Link to={`/`}><img src={navIcon3} alt="" className="menuChevron4" id="menuChevron4"/></Link> 
+                  <Link to={`/profilec`}><img src={navIcon2} alt="" className="menuChevron3" id="menuChevron3"/></Link>
+                  <Link to={`/`}><img src={navIcon3} onClick={(e)=>{Logout(e)}} alt="" className="menuChevron4" id="menuChevron4"/></Link> 
                 </div>
                 <Link to={`/contactUs`}><button className="vvd"><span>Contact Us</span></button></Link>
             </span>&nbsp;&nbsp;&nbsp;

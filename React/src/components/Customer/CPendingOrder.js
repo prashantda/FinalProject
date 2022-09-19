@@ -9,14 +9,14 @@ const CPendingOrder=()=> {
     
     const Reject=()=>{
         CustConnection.CRejectOrder(id).then((response)=>{
-            navigate('/custOrderList')
+            navigate('/ord')
         }).catch(()=>{
             alert("Something Went Wrong")
         })
        
     }
     const BackToOrders=()=>{
-        navigate('/custOrderList')
+        navigate('/ord')
     }
 
     const Details=()=>{

@@ -1,5 +1,5 @@
 import React,{useEffect, useState}  from 'react'
-import {Link, useParams} from 'react-router-dom'
+import {Link, useNavigate, useParams} from 'react-router-dom'
 // import Connection from '../Services/Connection'
 // import CustConnection from './ConnectionCustomer/CustConnection';
 import axios from "axios";
@@ -7,7 +7,7 @@ import axios from "axios";
 const CSupplierList = () => {
     const { id } =useParams()
     const [suppliers,setsuppliers] = useState([])
-
+    const navigate=useNavigate()
     //  useEffect(() => {
     //      CustConnection.getSupplierList(id).then((response)=> {
     //          setsuppliers(response.data.supplierslist)
@@ -25,8 +25,11 @@ const CSupplierList = () => {
   const loadUser = async () =>{
     const res = await axios.get(`http://localhost:8086/api/supplier/getservicesuppliers/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} });
     setsuppliers(res.data.supplierslist)
-    console.log(res.data.supplierslist)
+    //console.log(res.data.supplierslist)
   }
+ const Enquiry=(e,id)=>{
+    navigate(`/enquiry/${id}`)
+ }
 
   return (
     <div className="container">
@@ -47,15 +50,15 @@ const CSupplierList = () => {
                           <td>{sp.serviceType.name}</td>
                           <td>{sp.charge}</td>
                           <td>
-                              <Link className="btn btn-success" to={`e/${sp.supplierid}`}>Details</Link>
+                              <button className="btn btn-success" onClick={e=>{Enquiry(e,sp.supplierid)}} >Details</button>
                           </td>
-                          
+                         
                       </tr>
                   )
               }
           </tbody>
       </table>
-      <Link to={`e/${id}`}><button className="btn btn-success" >Back To DashBoard</button></Link>
+      
     </div>
     )
 }

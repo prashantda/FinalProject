@@ -8,9 +8,11 @@ const CCompletedOrders=()=> {
     const[order,SetOrder]=useState('')
     
     const BackToOrders=()=>{
-        navigate('/custOrderList')
+        navigate('/ord')
     }
-
+    const Details=()=>{
+        navigate(`/ordDetails/${id}`)
+    }
     useEffect(() => {
         document.title = "Wish-it || Pending Order"
         CustConnection.getOrderDetails(id).then((response)=> {
@@ -96,7 +98,8 @@ const CCompletedOrders=()=> {
                 </p>
                 <div className='d-grid gap-2'>
                         <tr className='row'>
-                        <Link to={`/ordDetails/${id}`}><button className="btn btn-success mt-3 rounded-pill offset-1 " style={{
+                        <button onClick={e=>{Details(e)}}
+                        className="btn btn-success mt-3 rounded-pill offset-1 " style={{
                                 width: 300,
                                 height: 50,
                                 borderRadius: 140 / 2,
@@ -104,12 +107,12 @@ const CCompletedOrders=()=> {
                                 transform: [
                                     { scaleX: 3 }
                                 ]
-                            }}>Details</button></Link>
-                        <button onClick={e=>{BackToOrders(e)}} className="btn btn-danger mt-3 rounded-pill offset-1" style={{
+                            }}>Details</button>
+                        <button onClick={e=>{BackToOrders(e)}} className="btn btn-primary mt-3 rounded-pill offset-1" style={{
                                 width: 300,
                                 height: 50,
                                 borderRadius: 140 / 2,
-                                backgroundColor: 'red',
+                               // backgroundColor: 'red',
                                 transform: [
                                     { scaleX: 3 }
                                 ]

@@ -17,7 +17,6 @@
     <fullyQualifiedTypeName name="com.utility.service.OrderService"/>
     <fullyQualifiedTypeName name="com.utility.model.Order"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="com.utility.valueobjects.SDashboard"/>
     <fullyQualifiedTypeName name="com.utility.repository.ServiceTypeRepository"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="java.lang.Long"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="com.utility.model.User"/>
     <fullyQualifiedTypeName name="com.utility.entity.Order"/>
     <fullyQualifiedTypeName name="com.utility.valueobjects.ALL"/>
+    <fullyQualifiedTypeName name="com.utility.valueobjects.SDashboard"/>
 </qualifiedTypeNameHistroy>

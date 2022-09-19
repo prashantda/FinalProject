@@ -1,7 +1,7 @@
 import React,{useEffect, useState}  from 'react'
 import {  useNavigate,useParams,Link } from "react-router-dom";
 import CustConnection from './ConnectionCustomer/CustConnection';
-const CCNewOrders=()=> {
+const CCancelledOrders=()=> {
     const { id } =useParams()
     const navigate=useNavigate()
     
@@ -9,19 +9,17 @@ const CCNewOrders=()=> {
     
     const Reject=()=>{
         CustConnection.CRejectOrder(id).then((response)=>{
-            navigate('/custOrderList')
+            navigate('/ord')
         }).catch(()=>{
             alert("Something Went Wrong")
         })
        
     }
     const BackToOrders=()=>{
-        navigate('/custOrderList')
+        navigate('/ord')
     }
 
-    const Details=()=>{
-        navigate('/')
-    }
+    
 
     useEffect(() => {
         document.title = "Wish-it || Pending Order"
@@ -112,4 +110,4 @@ const CCNewOrders=()=> {
        
     
 }
-export default CCNewOrders
+export default CCancelledOrders

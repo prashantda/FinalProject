@@ -54,8 +54,6 @@ import CustomerProfile from './components/Customer/ProfileC';
 import {CustomerNav} from './components/Customer/CustomerNav';
 import CustomerSidebar from './components/Customer/CustomerSidebar'; 
 import CSupplierList from './components/Customer/CSupplierList';
-import CSupplierDetails from './components/Customer/CSupplierDetails';
-import ProfileC from './components/Customer/ProfileC';
 import CEnquiryForm from './components/Customer/CEnquiryForm';
 import COrderList from './components/Customer/COrderList';
 import Card from './components/Customer/Card';
@@ -104,22 +102,27 @@ function App() {
       
       
       
-      <Route exact path="/card" element={<Card/>}/>            
-      <Route exact path="/customersidebar" element={<CustomerSidebar/>}/>
-      <Route exact path="/custnav" element={<CustomerNav/>}/>   
-      <Route exact path="/editprofilec" element={<EditProfileC/>}/>
-      <Route exact path="/ord" element={<COrderList/>}/>
-      <Route exact path="/profilec" element={<CustomerProfile/>}/>
-      <Route exact path="/card/d/:id" element={<CSupplierList/>}/>
-      <Route exact path="/card/d/:id/e/:id/e" element={<CSupplierDetails/>}/>
-      <Route exact path="/pr" element={<ProfileC/>}/>
-      <Route exact path="/card/d/:id/e/:id" element={<CEnquiryForm/>}/>
-      <Route exact path="/pendingorderc/:id" element={<CPendingOrder/>}/>
-      <Route exact path="/cancalledorderc/:id" element={<CCancelledOrders/>}/>
-      <Route exact path="/newenquiryc/:id" element={<CCNewOrders/>}/>
-      <Route exact path="/completedorderc/:id" element={<CCompletedOrders/>}/>
-      <Route exact path="/ordDetails/:id" element={<COrderDettails/>}/>
-      <Route exact path="/custOrderList" element={<COrderList/>}/>
+     
+     
+   <Route exact path="/card" element={<Card/>}/>            
+   <Route exact path="/profilec" element={<CustomerProfile/>}/>  
+   <Route exact path="/editprofilec" element={<EditProfileC/>}/>
+   <Route exact path="/custnav" element={<CustomerNav/>}/> 
+   <Route exact path="/customersidebar" element={<CustomerSidebar/>}/>
+   <Route exact path="/ord" element={<COrderList/>}/>   
+   <Route exact path="/card/d/:id" element={<CSupplierList/>}/>  
+   <Route exact path="/newenquiryc/:id" element={<CCNewOrders/>}/>       
+   <Route exact path="/pendingorderc/:id" element={<CPendingOrder/>}/>   
+   <Route exact path="/completedorderc/:id" element={<CCompletedOrders/>}/>
+   <Route exact path="/cancalledorderc/:id" element={<CCancelledOrders/>}/>
+   <Route exact path="/enquiry/:id" element={<CEnquiryForm/>}/>
+   <Route exact path="/ordDetails/:id" element={<COrderDettails/>}/>
+
+
+
+         
+      
+      
       
      
       

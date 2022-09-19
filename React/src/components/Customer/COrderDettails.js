@@ -12,10 +12,10 @@ const COrderDettails = () => {
     useEffect(() => {
         document.title = "Wish-it || Order Details"
         CustConnection.getSupplierDetails(id).then((response)=> {
-            SetOrder(response.data.order)
+            // SetOrder(response.data.order)
             SetSupplier(response.data.supplier)
             SetService(response.data.supplier.serviceType)
-            SetUseOtp(response.data.supplier.useOtp)
+            // SetUseOtp(response.data.supplier.useOtp)
             console.log(response.data)    
        }).catch(error =>{
            console.log(error);
