@@ -10,6 +10,11 @@ import { NavLink } from 'react-router-dom';
 import {motion,AnimatePresence} from "framer-motion"
 const routes=[
     {
+        path:"/",
+        name:"Home",
+        icon:<FaHome/>,
+    },
+    {
         path:"/adashboard",
         name:"Dashboard",
         icon:<FaHome/>,

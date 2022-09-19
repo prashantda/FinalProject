@@ -18,6 +18,7 @@ const CEnquiryForm = () => {
 const supplierid=supplier.supplierid
      const order={supplierid,servicetypeid,description} 
      CustConnection.setOrder(order).then((response)=>{
+      sessionStorage.removeItem("ServiceId")
       navigate("/ord")
         
      }).catch(error=>{
@@ -28,7 +29,7 @@ const supplierid=supplier.supplierid
    useEffect(() => { 
     CustConnection.getSupplier(id).then((res)=>{
       setSupplier(res.data.supplier) //service name 
-      setName(res.data.supplier.serviceType.name) //supplier name 
+      setName(res.data.supplier.serviceType.name) // 
       setServicetypeid(res.data.supplier.serviceType.id)
      console.log(res.data)
     }).catch((err)=>{

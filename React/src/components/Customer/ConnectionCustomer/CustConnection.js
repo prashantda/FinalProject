@@ -53,5 +53,11 @@ class Connection{
       getSupplier(id){      
         return axios.get(`http://localhost:8086/api/supplier/getsupplier/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
       }
+
+      CustomSuppliers(sid,pincode){
+        return axios.get(`http://localhost:8086/api/supplier/getsupplierspin/${sid}/${pincode}`,{ headers: {"Authorization" : `Bearer ${token}`} });
+      }
+
+
     }
 export default new Connection();

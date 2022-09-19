@@ -6,6 +6,7 @@ import com.utility.entity.Customer;
 import com.utility.entity.Order;
 import com.utility.model.User;
 import com.utility.service.CustomerService;
+import com.utility.service.CustomerServiceInterface;
 import com.utility.valueobjects.CSignUp;
 
 import java.util.*;
@@ -14,7 +15,7 @@ import java.util.*;
 @CrossOrigin
 public class CustomerController {
 	@Autowired
-	private CustomerService customerService;
+	private CustomerServiceInterface customerService;
 	
 	
 	

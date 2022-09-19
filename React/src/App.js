@@ -31,6 +31,7 @@ import  PendingOrderS from './components/Supplier/SPendingOrder'
 import  CancalledOrderS from './components/Supplier/SCancalledOrder'
 import  CompletedOrderS from './components/Supplier/SCompletedOrder'
 import  SCustomerDetails from './components/Supplier/SCustomerDetails'
+import SideBarS from './components/Supplier/SideBarS'
 
 
 import AdminProfile from './components/Admin/AdminProfile';
@@ -62,7 +63,7 @@ import CCompletedOrders from './components/Customer/CCompletedOrders';
 import CCNewOrders from './components/Customer/CCNewOrders';
 import COrderDettails from './components/Customer/COrderDettails';
 import CPendingOrder from './components/Customer/CPendingOrder'
-
+import CustomSuppliers from './components/Customer/CustomSuppliers'
 
 
 
@@ -117,29 +118,13 @@ function App() {
    <Route exact path="/cancalledorderc/:id" element={<CCancelledOrders/>}/>
    <Route exact path="/enquiry/:id" element={<CEnquiryForm/>}/>
    <Route exact path="/ordDetails/:id" element={<COrderDettails/>}/>
+   <Route exact path="/customsuppliers/:pincode" element={<CustomSuppliers/>}/>
 
 
 
          
       
-      
-      
-     
-      
-     
-      
-      
-      
-     
-     
-     
-     
-      
-      
-
-
-
-
+    
 
       {/* <Route exact path="/dashboards" element={<SDashBoard/>}/> */}
       <Route exact path="/sdashboard" element={<SDashBoard/>}/>
@@ -152,6 +137,7 @@ function App() {
       <Route exact path="/cancalledorder/:id" element={<CancalledOrderS/>}/>
       <Route exact path="/completedorder/:id" element={<CompletedOrderS/>}/>
       <Route exact path="/orderdetail/:id" element={<SCustomerDetails/>}/>
+      <Route exact path="/supsidebar" element={<SideBarS/>}/>
       </Routes>
       <Footer />
       </>

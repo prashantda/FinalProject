@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
-    <fullyQualifiedTypeName name="com.utility.repository.UserRepository"/>
-    <fullyQualifiedTypeName name="com.utility.valueobjects.JwtRequest"/>
-    <fullyQualifiedTypeName name="java.util.Optional"/>
-    <fullyQualifiedTypeName name="com.utility.service.UserService"/>
-    <fullyQualifiedTypeName name="com.utility.entity.User"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestHeader"/>
-    <fullyQualifiedTypeName name="com.utility.service.CustomerService"/>
     <fullyQualifiedTypeName name="antlr.collections.List"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonBackReference"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonManagedReference"/>
@@ -47,7 +39,6 @@
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
     <fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
     <fullyQualifiedTypeName name="org.springframework.security.web.util.ThrowableCauseExtractor"/>
-    <fullyQualifiedTypeName name="com.utility.exceptions.AllException"/>
     <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="com.utility.entity.ServiceType"/>
@@ -60,4 +51,13 @@
     <fullyQualifiedTypeName name="com.utility.entity.Order"/>
     <fullyQualifiedTypeName name="com.utility.valueobjects.ALL"/>
     <fullyQualifiedTypeName name="com.utility.valueobjects.SDashboard"/>
+    <fullyQualifiedTypeName name="com.utility.service.VTServiceInterface"/>
+    <fullyQualifiedTypeName name="com.utility.service.OrderServiceInterface"/>
+    <fullyQualifiedTypeName name="com.utility.service.ServicesInterface"/>
+    <fullyQualifiedTypeName name="com.utility.service.SupplierServiceInterface"/>
+    <fullyQualifiedTypeName name="com.utility.service.UserServiceInterface"/>
+    <fullyQualifiedTypeName name="com.utility.service.EmailInterface"/>
+    <fullyQualifiedTypeName name="com.utility.service.CustomerServiceInterface"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="com.utility.exceptions.AllException"/>
 </qualifiedTypeNameHistroy>

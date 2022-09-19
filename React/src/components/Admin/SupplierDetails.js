@@ -6,9 +6,9 @@ const SupplierDetails = () => {
     const navigate=useNavigate()
   const [customer,setcustomerDetails] = useState([])
   const [user,setUser] = useState([])
-  
+  const[service,setName]=useState([])
   const [role,setRole]=useState()
-  const [isAccountNonExpired,setisAccountNonExpired] = useState()
+  const [isAccountNonExpired,setisAccountNonExpired] = useState('1')
   const [isEnabled,setisEnabled] = useState('1')
   const [isCredentialsNonExpired,setisCredentialsNonExpired] = useState('1')
   const [isAccountNonLocked,setisAccountNonLocked] = useState('1')
@@ -17,9 +17,10 @@ const SupplierDetails = () => {
     Connection.getSupplier(id).then((response)=> {
         setcustomerDetails(response.data.supplier)
         setUser(response.data.user)
-        
+        setName(response.data.supplier.serviceType)
         setAadhaar(response.data.user.id)
         setRole(response.data.user.role)
+        
    }).catch(error =>{
        console.log(error);
    })
@@ -140,7 +141,16 @@ const SupplierDetails = () => {
                                                 </div>
                                                 <div class="col-md-6">
                                                    
-                                                    <p class="text-success">{customer.serviceType.name}</p>
+                                                    <p class="text-success">{service.name}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Service Id</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                   
+                                                    <p class="text-success">{service.id}</p>
                                                 </div>
                                             </div>
                                             <div class="row">

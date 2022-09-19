@@ -8,17 +8,11 @@ const CSupplierList = () => {
     const { id } =useParams()
     const [suppliers,setsuppliers] = useState([])
     const navigate=useNavigate()
-    //  useEffect(() => {
-    //      CustConnection.getSupplierList(id).then((response)=> {
-    //          setsuppliers(response.data.supplierslist)
-    //         console.log(response.data)
-    //     }).catch(error =>{
-    //         console.log(error);
-    //     })
-    //  },[])
+
 
      var token = `${sessionStorage.getItem('JwtToken')}`
      useEffect(() => {
+        sessionStorage.setItem("ServiceId",id)
      loadUser()
       },[])
 

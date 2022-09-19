@@ -1,10 +1,10 @@
-//package com.utility.exceptions;
+package com.utility.exceptions;
+
+public class AllException extends RuntimeException {
+	
+	public AllException (String message) {
+		super(message);
+	}
+
+}
 //
-//public class AllException extends RuntimeException {
-//	
-//	public AllException (String message) {
-//		super(message);
-//	}
-//
-//}
-////

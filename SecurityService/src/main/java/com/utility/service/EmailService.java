@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class EmailService {
+public class EmailService implements EmailInterface{
 	
 	Supplier<Integer> s=()->{
 		String otp="";

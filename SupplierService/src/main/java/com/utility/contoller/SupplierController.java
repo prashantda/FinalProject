@@ -19,7 +19,9 @@ import com.utility.entity.ServiceType;
 import com.utility.entity.Supplier;
 import com.utility.model.User;
 import com.utility.service.ServiceTypeService;
+import com.utility.service.ServicesInterface;
 import com.utility.service.SupplierService;
+import com.utility.service.SupplierServiceInterface;
 import com.utility.valueobjects.CSignUp;
 
 @RestController
@@ -28,9 +30,9 @@ import com.utility.valueobjects.CSignUp;
 public class SupplierController {
 	
 	@Autowired
-	private SupplierService supplierService;
+	private SupplierServiceInterface supplierService;
 	@Autowired 
-	private ServiceTypeService sts;
+	private ServicesInterface sts;
 	
 	@GetMapping("/getsupplierspin/{sid}/{pin}")
 	public Object getsupplierspin(@RequestHeader(value="Authorization")String auth,

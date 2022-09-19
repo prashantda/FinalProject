@@ -19,6 +19,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.utility.entity.Customer;
 import com.utility.entity.Order;
+import com.utility.exceptions.AllException;
 import com.utility.model.ServiceType;
 import com.utility.model.Supplier;
 import com.utility.model.User;
@@ -33,7 +34,7 @@ import io.github.resilience4j.retry.annotation.Retry;
 
 
 @Service
-public class CustomerService {
+public class CustomerService implements CustomerServiceInterface{
 	@Autowired
 	private CustomerRepository customerRepository;
 	@Autowired
@@ -46,7 +47,9 @@ public class CustomerService {
 	private static final String CUSTOMER_SERVICE= "CustomerService";
 	
 	public Customer saveCustomer(Customer customer) {
+		
 		return customerRepository.save(customer);
+		
 	}
 
 

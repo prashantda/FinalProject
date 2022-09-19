@@ -8,6 +8,7 @@ import navIcon4 from '../../Assets/image/search.png';
 
 export const CustomerNav=()=>{
     const[scrolled,setScrolled]=useState(false);
+    const[search,setSearch]=useState()
     let navigate = useNavigate()
     useEffect(()=>{
         const onScroll = ()=>{
@@ -65,8 +66,8 @@ export const CustomerNav=()=>{
               </Nav>
             <span className="navbar-text">
             <div className="searchbar">
-                <input className="searchinput" placeholder="Search..."></input>
-                <Link to={`/signIn`}><img src={navIcon4} alt=""/></Link>
+                <input name="search" onChange={e=>{setSearch(e.target.value)}} className="searchinput" placeholder="Search..."></input>
+                <Link to={`/customsuppliers/${search}`}><img src={navIcon4} alt=""/></Link>
             </div>
                 <div className="social-icon">
                   <Link to={`/profilec`}><img src={navIcon2} alt="" className="menuChevron3" id="menuChevron3"/></Link>

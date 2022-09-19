@@ -37,8 +37,10 @@ import com.utility.model.Customer;
 import com.utility.model.ServiceType;
 import com.utility.model.Supplier;
 import com.utility.repository.UserRepository;
+import com.utility.service.EmailInterface;
 import com.utility.service.EmailService;
 import com.utility.service.UserService;
+import com.utility.service.UserServiceInterface;
 import com.utility.service.VerificationTokenService;
 import com.utility.valueobjects.CSignUp;
 import com.utility.valueobjects.JwtRequest;
@@ -55,11 +57,11 @@ public class JwtController  {
 	@Autowired
 	private CustomUserDetailsService customUserDetailsService;
 	@Autowired
-	private UserService userService;
+	private UserServiceInterface userService;
 	@Autowired
 	private JwtUtil jwtUtil;
 	@Autowired
-	private EmailService email;
+	private EmailInterface email;
 	@Autowired
 	private VerificationTokenService vts;
 	

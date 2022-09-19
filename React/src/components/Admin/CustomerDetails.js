@@ -9,7 +9,7 @@ const CustomerDetails = () => {
   const [user,setUser] = useState([])
   const [orders,setOrders] = useState([])
   const [role,setRole]=useState()
-  const [isAccountNonExpired,setisAccountNonExpired] = useState()
+  const [isAccountNonExpired,setisAccountNonExpired] = useState('1')
   const [isEnabled,setisEnabled] = useState('1')
   const [isCredentialsNonExpired,setisCredentialsNonExpired] = useState('1')
   const [isAccountNonLocked,setisAccountNonLocked] = useState('1')

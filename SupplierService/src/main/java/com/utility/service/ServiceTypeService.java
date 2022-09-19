@@ -10,7 +10,7 @@ import com.utility.entity.ServiceType;
 import com.utility.repository.ServiceTypeRepository;
 
 @Service
-public class ServiceTypeService {
+public class ServiceTypeService implements ServicesInterface{
 	@Autowired
 	private ServiceTypeRepository str;
 	

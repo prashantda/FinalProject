@@ -11,7 +11,7 @@ import com.utility.entity.VerificationToken;
 import com.utility.repository.VerificationTokenRepository;
 
 @Service
-public class VerificationTokenService {
+public class VerificationTokenService implements VTServiceInterface{
 	@Autowired
 	private VerificationTokenRepository vtr;
 	

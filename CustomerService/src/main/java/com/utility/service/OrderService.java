@@ -16,7 +16,7 @@ import com.utility.model.User;
 import com.utility.repository.OrderRepository;
 import com.utility.valueobjects.SDashboard;
 @Service
-public class OrderService {
+public class OrderService implements OrderServiceInterface{
 	@Autowired
  private OrderRepository or;
 	@Autowired

@@ -31,7 +31,7 @@ import com.utility.valueobjects.UserOtp;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 @Service
-public class SupplierService {
+public class SupplierService implements SupplierServiceInterface{
 	
 	@Autowired
 	private SupplierRepository supplierRepository;

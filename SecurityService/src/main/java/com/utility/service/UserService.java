@@ -34,7 +34,7 @@ import io.github.resilience4j.retry.annotation.Retry;
 
 
 @Service
-public class UserService {
+public class UserService implements UserServiceInterface{
 
 	@Autowired
 	private UserRepository userRepository;
