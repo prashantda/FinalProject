@@ -55,7 +55,7 @@ const CSupplierList = () => {
               }
           </tbody>
       </table>
-      <Link to={``}><button className="btn btn-success" >Back To DashBoard</button></Link>
+      <Link to={`/card`}><button className="btn btn-success mb-5" >Back To DashBoard</button></Link>
     </div>
     )
 }
