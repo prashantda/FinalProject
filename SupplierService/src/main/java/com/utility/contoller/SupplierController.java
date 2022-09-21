@@ -24,9 +24,12 @@ import com.utility.service.SupplierService;
 import com.utility.service.SupplierServiceInterface;
 import com.utility.valueobjects.CSignUp;
 
+import lombok.extern.log4j.Log4j2;
+
 @RestController
 @RequestMapping("/api/supplier")
 @CrossOrigin
+@Log4j2
 public class SupplierController {
 	
 	@Autowired
@@ -37,15 +40,21 @@ public class SupplierController {
 	@GetMapping("/getsupplierspin/{sid}/{pin}")
 	public Object getsupplierspin(@RequestHeader(value="Authorization")String auth,
 			@PathVariable("sid") int sid, @PathVariable("pin")int pin){
+		log.info("Inside getsupplierspin");
+
 		return supplierService.getsupplierspin(sid, pin);
 	}
 	@GetMapping("/serviceslist")
 	public List<ServiceType> serviceList()
 	{
+		log.info("Inside serviceList");
+
 		return sts.findAll();
 	}
 	@GetMapping("/supplierforadmin/{id}")
 	public Object getSupplierAdmin(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id) {
+		log.info("Inside getSupplierAdmin");
+
 		return supplierService.getSupplierAdmin(auth,id);
 	}
 	
@@ -58,7 +67,8 @@ public class SupplierController {
 	//used
 	@GetMapping("/getodersupplier/{id}")
 	public Object getOrderSupplier(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") int id) {
-		
+		log.info("Inside getOrderSupplier");
+
 		return supplierService.getOrderSupplier(auth,id);
 	}
 	
@@ -68,6 +78,8 @@ public class SupplierController {
 	@PostMapping("/savesupplier")
 	public Supplier saveSupplier(@RequestBody Supplier supplier) {
 		supplier.setServiceType(sts.getServiceType(supplier.getServiceType()));		
+		log.info("Inside saveSupplier");
+
 		return supplierService.saveSupplier(supplier);
 	}
 	//used
@@ -82,20 +94,22 @@ public class SupplierController {
 	public Object getServiceSuppliers(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") int id)
 	{
 		User u=supplierService.getUser(auth);
-		
+		log.info("Inside getServiceSuppliers");
+
 		return	supplierService.getServiceSuppliers(u,auth,id);
 	}
 	//used
 	@GetMapping("/getsupplierdash/{id}")
 	public Long getSupplierDash(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") long id) {
-		System.out.println(id);
+		log.info("Inside getSupplierDash");
+
 		return supplierService.getSupplier(id).getSupplierid();
 		 
 	}
 	//used
 	@GetMapping("/getsupplier")
 	public Object getSupplier(@RequestHeader(value ="Authorization") String auth) {
-		//System.out.println(id);
+		log.info("Inside getSupplier");
 		User u=supplierService.getUser(auth);
 		return supplierService.getSupplier(u.getId());
 		

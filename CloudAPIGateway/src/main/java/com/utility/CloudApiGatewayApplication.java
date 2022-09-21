@@ -17,9 +17,20 @@ public class CloudApiGatewayApplication  {
 //    private Environment env;
 	public static void main(String[] args) {
 		SpringApplication.run(CloudApiGatewayApplication.class, args);
+		
+//		@Bean   
+//		public WebMvcConfigurer corsConfigurer() {
+//			return new WebMvcConfigurer() {
+//				@Override
+//				public void addCorsMappings(CorsRegistry registry) {
+//					registry.addMapping("/").allowedOrigins("http://localhost:8082");
+//				}
+//			};
+//		}
+		
 	}
 
-//	@Bean    extends SpringBootServletInitializer
+//	@Bean   
 //	public WebMvcConfigurer corsConfigurer() {
 //		return new WebMvcConfigurer() {
 //			@Override
@@ -28,7 +39,9 @@ public class CloudApiGatewayApplication  {
 //			}
 //		};
 //	}
-//	cors:
+
+	
+	//	cors:
 //        exposed-headers: "*"       
 //        allowed-headers: "*"
 //        allowed-methods: "*"        

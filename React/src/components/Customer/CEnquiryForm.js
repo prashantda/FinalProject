@@ -1,6 +1,5 @@
 import React,{useEffect, useState} from 'react' 
 import {useParams,Link } from "react-router-dom"; 
-import axios from "axios"; 
 import CustConnection from './ConnectionCustomer/CustConnection'; 
 import {  useNavigate } from "react-router-dom";
  
@@ -19,10 +18,10 @@ const supplierid=supplier.supplierid
      const order={supplierid,servicetypeid,description} 
      CustConnection.setOrder(order).then((response)=>{
       sessionStorage.removeItem("ServiceId")
-      navigate("/ord")
+      navigate("/c/ord")
         
      }).catch(error=>{
-       console.log(error) 
+       alert(error) 
      }) 
    } 
  
@@ -33,7 +32,7 @@ const supplierid=supplier.supplierid
       setServicetypeid(res.data.supplier.serviceType.id)
      console.log(res.data)
     }).catch((err)=>{
-      console.log(err)
+      alert(err)
     })
     
    },[]) 

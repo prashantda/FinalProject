@@ -1,17 +1,16 @@
 import React,{useEffect, useState}  from 'react'
-import { App } from 'react-bootstrap-icons'
 import Connection from './Connection'
-import {  useNavigate,useParams,Link } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 const SCancalledOrder = () => {
     const { id } =useParams()
     const[order,SetOrder]=useState('')
     useEffect(() => {
-        document.title = "Wish-it || Cancalled"
+        document.title = "Wish-it || Cancelled"
         Connection.getOrder(id).then((response)=> {
             SetOrder(response.data.order)
            
        }).catch(error =>{
-           console.log(error);
+           alert(error);
        })
     },[])
 
@@ -107,7 +106,7 @@ const SCancalledOrder = () => {
                             
         
                            
-                        <div className='text-center  mt-3'><Link to={`/supplierorders`}><button type="button" class="btn btn-outline-primary" style={{
+                        <div className='text-center  mt-3'><Link to={`/s/supplierorders`}><button type="button" class="btn btn-outline-primary" style={{
                             width: 300,
                             height: 50,
                             borderRadius: 140 / 2,

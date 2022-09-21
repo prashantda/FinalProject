@@ -18,12 +18,12 @@ const COrderDettails = () => {
             SetUseOtp(response.data.useOtp)
             console.log(response.data)    
        }).catch(error =>{
-           console.log(error);
+           alert(error);
        })
     },[])
 
     const BackToOrders=()=>{
-        navigate('/ord')
+        navigate('/c/ord')
     }
     return (
         

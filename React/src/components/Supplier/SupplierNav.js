@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from '../../Assets/image/logo.png';
 import navIcon2 from '../../Assets/image/admin.png';
 import navIcon3 from '../../Assets/image/logout.png';
-// import navIcon4 from '../../Assets/image/search.png';
 
 export const SupplierNav=()=>{
     const[scrolled,setScrolled]=useState(false);
@@ -55,7 +54,7 @@ export const SupplierNav=()=>{
         <div className="container-fluid">
           <Navbar.Brand href="#home" >
           
-          <Link to={`/`}><img src={logo} alt=""/></Link>
+          <Link to={`/s/sdashboard`}><img src={logo} alt=""/></Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
               <span className="navbar-toggler-icon"></span>
@@ -69,10 +68,10 @@ export const SupplierNav=()=>{
                 <Link to={`/signIn`}><img src={navIcon4} alt=""/></Link>
             </div> */}
                 <div className="social-icon">
-                  <Link to={`/profiles`}><img src={navIcon2} alt="" className="menuChevron3" id="menuChevron3"/></Link>
+                  <Link to={`/s/profiles`}><img src={navIcon2} alt="" className="menuChevron3" id="menuChevron3"/></Link>
                   <Link to={`/`}><img src={navIcon3} alt="" onClick={(e)=>{Logout(e)}} className="menuChevron4" id="menuChevron4"/></Link> 
                 </div>
-                <Link to={`/contactUs`}><button className="vvd"><span>Contact Us</span></button></Link>
+                <Link to={`/s/contactUs`}><button className="vvd"><span>Contact Us</span></button></Link>
             </span>&nbsp;&nbsp;&nbsp;
             <div className="menuContainer3" id="menuContainer3">
                 <h5>Profile</h5>

@@ -4,7 +4,7 @@ import { Link,useNavigate } from "react-router-dom";
 import logo from '../../Assets/image/logo.png';
 import navIcon2 from '../../Assets/image/admin.png';
 import navIcon3 from '../../Assets/image/logout.png';
-// import navIcon4 from '../../Assets/image/search.png';
+
 
 export const AdminNav=()=>{
     const[scrolled,setScrolled]=useState(false);
@@ -55,7 +55,7 @@ export const AdminNav=()=>{
         <div className="container-fluid">
           <Navbar.Brand href="#home" >
           
-          <Link to={`/`}><img src={logo} alt=""/></Link>
+          <Link to={`adashboard`}><img src={logo} alt=""/></Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
               <span className="navbar-toggler-icon"></span>
@@ -66,7 +66,7 @@ export const AdminNav=()=>{
             <span className="navbar-text">
         
                 <div className="social-icon">
-                  <Link to={`/adminprofile`}><img src={navIcon2} alt="" className="menuChevron3" id="menuChevron3"/></Link>
+                  <Link to={`adminprofile`}><img src={navIcon2} alt="" className="menuChevron3" id="menuChevron3"/></Link>
                   <Link to={`/`}><img src={navIcon3} alt="" onClick={(e)=>{Logout(e)}} className="menuChevron4" id="menuChevron4"/></Link> 
                 </div>
             </span>&nbsp;&nbsp;&nbsp;

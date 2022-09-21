@@ -1,5 +1,4 @@
 import React,{useEffect, useState}  from 'react'
-import { App } from 'react-bootstrap-icons'
 import Connection from './Connection'
 import {  useNavigate,useParams,Link, Navigate } from "react-router-dom";
 
@@ -11,10 +10,10 @@ const SCustomerDetails = () => {
     const[customer,SetCustomer]=useState('')
     const[user,SetUser]=useState('')
     const OrderDetail=()=>{
-        navigate(`/orderdetail/${id}`)
+        navigate(`/s/orderdetail/${id}`)
     }
     const ToOrders=()=>{
-        navigate('/supplierorders')
+        navigate('/s/supplierorders')
     }
 
     useEffect(() => {
@@ -26,7 +25,7 @@ const SCustomerDetails = () => {
              console.log(response.data)
            
        }).catch(error =>{
-           console.log(error);
+           alert(error);
        })
     },[])
     return (
@@ -140,7 +139,7 @@ const SCustomerDetails = () => {
 
                             </form>
 
-                            <div className='text-center mt-3'><Link to={`/supplierorders`}><button type="button" class="btn btn-outline-primary" style={{
+                            <div className='text-center mt-3'><Link to={`/s/supplierorders`}><button type="button" class="btn btn-outline-primary" style={{
                                 width: 300,
                                 height: 50,
                                 borderRadius: 140 / 2,

@@ -6,7 +6,7 @@ import {Projects} from './Projects';
 const Home = () => {
   return (
     <>
-       <Banner />
+      <Banner />
       <Projects />
       <Skills />
     </>

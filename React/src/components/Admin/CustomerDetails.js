@@ -1,6 +1,5 @@
 import React,{useEffect, useState} from 'react'
-import { Link, useParams,useNavigate } from "react-router-dom";
-import axios from "axios";
+import { Link, useParams,useNavigate } from "react-router-dom"
 import Connection from './Connection'
 const CustomerDetails = () => {
     const { id } =useParams()
@@ -22,18 +21,18 @@ const CustomerDetails = () => {
         setAadhaar(response.data.user.id)
         setRole(response.data.user.role)
    }).catch(error =>{
-       console.log(error);
+       alert(error);
    })
   },[])
   const BackToList=(e)=>{
-    navigate('/customerslist')
+    navigate('/a/customerslist')
   }
   const saveChanges=(e)=>{ 
     const users={aadhaar,role,isAccountNonExpired,isAccountNonLocked,isCredentialsNonExpired,isEnabled}
    
     Connection.EditUser(users).then((response)=>{
        
-        navigate('/customerslist')
+        navigate('/a/customerslist')
     }).catch(()=>{
             alert("Something Went Wrong")
     })

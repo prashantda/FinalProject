@@ -2,7 +2,7 @@ import React,{useEffect, useState}  from 'react'
 
 import Connection from './Connection'
 import {  useNavigate } from "react-router-dom";
-import {Link, useParams} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 const OrderList = () => {
     const [orders,setOrders] = useState([])
     let navigate = useNavigate()
@@ -10,13 +10,13 @@ const OrderList = () => {
 
 const GetOrder=(e,status,id)=>{
     if(status=="New")
-            navigate(`/newenquiry/${id}`)
+            navigate(`/s/newenquiry/${id}`)
     if(status=="Pending")
-            navigate(`/pendingorder/${id}`)
-     if(status=="Cancalled")
-            navigate(`/cancalledorder/${id}`)
+            navigate(`/s/pendingorder/${id}`)
+     if(status=="Cancelled")
+            navigate(`/s/cancalledorder/${id}`)
     if(status=="Completed")
-            navigate(`/completedorder/${id}`)
+            navigate(`/s/completedorder/${id}`)
 
     }
 
@@ -27,7 +27,7 @@ const GetOrder=(e,status,id)=>{
             setOrders(response.data.orderlist)
            console.log(response.data)
        }).catch(error =>{
-           console.log(error);
+           alert(error);
        })
     },[])
   return (
@@ -57,7 +57,7 @@ const GetOrder=(e,status,id)=>{
               }
           </tbody>
       </table>
-      <Link to={`/sdashboard`}><button className="btn btn-success" >Back To DashBoard</button></Link>
+      <Link to={`/s/sdashboard`}><button className="btn btn-success" >Back To DashBoard</button></Link>
     </div>
     )
 }

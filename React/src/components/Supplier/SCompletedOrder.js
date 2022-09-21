@@ -1,16 +1,15 @@
 import React,{useEffect, useState}  from 'react'
-import { App } from 'react-bootstrap-icons'
 import Connection from './Connection'
-import {  useNavigate,useParams,Link, Navigate } from "react-router-dom";
+import {  useNavigate,useParams} from "react-router-dom";
 const SCompletedOrder = () => {
     const navigate=useNavigate()
     const { id } =useParams()
     const[order,SetOrder]=useState('')
     const OrderDetail=()=>{
-        navigate(`/orderdetail/${id}`)
+        navigate(`/s/orderdetail/${id}`)
     }
     const ToOrders=()=>{
-        navigate('/supplierorders')
+        navigate('/s/supplierorders')
     }
     useEffect(() => {
         document.title = "Wish-it || Completed"
@@ -18,7 +17,7 @@ const SCompletedOrder = () => {
             SetOrder(response.data.order)
            
        }).catch(error =>{
-           console.log(error);
+          alert(error);
        })
     },[])
     return (

@@ -9,14 +9,14 @@ const CCNewOrders=()=> {
     
     const Reject=()=>{
         CustConnection.CRejectOrder(id).then((response)=>{
-            navigate('/ord')
+            navigate('/c/ord')
         }).catch(()=>{
             alert("Something Went Wrong")
         })
        
     }
     const BackToOrders=()=>{
-        navigate('/ord')
+        navigate('/c/ord')
     }
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const CCNewOrders=()=> {
             console.log(response.data)
            
        }).catch(error =>{
-           console.log(error);
+           alert(error);
        })
     },[])
     

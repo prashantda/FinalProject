@@ -9,10 +9,13 @@ import com.utility.service.CustomerService;
 import com.utility.service.CustomerServiceInterface;
 import com.utility.valueobjects.CSignUp;
 
+import lombok.extern.log4j.Log4j2;
+
 import java.util.*;
 @RestController
 @RequestMapping("/api/customer")
 @CrossOrigin
+@Log4j2
 public class CustomerController {
 	@Autowired
 	private CustomerServiceInterface customerService;
@@ -22,15 +25,18 @@ public class CustomerController {
 	
 	@GetMapping("/supplieraccept/{id}")
 	public Object supplierAccept(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id){
+		log.info("supplier Accept enquiry");
 		return customerService.supplierAccept(id,"Pending");
 	}
 	@GetMapping("/supplierreject/{id}")
 	public Object supplierReject(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id){
-		return customerService.supplierAccept(id,"Cancalled");
+		log.info("supplier reject enquiry");
+		return customerService.supplierAccept(id,"Cancelled");
 	}
 	
 	@GetMapping("/suppliercomplete/{id}")
-	public Object supplierComlete(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id){
+	public Object supplierComplete(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id){
+		log.info("supplier completes enquiry");
 		return customerService.supplierAccept(id,"Completed");
 	}
 	
@@ -40,6 +46,8 @@ public class CustomerController {
 	@GetMapping("/ordersdetails/{id}")
 	public Object getOrderDetail(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id){
 		User u=customerService.getUser(auth);
+		log.info("Inside getOrderDetail for admin");
+
 		if(u.getRole().equals("ROLE_ADMIN"))
 			return customerService.getOrderDetail(id);
 	
@@ -48,6 +56,8 @@ public class CustomerController {
 	@DeleteMapping("/deleteorder/{id}")
 	public Object deleteOrder(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id){
 		User u=customerService.getUser(auth);
+		log.info("Inside deleteOrder for admin");
+
 		if(u.getRole().equals("ROLE_ADMIN"))
 			return customerService.deleteOrder(u,id);
 	
@@ -58,6 +68,7 @@ public class CustomerController {
 	@GetMapping("/orderslist")
 	public Object getOrdersList(@RequestHeader(value = "Authorization") String auth){
 		User u=customerService.getUser(auth);
+		log.info("Inside getOrdersList for admin");
 		if(u.getRole().equals("ROLE_ADMIN"))
 			return customerService.getOrdersList();
 	
@@ -67,6 +78,8 @@ public class CustomerController {
 	
 	@GetMapping("/customerforadmin/{id}")
 	public Object getCustomerAdmin(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id) {
+		log.info("Inside getCustomerAdmin for admin");
+
 		return customerService.getCustomerAdmin(auth,id);
 	}
 	
@@ -77,6 +90,8 @@ public class CustomerController {
 	@GetMapping("/admindashboard")
 	public Object getAdminDashboard(@RequestHeader(value ="Authorization") String auth) {
 		User u=customerService.getUser(auth);
+		log.info("Inside getCustomerAdmin for admin");
+
 		if(u.getRole().equals("ROLE_ADMIN"))
 			return customerService.getAdminDashboard(auth);
 		return new Object();
@@ -87,6 +102,8 @@ public class CustomerController {
 	//used
 	@GetMapping("/getuserotp/{id}")
 	public Object getUserOtp(@RequestHeader(value ="Authorization") String auth,@PathVariable("id") long id) {
+		log.info("Inside getUserOtp");
+
 		return customerService.getUserOtp(auth,id);
 	}
 	
@@ -173,8 +190,8 @@ public class CustomerController {
 	@PostMapping("/saveorder")
 	 public Object saveOrder(@RequestHeader(value = "Authorization") String auth,@RequestBody Order o) {
 		User user=customerService.getUser(auth);
-		System.out.println(o);
-		System.out.println("Inside Saveorder incoming");
+		
+		log.info("Inside Saveorder incoming");
 		return customerService.save(user,o);
 	}
 	@GetMapping("/cancalorder/{id}")

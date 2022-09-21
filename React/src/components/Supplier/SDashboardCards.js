@@ -11,7 +11,7 @@ const SDashboardCards = () => {
             setUser(response.data.user)
             setSupplier(response.data.sdashboard)
            // console.log(response.data)
-        }).catch(()=>{console.log("Error")})
+        }).catch(()=>{alert("Error")})
     },[])
     
     return (

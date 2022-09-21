@@ -11,11 +11,11 @@ const AdminSupplierList = () => {
             setUsers(response.data)
            
        }).catch(error =>{
-           console.log(error);
+           alert(error);
        })
     },[])
   const  GetSupplier=(e,cid)=>{
-    navigate(`/supplierdetail/${cid}`)
+    navigate(`/a/supplierdetail/${cid}`)
   }
   return (
     <div className="container">
@@ -46,7 +46,7 @@ const AdminSupplierList = () => {
               }
           </tbody>
       </table>
-      <Link to={`/adashboard`}><button className="btn btn-success mb-5" >Back To DashBoard</button></Link>
+      <Link to={`/a/adashboard`}><button className="btn btn-success mb-5" >Back To DashBoard</button></Link>
     </div>
     )
 }

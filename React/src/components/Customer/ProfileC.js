@@ -30,10 +30,6 @@ const ProfileC = () => {
                                 { scaleX: 2 }
                             ]
                         }} />
-                        {/* <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input type="file" name="file" />
-                        </div> */}
                     </div>
                 </div>
                 <div class="col-md-6 mt-5">
@@ -56,7 +52,7 @@ const ProfileC = () => {
                     </div>
                 </div>
                 <div class="col-md-2">
-                  <Link to={`/editprofilec`}><input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit" /></Link>
+                  <Link to={`/c/editprofilec`}><input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit" /></Link>
                 </div>
             </div>
             <div class="row">

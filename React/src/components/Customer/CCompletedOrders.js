@@ -8,10 +8,10 @@ const CCompletedOrders=()=> {
     const[order,SetOrder]=useState('')
     
     const BackToOrders=()=>{
-        navigate('/ord')
+        navigate('/c/ord')
     }
     const Details=()=>{
-        navigate(`/ordDetails/${id}`)
+        navigate(`/c/ordDetails/${id}`)
     }
     useEffect(() => {
         document.title = "Wish-it || Pending Order"

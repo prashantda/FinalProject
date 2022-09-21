@@ -5,7 +5,7 @@ import logo from '../../Assets/image/logo.png';
 import navIcon1 from '../../Assets/image/joinUs.png';
 import navIcon2 from '../../Assets/image/SignIn.png';
 import navIcon3 from '../../Assets/image/SignUp.png';
-// import adminIcon from '../../Assets/image/admin.png';
+
 
 export const NavBar=()=>{
    // const [activeLink,setActiveLink]=useState('home');
@@ -81,11 +81,11 @@ export const NavBar=()=>{
             <span className="navbar-text">
                 <div className="social-icon">
                     {/* <Link to={``}><img src={adminIcon} alt="" className="menuChevron" id="menuChevron"/></Link> */}
-                  <Link to={`/joinUs`}><img src={navIcon1} alt="" className="menuChevron" id="menuChevron"/></Link>
-                  <Link to={`/signIn`}><img src={navIcon2} alt="" className="menuChevron1" id="menuChevron1"/></Link>
-                  <Link to={`/signUp`}><img src={navIcon3} alt="" className="menuChevron2" id="menuChevron2"/></Link> 
+                  <Link to={`joinUs`}><img src={navIcon1} alt="" className="menuChevron" id="menuChevron"/></Link>
+                  <Link to={`signIn`}><img src={navIcon2} alt="" className="menuChevron1" id="menuChevron1"/></Link>
+                  <Link to={`signUp`}><img src={navIcon3} alt="" className="menuChevron2" id="menuChevron2"/></Link> 
                 </div>
-                <Link to={`/contactUs`}><button className="vvd"><span>Contact Us</span></button></Link>
+                <Link to={`contactUs`}><button className="vvd"><span>Contact Us</span></button></Link>
             </span>&nbsp;&nbsp;&nbsp;
             {/* <div className="menuContainer" id="menuContainer">
                 <ul>

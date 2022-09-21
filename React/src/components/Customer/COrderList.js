@@ -9,13 +9,13 @@ const CSupplierList = () => {
     let navigate = useNavigate()
     const GetOrder=(e,status,id)=>{
         if(status=="New")
-                navigate(`/newenquiryc/${id}`)
+                navigate(`/c/newenquiryc/${id}`)
         if(status=="Pending")
-                navigate(`/pendingorderc/${id}`)
-         if(status=="Cancalled")
-                navigate(`/cancalledorderc/${id}`)
+                navigate(`/c/pendingorderc/${id}`)
+         if(status=="Cancelled")
+                navigate(`/c/cancalledorderc/${id}`)
         if(status=="Completed")
-                navigate(`/completedorderc/${id}`)
+                navigate(`/c/completedorderc/${id}`)
     
         }
        useEffect(() => {
@@ -24,7 +24,7 @@ const CSupplierList = () => {
             
              console.log(response.data)
          }).catch(error =>{
-             console.log(error);
+             alert(error);
          })
       },[])
 
@@ -55,7 +55,7 @@ const CSupplierList = () => {
               }
           </tbody>
       </table>
-      <Link to={`/card`}><button className="btn btn-success mb-5" >Back To DashBoard</button></Link>
+      <Link to={`/c/card`}><button className="btn btn-success mb-5" >Back To DashBoard</button></Link>
     </div>
     )
 }

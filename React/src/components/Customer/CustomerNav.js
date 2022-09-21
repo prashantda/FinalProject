@@ -24,8 +24,8 @@ export const CustomerNav=()=>{
 
      useEffect(()=>{
         
-         const menuTarget3=document.getElementById("menuChevron3");
-         const menuContainer3=document.getElementById("menuContainer3");
+         const menuTarget3=document.getElementById("menuChevron5");
+         const menuContainer3=document.getElementById("menuContainer5");
  
          menuTarget3.addEventListener('mouseenter',()=>{
              menuContainer3.style.transform ='translateX(0px)';
@@ -35,8 +35,8 @@ export const CustomerNav=()=>{
              menuContainer3.style.transform ='translateX(700px)'
          });
 
-          const menuTarget4=document.getElementById("menuChevron4");
-          const menuContainer4=document.getElementById("menuContainer4");
+          const menuTarget4=document.getElementById("menuChevron6");
+          const menuContainer4=document.getElementById("menuContainer6");
  
           menuTarget4.addEventListener('mouseenter',()=>{
               menuContainer4.style.transform ='translateX(0px)';
@@ -67,18 +67,18 @@ export const CustomerNav=()=>{
             <span className="navbar-text">
             <div className="searchbar">
                 <input name="search" onChange={e=>{setSearch(e.target.value)}} className="searchinput" placeholder="Search..."></input>
-                <Link to={`/customsuppliers/${search}`}><img src={navIcon4} alt=""/></Link>
+                <Link to={`customsuppliers/${search}`}><img src={navIcon4} alt=""/></Link>
             </div>
                 <div className="social-icon">
-                  <Link to={`/profilec`}><img src={navIcon2} alt="" className="menuChevron3" id="menuChevron3"/></Link>
-                  <Link to={`/`}><img src={navIcon3} onClick={(e)=>{Logout(e)}} alt="" className="menuChevron4" id="menuChevron4"/></Link> 
+                  <Link to={`profilec`}><img src={navIcon2} alt="" className="menuChevron5" id="menuChevron5"/></Link>
+                  <Link to={`/`}><img src={navIcon3} onClick={(e)=>{Logout(e)}} alt="" className="menuChevron6" id="menuChevron6"/></Link> 
                 </div>
-                <Link to={`/contactUs`}><button className="vvd"><span>Contact Us</span></button></Link>
+                <Link to={`contactUs`}><button className="vvd"><span>Contact Us</span></button></Link>
             </span>&nbsp;&nbsp;&nbsp;
-            <div className="menuContainer3" id="menuContainer3">
+            <div className="menuContainer5" id="menuContainer5">
                 <h5>Profile</h5>
             </div>
-            <div className="menuContainer4" id="menuContainer4">
+            <div className="menuContainer6" id="menuContainer6">
                 <h5>Logout</h5>
             </div>
           </Navbar.Collapse>

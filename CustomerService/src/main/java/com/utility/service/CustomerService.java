@@ -31,6 +31,7 @@ import com.utility.valueobjects.SDashboard;
 import com.utility.valueobjects.UserOtp;
 
 import io.github.resilience4j.retry.annotation.Retry;
+import lombok.extern.log4j.Log4j2;
 
 
 @Service
@@ -56,7 +57,7 @@ public class CustomerService implements CustomerServiceInterface{
 
 
 	public Customer getCustomer(long id) {
-		System.out.println("Inside getCustomer"+id);
+		//log.info("Inside Saveorder incoming");"Inside getCustomer"+id);
 		//System.out.println((List<Customer>)customerRepository.findAll());
 		return (Customer) customerRepository.findAll().stream().filter(c->c.getUserid() == id).collect(Collectors.toList()).get(0);
 //		Customer c=customerRepository.findByuserid(id);

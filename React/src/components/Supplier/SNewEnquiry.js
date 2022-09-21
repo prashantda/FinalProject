@@ -10,7 +10,7 @@ const SNewEnquiry=()=> {
     const Accept=()=>{
         Connection.AcceptOrder(id).then((response)=>{
 
-            navigate(`/orderdetail/${id}`)
+            navigate(`/s/orderdetail/${id}`)
         }).catch(()=>{
             alert("Something Went Wrong")
         })
@@ -19,14 +19,14 @@ const SNewEnquiry=()=> {
     const Reject=()=>{
         Connection.RejectOrder(id).then((response)=>{
 
-            navigate('/supplierorders')
+            navigate('/s/supplierorders')
         }).catch(()=>{
             alert("Something Went Wrong")
         })
        
     }
     const BackToOrders=()=>{
-        navigate('/supplierorders')
+        navigate('/s/supplierorders')
     }
 
     useEffect(() => {
@@ -35,7 +35,7 @@ const SNewEnquiry=()=> {
             SetOrder(response.data.order)
            
        }).catch(error =>{
-           console.log(error);
+           alert(error);
        })
     },[])
     

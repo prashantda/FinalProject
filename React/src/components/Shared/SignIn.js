@@ -42,13 +42,13 @@ function SignIn() {
       sessionStorage.setItem("JwtToken", response.data.token)
       sessionStorage.setItem("Role", response.data.role)
       if (response.data.role === 'ROLE_ADMIN') {
-        navigate("/adashboard")
+        navigate("/a/adashboard")
       }
       if (response.data.role === 'ROLE_CUSTOMER') {
-        navigate("/card")
+        navigate("/c/card")
       }
       if (response.data.role === 'ROLE_SUPPLIER') {
-        navigate("/sdashboard")
+        navigate("/s/sdashboard")
       }
     }).catch(error => { navigate("/") })
   };

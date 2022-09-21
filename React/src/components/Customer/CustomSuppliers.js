@@ -1,8 +1,7 @@
 import React,{useEffect, useState}  from 'react'
-import {Link, useNavigate, useParams} from 'react-router-dom'
-// import Connection from '../Services/Connection'
+import { useNavigate, useParams} from 'react-router-dom'
  import CustConnection from './ConnectionCustomer/CustConnection';
-import axios from "axios";
+
 
 const CustomSuppliers = () => {
     const { pincode } =useParams()
@@ -15,14 +14,14 @@ const CustomSuppliers = () => {
         CustConnection.CustomSuppliers(id,pincode).then((res)=>{
             setsuppliers(res.data.supplierslist)
         }).catch((err)=>{
-    console.log(err)
+    alert(err)
         })
     
       },[])
 
 
  const Enquiry=(e,id)=>{
-    navigate(`/enquiry/${id}`)
+    navigate(`/c/enquiry/${id}`)
  }
 
   return (

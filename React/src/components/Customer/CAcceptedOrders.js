@@ -33,7 +33,7 @@ export default class CAcceptedOrders extends Component {
         <div className='d-grid gap-2'>
             <tr>
             <button className="btn btn-danger mt-3 rounded-pill offset-3">Cancel</button>
-            <Link to={`/supplierdetailsc`}><button className="btn btn-info mt-3 rounded-pill offset-2">Details</button></Link>
+            <Link to={`/c/supplierdetailsc`}><button className="btn btn-info mt-3 rounded-pill offset-2">Details</button></Link>
             </tr>
         </div>
     </form>

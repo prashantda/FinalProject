@@ -15,43 +15,43 @@ const routes=[
         icon:<FaHome/>,
     },
     {
-        path:"/adashboard",
+        path:"adashboard",
         name:"Dashboard",
         icon:<FaHome/>,
     },
     {
-        path:"/adminprofile",
+        path:"adminprofile",
         name:"Profile",
         icon:<FcBusinessman/>,
     },
     {
-        path:"/orderlist",
+        path:"orderlist",
         name:"Orders",
         icon:<BsBasket/>,
     },
     {
-        path:"/customerslist",
+        path:"customerslist",
         name:"Customers",
         icon:<IoIosPeople/>,
     },
     {
-        path:"/supplierlist",
+        path:"supplierlist",
         name:"Suppliers",
         icon:<FaPeopleCarry/>,
     },
     {
-        path:"/adminlist",
+        path:"adminlist",
         name:"Admins",
         icon:<BsFillPersonLinesFill/>,
     },
     
     {
-        path:"/changepassword",
+        path:"changepassword",
         name:"Change Password",
         icon:<BsShieldLock/>,
     },
     {
-        path:"/contactUs",
+        path:"contactUs",
         name:"Contact Us",
         icon:<FcContacts/>,
     },

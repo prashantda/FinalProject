@@ -20,7 +20,7 @@ const CustomerDetails = () => {
    })
   },[])
   const BackToList=(e)=>{
-    navigate('/adminlist')
+    navigate('/a/adminlist')
   }
   
 

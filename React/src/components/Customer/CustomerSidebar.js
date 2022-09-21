@@ -1,42 +1,40 @@
 import React, { useState } from 'react';
-import {FaHome,FaBars,FaPeopleCarry} from 'react-icons/fa'
+import {FaHome,FaBars} from 'react-icons/fa'
 import {FcBusinessman,FcContacts} from 'react-icons/fc'
-import {BsBasket,BsFillPersonLinesFill,BsShieldLock} from 'react-icons/bs'
-import {BiSearch} from 'react-icons/bi'
-import {AiOutlineUserAdd} from 'react-icons/ai'
-import {IoIosPeople,IoIosLogOut} from 'react-icons/io'
+import {BsBasket,BsShieldLock} from 'react-icons/bs'
+
 
 import { NavLink } from 'react-router-dom';
 import {motion,AnimatePresence} from "framer-motion"
 const routes=[
     {
-        path:"/",
+        path:"card",
         name:"Home",
         icon:<FaHome/>,
     },
     {
-        path:"/card",
+        path:"card",
         name:"DashBoard",
         icon:<FaHome/>,
     },
     {
-        path:"/profilec",
+        path:"profilec",
         name:"Profile",
         icon:<FcBusinessman/>,
     },
     {
-        path:"/ord",
+        path:"ord",
         name:"Orders",
         icon:<BsBasket/>,
     },
     
     {
-        path:"/changepassword",
+        path:"changepassword",
         name:"Change Password",
         icon:<BsShieldLock/>,
     },
     {
-        path:"/contactUs",
+        path:"contactUs",
         name:"Contact Us",
         icon:<FcContacts/>,
     },

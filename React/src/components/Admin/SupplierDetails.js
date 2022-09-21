@@ -22,17 +22,17 @@ const SupplierDetails = () => {
         setRole(response.data.user.role)
         
    }).catch(error =>{
-       console.log(error);
+       alert(error);
    })
   },[])
   const BackToList=(e)=>{
-    navigate('/supplierlist')
+    navigate('/a/supplierlist')
   }
   const saveChanges=(e)=>{ 
     const users={aadhaar,role,isAccountNonExpired,isAccountNonLocked,isCredentialsNonExpired,isEnabled}
    
     Connection.EditUser(users).then((response)=>{      
-        navigate('/supplierlist')
+        navigate('/a/supplierlist')
     }).catch(()=>{
             alert("Something Went Wrong")
     })

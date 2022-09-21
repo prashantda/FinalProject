@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import Connection from './Connection'
-import { useFormik } from 'formik'
 
 const SEditProfile = (supplier) => {
     const [name,setNames] = useState()
@@ -17,15 +16,13 @@ const SEditProfile = (supplier) => {
     useEffect(() => {
         document.title = "Wish-it || Edit Profile"
         Connection.getAdminProfile().then((response)=>{
-            console.log(response.data)
+            // console.log(response.data)
             setNames(response.data.user.name)
             setAddress(response.data.customer.address)
             setPincode(response.data.customer.pincode)           
             setAadhaar(response.data.customer.aadhaar)
-            setMobile(response.data.user.mobile)
-           
-            
-        }).catch(()=>{console.log("Error")})
+            setMobile(response.data.user.mobile)  
+        }).catch(()=>{alert("Error")})
     
     },[])
     
@@ -35,7 +32,7 @@ const SEditProfile = (supplier) => {
             const customer = { name, address, pincode, dob, aadhaar, mobile }
             Connection.EditProfile(customer).then((response) => {
                 if (response.data.customer.customer != 0) {
-                        navigate("/adminprofile")
+                        navigate("/a/adminprofile")
                 }
     
             }).catch(error => { alert("something went wrong") })

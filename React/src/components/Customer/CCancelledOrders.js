@@ -1,5 +1,5 @@
 import React,{useEffect, useState}  from 'react'
-import {  useNavigate,useParams,Link } from "react-router-dom";
+import {  useNavigate,useParams} from "react-router-dom";
 import CustConnection from './ConnectionCustomer/CustConnection';
 const CCancelledOrders=()=> {
     const { id } =useParams()
@@ -9,17 +9,15 @@ const CCancelledOrders=()=> {
     
     const Reject=()=>{
         CustConnection.CRejectOrder(id).then((response)=>{
-            navigate('/ord')
+            navigate('/c/ord')
         }).catch(()=>{
             alert("Something Went Wrong")
         })
        
     }
     const BackToOrders=()=>{
-        navigate('/ord')
+        navigate('/c/ord')
     }
-
-    
 
     useEffect(() => {
         document.title = "Wish-it || Pending Order"
@@ -27,7 +25,7 @@ const CCancelledOrders=()=> {
             SetOrder(response.data.order)
            
        }).catch(error =>{
-           console.log(error);
+           alert(error);
        })
     },[])
     
@@ -36,7 +34,7 @@ const CCancelledOrders=()=> {
 
 
             <div className='card text-bg-light p-3  mb-3'>
-            <h3 className='text-center'>Rejected Order</h3><hr></hr>
+            <h3 className='text-center'>Cancelled Order</h3><hr></hr>
             <p className='container-center col-8 ms-5'>
                 <form>
                 <div class="row">

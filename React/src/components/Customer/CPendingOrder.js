@@ -9,18 +9,18 @@ const CPendingOrder=()=> {
     
     const Reject=()=>{
         CustConnection.CRejectOrder(id).then((response)=>{
-            navigate('/ord')
+            navigate('/c/ord')
         }).catch(()=>{
             alert("Something Went Wrong")
         })
        
     }
     const BackToOrders=()=>{
-        navigate('/ord')
+        navigate('/c/ord')
     }
 
     const Details=()=>{
-        navigate(`/ordDetails/${id}`)
+        navigate(`/c/ordDetails/${id}`)
     }
 
     useEffect(() => {

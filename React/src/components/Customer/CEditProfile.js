@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
-// import Connection from './ConnectionCustomer/CustConnection'
 import CustConnection from './ConnectionCustomer/CustConnection';
 
 const CEditProfile = (supplier) => {
@@ -20,7 +19,7 @@ const CEditProfile = (supplier) => {
             setPincode(response.data.customer.pincode)           
             setAadhaar(response.data.customer.aadhaar)
             setMobile(response.data.user.mobile)
-        }).catch(()=>{console.log("Error")})
+        }).catch(()=>{alert("Error")})
     
     },[])
     
@@ -30,7 +29,7 @@ const CEditProfile = (supplier) => {
             const customer = { name, address, pincode, dob, aadhaar, mobile }
             CustConnection.EditProfile(customer).then((response) => {
                 if (response.data.customer.customer != 0) {
-                        navigate("/profilec")
+                        navigate("/c/profilec")
                 }
     
             }).catch(error => { alert("something went wrong") })

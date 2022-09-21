@@ -1,7 +1,5 @@
 import React,{useEffect, useState}  from 'react'
 import {Link, useNavigate, useParams} from 'react-router-dom'
-// import Connection from '../Services/Connection'
-// import CustConnection from './ConnectionCustomer/CustConnection';
 import axios from "axios";
 
 const CSupplierList = () => {
@@ -22,7 +20,7 @@ const CSupplierList = () => {
     //console.log(res.data.supplierslist)
   }
  const Enquiry=(e,id)=>{
-    navigate(`/enquiry/${id}`)
+    navigate(`/c/enquiry/${id}`)
  }
 
   return (
@@ -44,7 +42,7 @@ const CSupplierList = () => {
                           <td>{sp.serviceType.name}</td>
                           <td>{sp.charge}</td>
                           <td>
-                              <button className="btn btn-success" onClick={e=>{Enquiry(e,sp.supplierid)}} >Details</button>
+                              <button className="btn btn-success" onClick={e=>{Enquiry(e,sp.supplierid)}}>Details</button>
                           </td>
                          
                       </tr>

@@ -11,16 +11,14 @@ const SPendingOrder = () => {
 
     const Completed=()=>{
         Connection.CompletedOrder(id).then((response)=>{
-            navigate('/supplierorders')
+            navigate('/s/supplierorders')
         }).catch(()=>{
             alert("Something Went Wrong")
         })
-        
     }
     const Cancalled=()=>{
         Connection.RejectOrder(id).then((response)=>{
-
-            navigate('/supplierorders')
+            navigate('/s/supplierorders')
         }).catch(()=>{
             alert("Something Went Wrong")
         })
@@ -37,7 +35,7 @@ const SPendingOrder = () => {
              console.log(response.data)
            
        }).catch(error =>{
-           console.log(error);
+           alert(error);
        })
     },[])
     return (

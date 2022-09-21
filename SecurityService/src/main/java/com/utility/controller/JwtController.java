@@ -47,9 +47,12 @@ import com.utility.valueobjects.JwtRequest;
 import com.utility.valueobjects.JwtResponse;
 import com.utility.valueobjects.UserOtp;
 
+import lombok.extern.log4j.Log4j2;
+
 @RestController
 @RequestMapping("/api/secure")
 @CrossOrigin
+@Log4j2
 public class JwtController  {
 	
 	@Autowired
@@ -99,7 +102,8 @@ public class JwtController  {
 	
 	@PostMapping("/changepassword")
 	public int changePassword(@RequestHeader(value = "Authorization") String auth,@RequestBody JwtRequest jwt)
-	{
+	{		log.info("Inside changePassword");
+
 		Optional<User> u=userService.getUserFromToken(auth.substring(7));
 		u.get().setPassword(jwt.getPassword());
 		userService.changePassword(u.get());
@@ -108,6 +112,7 @@ public class JwtController  {
 	@GetMapping("/getsupplieruserotp/{id}")
 	public UserOtp getSupplierUserotp(@PathVariable("id") long id) {
 		User u= userService.findById(id);
+		log.info("Inside getSupplierUserotp");
 		Long m=Long.valueOf(u.getMobile());
 		return new UserOtp(m,u.getName(),u.getUsername());
 	}
@@ -120,6 +125,8 @@ public class JwtController  {
 	public UserOtp forgotPassword(@RequestBody JwtRequest req) {
 		int otp =this.email.sendMail(req.getUsername());
 		User u=userService.findByUsername(req.getUsername());	
+		log.info("Inside forgotPassword");
+
 		VerificationToken vt=new VerificationToken(0l,otp,u);
 		Optional<VerificationToken> v=	vts.saveToken(vt);
 		if(v.isPresent()) {
@@ -137,7 +144,7 @@ public class JwtController  {
 	@PostMapping("/signupsupplier")
 	public UserOtp signups(@RequestBody CSignUp supp) {
 		Optional<User>  u=userService.saveUserForCustomer(supp);
-		//service value is coming 0 hence changes in react required
+		log.info("Inside signups");
 		Supplier c=userService.getSupplierFromSignup(supp);
 		System.out.println("user saved supplier created");
 		if(u.isPresent())
@@ -177,7 +184,8 @@ public class JwtController  {
 		catch (UsernameNotFoundException  | BadCredentialsException e) {
 			throw new Exception("Bad Credentials");
 		}
-		
+		log.info("Inside generateToken");
+
 	UserDetails userDetails=this.customUserDetailsService.loadUserByUsername(jwtRequest.getUsername());
 	String token=	this.jwtUtil.generateToken(userDetails);
 	User u=userService.findByUsername(userDetails.getUsername());

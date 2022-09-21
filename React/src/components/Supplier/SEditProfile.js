@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import Connection from './Connection'
-import { useFormik } from 'formik'
 
 const SEditProfile = (supplier) => {
     const [name,setNames] = useState()
@@ -25,7 +24,7 @@ const SEditProfile = (supplier) => {
             setMobile(response.data.user.mobile)
             setCharge(response.data.supplier.charge)
             
-        }).catch(()=>{console.log("Error")})
+        }).catch(()=>{alert("Error")})
     
     },[])
     
@@ -35,7 +34,7 @@ const SEditProfile = (supplier) => {
             const supplier = { name, address, pincode, dob, aadhaar, mobile ,charge}
             Connection.EditProfile(supplier).then((response) => {
                 if (response.data.supplier.supplierid != 0) {
-                        navigate("/profiles")
+                        navigate("/s/profiles")
                 }
     
             }).catch(error => { alert("something went wrong") })
@@ -160,89 +159,4 @@ export default SEditProfile
 
 
 
-// const validate = (supData) => {
-//     const errors = {}
-//     let pattern1 = /^([a-zA-Z ]+)$/
-//     let pattern2 = /^([1-9]{1}[0-9]{5}|[1-9]{1}[0-9]{3}\\s[0-9]{3})$/
-//     let pattern3 = /^([0-9]{12})$/
-//     let pattern6 = /^([0-9]{0,4})$/
-//     let pattern4 = /^([0-9]{10})$/
 
-//     if (!supData.name)
-//         errors.name = "Name is Required!"
-//     else if (!pattern1.test(supData.name))
-//         errors.name = "Alphabets Only"
-
-//     if (!supData.address)
-//         errors.address = "Address is Required!"
-
-//     if (supData.pincode.length == 0)
-//         errors.pincode = "PinCode required!"
-//     else if (!pattern2.test(supData.pincode))
-//         errors.pincode = "Numbers upto 6-Digits Only1"
-
-//     if (!supData.dob)
-//         errors.dob = 'Date Of Birth Required!'
-
-//     if (supData.aadhaar.length == 0)
-//         errors.aadhaar = "Adhard Number required"
-//     else if (!pattern3.test(supData.aadhaar))
-//         errors.aadhaar = "Numbers upto 12-Digits Only!"
-
-//     if (supData.charage.length == 0)
-//         errors.charage = "Minimum Amount required"
-//     else if (!pattern6.test(supData.charage))
-//         errors.charage = "Numbers upto 4-Digits Only!"
-
-//     if (supData.mobile.length == 0)
-//         errors.mobile = "Mobile Number required!"
-//     else if (!pattern4.test(supData.mobile))
-//         errors.mobile = "Numbers upto 10-Digits Only!"
-
-//     if (!supData.service)
-//         errors.service = "Service Required!"
-
-//     return errors
-// }
-
-// const initialValues= {
-//     name: '',
-//     address:'',
-//     pincode: '',
-//     dob: '',
-//     aadhaar: '',
-//     charage: '',
-//     mobile: ''
-   
-// }
-
-    // const SaveUser = (e) => {
-    //     let name = formik.values.name;
-    //     let address = formik.values.address;
-    //     let pincode = formik.values.pincode;
-    //     let dob = formik.values.dob;
-    //     let aadhaar = formik.values.aadhaar;
-    //     let mobile = formik.values.mobile;
-
-    //     const customer = { name, address, pincode, dob, aadhaar, mobile }
-    //     Connection.saveSupplier(customer).then((response) => {
-    //         if (response.data.userid != 0) {
-
-    //             const tok = response.data.token;
-                
-    //         }
-
-    //     }).catch(error => { navigate("/") })
-    // }
-
-    // const formik = useFormik({
-    //      initialValues:{initialValues},
-    //     validateOnBlur: true,
-    //     validate: validate,
-    //     onSubmit: () => {
-    //         alert("You are now subscribed.")
-    //         SaveUser()
-    //     },
-    //     //enableReinitialize:true
-        
-    // })

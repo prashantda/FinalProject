@@ -16,7 +16,7 @@ const SDashboardCards = () => {
             setService(response.data.supplier.serviceType)
             setSupplier(response.data.supplier)
             setDOB(new Date(response.data.supplier.dob).toDateString())
-        }).catch(()=>{console.log("Error")})
+        }).catch(()=>{alert("Error")})
     },[])
     
     return (
@@ -58,7 +58,7 @@ const SDashboardCards = () => {
                     </div>
                 </div>
                 <div class="col-md-2">
-                <Link to={`/editprofiles`}><button class="btn btn-secondary profile-button ms-2" type="button">Edit</button></Link>
+                <Link to={`/s/editprofiles`}><button class="btn btn-secondary profile-button ms-2" type="button">Edit</button></Link>
                 </div>
             </div>
             <div class="row">
@@ -162,39 +162,3 @@ const SDashboardCards = () => {
             )
 }
 export default SDashboardCards
-// import { Link } from "react-router-dom";
-// import React, { useEffect, useState } from 'react'
-// import Connection from './Connection'
-
-// const SProfile = ()=> {
-
-//     const [supplier,setSupplier] = useState([])
-//     const [user,setUser] = useState([])
-//     useEffect(() => {
-//         document.title = "Wish-it || Profile"
-       
-//         Connection.getSupplierProfile().then((response)=>{
-//             console.log(response.data)
-//             setUser(response.data.user)
-//             setSupplier(response.data.supplier)
-//         }).catch(()=>{console.log("Error")})
-//     },[])
-   
-
-    
-//         return (
-           
-
-
-
-
-
-
-
-
-
-
-//     )
-    
-// }
-// export default SProfile 

@@ -5,6 +5,14 @@ spring:
     name: API-GATEWAY
   cloud:
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+              allowedOrigins: "http://localhost:8082"
+              allowedMethods: "*"
+              allowedHeaders: "*"
       routes:
       - id: CUSTOMER-SERVICE
         uri: lb://CUSTOMER-SERVICE

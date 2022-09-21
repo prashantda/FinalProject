@@ -15,7 +15,7 @@ const AdminCustomerList = () => {
        })
     },[])
   const  GetCustomer=(e,cid)=>{
-    navigate(`/customerdetail/${cid}`)
+    navigate(`/a/customerdetail/${cid}`)
   }
   return (
     <div className="container">
@@ -46,7 +46,7 @@ const AdminCustomerList = () => {
               }
           </tbody>
       </table>
-      <Link to={`/adashboard`}><button className="btn btn-success mb-5" >Back To DashBoard</button></Link>
+      <Link to={`/a/adashboard`}><button className="btn btn-success mb-5" >Back To DashBoard</button></Link>
     </div>
     )
 }
