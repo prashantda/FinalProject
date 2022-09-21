@@ -40,7 +40,7 @@ public class Order {
 	private String status;
 	@Column(nullable = false,length = 16)
 	
-	@CreationTimestamp
+	
 	private Date orderdate;
 	@JsonBackReference
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -49,7 +49,10 @@ public class Order {
 	private long supplierid;
 	@Column(nullable = false)
 	private int servicetypeid;
-	
+	@Column
+	private int rating;
+	@Column
+	private String feedback;
 	
 
 }

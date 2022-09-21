@@ -87,6 +87,12 @@ public interface CustomerServiceInterface {
 	public Object supplierAccept(long id, String string);
 
 
-	public Object getSupplierorder(String auth, long id); 
+	public Object getSupplierorder(String auth, long id);
+
+
+	public Object feedback(long id,UserOtp uo);
+
+
+	public Object orderForAdmin(long id); 
 
 }

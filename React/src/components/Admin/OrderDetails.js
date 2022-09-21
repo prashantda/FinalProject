@@ -1,19 +1,25 @@
 import React,{useEffect, useState} from 'react'
-import { Link, useParams } from "react-router-dom";
-import axios from "axios";
-
+import { Link, useParams,useNavigate } from "react-router-dom";
+import Connection from './Connection'
 const OrderDetails = () => {
     const { id } =useParams()
-  const [orderDetails,setorderDetails] = useState([])
-
+  const [order,setorderDetails] = useState([])
+const[customer,setCustomer]=useState([])
+const navigate=useNavigate()
   useEffect(() => {
-     loadUser()
+    document.title = "Wish-it || Order Details"
+    Connection.getOrder(id).then((response)=> {
+        setorderDetails(response.data.order)
+        setCustomer(response.data.customer)
+      
+   }).catch(error =>{
+      alert(error);
+   })
   },[])
-
-  const loadUser = async () =>{
-    const res = await axios.get(`http://localhost:8080/api/v1/employees/${id}`);
-    setorderDetails(res.data)
-  }
+  const ToOrders=()=>{
+    navigate('/a/orderlist')
+}
+  
     return (
         <div>
         <div>
@@ -31,53 +37,44 @@ const OrderDetails = () => {
                                     <div class="col-md-8">
                                         <div class="tab-content profile-tab" id="myTabContent">
                                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                            <h3 className='text-center'>Order_Details</h3><hr></hr>
+                                            <h3 className='text-center'>Order Details</h3><hr></hr>
 
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <label class="col-mb-2">Order ID</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p class="text-success">{orderDetails.firstName}</p>
-                                                        <p class="text-success">{orderDetails.orderId}</p>
+                                                        <p class="text-success">{order.orderid}</p>
                                                     </div>
                                                 </div>    
                                             </div>
-                                            <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Order Date</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p class="text-success">9309716565</p>
-                                                        <p class="text-success">{orderDetails.orderDate}</p>
-                                                    </div>
-                                                </div>
+                                            
                                                 <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>Customer's Name</label>
+                                                    <label>Customer Id</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p class="text-success">Patil123@gmail.com</p>
-                                                    <p class="text-success">{orderDetails.customerName}</p>
+                                                    
+                                                    <p class="text-success">{customer.customerid}</p>
                                                 </div>
                                             </div>
                                                 <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>Supplier</label>
+                                                    <label>Supplier Id</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p class="text-success">Patil Vasati,wadegoan road,sangola</p>
-                                                    <p class="text-success">{orderDetails.supplier}</p>
+                                               
+                                                    <p class="text-success">{order.supplierid}</p>
                                                 </div>
                                             </div>
                                             
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>Service</label>
+                                                    <label>Service Id</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p class="text-success">i wanted plubing my tank</p>
-                                                    <p class="text-success">{orderDetails.service}</p>
+                                                   
+                                                    <p class="text-success">{order.servicetypeid}</p>
                                                 </div>
                                             </div>
 
@@ -86,58 +83,67 @@ const OrderDetails = () => {
                                                     <label>Service Description</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p class="text-success">i wanted plubing my tank</p>
-                                                    <p class="text-success">{orderDetails.serviceDescription}</p>
+                                                   
+                                                    <p class="text-success">{order.description}</p>
                                                 </div>
                                             </div>
-
+                                            <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Order Date</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                        <p class="text-success">{new Date(order.orderdate).toDateString()}</p>
+                                                    </div>
+                                                </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <label>Service Status</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p class="text-success">i wanted plubing my tank</p>
-                                                    <p class="text-success">{orderDetails.status}</p>
+                                                   
+                                                    <p class="text-success">{order.status}</p>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>isExpired</label>
+                                                    <label>Rating</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p class="text-success">i wanted plubing my tank</p>
-                                                    <p class="text-success">{orderDetails.status}</p>
+                                                   
+                                                    <p class="text-success">{order.rating}</p>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>FeedBack</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                   
+                                                    <p class="text-success">{order.feedback}</p>
+                                                </div>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                         </form>
-                    <div className='offset-3'>
+                    <div className='offset-4'>
                         <tr >
 
-                            <button className="btn btn-outline-dark  col-3  mt-3 rounded-pill mb-3 " style={{
-                                width: 200,
-                                height: 50,
-                                borderRadius: 140 / 2,
-                                backgroundColor: '#16A5A5',
-                                transform: [
-                                    { scaleX: 3 }
-                                ]
-                            }} >Mark_Completed</button>
 
                             
-<button className="btn btn-outline-dark col-3  ms-3 mt-3 rounded-pill mb-3" style={{
+<button onClick={e=>{ToOrders(e)}} className="btn btn-primary col-3   ms-3 mt-3 rounded-pill mb-3" style={{
                                 width: 200,
                                 height: 50,
                                 borderRadius: 140 / 2,
-                                backgroundColor: '#D33115',
+                                //backgroundColor: '#D33115',
                                 transform: [
                                     { scaleX: 3 }
                                 ]
-                            }} >Cancel_Order</button>
+                            }} >Back To Orders</button>
 
                         </tr></div>
                     </p>

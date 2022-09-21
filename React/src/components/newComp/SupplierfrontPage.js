@@ -12,9 +12,9 @@ import  PendingOrderS from '../Supplier/SPendingOrder'
 import  CancalledOrderS from '../Supplier/SCancalledOrder'
 import  CompletedOrderS from '../Supplier/SCompletedOrder'
 import  SCustomerDetails from '../Supplier/SCustomerDetails'
-import VerifyOtp from '../Shared/VerifyOTP';
+
 import ChangePassword from '../Shared/ChangePassword'
-import NewPassword from '../Shared/NewPassword';
+
 import ContactUs from '../Shared/ContactUs';
  
 const SupplierfrontPage= ()=>{
@@ -35,8 +35,8 @@ const SupplierfrontPage= ()=>{
        <Route exact path="cancalledorder/:id" element={<CancalledOrderS/>}/>
        <Route exact path="completedorder/:id" element={<CompletedOrderS/>}/>
        <Route exact path="orderdetail/:id" element={<SCustomerDetails/>}/>
-       <Route exact path="verify" element={<VerifyOtp/>}/>
-       <Route exact path="setnewpassword" element={<NewPassword/>}/>
+     
+      
        <Route exact path="changepassword" element={<ChangePassword/>}/>
        <Route exact path="contactUs" element={<ContactUs/>}/>
        </Routes>

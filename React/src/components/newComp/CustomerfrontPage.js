@@ -19,7 +19,9 @@ import VerifyOtp from '../Shared/VerifyOTP';
 import ChangePassword from '../Shared/ChangePassword'
 import NewPassword from '../Shared/NewPassword';
 import ContactUs from '../Shared/ContactUs';
- 
+import Feedback from '../Customer/CFeedback'
+
+
 const CustomerfrontPage= ()=>{
   return ( 
     <div>         
@@ -42,7 +44,7 @@ const CustomerfrontPage= ()=>{
          <Route exact path="ordDetails/:id" element={<COrderDettails/>}/>
  
          <Route exact path="customsuppliers/:pincode" element={<CustomSuppliers/>}/>
-
+         <Route exact path="feedback/:id" element={<Feedback/>}/>
          <Route exact path="verify" element={<VerifyOtp/>}/>
          <Route exact path="setnewpassword" element={<NewPassword/>}/>
          <Route exact path="changepassword" element={<ChangePassword/>}/>

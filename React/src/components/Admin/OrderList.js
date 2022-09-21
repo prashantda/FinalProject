@@ -1,10 +1,14 @@
 import React,{useEffect, useState}  from 'react'
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 import Connection from './Connection'
 
 const OrderList = () => {
     const [orders,setOrders] = useState([])
-
+    const navigate=useNavigate()
+    const GetOrderDetails=(e,id)=>{
+        navigate(`/a/orderdetails/${id}`)
+    
+        }
     useEffect(() => {
         Connection.getOrderList().then((response)=> {
             setOrders(response.data.orderlist)
@@ -14,7 +18,7 @@ const OrderList = () => {
        })
     },[])
   return (
-    <div className="container">
+    <div className="container col-9">
       <h2 className="text-center">Order's List</h2>
       <table className="table table-bordered table-striped">
           <thead>
@@ -23,8 +27,8 @@ const OrderList = () => {
               
               <th>ServiceId</th>
               <th>Description</th>
-              <th>OrderDate</th>
-              <th>SupplierId</th>
+             
+              <th>Actions</th>
           </thead>
           <tbody>
               {
@@ -35,11 +39,10 @@ const OrderList = () => {
                           <td>{od.status}</td>
                           <td>{od.servicetypeid}</td>
                           <td>{od.description}</td>
-                          <td>{new Date(od.orderdate).toDateString()}</td>
-                          <td>{od.supplierid}</td>
-                          {/* <td>
-                              <Link className="btn btn-success" to={`a/${od.id}`}>Details</Link>
-                          </td> */}
+                          
+                          <td><button className="btn btn-success" type='button' onClick={(e)=>{GetOrderDetails(e,od.orderid)}} >Details</button></td>
+
+                         
                           
                       </tr>
                   )

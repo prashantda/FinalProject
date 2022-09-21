@@ -151,12 +151,11 @@ public class CustomerService implements CustomerServiceInterface{
 
 
 	public Order save(User u,Order o) {
-		System.out.println("inside save of customer service for saving order"+o);
 		Customer c=getCustomer(u.getId());
 		c.setOrders(null);
 		o.setCustomerid(c);
 		o.setStatus("New");
-		System.out.println("going out of save"+o);
+		
 		return or.save(o);
 	}
 
@@ -377,6 +376,31 @@ public class CustomerService implements CustomerServiceInterface{
 		Order o=or.findById(id).get();
 		o.setStatus(string);
 		return or.save(o);
+	}
+
+
+
+
+	@Override
+	public Long feedback(long id,UserOtp uo) {
+		Order o=or.findById(id).orElseThrow();
+		o.setRating(Integer.parseInt(uo.getToken()));
+		o.setFeedback(uo.getOtp());
+		
+		return or.save(o).getOrderid();
+	}
+
+
+
+
+	@Override
+	public ALL orderForAdmin(long id) {
+		Order o= or.findById(id).orElseThrow();
+		Customer c=o.getCustomerid();
+		ALL all=new ALL();
+		all.setOrder(o);
+		all.setCustomer(c);
+		return all;
 	}
 
 

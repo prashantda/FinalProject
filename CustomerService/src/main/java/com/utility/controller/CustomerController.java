@@ -8,6 +8,7 @@ import com.utility.model.User;
 import com.utility.service.CustomerService;
 import com.utility.service.CustomerServiceInterface;
 import com.utility.valueobjects.CSignUp;
+import com.utility.valueobjects.UserOtp;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -20,9 +21,17 @@ public class CustomerController {
 	@Autowired
 	private CustomerServiceInterface customerService;
 	
+	@PutMapping("/feedback/{id}")
+	public Object feedback(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id,@RequestBody UserOtp uo) {
+		User u=customerService.getUser(auth);
+		return customerService.feedback(id,uo);
+	}
 	
-	
-	
+	@GetMapping("/orderforadmin/{id}")
+	public Object orderForAdmin(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id){
+		log.info("get orderForAdmin ");
+		return customerService.orderForAdmin(id);
+	}
 	@GetMapping("/supplieraccept/{id}")
 	public Object supplierAccept(@RequestHeader(value = "Authorization") String auth,@PathVariable("id") long id){
 		log.info("supplier Accept enquiry");

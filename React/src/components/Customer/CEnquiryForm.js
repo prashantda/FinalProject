@@ -9,13 +9,13 @@ const CEnquiryForm = () => {
      let navigate = useNavigate()
    const [supplier,setSupplier] = useState([]) 
    const [name,setName] = useState([]) 
-   const [description,setdesc] = useState([]) 
-  const [servicetypeid,setServicetypeid]=useState([])
-
+   const [description,setdesc] = useState() 
+  const [servicetypeid,setServicetypeid]=useState()
+  const [orderdate,setDate]=useState()
    const saveOrder=(e)=>{ 
      e.preventDefault(); 
-const supplierid=supplier.supplierid
-     const order={supplierid,servicetypeid,description} 
+      const supplierid=supplier.supplierid
+     const order={supplierid,servicetypeid,description,orderdate} 
      CustConnection.setOrder(order).then((response)=>{
       sessionStorage.removeItem("ServiceId")
       navigate("/c/ord")
@@ -30,7 +30,8 @@ const supplierid=supplier.supplierid
       setSupplier(res.data.supplier) //service name 
       setName(res.data.supplier.serviceType.name) // 
       setServicetypeid(res.data.supplier.serviceType.id)
-     console.log(res.data)
+    
+    
     }).catch((err)=>{
       alert(err)
     })
@@ -65,16 +66,22 @@ const supplierid=supplier.supplierid
                  value={description} 
                  onChange={(e)=>setdesc(e.target.value)}></textarea> 
              </div> 
-             <div class="form-check form-switch"> 
-            <input type="checkbox" class="form-check-input mt-1"/> 
-            <label>By submitting, I agree to the Terms of Use & Privacy Policy</label> 
-        </div> 
+             <div className="form-group mb-2"> 
+             <label className="form-label mt-2">When do you want:</label> 
+                <input class="form-control"
+                 placeholder="Date" 
+                 name="orderdate"
+                 value={orderdate} 
+                  type="date"
+                 onChange={(e)=>setDate(e.target.value)}></input> 
+             </div> 
+             
             <div className='d-grid gap-2'> 
              <button className="btn btn-success mt-3 rounded-pill" onClick={(e)=>saveOrder(e)}>Send Enquiry</button> 
              </div> 
          </form> 
       
-     <Link to={`/card`}><div className='text-center mt-3'><button type="button" class="btn btn-outline-primary">Back to Services</button></div> </Link>
+     <Link to={`/c/card`}><div className='text-center mt-3'><button type="button" class="btn btn-outline-primary">Back to Services</button></div> </Link>
  
 </div> 
 </div> 

@@ -40,7 +40,7 @@ const SupplierfrontPage= ()=>{
       <Route exact path="adminlist" element={<AdminList/>}/>
       <Route exact path="admindetail/:id" element={<AdminDetails/>}/>
       <Route exact path="orderlist" element={<OrderList/>}/>
-      <Route exact path="orderdetails:id" element={<OrderDetails/>}/>
+      <Route exact path="orderdetails/:id" element={<OrderDetails/>}/>
       <Route exact path="changepassword" element={<ChangePassword/>}/>
      
       <Route exact path="contactUs" element={<ContactUs/>}/>
