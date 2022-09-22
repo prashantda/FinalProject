@@ -9,13 +9,13 @@ const OrderList = () => {
    
 
 const GetOrder=(e,status,id)=>{
-    if(status=="New")
+    if(status==="New")
             navigate(`/s/newenquiry/${id}`)
-    if(status=="Pending")
+    if(status==="Pending")
             navigate(`/s/pendingorder/${id}`)
-     if(status=="Cancelled")
+     if(status==="Cancelled")
             navigate(`/s/cancalledorder/${id}`)
-    if(status=="Completed")
+    if(status==="Completed")
             navigate(`/s/completedorder/${id}`)
 
     }

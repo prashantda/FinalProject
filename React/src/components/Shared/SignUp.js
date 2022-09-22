@@ -97,7 +97,7 @@ const SignUp = () => {
         },
         validate: validateCustomer,
         onSubmit: () => {
-            alert("You are now subscribed.")
+           
             SaveUser()
             
         }

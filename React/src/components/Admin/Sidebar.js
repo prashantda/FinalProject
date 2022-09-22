@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import {FaHome,FaBars,FaPeopleCarry} from 'react-icons/fa'
 import {FcBusinessman,FcContacts} from 'react-icons/fc'
 import {BsBasket,BsFillPersonLinesFill,BsShieldLock} from 'react-icons/bs'
-// import {BiSearch} from 'react-icons/bi'
-import {AiOutlineUserAdd} from 'react-icons/ai'
-import {IoIosPeople,IoIosLogOut} from 'react-icons/io'
-
+import {IoIosPeople} from 'react-icons/io'
+import {TbLayoutDashboard} from 'react-icons/tb'
 import { NavLink } from 'react-router-dom';
 import {motion,AnimatePresence} from "framer-motion"
 const routes=[
@@ -17,7 +15,7 @@ const routes=[
     {
         path:"adashboard",
         name:"Dashboard",
-        icon:<FaHome/>,
+        icon:<TbLayoutDashboard/>,
     },
     {
         path:"adminprofile",
@@ -63,25 +61,6 @@ const Sidebar = ({children}) => {
     const[isOpen,setIsOpen]=useState(false);
 
     const toggle=()=>setIsOpen(!isOpen)
-
-    // const inputAnimation={
-    //     hidden:{
-    //         width:0,
-    //         padding:0,
-    //         opacity:0,
-    //         Transition:{
-    //             duration:0.2,
-    //         },
-    //     },
-    //     show:{
-    //         width:"140px",
-    //         padding:"5px 15px",
-    //         opacity:1,
-    //         Transition:{
-    //             duration:0.2,
-    //         },
-    //     },
-    // };
 
     const showAnimation={
         hidden:{

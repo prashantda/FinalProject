@@ -87,7 +87,7 @@ const JoinUs = () => {
             if (response.data.userid != 0) {
 
                 const tok = response.data.token;
-                navigate('verify',
+                navigate('/verify',
                     {
                         state: {
                             token: tok,

@@ -971,9 +971,15 @@ p, a, li, button, ul {
 
 /* Card Css */
 
+.bodycard{
+  height: 100vh;
+  display: grid;
+}
+
+
 .cards{
-  max-width: 300px;
-  max-height:350px ;
+  width: 300px;
+   height:0px ;
   /* background: #1e2529; */
   /* border: 1px solid #343637; */
   position: relative;
@@ -981,7 +987,7 @@ p, a, li, button, ul {
 }
 
 .cards .image-container{
-  width: 299px;
+  max-width: 299px;
   height: 190px;
   position: relative;
   overflow: hidden;
@@ -1090,7 +1096,7 @@ p, a, li, button, ul {
   /* position: absolute; */
   background-color: rgb(0, 7, 61);
   color:white;
-  height: 100vh;
+   height: auto; 
 }
 
 .routes{
@@ -1304,7 +1310,7 @@ body{
 .container11 {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: 200px auto;
+  grid-template-columns: auto 1fr auto;
   grid-template-areas:
     "header  header"
     "sidebar content"
@@ -1313,7 +1319,18 @@ body{
 }
 
 .header1 { grid-area: header; background-color: yellow; }
-.sidebar1 { grid-area: sidebar; background-color: gray;height: 100vh; }
+.sidebar1 { grid-area: sidebar; 
+  background-color:  rgb(0, 7, 61);
+  height: auto;
+ 
+/* transform: translateX(-100%); */
+transition: all 0.4s ease-in-out;
+
+}
+.collapse{
+  transform: translateX(0%);
+}
+
 .footer1 { grid-area: footer; background-color: green;}
 .content1 { grid-area: content; }
 

@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import {ArrowRightCircle} from "react-bootstrap-icons"
+import { Navigate,useNavigate } from "react-router-dom"
 import headerImg from "../../Assets/image/WishItHome.jpg"
 
 export const Banner=()=>{
@@ -10,7 +11,7 @@ export const Banner=()=>{
     const[text,setText]=useState('');
     const [delta,setDelta] =useState(300 - Math.random() * 100);
     const period=2000;
-
+const navigate=useNavigate()
     useEffect(()=>{
         const ticker=setInterval(()=>{
             tick();
@@ -48,7 +49,7 @@ export const Banner=()=>{
                     <p>Fantasizing about that beautiful home? Don't stop at just dreaming!
                          Choose from our exclusive services from the best professionals in
                           town and settle down in a niche of your choice </p>
-                    <button onClick={()=>console.log('connect')}>Let's Connect<ArrowRightCircle size={25}/></button>
+                    <button onClick={()=>navigate('/signUp')}>Let's Connect<ArrowRightCircle size={25}/></button>
                     </Col>
                     <Col xs={12} md={6} xl={5}>
                         <img src={headerImg} alt="Header Img"></img>

@@ -6,6 +6,7 @@ import CustomerfrontPage from './components/newComp/CustomerfrontPage';
 import SupplierfrontPage from './components/newComp/SupplierfrontPage';
 import AdminfrontPage from './components/newComp/AdminfrontPage';
 import HomePage from './components/newComp/HomePage';
+import Ccarddbypass from './components/newComp/carddbypass';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route exact path="/c/*" element={<CustomerfrontPage/>}/>
       <Route exact path="/s/*" element={<SupplierfrontPage/>}/>
       <Route exact path="/a/*" element={<AdminfrontPage/>}/>
+    
       </Routes>
 
       </>

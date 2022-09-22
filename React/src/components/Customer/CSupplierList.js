@@ -26,42 +26,26 @@ const CSupplierList = () => {
   return (
     <div className="container">
       <h2 className="text-center">Supplier's List</h2>
-      
+      <div className='row'>
               {
                   suppliers.map(
                       sp =>
-                    //   <tr key={sp.supplierid}>
-                    //       <td>{sp.supplierid}</td>
-                    //       <td>{sp.serviceType.name}</td>
-                    //       <td>{sp.charge}</td>
-                    //       <td>
-                    //           <button className="btn btn-success" onClick={e=>{Enquiry(e,sp.supplierid)}}>Details</button>
-                    //       </td>
-                         
-                    //   </tr>
+                    
 
-<div class="container-fluid mt-5 ">
-        <div class="supplier-card-group">
-            <div class="card col-2 m-2  mb-5">
-                <div class="card-header">
-                    <h5 class="card-title">Supplier Id    {sp.supplierid}</h5>
-                </div>
-                <div class="card-body">
-                    <p class="supplier-card-text">
-                      Charge {sp.charge}<br/>
-                      PinCode  {sp.pincode}
-                    </p>
-                   
-                </div>
-                <div class="card-footer">
-                    <input name="" id="" class="btn offset-3 btn-primary" type="button" value="Enquiry"/>
-                </div>
-            </div>
-
-            </div>
-        </div>
+              <div className=' card text-bg-light p-3 col-md-3 border t bg-gradient m-4' key={sp.id}>
+             
+             <div className='card__info'>
+                 <h4 className='card__id'>SupplierId - {sp.supplierid}</h4>
+                 <h4 className='card__title'>Service - {sp.serviceType.name}</h4>
+                 <h4 className='card__title'>PinCode- {sp.pincode}</h4>
+                 <h4 className='card__title'>Charge - {sp.charge}</h4>
+                 <a href='' target="_blank">
+                 <Link to={`/c/enquiry/${sp.supplierid}`}> <button className='btn offset-4 btn-success'>Enquiry</button></Link>
+                 </a>
+             </div>
+         </div>
                   )
-              }
+              }</div>
           
       
     </div>

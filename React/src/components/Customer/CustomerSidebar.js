@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {FaHome,FaBars} from 'react-icons/fa'
 import {FcBusinessman,FcContacts} from 'react-icons/fc'
 import {BsBasket,BsShieldLock} from 'react-icons/bs'
-
+import {TbLayoutDashboard} from 'react-icons/tb'
 
 import { NavLink } from 'react-router-dom';
 import {motion,AnimatePresence} from "framer-motion"
@@ -15,7 +15,7 @@ const routes=[
     {
         path:"card",
         name:"DashBoard",
-        icon:<FaHome/>,
+        icon:<TbLayoutDashboard/>,
     },
     {
         path:"profilec",

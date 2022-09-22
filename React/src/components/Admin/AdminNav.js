@@ -6,7 +6,8 @@ import navIcon2 from '../../Assets/image/admin.png';
 import navIcon3 from '../../Assets/image/logout.png';
 
 
-export const AdminNav=()=>{
+
+export const AdminNav=({click})=>{
     const[scrolled,setScrolled]=useState(false);
     let navigate = useNavigate()
     useEffect(()=>{
@@ -54,8 +55,7 @@ export const AdminNav=()=>{
         <Navbar expand="lg" className={scrolled?"scolled":"" }>
         <div className="container-fluid">
           <Navbar.Brand href="#home" >
-          
-          <Link to={`adashboard`}><img src={logo} alt=""/></Link>
+          <Link to={`/`}><img src={logo} alt=""/></Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
               <span className="navbar-toggler-icon"></span>
