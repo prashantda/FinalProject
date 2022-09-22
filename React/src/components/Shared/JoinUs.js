@@ -82,7 +82,7 @@ const JoinUs = () => {
         let charge = formik.values.charge;
         let service=formik.values.service;
         const customer = { name, address, pincode, dob, aadhaar, mobile, username, charge ,service}
-        alert("You are now subscribed to " + JSON.stringify(customer))
+       
         Connection.saveSupplier(customer).then((response) => {
             if (response.data.userid != 0) {
 

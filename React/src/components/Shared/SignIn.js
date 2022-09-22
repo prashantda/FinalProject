@@ -26,7 +26,26 @@ function SignIn() {
   useEffect(() => {
     document.title = "Wish-it || SignIn"
   })
+function ForgotPassword(e){
+  
+  e.preventDefault()
+  var username = formik.values.username;
+  var password = formik.values.password;
+  const user = { username, password }
+  Connection.forgotPass(user).then((response) => {
+    if (response.data.userid != 0) {
 
+        const tok = response.data.token;
+        navigate('/verify',
+            {
+                state: {
+                    token: tok,
+                }
+            });
+    }
+
+}).catch(error => { alert(error) })
+}
 
   let navigate = useNavigate()
   
@@ -104,7 +123,7 @@ function SignIn() {
             >Submit</button>
           </div>
         </form>
-        <div className='text-center mt-3'><small><a href=''>
+        <div className='text-center mt-3'><small><a href='' onClick={ e=>{ForgotPassword(e)}}>
           Forgot Password</a></small>
         </div>
 
