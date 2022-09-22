@@ -22,6 +22,7 @@ import ContactUs from '../Shared/ContactUs';
 import Feedback from '../Customer/CFeedback'
 
 
+
 const CustomerfrontPage= ()=>{
   return ( 
     <div>         
@@ -42,6 +43,7 @@ const CustomerfrontPage= ()=>{
          <Route exact path="cancalledorderc/:id" element={<CCancelledOrders/>}/>
          <Route exact path="enquiry/:id" element={<CEnquiryForm/>}/>
          <Route exact path="ordDetails/:id" element={<COrderDettails/>}/>
+    
  
          <Route exact path="customsuppliers/:pincode" element={<CustomSuppliers/>}/>
          <Route exact path="feedback/:id" element={<Feedback/>}/>
