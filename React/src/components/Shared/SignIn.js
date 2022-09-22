@@ -44,7 +44,7 @@ function ForgotPassword(e){
             });
     }
 
-}).catch(error => { alert(error) })
+}).catch(error => { alert("Please provide Registered Email") })
 }
 
   let navigate = useNavigate()
@@ -59,7 +59,7 @@ function ForgotPassword(e){
       console.log(response.data.role);
       console.log(response.data.token);
       sessionStorage.setItem("JwtToken", response.data.token)
-      sessionStorage.setItem("Role", response.data.role)
+      
       if (response.data.role === 'ROLE_ADMIN') {
         navigate("/a/adashboard")
       }
@@ -69,7 +69,7 @@ function ForgotPassword(e){
       if (response.data.role === 'ROLE_SUPPLIER') {
         navigate("/s/sdashboard")
       }
-    }).catch(error => { navigate("/") })
+    }).catch(error => { alert(error) })
   };
 
   const formik = useFormik({

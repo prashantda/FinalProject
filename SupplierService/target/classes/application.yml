@@ -9,9 +9,9 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/micro?useSSL=false&serverTimeZone=UTC&allowPublicKeyRetrieval=true
-    username: root
-    password: zxcvbnm
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/micro?useSSL=false&serverTimeZone=UTC&allowPublicKeyRetrieval=true
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:zxcvbnm}
     driverClassName: com.mysql.cj.jdbc.Driver
   application:
     name: SUPPLIER-SERVICE

@@ -101,8 +101,9 @@ const Card = () => {
         {
             custservice.map(
                        sup =>
-                     <div className='abc col-sm mt-4' >
-                     <body className='infor'>
+                     <div className='abc  col-sm mt-4' >
+                     <body className='infor'style={{
+                        height: 400,}}>
                          <div className='cards'>
                              <div className='image-container'>
                                  <img src={projImg1} alt=" "/>
