@@ -166,7 +166,7 @@ public class CustomerService implements CustomerServiceInterface{
 		Customer c=getCustomer(user.getId());
 		Order order=or.findAll().stream().filter(o->o.getCustomerid().getCustomerid()== c.getCustomerid())
 				.filter(or->or.getOrderid()==id).collect(Collectors.toList()).get(0);
-		order.setStatus("Cancalled");
+		order.setStatus("Cancelled");
 		or.save(order);
 		return null;
 	}
@@ -180,7 +180,7 @@ public class CustomerService implements CustomerServiceInterface{
 		sd.setNeworders(list.size());
 		list=list1.stream().filter(o->o.getStatus().equals("Pending")).collect(Collectors.toList());
 		sd.setPendingorders(list.size());
-		list=list1.stream().filter(o->o.getStatus().equals("Cancalled")).collect(Collectors.toList());
+		list=list1.stream().filter(o->o.getStatus().equals("Cancelled")).collect(Collectors.toList());
 		sd.setCancalledorders(list.size());
 		list=list1.stream().filter(o->o.getStatus().equals("Completed")).collect(Collectors.toList());
 		sd.setCompletedorders(list.size());
@@ -272,7 +272,7 @@ public class CustomerService implements CustomerServiceInterface{
 		sd.setAllorders(or.findAll().size());
 		sd.setNeworders(or.findAll().stream().filter(o->o.getStatus().equals("New")).collect(Collectors.toList()).size());
 		sd.setPendingorders(or.findAll().stream().filter(o->o.getStatus().equals("Pending")).collect(Collectors.toList()).size());
-		sd.setCancalledorders(or.findAll().stream().filter(o->o.getStatus().equals("Cancalled")).collect(Collectors.toList()).size());
+		sd.setCancalledorders(or.findAll().stream().filter(o->o.getStatus().equals("Cancelled")).collect(Collectors.toList()).size());
 		sd.setCompletedorders(or.findAll().stream().filter(o->o.getStatus().equals("Completed")).collect(Collectors.toList()).size());
 		sd.setCustomers(customerRepository.findAll().size());
 		UserOtp uo=supplierUserOTP(auth);
