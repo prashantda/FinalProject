@@ -71,6 +71,14 @@ const CCNewOrders=()=> {
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
+                                    <label class="col-mb-2">Supplier Id</label>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <p class="text-success">{order.supplierid}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
                                     <label class="col-mb-2">Service Booked for</label>
                                 </div>
                                 <div class="col-md-6 ">

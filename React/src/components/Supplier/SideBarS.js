@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 import {motion,AnimatePresence} from "framer-motion"
 const routes=[
     {
-        path:"sdashboard",
+        path:"/",
         name:"Home",
         icon:<FaHome/>,
     },

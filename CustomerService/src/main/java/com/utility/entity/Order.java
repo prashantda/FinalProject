@@ -14,6 +14,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -50,8 +51,10 @@ public class Order {
 	@Column(nullable = false)
 	private int servicetypeid;
 	@Column
+	@Value("0")
 	private int rating;
 	@Column
+	@Value("-")
 	private String feedback;
 	
 
