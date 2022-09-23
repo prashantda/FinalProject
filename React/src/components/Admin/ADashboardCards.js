@@ -32,7 +32,7 @@ const ADashBoardCards = () => {
                         }} />
                         <span class="font-weight-bold">{user.name}</span><span class="text-black-50">{user.username}</span><span> </span></div>
                 </div>
-                <div class="card-group">
+                <div class="card-group offset-1">
                     <div class="card-wrap ms-5">
                         <div class="card-header one">
                             <i class="fas fa-code">{admin.allorders}</i>
@@ -79,7 +79,7 @@ const ADashBoardCards = () => {
                         </div>
                     </div>
                     <div class="offset-3">
-                    <div class="card-wrap mt-3" >
+                    <div class="card-wrap mt-3 " >
                         <div class="card-header six">
                             <i class="fab fa-js-square">{admin.customers}</i>
                         </div>

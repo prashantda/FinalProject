@@ -89,7 +89,7 @@ const navigate=useNavigate()
                                             </div>
                                             <div class="row">
                                                     <div class="col-md-6">
-                                                        <label>Order Date</label>
+                                                        <label>Service Booked for</label>
                                                     </div>
                                                     <div class="col-md-6">
                                                         

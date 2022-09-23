@@ -31,8 +31,8 @@ const SDashboardCards = () => {
                         }} />
                         <span class="font-weight-bold">{user.name}</span><span class="text-black-50">{user.username}</span><span> </span></div>
                 </div>
-                <div class="card-group mb-5">
-                    <div class="card-wrap ms-5">
+                <div class="card-group mb-5 offset-1">
+                    <div class="card-wrap ms-5 ">
                         <div class="card-header one">
                             <i class="fas fa-code">{supplier.allorders}</i>
                         </div>

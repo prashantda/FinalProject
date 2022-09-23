@@ -39,7 +39,7 @@ const SCancalledOrder = () => {
                                         <div class="tab-content profile-tab" id="myTabContent">
                                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                            
-                                            <h3 className='text-center'>Customer_Details</h3>
+                                            <h3 className='text-center'>Cancelled Order</h3>
                                             
                                             <hr></hr>
         
@@ -61,7 +61,7 @@ const SCancalledOrder = () => {
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label class="col-mb-2">OrderId</label>
+                                                        <label class="col-mb-2">Service Booked for</label>
                                                     </div>
                                                     <div class="col-md-6 ">
                                                         <p class="text-success">{new Date(order.orderdate).toDateString()}</p>
@@ -78,7 +78,7 @@ const SCancalledOrder = () => {
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label class="col-mb-2">OrderId</label>
+                                                        <label class="col-mb-2">Status</label>
                                                     </div>
                                                     <div class="col-md-6 ">
                                                         <p class="text-success">{order.status}</p>

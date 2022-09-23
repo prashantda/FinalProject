@@ -1093,8 +1093,10 @@ p, a, li, button, ul {
 
 /* sidebar */
 .sidebar{
-  /* position: absolute; */
-  background-color: rgb(0, 7, 61);
+  
+ 
+   
+  background-color: rgb(0, 0, 0);
   color:white;
    height: auto; 
 }
@@ -1320,7 +1322,7 @@ body{
 
 .header1 { grid-area: header; background-color: yellow; }
 .sidebar1 { grid-area: sidebar; 
-  background-color:  rgb(0, 7, 61);
+  background-color:  rgb(0, 0, 0);
   height: auto;
  
 /* transform: translateX(-100%); */

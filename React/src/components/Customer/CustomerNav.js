@@ -56,7 +56,7 @@ export const CustomerNav=()=>{
         <div className="container-fluid">
           <Navbar.Brand href="#home" >
           
-          <Link to={`/`}><img src={logo} alt=""/></Link>
+          <Link to={`/c/card`}><img src={logo} alt=""/></Link><b>WISH-IT</b>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
               <span className="navbar-toggler-icon"></span>

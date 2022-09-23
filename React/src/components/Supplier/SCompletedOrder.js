@@ -44,7 +44,7 @@ const SCompletedOrder = () => {
                                         <div class="tab-content profile-tab" id="myTabContent">
                                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                            
-                                            <h3 className='text-center'>Order Details</h3>
+                                            <h3 className='text-center'>Completed Order</h3>
                                             
                                             <hr></hr>
         
@@ -66,7 +66,7 @@ const SCompletedOrder = () => {
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label class="col-mb-2">Date</label>
+                                                        <label class="col-mb-2">Service Booked for</label>
                                                     </div>
                                                     <div class="col-md-6 ">
                                                         <p class="text-success">{new Date(order.orderdate).toDateString()}</p>

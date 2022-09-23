@@ -61,7 +61,7 @@ const SPendingOrder = () => {
                                         <div class="col-md-8">
                                             <div class="tab-content profile-tab" id="myTabContent">
                                                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                                <h3 className='text-center'>Order Details</h3><hr></hr>
+                                                <h3 className='text-center'>Pending Order </h3><hr></hr>
 
                                                 <div class="row">
                                                         <div class="col-md-6">
@@ -129,7 +129,7 @@ const SPendingOrder = () => {
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label>Order date</label>
+                                                        <label>Service Booked for</label>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <p class="text-success">{new Date(order.orderdate).toDateString()}</p>

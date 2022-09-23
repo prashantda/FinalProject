@@ -162,19 +162,19 @@ const SupplierDetails = () => {
                                                     <p class="text-success">{customer.charge}</p>
                                                 </div>
                                             </div>
-                                            <div class="row mt-3">
+                                            {/* <div class="row mt-3">
                                                 <div class="col-md-6">
                                                     <label>Update Role</label>
                                                 </div>
-                                                <div class="col-md-6">
+                                                 <div class="col-md-6">
                                                     <select onChange={e=>{setRole(e.target.value)}} className='text-success' name="role">
                                                         <option value={'ROLE_SUPPLIER'} selected>Supplier</option>
-                                                        {/* <option value={'ROLE_SUPPLIER'}>ADMIN</option> */}
+                                                        {/* <option value={'ROLE_SUPPLIER'}>ADMIN</option> 
                                                         <option value={'ROLE_ADMIN'}>ADMIN</option>
 
                                                     </select>
-                                                </div>
-                                            </div>
+                                                </div> 
+                                            </div> */}
 
                                             <div class="row mt-3">
                                                 <div class="col-md-6">

@@ -79,7 +79,7 @@ const SNewEnquiry=()=> {
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="col-mb-2">OrderId</label>
+                                    <label class="col-mb-2">Service Booked for</label>
                                 </div>
                                 <div class="col-md-6 ">
                                     <p class="text-success">{new Date(order.orderdate).toDateString()}</p>
@@ -96,7 +96,7 @@ const SNewEnquiry=()=> {
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="col-mb-2">OrderId</label>
+                                    <label class="col-mb-2">Status</label>
                                 </div>
                                 <div class="col-md-6 ">
                                     <p class="text-success">{order.status}</p>
