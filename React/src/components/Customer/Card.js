@@ -116,8 +116,7 @@ const Card = () => {
             infor.map(
                        sup =>
                      <div className='abc  col-sm mt-4' >
-                     <body className='infor'style={{
-                        height: 200,}}>
+                     <body style={{alignItems:"flex-start",height:"56vh"}}>
                          <div className='cards'>
                              <div className='image-container'>
                                  <img src={sup.ImgUrl} alt=" "/>
@@ -125,7 +124,7 @@ const Card = () => {
                              <div className='card-footer'>
                                  <span>{sup.id}</span>
                                  <h3>{sup.name}</h3>
-                                 <Link to={`d/${sup.id}`} className="read-more">Read More <span>&rarr;</span></Link>
+                                 <Link to={`d/${sup.id}`} className="read-more">Get Suppliers <span>&rarr;</span></Link>
                              </div>
                           </div>
                      </body>
