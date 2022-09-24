@@ -14,7 +14,7 @@ const CustomSuppliers = () => {
         CustConnection.CustomSuppliers(id,pincode).then((res)=>{
             setsuppliers(res.data.supplierslist)
         }).catch((err)=>{
-    alert(err)
+    alert("Please select service")
         })
     
       },[])

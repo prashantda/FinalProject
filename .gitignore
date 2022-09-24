@@ -2,3 +2,6 @@
 /React/node_modules
 /React/node_modules/.cache
 .pack
+.jar
+/Prometheus
+/Grafana

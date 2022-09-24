@@ -10,7 +10,7 @@ const ProfileC = () => {
        loadUser()
     },[])
     const loadUser = async () =>{
-      const res = await axios.get(`http://localhost:8085/api/customer/getcustomer`,{ headers: {"Authorization" : `Bearer ${token}`} });
+      const res = await axios.get(`http://localhost:8084/api/customer/getcustomer`,{ headers: {"Authorization" : `Bearer ${token}`} });
       setcust(res.data.customer)
       setuser(res.data.user)
       console.log(res.data)

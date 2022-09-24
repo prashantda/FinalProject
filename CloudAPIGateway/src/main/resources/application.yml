@@ -10,7 +10,7 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-              allowedOrigins: "http://localhost:8082"
+              allowedOrigins: "*"
               allowedMethods: "*"
               allowedHeaders: "*"
       routes:
@@ -26,6 +26,9 @@ spring:
         uri: lb://SECURITY-SERVICE
         predicates:
           - Path=/api/secure/**
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+
 management:
   endpoints:
     web:
