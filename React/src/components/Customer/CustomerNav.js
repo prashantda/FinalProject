@@ -66,7 +66,7 @@ export const CustomerNav=()=>{
               </Nav>
             <span className="navbar-text">
             <div className="searchbar">
-                <input name="search" onChange={e=>{setSearch(e.target.value)}} className="searchinput" placeholder="Search..."></input>
+                <input name="search" onChange={e=>{setSearch(e.target.value)}} className="searchinput" placeholder="Search By Pincode"></input>
                 <Link to={`customsuppliers/${search}`}><img src={navIcon4} alt=""/></Link>
             </div>
                 <div className="social-icon">
