@@ -12,10 +12,12 @@ const CEnquiryForm = () => {
    const [description,setdesc] = useState() 
   const [servicetypeid,setServicetypeid]=useState()
   const [orderdate,setDate]=useState()
+  const [feedback,setFeedback]=useState()
+  const [rating,setRating]=useState()
    const saveOrder=(e)=>{ 
      e.preventDefault(); 
       const supplierid=supplier.supplierid
-     const order={supplierid,servicetypeid,description,orderdate} 
+     const order={supplierid,servicetypeid,description,orderdate,feedback,rating} 
      CustConnection.setOrder(order).then((response)=>{
       sessionStorage.removeItem("ServiceId")
       navigate("/c/ord")

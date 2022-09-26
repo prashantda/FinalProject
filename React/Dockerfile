@@ -1,3 +1,7 @@
-FROM openjdk:8
-ADD target/*.jar app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
+FROM node
+WORKDIR /react
+COPY package.json .
+RUN npm install
+COPY . .
+EXPOSE 8082
+CMD ["npm", "start"]

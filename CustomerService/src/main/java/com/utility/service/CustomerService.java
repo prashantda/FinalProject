@@ -155,6 +155,8 @@ public class CustomerService implements CustomerServiceInterface{
 		c.setOrders(null);
 		o.setCustomerid(c);
 		o.setStatus("New");
+		o.setFeedback(" ");
+		o.setRating(0);
 		
 		return or.save(o);
 	}

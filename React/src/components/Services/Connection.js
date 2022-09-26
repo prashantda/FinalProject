@@ -17,7 +17,7 @@ class Connection{
         return axios.get('http://localhost:8084/api/supplier/getservices',{ headers: {"Authorization" : `Bearer ${token}`} })
       }
       getToken(user){      
-        return axios.post('http://127.0.0.1:8084/api/secure/token',user)
+        return axios.post('http://localhost:8084/api/secure/token',user)
       }
 
        getAllUsers(){
@@ -25,20 +25,20 @@ class Connection{
        }
 
       savePassword(password){
-        return axios.post('http://127.0.0.1:8084/api/secure/savepassword',password)
+        return axios.post('http://localhost:8084/api/secure/savepassword',password)
       }
       forgotPass(user){
-        return axios.post('http://127.0.0.1:8084/api/secure/forgotpassword',user)
+        return axios.post('http://localhost:8084/api/secure/forgotpassword',user)
       }
       saveCustomer(customer){      
-        return axios.post('http://127.0.0.1:8084/api/secure/signupcustomer',customer)
+        return axios.post('http://localhost:8084/api/secure/signupcustomer',customer)
       }
 
       verifyot(user){
-        return axios.post('http://127.0.0.1:8084/api/secure/verifyotp',user)
+        return axios.post('http://localhost:8084/api/secure/verifyotp',user)
       }
       changePassword(user){
-        return axios.post('http://127.0.0.1:8084/api/secure/changepassword',user,{ headers: {"Authorization" : `Bearer ${token}`} })
+        return axios.post('http://localhost:8084/api/secure/changepassword',user,{ headers: {"Authorization" : `Bearer ${token}`} })
       }
 
     

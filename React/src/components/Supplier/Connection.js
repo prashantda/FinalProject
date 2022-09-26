@@ -13,7 +13,7 @@ class Connection{
   }
   
   saveSupplier(supplier){      
-    return axios.post('http://127.0.0.1:8084/api/secure/signupsupplier',supplier)
+    return axios.post('http://localhost:8084/api/secure/signupsupplier',supplier)
   }
       getAllServices(){      
         return axios.get('http://localhost:8084/api/supplier/serviceslist')

@@ -26,8 +26,6 @@ spring:
         uri: lb://SECURITY-SERVICE
         predicates:
           - Path=/api/secure/**
-  zipkin:
-    base-url: http://127.0.0.1:9411/
 
 management:
   endpoints:
