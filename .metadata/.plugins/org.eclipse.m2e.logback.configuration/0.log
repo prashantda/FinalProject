@@ -28433,3 +28433,4 @@ java.util.zip.ZipException: ZipFile invalid LOC header (bad signature)
 2022-09-26 16:19:38,910 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory P:\PROJECT\SpringBoot\SupplierService\src\test\resources
 2022-09-26 16:37:58,214 [Worker-14: Launching UserServiceT] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/1.8.2/junit-platform-launcher-1.8.2.jar
 2022-09-26 16:37:59,047 [Worker-14: Launching UserServiceT] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/1.8.2/junit-platform-launcher-1.8.2.jar
+2022-09-27 11:56:21,786 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

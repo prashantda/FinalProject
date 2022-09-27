@@ -1,6 +1,8 @@
 import React,{useEffect, useState} from 'react'
 import { Link, useParams,useNavigate } from "react-router-dom";
 import Connection from './Connection'
+import { Rating } from "@mui/material";
+
 const OrderDetails = () => {
     const { id } =useParams()
   const [order,setorderDetails] = useState([])
@@ -111,7 +113,10 @@ const navigate=useNavigate()
                                                 </div>
                                                 <div class="col-md-6">
                                                    
-                                                    <p class="text-success">{order.rating}</p>
+                                                <p class="text-success"><Rating name="rating"
+                                                                id="rating"
+                                                               value={parseInt(order.rating)}
+                                                                precision={1} readOnly/></p>
                                                 </div>
                                             </div>
                                             <div class="row">
