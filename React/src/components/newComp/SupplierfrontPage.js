@@ -12,11 +12,14 @@ import  PendingOrderS from '../Supplier/SPendingOrder'
 import  CancalledOrderS from '../Supplier/SCancalledOrder'
 import  CompletedOrderS from '../Supplier/SCompletedOrder'
 import  SCustomerDetails from '../Supplier/SCustomerDetails'
-import {TbLayoutDashboard} from 'react-icons/tb'
+import SComp from '../Supplier/SComp';
 
 import ChangePassword from '../Shared/ChangePassword'
 
 import ContactUs from '../Shared/ContactUs';
+import SCancel from '../Supplier/SCancel';
+import SPending from '../Supplier/SPending';
+import SNew from '../Supplier/SNew';
  
 const SupplierfrontPage= ()=>{
   return ( 
@@ -36,10 +39,15 @@ const SupplierfrontPage= ()=>{
        <Route exact path="cancalledorder/:id" element={<CancalledOrderS/>}/>
        <Route exact path="completedorder/:id" element={<CompletedOrderS/>}/>
        <Route exact path="orderdetail/:id" element={<SCustomerDetails/>}/>
-     
+
+       <Route exact path="comp" element={<SComp/>}/>
+       <Route exact path="cancel" element={<SCancel/>}/>
+       <Route exact path="pending" element={<SPending/>}/>
+       <Route exact path="new" element={<SNew/>}/>
       
        <Route exact path="changepassword" element={<ChangePassword/>}/>
        <Route exact path="contactUs" element={<ContactUs/>}/>
+
        </Routes>
       </div>
    </div>             

@@ -26,7 +26,13 @@ const CEnquiryForm = () => {
        alert(error) 
      }) 
    } 
- 
+   const disablePastDate = () => {
+    const today = new Date();
+    const dd = String(today.getDate() ).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    const yyyy = today.getFullYear();
+    return yyyy + "-" + mm + "-" + dd;
+};
    useEffect(() => { 
     CustConnection.getSupplier(id).then((res)=>{
       setSupplier(res.data.supplier) //service name 
@@ -75,7 +81,8 @@ const CEnquiryForm = () => {
                  name="orderdate"
                  value={orderdate} 
                   type="date"
-                 onChange={(e)=>setDate(e.target.value)}></input> 
+                 onChange={(e)=>setDate(e.target.value)}
+                 min={disablePastDate()}></input> 
              </div> 
              
             <div className='d-grid gap-2'> 

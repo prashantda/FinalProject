@@ -1,5 +1,5 @@
-import React,{useEffect, useState}  from 'react'
-import {Link,useParams} from 'react-router-dom'
+import React  from 'react'
+import {Link} from 'react-router-dom'
 import projImg1 from '../../Assets/image/painting.png'
 import projImg2 from '../../Assets/image/Buildingmaintena.jpg'
 import projImg3 from '../../Assets/image/electrician.jpeg'
@@ -64,7 +64,7 @@ const Card = () => {
          {
           id:9,
           ImgUrl:projImg9,
-          name:"Kitchen Appliance Repair",
+          name:"Kitchen Appliance",
          },
          {
           id:10,

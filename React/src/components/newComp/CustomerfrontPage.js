@@ -19,14 +19,23 @@ import VerifyOtp from '../Shared/VerifyOTP';
 import ChangePassword from '../Shared/ChangePassword'
 import NewPassword from '../Shared/NewPassword';
 import ContactUs from '../Shared/ContactUs';
+
 import { useState } from 'react';
 import {FaHome,FaBars} from 'react-icons/fa'
 import {FcBusinessman,FcContacts} from 'react-icons/fc'
 import {BsBasket,BsShieldLock} from 'react-icons/bs'
 import {TbLayoutDashboard} from 'react-icons/tb'
+import {BiTask} from 'react-icons/bi'
+import {BiTaskX} from 'react-icons/bi'
+import {MdAddTask} from 'react-icons/md'
+import {MdPendingActions} from 'react-icons/md'
 import Feedback from '../Customer/CFeedback'
 import { NavLink } from 'react-router-dom';
 import {motion,AnimatePresence} from "framer-motion"
+import CNew from '../Customer/CNew'
+import CPending from '../Customer/CPending'
+import CCancel from '../Customer/CCancel'
+import CComp from '../Customer/CComp'
 const routes=[
     {
         path:"/",
@@ -48,7 +57,26 @@ const routes=[
         name:"Orders",
         icon:<BsBasket/>,
     },
-    
+    {
+        path:"new",
+        name:"New Orders",
+        icon:<MdAddTask/>,
+    },
+    {
+        path:"pending",
+        name:"Pending Orders",
+        icon:<MdPendingActions/>,
+    },
+    {
+        path:"comp",
+        name:"Completed Orders",
+        icon:<BiTask/>,
+    },
+    {
+        path:"cancel",
+        name:"Cancelled Orders",
+        icon:<BiTaskX/>,
+    },
     {
         path:"changepassword",
         name:"Change Password",
@@ -59,7 +87,10 @@ const routes=[
         name:"Contact Us",
         icon:<FcContacts/>,
     },
+   
     
+   
+   
 ]
 
 
@@ -143,14 +174,20 @@ const CustomerfrontPage= ()=>{
          <Route exact path="cancalledorderc/:id" element={<CCancelledOrders/>}/>
          <Route exact path="enquiry/:id" element={<CEnquiryForm/>}/>
          <Route exact path="ordDetails/:id" element={<COrderDettails/>}/>
-    
- 
+
+         <Route exact path="comp" element={<CComp/>}/>
+         <Route exact path="cancel" element={<CCancel/>}/>
+         <Route exact path="pending" element={<CPending/>}/>
+         <Route exact path="new" element={<CNew/>}/>
+
+
          <Route exact path="customsuppliers/:pincode" element={<CustomSuppliers/>}/>
          <Route exact path="feedback/:id" element={<Feedback/>}/>
          <Route exact path="verify" element={<VerifyOtp/>}/>
          <Route exact path="setnewpassword" element={<NewPassword/>}/>
          <Route exact path="changepassword" element={<ChangePassword/>}/>
          <Route exact path="contactUs" element={<ContactUs/>}/>
+
        </Routes>
       </div>
    </div>             

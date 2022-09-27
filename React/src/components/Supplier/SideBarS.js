@@ -3,7 +3,10 @@ import {FaHome,FaBars,FaPeopleCarry} from 'react-icons/fa'
 import {FcBusinessman,FcContacts} from 'react-icons/fc'
 import {BsBasket,BsShieldLock} from 'react-icons/bs'
 import {TbLayoutDashboard} from 'react-icons/tb'
-
+import {BiTask} from 'react-icons/bi'
+import {BiTaskX} from 'react-icons/bi'
+import {MdAddTask} from 'react-icons/md'
+import {MdPendingActions} from 'react-icons/md'
 import { NavLink } from 'react-router-dom';
 import {motion,AnimatePresence} from "framer-motion"
 const routes=[
@@ -27,6 +30,26 @@ const routes=[
         name:"Orders",
         icon:<BsBasket/>,
     },
+    {
+        path:"new",
+        name:"New Orders",
+        icon:<MdAddTask/>,
+    },
+    {
+        path:"pending",
+        name:"Pending Orders",
+        icon:<MdPendingActions/>,
+    },
+    {
+        path:"comp",
+        name:"Completed Orders",
+        icon:<BiTask/>,
+    },
+    {
+        path:"cancel",
+        name:"Cancelled Orders",
+        icon:<BiTaskX/>,
+    },
     
     {
         path:"changepassword",
@@ -38,6 +61,10 @@ const routes=[
         name:"Contact Us",
         icon:<FcContacts/>,
     },
+   
+   
+   
+   
     
 ]
 
