@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.app</groupId>
 	<artifactId>Project</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>CloudConfigServer</name>
 	<description>CloudServer Microservice</description>
 	<properties>
@@ -64,6 +64,19 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+   
+        <configuration>
+        <from>
+        <image>openjdk:17-jdk-slim</image>
+        </from>
+          <to>
+            <image>registry.hub.docker.com/prashantdarade1697/cloudconfigserver</image>           
+          </to>
+        </configuration>
+      </plugin>
 		</plugins>
 	</build>
 
